@@ -2,13 +2,15 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import dts from 'vite-plugin-dts';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools(),
+    dts({
+      outDir: 'dist', // Output directory for TypeScript declarations
+      insertTypesEntry: true, // Generates an `index.d.ts` entry
+    }),
   ],
   resolve: {
     alias: {
@@ -17,7 +19,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: './src/main.ts',
+      entry: './src/index.ts',
       name: 'GTSUI',
       fileName: (format) => `gts-ui.${format}.js`,
     },
