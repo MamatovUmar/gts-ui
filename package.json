@@ -1,16 +1,22 @@
 {
   "name": "gts-ui",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "A Vue 3 UI component library",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/gts-ui.cjs.js",
+  "module": "dist/gts-ui.esm.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "author": "Mamatov Umar",
   "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/gts-ui.esm.js",
+      "require": "./dist/gts-ui.cjs.js"
+    },
+    "./package.json": "./package.json"
+  },
   "peerDependencies": {
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0"
+    "vue": "^3.0.0"
   },
   "scripts": {
     "dev": "vite",
@@ -47,6 +53,8 @@
     "vite": "^5.4.10",
     "vite-plugin-dts": "^4.3.0",
     "vite-plugin-vue-devtools": "^7.5.4",
+    "vue": "^3.5.13",
+    "vue-router": "^4.4.5",
     "vue-tsc": "^2.1.10"
   },
   "eslintConfig": {

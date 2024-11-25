@@ -5,7 +5,19 @@
   "compilerOptions": {
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-
+    "noEmit": true,
+    "declaration": true, // Generate declaration files
+    "declarationDir": "dist", // Output directory for declaration files
+    "emitDeclarationOnly": true, // Emit only declaration files during type-check
+    "outDir": "dist", // Output directory for compiled files
+    "module": "ESNext", // Target ES modules
+    "target": "ESNext", // Modern JavaScript target
+    "strict": true, // Enable strict mode for TypeScript
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "Node",
+    "types": ["node"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
