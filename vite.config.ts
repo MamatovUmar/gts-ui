@@ -15,4 +15,19 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  build: {
+    lib: {
+      entry: './src/main.ts',
+      name: 'GTSUI',
+      fileName: (format) => `gts-ui.${format}.js`,
+    },
+    rollupOptions: {
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue',
+        },
+      },
+    },
+  },
 })
