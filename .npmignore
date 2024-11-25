@@ -1,6 +1,11 @@
 src/
 node_modules/
+.storybook/
 .vscode/
-.eslintrc.js
-vite.config.ts
-tsconfig*.json
+*.config.js
+*.config.ts
+*.ts
+*.tsx
+*.spec.*
+*.test.*
+storybook-static/

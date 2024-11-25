@@ -1,16 +1,16 @@
 {
   "name": "gts-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Vue 3 UI component library",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "private": true,
   "type": "module",
   "author": "Mamatov Umar",
   "license": "MIT",
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0"
   },
   "scripts": {
     "dev": "vite",
@@ -20,11 +20,8 @@
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --fix",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "vue": "^3.5.12",
-    "vue-router": "^4.4.5"
+    "build-storybook": "storybook build",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
