@@ -1,0 +1,97 @@
+.easy-input, .easy-textarea {
+  &.p-float-label > label {
+    color: var(--light-text-color);
+    font-size: 14px;
+  }
+  .prefix {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    translate: 0 -50%
+  }
+
+  .p-inputtext {
+    height: 48px;
+    border-radius: 12px;
+    border: var(--input-border);
+    background: var(--input-bg);
+    box-shadow: var(--input-shadow);
+    font-size: 15px;
+    color: var(--main-text-color);
+    box-sizing: border-box;
+    &.bordered {
+      border: 1px solid var(--base-border-color);
+      box-shadow: none;
+    }
+
+    &::placeholder {
+      color: var(--light-text-color);
+      opacity: 1;
+    }
+    &.p-invalid {
+      border: 1px solid var(--danger-pink-color);
+    }
+    &.p-invalid + label {
+
+    }
+    &:enabled:focus {
+      border: 1px solid var(--primary-color);
+      outline: none;
+    }
+  }
+  .bordered>.p-password-input {
+    border: 1px solid var(--base-border-color);
+    box-shadow: none;
+  }
+  &.has-label {
+    .p-inputtext {
+      padding-bottom: 5px;
+      padding-top: 20px;
+      width: 100%;
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+  &.large {
+    .p-inputtext {
+      height: 52px;
+    }
+  }
+  &.small {
+    .p-inputtext {
+      height: 44px;
+      font-size: 14px;
+    }
+  }
+  &.mini {
+    .p-inputtext {
+      height: 40px;
+      font-size: 13px;
+      border-radius: 8px;
+    }
+    &.p-float-label:has(input:focus) label,
+    &.p-float-label:has(input.p-filled) label{
+      top: 0.75rem;
+    }
+  }
+  &.mini.has-label {
+    .p-inputtext {
+      padding-top: 15px;
+    }
+  }
+}
+
+.easy-textarea {
+  .p-inputtext {
+    height: auto;
+  }
+}
+
+.p-float-label > .p-invalid + label {
+  color: var(--danger-pink-color);
+}
+.p-float-label > label {
+  font-size: 14px;
+  color: var(--light-text-color)
+}

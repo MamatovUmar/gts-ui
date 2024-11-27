@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{
   /**
    * The label of the button
    */
-  label: string,
+  label: TestType,
   /**
    * primary or secondary button
    */
@@ -40,6 +40,8 @@ const classes = computed(() => ({
 const style = computed(() => ({
   backgroundColor: props.backgroundColor
 }));
+
+export type TestType = string
 
 const onClick = () => {
   emit("click", 1)
