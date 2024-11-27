@@ -1,4 +1,3 @@
-import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -8,18 +7,13 @@ export default defineConfig({
   plugins: [
     vue(),
     dts({
-      outDir: 'dist', // Output directory for TypeScript declarations
+      // outDir: 'dist', // Output directory for TypeScript declarations
       insertTypesEntry: true, // Generates an `index.d.ts` entry
     }),
   ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
-  },
   build: {
     lib: {
-      entry: './src/index.ts',
+      entry: './src/components/index.ts',
       name: 'GTSUI',
       fileName: (format) => `gts-ui.${format}.js`,
     },
@@ -31,5 +25,6 @@ export default defineConfig({
         },
       },
     },
+    emptyOutDir: true
   },
 })

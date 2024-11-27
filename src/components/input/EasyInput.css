@@ -1,42 +1,47 @@
 .easy-input, .easy-textarea {
   &.p-float-label > label {
-    color: var(--light-text-color);
+    color: var(--text-subtle;
     font-size: 14px;
   }
   .prefix {
     position: absolute;
     right: 12px;
     top: 50%;
-    translate: 0 -50%
+    transform: translateY(-50%);
   }
-
+  &.p-float-label:has(input:focus) label,
+  &.p-float-label:has(input.p-filled) label{
+    top: 0.75rem;
+  }
   .p-inputtext {
     height: 48px;
-    border-radius: 12px;
-    border: var(--input-border);
+    border-radius: 8px;
+    border: 1px solid var(--border-bold);
     background: var(--input-bg);
     box-shadow: var(--input-shadow);
     font-size: 15px;
     color: var(--main-text-color);
     box-sizing: border-box;
+    width: 100%;
     &.bordered {
       border: 1px solid var(--base-border-color);
       box-shadow: none;
     }
 
     &::placeholder {
-      color: var(--light-text-color);
+      color: var(--text-subtle);
       opacity: 1;
     }
     &.p-invalid {
       border: 1px solid var(--danger-pink-color);
     }
     &.p-invalid + label {
-
+      color: var(--text-danger);
     }
     &:enabled:focus {
       border: 1px solid var(--primary-color);
       outline: none;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
     }
   }
   .bordered>.p-password-input {
@@ -47,7 +52,6 @@
     .p-inputtext {
       padding-bottom: 5px;
       padding-top: 20px;
-      width: 100%;
       &::placeholder {
         opacity: 0;
       }
@@ -58,13 +62,13 @@
       height: 52px;
     }
   }
-  &.small {
+  &.medium {
     .p-inputtext {
       height: 44px;
       font-size: 14px;
     }
   }
-  &.mini {
+  &.small {
     .p-inputtext {
       height: 40px;
       font-size: 13px;
@@ -75,7 +79,7 @@
       top: 0.75rem;
     }
   }
-  &.mini.has-label {
+  &.small.has-label {
     .p-inputtext {
       padding-top: 15px;
     }
@@ -94,4 +98,12 @@
 .p-float-label > label {
   font-size: 14px;
   color: var(--light-text-color)
+}
+
+.easy-input .p-password.p-component {
+  width: 100%;
+}
+
+.easy-input .p-password .p-password-input {
+  width: 100%;
 }

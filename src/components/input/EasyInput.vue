@@ -2,13 +2,12 @@
 import Password from 'primevue/password';
 import InputText from 'primevue/inputtext';
 import InputMask from 'primevue/inputmask';
-import {computed} from "vue";
-import CopyIcon from "~/icon-components/CopyIcon.vue";
-import {toClipboard} from '@soerenmartius/vue3-clipboard';
-import {useToast} from "primevue/usetoast";
+import {computed, useId} from "vue";
+import FloatLabel from 'primevue/floatlabel';
+import './EasyInput.css';
+
 
 const model = defineModel<string>({default: ''});
-const toast = useToast();
 const props = defineProps<{
   label?: string;
   placeholder?: string;
@@ -16,14 +15,13 @@ const props = defineProps<{
   readonly?: boolean;
   invalid?: boolean;
   value?: string;
-  size?: 'small' | 'mini' | 'large';
+  size?: 'small' | 'medium' | 'large';
   password?: boolean;
   inputMask?: boolean;
   mask?: string;
-  bordered?: boolean;
   uppercase?: boolean;
   copyButton?: boolean;
-  searchible?: boolean
+  searchable?: boolean
 }>();
 
 const activeComponent = computed(() => {
@@ -46,18 +44,9 @@ const emit = defineEmits<{
 
 const id = useId();
 
-function copy() {
-  toClipboard(model.value);
-  toast.add({
-    severity: 'success',
-    summary: 'Copied',
-    life: 3000,
-  });
-}
-
 const uppercaseModel = computed({
   get() {
-    return props.uppercase ? model.value.toUpperCase() : model.value;
+    return props.uppercase ? model.value?.toUpperCase() : model.value;
   },
   set(val: string) {
     model.value = val;
@@ -68,36 +57,36 @@ const uppercaseModel = computed({
 <template>
   <FloatLabel :class="['easy-input w-full', props?.size, { 'has-label': props?.label }]">
     <component
-        :is="activeComponent"
-        :id="id"
-        v-model="uppercaseModel"
-        :placeholder="props.placeholder"
-        :invalid="props.invalid"
-        toggleMask
-        :feedback="false"
-        :class="['w-full', { bordered: props.bordered }]"
-        @keydown.down="emit('keydown.down')"
-        @keydown.up="emit('keydown.up')"
-        @focus="emit('focus')"
-        @focusout="emit('focusout')"
-        :tabindex="props.tabindex"
-        :readonly="props.readonly"
-        autocomplete="off"
-        :mask="props.mask"/>
+      :is="activeComponent"
+      :id="id"
+      v-model="uppercaseModel"
+      :placeholder="props.placeholder"
+      :class="{ 'p-invalid': props.invalid }"
+      :upperCase="props.uppercase"
+      toggleMask
+      :feedback="false"
+      @keydown.down="emit('keydown.down')"
+      @keydown.up="emit('keydown.up')"
+      @keydown.enter="emit('keydown.enter')"
+      @keydown.tab="emit('keydown.tab')"
+      @focus="emit('focus')"
+      @focusout="emit('focusout')"
+      :tabindex="props.tabindex"
+      :readonly="props.readonly"
+      autocomplete="off"
+      :mask="props.mask"
+    />
 
     <label
-        v-if="props?.label"
-        :for="id">
-        {{ props.label }}
-
+      v-if="props?.label"
+      :for="id"
+    >
+      {{ props.label }}
     </label>
-    <!--    <div class="prefix">-->
-    <!--      <CopyIcon-->
-    <!--        v-if="props.copyButton"-->
-    <!--        class="pointer"-->
-    <!--        @click="copy"-->
-    <!--      />-->
-    <!--      <slot name="prefix"/>-->
-    <!--    </div>-->
+    
+    <div v-if="props.copyButton || $slots.prefix" class="prefix">
+      <slot name="prefix"/>
+    </div>
+  
   </FloatLabel>
 </template>
