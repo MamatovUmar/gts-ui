@@ -24,7 +24,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: './src/components/index.ts',
+      entry: './src/index.ts',
       name: 'GTSUI',
       fileName: (format) => `gts-ui.${format}.js`,
     },
