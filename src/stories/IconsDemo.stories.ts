@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/vue3';
 import { defineComponent, ref, computed } from 'vue';
-import './icons-demo.css';
+import './icons-demo.scss';
 
 const IconsDemo = defineComponent({
   name: 'IconsDemo',
