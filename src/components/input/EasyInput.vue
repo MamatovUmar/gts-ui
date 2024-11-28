@@ -4,30 +4,32 @@ import InputText from 'primevue/inputtext';
 import InputMask from 'primevue/inputmask';
 import {computed, useId} from "vue";
 import FloatLabel from 'primevue/floatlabel';
-import './EasyInput.css';
+import './EasyInput.scss';
 
 
 const model = defineModel<string>({default: ''});
-const props = defineProps<{
-  label?: string;
-  placeholder?: string;
-  tabindex?: number;
-  readonly?: boolean;
-  invalid?: boolean;
-  value?: string;
-  size?: 'small' | 'medium' | 'large';
-  password?: boolean;
-  inputMask?: boolean;
-  mask?: string;
-  uppercase?: boolean;
-  copyButton?: boolean;
-  searchable?: boolean
-}>();
+const props = withDefaults(defineProps<{
+  label?: string
+  placeholder?: string
+  tabindex?: number
+  readonly?: boolean
+  invalid?: boolean
+  size?: 'small' | 'large'
+  type?: 'text' | 'password' | 'mask'
+  mask?: string
+  uppercase?: boolean
+  copyButton?: boolean
+  disabled?: boolean
+  prefixIcon?: string
+}>(), {
+  size: 'large',
+  type: 'text'
+})
 
 const activeComponent = computed(() => {
-  if (props.password) {
+  if (props.type === 'password') {
     return Password;
-  } else if (props.inputMask) {
+  } else if (props.type === 'mask') {
     return InputMask;
   }
   return InputText;
@@ -55,14 +57,14 @@ const uppercaseModel = computed({
 </script>
 
 <template>
-  <FloatLabel :class="['easy-input w-full', props?.size, { 'has-label': props?.label }]">
+  <FloatLabel :class="['easy-input w-full', size, { 'has-label': label, disabled }]">
     <component
       :is="activeComponent"
       :id="id"
       v-model="uppercaseModel"
-      :placeholder="props.placeholder"
-      :class="{ 'p-invalid': props.invalid }"
-      :upperCase="props.uppercase"
+      :placeholder="placeholder"
+      :class="{ 'p-invalid': invalid }"
+      :upperCase="uppercase"
       toggleMask
       :feedback="false"
       @keydown.down="emit('keydown.down')"
@@ -71,22 +73,20 @@ const uppercaseModel = computed({
       @keydown.tab="emit('keydown.tab')"
       @focus="emit('focus')"
       @focusout="emit('focusout')"
-      :tabindex="props.tabindex"
-      :readonly="props.readonly"
+      :tabindex="tabindex"
+      :readonly="readonly"
       autocomplete="off"
-      :mask="props.mask"
+      :mask="mask"
+      :disabled="disabled"
     />
 
-    <label
-      v-if="props?.label"
-      :for="id"
-    >
-      {{ props.label }}
+    <label v-if="label" :for="id">
+      {{ label }}
     </label>
-    
-    <div v-if="props.copyButton || $slots.prefix" class="prefix">
+
+    <div v-if="copyButton || $slots.prefix" class="prefix">
       <slot name="prefix"/>
     </div>
-  
+
   </FloatLabel>
 </template>

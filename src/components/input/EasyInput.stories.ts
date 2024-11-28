@@ -10,14 +10,16 @@ const meta = {
     placeholder: { control: 'text' },
     size: {
       control: { type: 'select' },
-      options: ['small', 'mini', 'large'],
+      options: ['small', 'large'],
     },
-    password: { control: 'boolean' },
-    inputMask: { control: 'boolean' },
+    type: {
+      control: { type: 'select' },
+      options: ['text', 'password', 'mask'],
+    },
     mask: { control: 'text' },
-    bordered: { control: 'boolean' },
     uppercase: { control: 'boolean' },
     invalid: { control: 'boolean' },
+    disabled: { control: 'boolean' },
     readonly: { control: 'boolean' },
   },
 } satisfies Meta<typeof EasyInput>;
@@ -41,7 +43,7 @@ export const WithLabel: Story = {
 export const Password: Story = {
   args: {
     label: 'Password',
-    password: true,
+    type: 'password',
     placeholder: 'Enter password',
   },
 };
@@ -49,7 +51,7 @@ export const Password: Story = {
 export const WithMask: Story = {
   args: {
     label: 'Phone',
-    inputMask: true,
+    type: 'mask',
     mask: '(999) 999-9999',
     placeholder: 'Enter phone number',
   },
@@ -59,7 +61,6 @@ export const Invalid: Story = {
   args: {
     label: 'Invalid input',
     invalid: true,
-    value: 'Invalid value',
     placeholder: 'This input is invalid',
   },
 };
@@ -69,29 +70,5 @@ export const Small: Story = {
     label: 'Small input',
     size: 'small',
     placeholder: 'Small size',
-  },
-};
-
-export const Mini: Story = {
-  args: {
-    label: 'Mini input',
-    size: 'mini',
-    placeholder: 'Mini size',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    label: 'Large input',
-    size: 'large',
-    placeholder: 'Large size',
-  },
-};
-
-export const Bordered: Story = {
-  args: {
-    label: 'Bordered input',
-    bordered: true,
-    placeholder: 'With border',
   },
 };
