@@ -333,20 +333,17 @@ const IconsDemo = defineComponent({
         <h2>Usage</h2>
         <p>To use an icon in your component:</p>
         
-        <h3>1. Import the icomoon styles:</h3>
-        <pre><code>import '@/assets/icomoon/style.css';</code></pre>
-        
-        <h3>2. Use the icon class in your template:</h3>
+        <h3>1. Use the icon class in your template:</h3>
         <pre><code>&lt;i class="icon-Home"&gt;&lt;/i&gt;</code></pre>
         
-        <h3>3. For multi-path icons (like flags):</h3>
+        <h3>2. For multi-path icons (like flags):</h3>
         <pre><code>&lt;span class="icon-uzbekistan"&gt;
   &lt;span class="path1"&gt;&lt;/span&gt;
   &lt;span class="path2"&gt;&lt;/span&gt;
   ...
 &lt;/span&gt;</code></pre>
         
-        <h3>4. Customize size and color:</h3>
+        <h3>3. Customize size and color:</h3>
         <pre><code>&lt;i class="icon-Home" style="font-size: 24px; color: #007bff;"&gt;&lt;/i&gt;</code></pre>
       </div>
     </div>
