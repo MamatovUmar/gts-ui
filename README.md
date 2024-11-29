@@ -1,39 +1,71 @@
-# gts-ui
+# Easybooking UI Library
 
-This template should help get you started developing with Vue 3 in Vite.
+## Overview
+This is a Vue-based UI component library for the GTS projects, providing reusable and customizable components.
 
-## Recommended IDE Setup
+## Prerequisites
+- Node.js (v20 or later)
+- npm (v8 or later)
+- Vue 3
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Local Development Setup
 
-## Type Support for `.vue` Imports in TS
+### 1. Clone the Repository
+```bash
+git clone https://github.com/MamatovUmar/gts-ui.git
+cd gts-ui
+```
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+### 2. Install Dependencies
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
+### 3. Run Storybook
+To view and develop components interactively:
+```bash
+npm run storybook
 ```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
+### 4. Build the Library
+To build the library for production:
+```bash
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## Installation in Other Projects
 
-```sh
-npm run lint
+### 1. Install via npm
+```bash
+npm install gts-ui
 ```
+
+### 2. Import Components
+```typescript
+// In your Vue component
+import { EasyIcon } from 'gts-ui'
+```
+
+### 3. Import Styles
+```typescript
+// In your main.ts or main.js
+import 'gts-ui/styles'
+```
+
+### 4. Global Import
+```typescript
+// In your main.ts or main.js
+import gts from 'gts-ui'
+
+const app = createApp(App)
+
+app.use(gts)
+```
+
+## License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+Mamatov Umar - mamatov.umar@mail.ru
+
+Project Link: [https://mamatovumar.github.io/gts-ui](https://mamatovumar.github.io/gts-ui)
