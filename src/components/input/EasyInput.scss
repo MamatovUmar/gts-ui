@@ -49,8 +49,11 @@
   &.p-float-label:has(input.p-filled) label{
     color: var(--text-subtlest)
   }
-  &.p-float-label:has(input.p-invalid) label{
+  &.p-float-label:has(.p-invalid) label{
     color: var(--text-accent-red);
+  }
+  &.p-float-label:has(.p-invalid) .p-inputtext{
+    border-color: var(--text-accent-red);
   }
   &.p-float-label:has(input:focus) label {
     color: var(--text-selected);

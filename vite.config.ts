@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts';
 import { resolve } from 'path'
+import type { PreRenderedAsset } from 'rollup'
 
 export default defineConfig({
   plugins: [
@@ -34,9 +35,18 @@ export default defineConfig({
         globals: {
           vue: 'Vue',
         },
+        assetFileNames: (assetInfo: PreRenderedAsset): string => {
+          if (assetInfo.name && /style\.css$/.test(assetInfo.name)) {
+            return 'gts-ui.css';
+          }
+          return assetInfo.name || 'assets/[name][extname]';
+        },
       },
     },
-    emptyOutDir: true
+    cssCodeSplit: false,
+    cssMinify: true,
+    emptyOutDir: true,
+    assetsInlineLimit: 4096, // Only inline files smaller than 4kb
   },
   optimizeDeps: {
     include: ['vue']
