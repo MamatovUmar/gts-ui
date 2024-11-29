@@ -1,4 +1,5 @@
 import './assets/main.scss'
+import './assets/icomoon/style.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'

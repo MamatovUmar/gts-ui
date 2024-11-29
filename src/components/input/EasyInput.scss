@@ -1,19 +1,49 @@
 .easy-input, .easy-textarea {
+  position: relative;
+  height: 48px;
+  display: block;
   &.p-float-label > label,
   &.p-float-label:has(.p-password) label{
     color: var(--text-subtle);
     font-size: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 16px;
+    transition: 0.2s;
+  }
+  .p-input-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%)
   }
   .prefix {
     position: absolute;
-    right: 12px;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      font-size: 20px;
+      color: var(--text-subtle);
+    }
+  }
+  &.has-prefix {
+    .p-inputtext {
+      padding-left: 36px;
+    }
+    & > label, &:has(.p-password) label {
+      left: 36px;
+    }
   }
   &.p-float-label:has(.p-inputwrapper-filled) label,
   &.p-float-label:has(input:focus) label,
   &.p-float-label:has(input.p-filled) label{
-    top: 0.75rem;
+    top: 12px;
     font-size: 12px;
   }
   &.p-float-label:has(input.p-filled) label{
@@ -34,6 +64,7 @@
     color: var(--text);
     box-sizing: border-box;
     width: 100%;
+    padding-left: 16px;
     outline: none;
     &::placeholder {
       color: var(--text-subtle);
@@ -61,18 +92,29 @@
     }
   }
   &.small {
+    height: 40px;
     .p-inputtext {
       height: 40px;
       font-size: 13px;
       border-radius: 8px;
+      padding-left: 12px;
     }
     &.p-float-label > label {
       font-size: 14px;
+      left: 12px;
+    }
+    &.has-prefix {
+      &> label {
+        left: 34px;
+      }
+      .p-inputtext {
+        padding-left: 34px;
+      }
     }
     &.p-float-label:has(.p-inputwrapper-filled) label,
     &.p-float-label:has(input:focus) label,
     &.p-float-label:has(input.p-filled) label{
-      top: 0.75rem;
+      top: 10px;
       font-size: 10px;
     }
   }

@@ -6,8 +6,6 @@ const meta = {
   component: EasyInput,
   tags: ['autodocs'],
   argTypes: {
-    label: { control: 'text' },
-    placeholder: { control: 'text' },
     size: {
       control: { type: 'select' },
       options: ['small', 'large'],
@@ -15,12 +13,7 @@ const meta = {
     type: {
       control: { type: 'select' },
       options: ['text', 'password', 'mask'],
-    },
-    mask: { control: 'text' },
-    uppercase: { control: 'boolean' },
-    invalid: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    readonly: { control: 'boolean' },
+    }
   },
 } satisfies Meta<typeof EasyInput>;
 

@@ -57,13 +57,13 @@ const uppercaseModel = computed({
 </script>
 
 <template>
-  <FloatLabel :class="['easy-input w-full', size, { 'has-label': label, disabled }]">
+  <FloatLabel :class="['easy-input w-full', size, { 'has-label': label, disabled, 'has-prefix': prefixIcon }]">
     <component
       :is="activeComponent"
       :id="id"
       v-model="uppercaseModel"
       :placeholder="placeholder"
-      :class="{ 'p-invalid': invalid }"
+      :class="{ 'p-invalid': invalid, 'has-prefix': prefixIcon }"
       :upperCase="uppercase"
       toggleMask
       :feedback="false"
@@ -84,8 +84,8 @@ const uppercaseModel = computed({
       {{ label }}
     </label>
 
-    <div v-if="copyButton || $slots.prefix" class="prefix">
-      <slot name="prefix"/>
+    <div v-if="prefixIcon" class="prefix">
+      <i :class="[prefixIcon.startsWith('icon-') ? prefixIcon : 'icon-' + prefixIcon]"></i>
     </div>
 
   </FloatLabel>
