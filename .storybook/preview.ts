@@ -4,6 +4,7 @@ import PrimeVue from 'primevue/config';
 
 // Import global styles
 import '../src/assets/main.scss';
+import '../src/assets/icomoon/style.css';
 
 setup((app) => {
   app.use(PrimeVue, {
