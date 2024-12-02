@@ -21,7 +21,7 @@
     "./styles": "./dist/gts-ui.css"
   },
   "peerDependencies": {
-    "vue": "^3.0.0",
+    "vue": "^3.5.0",
     "primevue": "^3.51.0"
   },
   "files": [

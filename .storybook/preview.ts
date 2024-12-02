@@ -3,6 +3,7 @@ import { setup } from '@storybook/vue3';
 import PrimeVue from 'primevue/config';
 
 // Import global styles
+// import 'primevue/resources/themes/aura-light-green/theme.css'
 import '../src/assets/main.scss';
 import '../src/assets/icomoon/style.css';
 
