@@ -5,12 +5,14 @@ import './assets/main.scss';
 import EasyInput from './components/input/EasyInput.vue';
 import EasyIcon from './components/icon/EasyIcon.vue';
 import EasyLoader from "./components/loader/EasyLoader.vue";
+import EasySelect from "@/components/easy-select/EasySelect.vue";
 // Add more component imports as needed
 
 const components = [
   EasyInput,
   EasyIcon,
-  EasyLoader
+  EasyLoader,
+  EasySelect
   // Add more components
 ];
 
@@ -29,6 +31,7 @@ export default {
 export {
   EasyInput,
   EasyIcon,
-  EasyLoader
+  EasyLoader,
+  EasySelect
   // Add more component exports
 };
