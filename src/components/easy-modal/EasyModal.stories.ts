@@ -62,12 +62,13 @@ const meta: Meta = {
     },
 
     position: {
-      control: "text",
-      description: 'Prevents the page from scrolling when the modal is open.',
+      control: "select",
+      description: "specifies the direction in which the modal will appear",
       table: {
-        type: {summary: 'string'},
+        type: {summary: 'select'},
         defaultValue: {summary: 'center'},
       },
+      options: ["center", "left", "top", "bottom", "right", "topleft", "topright", "bottomleft", "bottomright"]
     },
   },
   parameters: {
@@ -113,7 +114,7 @@ export const Basic: Story = {
 
 export const ExpandToWidth: Story = {
   args: {
-    title : "full width",
+    title: "full width",
     whiteBg: true,
     model: false,
     hideClose: false,
