@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import RadioButton from 'primevue/radiobutton';
-import {useId} from 'vue'
 import './EasyRadiobutton.scss'
 
 defineProps<{
@@ -12,7 +11,6 @@ defineProps<{
   text?: string
 }>()
 
-const id = useId()
 const model = defineModel()
 
 </script>

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { ref } from 'vue';
 import EasyRadioButton from './EasyRadioButton.vue';
 
 const meta: Meta = {
@@ -28,3 +29,33 @@ export const WithText: Story = {
   }
 }
 
+export const Group: Story = {
+  render: () => ({
+    components: { EasyRadioButton },
+    setup() {
+      const selectedCity = ref('Paris')
+      const cities = [
+        { name: 'Paris', value: 'Paris' },
+        { name: 'London', value: 'London' },
+        { name: 'New York', value: 'New York' },
+        { name: 'Tokyo', value: 'Tokyo' }
+      ]
+      return { selectedCity, cities }
+    },
+    template: `
+      <div>
+        <div style="margin-bottom: 10px;">Selected City: {{ selectedCity }}</div>
+        <div class="flex items-center" style="gap: 20px">
+          <EasyRadioButton
+            v-for="city in cities"
+            :key="city.value"
+            v-model="selectedCity"
+            :value="city.value"
+            :label="city.name"
+            name="city"
+          />
+        </div>
+      </div>
+    `
+  })
+}
