@@ -7,13 +7,17 @@ import EasyIcon from './components/icon/EasyIcon.vue';
 import EasyCheckbox from './components/checkbox/EasyCheckbox.vue';
 import EasyRadioButton from './components/radio/EasyRadioButton.vue';
 import EasyButton from './components/button/EasyButton.vue';
+import EasyTag from './components/tag/EasyTag.vue'
+// import EasyTextarea from "@/components/textarea/EasyTextarea.vue";
 
 const components = [
   EasyInput,
   EasyIcon,
   EasyRadioButton,
   EasyCheckbox,
-  EasyButton
+  EasyButton,
+  EasyTag,
+  // EasyTextarea
   // Add more components
 ];
 
@@ -34,6 +38,8 @@ export {
   EasyIcon,
   EasyRadioButton,
   EasyCheckbox,
-  EasyButton
+  EasyButton,
+  EasyTag,
+  // EasyTextarea
   // Add more component exports
 };
