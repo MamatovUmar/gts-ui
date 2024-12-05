@@ -13,7 +13,6 @@ const components = [
   EasyIcon,
   EasyLoader,
   EasySelect
-  // Add more components
 ];
 
 export default {
@@ -33,5 +32,4 @@ export {
   EasyIcon,
   EasyLoader,
   EasySelect
-  // Add more component exports
 };
