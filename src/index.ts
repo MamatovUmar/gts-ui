@@ -4,15 +4,17 @@ import './assets/main.scss';
 // Import all components
 import EasyInput from './components/input/EasyInput.vue';
 import EasyIcon from './components/icon/EasyIcon.vue';
-import EasyLoader from "./components/loader/EasyLoader.vue";
-import EasySelect from "@/components/easy-select/EasySelect.vue";
-// Add more component imports as needed
+import EasyCheckbox from './components/checkbox/EasyCheckbox.vue';
+import EasyRadioButton from './components/radio/EasyRadioButton.vue';
+import EasyButton from './components/button/EasyButton.vue';
 
 const components = [
   EasyInput,
   EasyIcon,
-  EasyLoader,
-  EasySelect
+  EasyRadioButton,
+  EasyCheckbox,
+  EasyButton
+  // Add more components
 ];
 
 export default {
@@ -30,6 +32,8 @@ export default {
 export {
   EasyInput,
   EasyIcon,
-  EasyLoader,
-  EasySelect
+  EasyRadioButton,
+  EasyCheckbox,
+  EasyButton
+  // Add more component exports
 };
