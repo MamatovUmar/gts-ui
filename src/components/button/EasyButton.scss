@@ -92,6 +92,11 @@
       color: var(--text-subtle);
       border-color: var(--border-bold);
     }
+    &.p-button-plain {
+      background: var(--background-neutral-default);
+      color: var(--text-default);
+      border-color: var(--background-neutral-default);
+    }
   }
 
   &.p-disabled:not(.p-button-loading) {
