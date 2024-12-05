@@ -6,6 +6,7 @@ import {computed, ref} from "vue";
 import './EasySelect.scss';
 import Dropdown from "primevue/dropdown";
 import FloatLabel from "primevue/floatlabel";
+import EasyLoader from "@/components/loader/EasyLoader.vue";
 
 const props = withDefaults(defineProps<{
   options: IItems[]
@@ -17,6 +18,7 @@ const props = withDefaults(defineProps<{
   disabled?: boolean,
   optionValue?: string,
   optionLabel?: string,
+  loading?: boolean
 }>(), {
   size: 'small',
   bordered: false,
@@ -24,12 +26,13 @@ const props = withDefaults(defineProps<{
   filter: false,
   disabled: false,
   optionValue: 'value',
-  optionLabel: 'label'
+  optionLabel: 'label',
+  loading: false
 })
 
 const id = useId()
 const model = defineModel()
-
+const overlayVisible = ref()
 const dpRef = ref<HTMLElement>()
 
 const setSize = computed(() => {
@@ -59,9 +62,15 @@ useClickOutside(dpRef)
       append-to="self"
       :disabled='disabled'
       :virtualScrollerOptions="{ lazy: true,  itemSize: 45}"
+      :loading = "loading"
+      @show="overlayVisible=true"
+      @hide="overlayVisible=false"
     >
       <template #dropdownicon>
-        <i class="icon-Arrow---Down-2-Outline" :class='{"down-icon" : invalid}'></i>
+        <i class="icon-Arrow---Down-2-Outline down-icon"  :class='{"rotate": overlayVisible}'></i>
+      </template>
+      <template #loadingicon>
+        <EasyLoader size="small"></EasyLoader>
       </template>
     </Dropdown>
     <label v-if="props.label" :for="id">{{ props.label }}</label>

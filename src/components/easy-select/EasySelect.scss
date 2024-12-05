@@ -57,9 +57,11 @@
       }
     }
   }
-.p-virtualscroller {
-  overflow: auto;
-}
+
+  .p-virtualscroller {
+    overflow: auto;
+  }
+
   .p-dropdown-panel {
     box-shadow: var(--datepicker-dropdown-shadow);
     border-radius: 12px;
@@ -73,7 +75,7 @@
     gap: 2px;
   }
 
-  .p-dropdown-item {
+  .p-dropdown-item  {
     height: 48px;
     border-radius: 8px;
     margin: 0;
@@ -91,5 +93,11 @@
   .down-icon {
     color: var(--grey-500) !important;
     font-size: 20px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .rotate {
+    transform: rotate(180deg)
   }
 }
