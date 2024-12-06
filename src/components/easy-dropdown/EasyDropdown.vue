@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import OverlayPanel from 'primevue/overlaypanel';
-import {useRoute} from "vue-router";
-import {ref, watch} from "vue";
+import {ref} from "vue";
 import './EasyDropdown.scss'
 
 
 const props = defineProps<{
   value?: string
-  bgWhite?: boolean
   bgColor?: string
 }>()
 
@@ -15,17 +13,12 @@ const emit = defineEmits<{
   (e: 'toggle', val: boolean): void
 }>()
 
-const route = useRoute()
 
 const op = ref<OverlayPanel>()
 
 function toggle(event: Event) {
   op.value?.toggle(event);
 }
-
-watch([() => route?.name, () => props.value], ()=> {
-  op.value?.hide()
-})
 
 </script>
 
@@ -38,8 +31,7 @@ watch([() => route?.name, () => props.value], ()=> {
       ref="op"
       @show="emit('toggle', true)"
       @hide="emit('toggle', false)"
-      :class="{bgWhite}"
-      :style="{ background: bgColor }"
+      :style="{ background: props.bgColor }"
     >
       <slot :op="op" />
     </OverlayPanel>

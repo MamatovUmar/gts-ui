@@ -1,4 +1,4 @@
-export interface IItems {
+export interface IItem {
   label: string
   value: string
   icon?: string

@@ -36,7 +36,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --fix",
-    "storybook": "storybook dev -p 6006",
+    "lib": "storybook dev -p 6006",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {

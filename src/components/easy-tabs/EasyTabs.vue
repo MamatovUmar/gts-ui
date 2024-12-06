@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import {useId} from "vue";
-import type {IItems} from "src/types/ui";
+import type {IItem} from "src/types/ui";
 import './EasyTabs.scss'
 
 const props = withDefaults(defineProps<{
-  items: IItems[]
+  items: IItem[]
   name?: string
   big?: boolean
 }>(), {

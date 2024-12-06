@@ -8,7 +8,7 @@ const meta = {
   argTypes: {
     size: {
       control: {type: 'select'},
-      options: ['mini', 'small', 'large'],
+      options: ['small', 'large'],
     },
   },
 } satisfies Meta<typeof EasySelect>;

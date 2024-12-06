@@ -1,7 +1,6 @@
 import type { Preview } from '@storybook/vue3';
 import { setup } from '@storybook/vue3';
 import PrimeVue from 'primevue/config';
-import './prevew.css'
 // Import global styles
 // import 'primevue/resources/themes/aura-light-green/theme.css'
 import '../src/assets/main.scss';

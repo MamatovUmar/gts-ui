@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useId} from "vue";
-import type {IItems} from "src/types/ui";
+import type {IItem} from "src/types/ui";
 import {useClickOutside} from "../../composables/useClickOutside";
 import {computed, ref} from "vue";
 import './EasySelect.scss';
@@ -9,10 +9,9 @@ import FloatLabel from "primevue/floatlabel";
 import EasyLoader from "@/components/loader/EasyLoader.vue";
 
 const props = withDefaults(defineProps<{
-  options: IItems[]
+  options: IItem[]
   label?: string
-  size?: 'small' | 'mini' | 'large'
-  bordered?: boolean
+  size?: 'small' | 'large'
   invalid?: boolean
   filter?: boolean
   disabled?: boolean,
@@ -21,7 +20,6 @@ const props = withDefaults(defineProps<{
   loading?: boolean
 }>(), {
   size: 'small',
-  bordered: false,
   invalid: false,
   filter: false,
   disabled: false,
@@ -58,7 +56,7 @@ useClickOutside(dpRef)
       :scroll-height='setSize'
       :optionLabel="optionLabel || 'label'"
       :option-value="optionValue || 'value'"
-      :class="['w-full', { bordered }]"
+      :class="['w-full']"
       append-to="self"
       :disabled='disabled'
       :virtualScrollerOptions="{ lazy: true,  itemSize: 45}"

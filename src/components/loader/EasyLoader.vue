@@ -13,8 +13,8 @@ const props = withDefaults(defineProps<{
   borderTopColor: 'var(--grey-500)'
 })
 
-function chooseColor(colorName) {
-  switch (colorName) {
+function chooseSizes(enterSize) {
+  switch (enterSize) {
     case 'xsmall':
       return {size: 8, borderWidth: 1}
     case 'small':
@@ -26,14 +26,14 @@ function chooseColor(colorName) {
     case 'xlarge':
       return {size: 96, borderWidth: 5}
     default :
-      return {size: colorName, borderWidth: Math.floor(colorName * 0.1) || 1}
+      return {size: enterSize, borderWidth: Math.floor(enterSize * 0.1) || 1}
   }
 }
 
 const style = computed(() => ({
-  width: `${chooseColor(props.size).size}px`,
-  height: `${chooseColor(props.size).size}px`,
-  'border-width': props.borderWidth ? `${props.borderWidth}px` : `${chooseColor(props.size).borderWidth}px`,
+  width: `${chooseSizes(props.size).size}px`,
+  height: `${chooseSizes(props.size).size}px`,
+  'border-width': props.borderWidth ? `${props.borderWidth}px` : `${chooseSizes(props.size).borderWidth}px`,
   'border-color': props.borderColor,
   'border-top-color': props.borderTopColor
 }));
