@@ -19,9 +19,6 @@ const meta = {
     },
     raised: {
       control: 'boolean'
-    },
-    text: {
-      control: 'boolean'
     }
   }
 } satisfies Meta<typeof EasyButton>;
