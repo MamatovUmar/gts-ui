@@ -8,12 +8,14 @@ import EasyCheckbox from './components/checkbox/EasyCheckbox.vue';
 import EasyRadioButton from './components/radio/EasyRadioButton.vue';
 import EasyButton from './components/button/EasyButton.vue';
 
+
 const components = [
   EasyInput,
   EasyIcon,
   EasyRadioButton,
   EasyCheckbox,
-  EasyButton
+  EasyButton,
+
   // Add more components
 ];
 
@@ -34,6 +36,7 @@ export {
   EasyIcon,
   EasyRadioButton,
   EasyCheckbox,
-  EasyButton
+  EasyButton,
+
   // Add more component exports
 };
