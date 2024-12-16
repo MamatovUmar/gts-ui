@@ -21,7 +21,6 @@ export const Default: Story = {
       {label: 'Tab 3', value: 'ee', icon: 'icon-Image-Outline'},
       {label: 'Tab 4', value: 'rr', icon: 'icon-Image-Outline'},
       {label: 'Tab 5', value: 'tt', icon: 'icon-Image-Outline'}
-    ],
-    name: 'asddd'
+    ]
   }
 };
