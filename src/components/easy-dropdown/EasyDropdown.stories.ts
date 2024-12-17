@@ -19,17 +19,17 @@ export const Default: Story = {
       return { args };
     },
     template: `
-      <EasyDropdown bg-color="#FFFFFF40">
+      <EasyDropdown class="mb-30">
         <template #trigger>
-          <div class="icon pointer">
-            <i class="icon-share"></i>
-          </div>
+          <EasyButton label="Dropdown" size="mini" severity="secondary" outlined />
         </template>
 
         <div class="socials">
          Instagram
         </div>
       </EasyDropdown>
+      <br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br />
     `,
   }),
   args: {
