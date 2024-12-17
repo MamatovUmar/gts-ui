@@ -6,6 +6,12 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    {
+      name: '@storybook/addon-themes',
+      options: {
+        default: 'light'
+      }
+    }
   ],
   framework: {
     name: "@storybook/vue3-vite",
@@ -15,7 +21,6 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   viteFinal: (config) => {
-    // Добавляем базовый путь для GitHub Pages
     config.base = process.env.NODE_ENV === 'production' ? '/gts-ui/' : '/';
     return config;
   },
