@@ -45,9 +45,7 @@ useClickOutside(dpRef)
 
 <template>
   <FloatLabel :class="['easy-select w-full', props.size, {'has-label': props.label}]">
-
     <Dropdown
-      :size="props.size"
       v-model="model"
       :inputId="id"
       :invalid="props.invalid"
@@ -56,7 +54,7 @@ useClickOutside(dpRef)
       :scroll-height='setSize'
       :optionLabel="optionLabel || 'label'"
       :option-value="optionValue || 'value'"
-      :class="['w-full']"
+      :class="['w-full', props.size]"
       append-to="self"
       :disabled='disabled'
       :virtualScrollerOptions="{ lazy: true,  itemSize: 45}"
