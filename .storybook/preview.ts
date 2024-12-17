@@ -5,6 +5,7 @@ import PrimeVue from 'primevue/config';
 // import 'primevue/resources/themes/aura-light-green/theme.css'
 import '../src/assets/main.scss';
 import '../src/assets/icomoon/style.css';
+import '../src/assets/preview.scss';
 
 setup((app) => {
   app.use(PrimeVue, {
