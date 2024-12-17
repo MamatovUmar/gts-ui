@@ -1,11 +1,11 @@
-import type { StorybookConfig } from "@storybook/vue3-vite";
+import type { StorybookConfig } from '@storybook/vue3-vite'
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
     {
       name: '@storybook/addon-themes',
       options: {
@@ -14,16 +14,16 @@ const config: StorybookConfig = {
     }
   ],
   framework: {
-    name: "@storybook/vue3-vite",
+    name: '@storybook/vue3-vite',
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag',
   },
   viteFinal: (config) => {
-    config.base = process.env.NODE_ENV === 'production' ? '/gts-ui/' : '/';
-    return config;
+    config.base = process.env.NODE_ENV === 'production' ? '/gts-ui/' : '/'
+    return config
   },
-};
+}
 
-export default config;
+export default config
