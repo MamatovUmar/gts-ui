@@ -4,7 +4,6 @@
     border-radius: 12px;
     border: 1px solid var(--cadet-blue-300);
     background: transparent;
-    box-shadow: var(--input-shadow);
     font-size: 15px;
     color: var(--neutral-800);
 
@@ -55,7 +54,6 @@
   }
 
   .p-multiselect-panel {
-    box-shadow: var(--datepicker-dropdown-shadow);
     border-radius: 12px;
     background: var(--bg-white);
     border: none;
