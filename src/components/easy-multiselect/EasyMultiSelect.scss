@@ -35,12 +35,75 @@
         outline: 1px solid var(--cadet-blue-300);
       }
     }
+
     &.large {
       height: 48px;
       font-size: 17px;
-      .p-multiselect-label {
+      &-label {
         font-size: 16px;
       }
+    }
+  }
+
+  &.large {
+    height: 48px;
+    font-size: 17px;
+
+    .p-multiselect-label {
+      font-size: 16px;
+    }
+
+    &.p-float-label > label {
+      font-size: 14px;
+      left: 12px;
+    }
+
+    &.has-prefix {
+      & > label {
+        left: 34px;
+      }
+
+      .p-inputtext {
+        padding-left: 34px;
+      }
+    }
+
+    &.p-float-label:has(.p-inputwrapper-filled) label,
+    &.p-float-label:has(.p-inputwrapper-focus) label,
+    &.p-float-label:has(input.p-filled) label {
+      top: 14px;
+      font-size: 12px;
+    }
+  }
+
+  &.small {
+    height: 40px;
+    font-size: 15px;
+
+    .p-multiselect-label {
+      font-size: 14px;
+    }
+
+    &.p-float-label > label {
+      font-size: 14px;
+      left: 12px;
+    }
+
+    &.has-prefix {
+      & > label {
+        left: 34px;
+      }
+
+      .p-inputtext {
+        padding-left: 34px;
+      }
+    }
+
+    &.p-float-label:has(.p-inputwrapper-filled) label,
+    &.p-float-label:has(.p-inputwrapper-focus) label,
+    &.p-float-label:has(input.p-filled) label {
+      top: 10px;
+      font-size: 10px;
     }
   }
 
