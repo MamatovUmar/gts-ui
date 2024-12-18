@@ -1,6 +1,6 @@
 .easy-multi-select {
   .p-multiselect {
-    height: 48px;
+    height: 40px;
     border-radius: 12px;
     border: 1px solid var(--cadet-blue-300);
     background: transparent;
@@ -33,6 +33,13 @@
 
       &:enabled:focus {
         outline: 1px solid var(--cadet-blue-300);
+      }
+    }
+    &.large {
+      height: 48px;
+      font-size: 17px;
+      .p-multiselect-label {
+        font-size: 16px;
       }
     }
   }
