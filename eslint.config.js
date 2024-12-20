@@ -15,9 +15,9 @@ export default [
   {
     name: 'app/style',
     rules: {
-      quotes: ['error', 'single'],
+      // quotes: ['error', 'single'],
       'vue/html-quotes': ['error', 'double'],
-      semi: ['error', 'never']
+      // semi: ['error', 'never']
     }
   },
 
