@@ -62,13 +62,13 @@
     border: 1px solid var(--border-bold);
     background: var(--background-input-default);
     font-size: 15px;
-    color: var(--black-500);
+    color: var(--text-subtle);
     box-sizing: border-box;
     width: 100%;
     padding-left: 16px;
     outline: none;
     &::placeholder {
-      color: var(--text-subtle);
+      color: var(--text-subtlest);
       opacity: 1;
     }
     &.p-invalid {
