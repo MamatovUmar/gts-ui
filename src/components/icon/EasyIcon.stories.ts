@@ -33,7 +33,7 @@ export default meta;
 
 export const Default: StoryFn = () => ({
   components: { EasyIcon },
-  template: '<EasyIcon name="Home" :size="24" color="#000000" />'
+  template: '<EasyIcon name="Home" :size="24" color="var(--icon-default)" />'
 });
 
 export const MultiPathIcons: StoryFn = () => ({
@@ -72,19 +72,19 @@ export const Sizes: StoryFn = () => ({
   template: `
     <div style="display: flex; gap: 16px; align-items: flex-end;">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <EasyIcon name="Home" :size="16" />
+        <EasyIcon name="Home" :size="16" color="var(--icon-default)" />
         <span>16px</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <EasyIcon name="Home" :size="24" />
+        <EasyIcon name="Home" :size="24" color="var(--icon-default)" />
         <span>24px</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <EasyIcon name="Home" :size="32" />
+        <EasyIcon name="Home" :size="32" color="var(--icon-default)" />
         <span>32px</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <EasyIcon name="Home" :size="48" />
+        <EasyIcon name="Home" :size="48" color="var(--icon-default)" />
         <span>48px</span>
       </div>
     </div>

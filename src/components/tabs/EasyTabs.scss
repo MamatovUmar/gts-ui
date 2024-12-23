@@ -24,7 +24,7 @@
     text-align: center;
     height: 100%;
     place-items: center;
-    color: var(--light-text-color);
+    color: var(--text-subtle);
     transition: background, color;
     transition-duration: 0.25s;
     transition-timing-function: var(--ease, ease);
@@ -32,7 +32,7 @@
     font-weight: 500;
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid var(--cadet-blue-200);
+    border-bottom: 2px solid var(--border-default);
     gap: 8px;
     user-select: none;
     i {
@@ -44,10 +44,10 @@
     }
   }
   input[type="radio"]:checked + label {
-    color: var(--black-500);
+    color: var(--text-default);
     font-weight: 600;
     i {
-      color: var(--black-500) !important
+      color: var(--text-default) !important
     }
   }
 
@@ -57,14 +57,12 @@
     width: calc((100% - 10px) / var(--count));
     height: calc(100% - 10px);
     top: 5px;
-    background: var(--bg-white);
     position: absolute;
     mix-blend-mode: darken;
     translate: calc(var(--active, 0) * 100% + 5px) 0;
     transition: translate, outline-color;
     transition-duration: 0.25s;
-    box-shadow: var(--tabs-item-shadow);
-    border-bottom: 2px solid var(--teal-500);
+    border-bottom: 2px solid var(--border-selected);
     z-index:2;
     box-sizing: border-box;
   }
