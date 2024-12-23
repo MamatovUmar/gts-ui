@@ -29,7 +29,7 @@ const style = computed(() => {
     backgroundColor: bgColor,
     borderColor: borderColor,
     color: textColor,
-    '--size': currentSize
+    '--size': currentSize,
   }
 
   if (props.url) {
@@ -39,7 +39,6 @@ const style = computed(() => {
   }
   return data
 })
-
 </script>
 
 <template>
