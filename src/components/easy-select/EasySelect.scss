@@ -7,7 +7,10 @@
     box-shadow: var(--input-shadow);
     font-size: 15px;
     color: var(--neutral-800);
-
+  &.large {
+    height: 56px;
+    font-size: 20px;
+  }
     &.p-invalid {
       border-color: var(--red-500);
     }
@@ -36,7 +39,75 @@
       }
     }
   }
+  &.has-label {
+    .p-inputtext {
+      padding-bottom: 5px;
+      padding-top: 20px;
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+  }
 
+  &.small {
+    height: 40px;
+    .p-inputtext {
+      height: 40px;
+      font-size: 13px;
+      border-radius: 8px;
+      padding-left: 12px;
+    }
+    &.p-float-label > label {
+      font-size: 14px;
+      left: 12px;
+    }
+    &.has-prefix {
+      &> label {
+        left: 34px;
+      }
+      .p-inputtext {
+        padding-left: 34px;
+      }
+    }
+    &.p-float-label:has(.p-inputwrapper-filled) label,
+    &.p-float-label:has(.p-inputwrapper-focus) label,
+    &.p-float-label:has(input.p-filled) label{
+      top: 10px;
+      font-size: 10px;
+    }
+  }
+  &.small.has-label {
+    .p-inputtext {
+      padding-top: 15px;
+    }
+  }
+  &.large {
+    height: 48px;
+    .p-inputtext {
+      height: 48px;
+      font-size: 15px;
+      border-radius: 8px;
+      padding-left: 12px;
+    }
+    &.p-float-label > label {
+      font-size: 16px;
+      left: 12px;
+    }
+    &.has-prefix {
+      &> label {
+        left: 34px;
+      }
+      .p-inputtext {
+        padding-left: 34px;
+      }
+    }
+    &.p-float-label:has(.p-inputwrapper-filled) label,
+    &.p-float-label:has(input:focus) label,
+    &.p-float-label:has(input.p-filled) label{
+      top: 13px;
+      font-size: 12px;
+    }
+  }
   .p-dropdown-trigger-icon {
     width: 20px;
     height: 20px;
