@@ -15,10 +15,10 @@ const {
   initials?: string
   online?: boolean
   companyLogo?: string
-  bgColor: string
-  borderColor: string
-  textColor: string
-  bordered: boolean
+  bgColor?: string
+  borderColor?: string
+  textColor?: string
+  bordered?: boolean
 }>()
 
 const style = computed(() => {

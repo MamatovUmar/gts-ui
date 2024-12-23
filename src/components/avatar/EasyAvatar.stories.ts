@@ -18,12 +18,20 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     initials: 'VA',
+    bgColor: 'var(--navy-100)',
+    borderColor: 'var(--navy-50)',
+    textColor: 'var(--navy-800)',
+    bordered: false
   },
 };
 
-export const Status: Story = {
+export const Online: Story = {
   args: {
-    online: true
+    online: true,
+    bgColor: 'var(--navy-100)',
+    borderColor: 'var(--navy-50)',
+    textColor: 'var(--navy-800)',
+    bordered: false
   },
 };
 
