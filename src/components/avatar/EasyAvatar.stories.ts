@@ -17,13 +17,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-
+    initials: 'VA',
   },
 };
 
 export const Status: Story = {
   args: {
-    status: true
+    online: true
   },
 };
 
