@@ -88,10 +88,14 @@ interface Response<T> {
       @input="open = true"
     />
     <div v-if="filterData.length > 0 && open" class="dropdown">
-      <ListBox v-model="model" :options="filterData" :optionLabel="optionLabel" listStyle="max-height:250px">
-        <template #option="{ option }">
-          {{ option[optionLabel] }} ({{ option.base }})
-        </template>
+      <ListBox
+        v-model="model"
+        :options="filterData"
+        :optionLabel="optionLabel"
+        listStyle="max-height:250px"
+        :loading="loading"
+      >
+        <template #option="{ option }">{{ option[optionLabel] }} ({{ option.base }})</template>
       </ListBox>
     </div>
     <div v-else-if="open" class="dropdown">

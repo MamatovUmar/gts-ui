@@ -5,7 +5,7 @@ import InputMask from 'primevue/inputmask';
 import {computed, useId} from "vue";
 import FloatLabel from 'primevue/floatlabel';
 import './EasyInput.scss';
-
+import EasyLoader from '@/components/loader/EasyLoader.vue';
 
 const model = defineModel<string>({default: ''});
 const props = withDefaults(defineProps<{
@@ -20,6 +20,7 @@ const props = withDefaults(defineProps<{
   uppercase?: boolean
   copyButton?: boolean
   disabled?: boolean
+  loading?: boolean
   prefixIcon?: string
 }>(), {
   size: 'large',
@@ -67,18 +68,23 @@ const uppercaseModel = computed({
       :upperCase="uppercase"
       toggleMask
       :feedback="false"
+      :tabindex="tabindex"
+      :readonly="readonly"
+      autocomplete="off"
+      :mask="mask"
+      :disabled="disabled"
+      :loading
       @keydown.down="emit('keydown.down')"
       @keydown.up="emit('keydown.up')"
       @keydown.enter="emit('keydown.enter')"
       @keydown.tab="emit('keydown.tab')"
       @focus="emit('focus')"
       @focusout="emit('focusout')"
-      :tabindex="tabindex"
-      :readonly="readonly"
-      autocomplete="off"
-      :mask="mask"
-      :disabled="disabled"
     />
+
+    <div v-if="loading" class="loading">
+      <EasyLoader :size="20" :borderWidth="2" />
+    </div>
 
     <label v-if="label" :for="id">
       {{ label }}
