@@ -1,66 +1,66 @@
 <script setup lang="ts">
-import { ref, watchEffect, watch } from 'vue'
-import { ICountry } from '@/types/autocomplete'
+import { ref, watchEffect, watch, computed } from 'vue'
+import { ICurrency } from '@/types/autocomplete'
 import { useFetch } from '@/composables/useFetch'
 import { catcher } from '@/utils/catcher'
 import EasyInput from '@/components/input/EasyInput.vue'
-import { debounce } from '@/utils/debounce'
 import ListBox from 'primevue/listbox'
-import './CountryAutocomplete.scss'
+import './CurrencyAutocomplete.scss'
 import { useClickOutside } from '@/composables/useClickOutside'
 
 const {
   size = 'large',
-  optionLabel = 'country_rus',
+  optionLabel = 'ru',
   emptyText = 'Нет совподений',
 } = defineProps<{
   label?: string
   placeholder?: string
   prefixIcon?: string
-  optionLabel?: keyof ICountry
+  optionLabel?: 'base' | 'ru'
   emptyText?: string
   size?: 'small' | 'large'
 }>()
 
 const { get } = useFetch()
 
-const model = defineModel<ICountry>()
+const model = defineModel<ICurrency>()
 
 const dpRef = ref<HTMLElement>()
 const loading = ref(false)
-const empty = ref(false)
 const open = ref(false)
 const invalid = ref(false)
-const countries = ref<ICountry[]>([])
+const currencies = ref<ICurrency[]>([])
 const search = ref()
 
-const getCountries = catcher(async (val: string) => {
-  empty.value = false
-  if (!val || val?.length < 2) return
+const getCurrencies = catcher(async () => {
   loading.value = true
-  const { data } = await get<Response<ICountry[]>>(`/country/${val}`)
+  const { data } = await get<Response<ICurrency[]>>(`/currency`)
   loading.value = false
-  open.value = true
-
-  countries.value = data
-  if (data.length === 0) {
-    empty.value = true
-  }
+  currencies.value = data
 })
 
-const fetchData = debounce(getCountries, 400)
+getCurrencies()
 
 useClickOutside(dpRef)
 
+const filterData = computed(() => {
+  if (search.value) {
+    const val = search.value.toLocaleLowerCase()
+    return currencies.value.filter((item) => {
+      return item.base.toLowerCase().includes(val) || item[optionLabel].toLowerCase().includes(val)
+    })
+  }
+  return currencies.value
+})
+
 function isValid() {
-  invalid.value = search.value?.length && countries.value.length === 0
+  invalid.value = search.value?.length && currencies.value.length === 0
 }
 
 watchEffect(() => {
   if (model.value) {
     search.value = model.value[optionLabel]
     open.value = false
-    countries.value = []
   }
 })
 
@@ -83,14 +83,18 @@ interface Response<T> {
       :loading
       :invalid
       :size
-      @input="fetchData(search)"
-      @focus="fetchData(search)"
       @focusout="isValid"
+      @focus="open = true"
+      @input="open = true"
     />
-    <div v-if="countries.length > 0 && open" class="dropdown">
-      <ListBox v-model="model" :options="countries" :optionLabel="optionLabel" listStyle="max-height:250px" />
+    <div v-if="filterData.length > 0 && open" class="dropdown">
+      <ListBox v-model="model" :options="filterData" :optionLabel="optionLabel" listStyle="max-height:250px">
+        <template #option="{ option }">
+          {{ option[optionLabel] }} ({{ option.base }})
+        </template>
+      </ListBox>
     </div>
-    <div v-else-if="search && empty && open" class="dropdown">
+    <div v-else-if="open" class="dropdown">
       <div class="absolute empty">{{ emptyText }}</div>
     </div>
   </div>

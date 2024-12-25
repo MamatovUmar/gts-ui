@@ -17,3 +17,10 @@ export interface ICountry {
   unicode: string
   image: string
 }
+
+export interface ICurrency {
+  base: string
+  ru: string
+  bool: boolean
+  disabled: boolean
+}
