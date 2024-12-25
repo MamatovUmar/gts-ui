@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, CSSProperties } from 'vue'
-import defaultAvatar from '/src/assets/images/default/avatar.svg'
 import './EasyAvatar.scss'
+
+const defaultAvatar = 'https://api2.globaltravel.space//media/documents/default_profile.svg'
 
 const {
   size = '48px',

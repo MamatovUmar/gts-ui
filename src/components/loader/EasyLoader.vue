@@ -10,8 +10,8 @@ const props = withDefaults(defineProps<{
 }>(), {
   size: 40,
   borderWidth: 3,
-  borderColor: 'var(--alpha-neutral200a)',
-  borderTopColor: 'var(--grey-500)'
+  borderColor: 'var(--background-neutral-default)',
+  borderTopColor: 'var(--icon-subtle)'
 })
 
 const style = computed(() => ({

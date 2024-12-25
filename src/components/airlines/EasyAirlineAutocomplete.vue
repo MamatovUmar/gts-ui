@@ -15,7 +15,9 @@ withDefaults(defineProps<{
   prefixIcon?: string
   optionLabel?: string
   emptyText?: string
+  size?: 'small' | 'large'
 }>(), {
+  size: 'large',
   optionLabel: 'name',
   emptyText: 'Нет совподений'
 })
@@ -51,7 +53,7 @@ const fetchData = debounce(getAirlines, 400)
 useClickOutside(dpRef)
 
 function isValid() {
-  invalid.value = search.value && airlines.value.length === 0
+  invalid.value = search.value?.length && airlines.value.length === 0
 }
 
 watchEffect(() => {
@@ -80,6 +82,7 @@ interface Response<T> {
       :prefix-icon="prefixIcon"
       :loading
       :invalid
+      :size
       @input="fetchData(search)"
       @focus="fetchData(search)"
       @focusout="isValid"
