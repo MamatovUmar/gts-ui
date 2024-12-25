@@ -6,3 +6,14 @@ export interface IAirline {
   is_lowcost: boolean
   logo: string
 }
+
+export interface ICountry {
+  country_rus: string
+  country_eng: string
+  code: string
+  phone_code: number
+  phone_mask: string
+  emoji: string
+  unicode: string
+  image: string
+}
