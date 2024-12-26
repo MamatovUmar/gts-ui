@@ -2,6 +2,12 @@
   position: relative;
   height: 48px;
   display: block;
+  .loading {
+    position: absolute;
+    top: min(50%, 24px);
+    right: 0;
+    transform: translate(-50%, -50%);
+  }
   &.p-float-label > label,
   &.p-float-label:has(.p-password) label{
     color: var(--text-subtle);

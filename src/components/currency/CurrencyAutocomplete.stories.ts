@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import CurrencyAutocomplete from './CurrencyAutocomplete.vue'
 
 const meta = {
-  title: 'Components/CurrencyAutocomplete',
+  title: 'Components/Autocomplete/CurrencyAutocomplete',
   component: CurrencyAutocomplete,
   tags: ['autodocs'],
   argTypes: {

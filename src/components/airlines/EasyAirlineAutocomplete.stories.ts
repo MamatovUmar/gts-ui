@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import EasyAirlineAutocomplete from './EasyAirlineAutocomplete.vue'
 
 const meta = {
-  title: 'Components/EasyAirlineAutocomplete',
+  title: 'Components/Autocomplete/EasyAirlineAutocomplete',
   component: EasyAirlineAutocomplete,
   tags: ['autodocs'],
   argTypes: {

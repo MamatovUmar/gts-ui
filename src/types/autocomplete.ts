@@ -24,3 +24,10 @@ export interface ICurrency {
   bool: boolean
   disabled: boolean
 }
+export interface IDocument {
+  rule: string
+  iso_code: string
+  type: string
+  country: string[]
+  title: string
+}

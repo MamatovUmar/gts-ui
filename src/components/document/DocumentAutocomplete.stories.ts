@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import CountryAutocomplete from './CountryAutocomplete.vue'
+import DocumentAutocomplete from './DocumentAutocomplete.vue'
 
 const meta = {
-  title: 'Components/Autocomplete/CountryAutocomplete',
-  component: CountryAutocomplete,
+  title: 'Components/Autocomplete/DocumentAutocomplete',
+  component: DocumentAutocomplete,
   tags: ['autodocs'],
   argTypes: {
     size: {
@@ -11,13 +11,13 @@ const meta = {
       options: ['small', 'large'],
     },
   }
-} satisfies Meta<typeof CountryAutocomplete>
+} satisfies Meta<typeof DocumentAutocomplete>
 
 export default meta
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'Страна',
+    label: 'Документ',
   }
 }

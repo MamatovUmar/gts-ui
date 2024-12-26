@@ -1,56 +1,61 @@
 <script setup lang="ts">
 import { ref, watchEffect, watch, computed } from 'vue'
-import { ICurrency } from '@/types/autocomplete'
+import { IDocument } from '@/types/autocomplete'
 import { useFetch } from '@/composables/useFetch'
 import { catcher } from '@/utils/catcher'
 import EasyInput from '@/components/input/EasyInput.vue'
 import ListBox from 'primevue/listbox'
-import './CurrencyAutocomplete.scss'
+import './DocumentAutocomplete.scss'
 import { useClickOutside } from '@/composables/useClickOutside'
+import { debounce } from '@/utils/debounce'
 
 const {
   size = 'large',
-  optionLabel = 'ru',
+  optionLabel = 'title',
   emptyText = 'Нет совподений',
+  country
 } = defineProps<{
   label?: string
   placeholder?: string
   prefixIcon?: string
-  optionLabel?: 'base' | 'ru'
+  optionLabel?: 'title' | 'type'
   emptyText?: string
+  country?: string
   size?: 'small' | 'large'
 }>()
 
 const { get } = useFetch()
 
-const model = defineModel<ICurrency>()
+const model = defineModel<IDocument>()
 
 const dpRef = ref<HTMLElement>()
 const loading = ref(false)
 const open = ref(false)
 const invalid = ref(false)
-const currencies = ref<ICurrency[]>([])
+const documents = ref<IDocument[]>([])
 const search = ref()
 
-const getCurrencies = catcher(async () => {
+const getDocuments = catcher(async () => {
   loading.value = true
-  const { data } = await get<Response<ICurrency[]>>(`/currency`)
+  const { data } = await get<Response<IDocument[]>>(`/typedocument`, {
+    params: { country }
+  })
   loading.value = false
-  currencies.value = data
+  documents.value = data
 })
 
-getCurrencies()
+getDocuments()
 
 useClickOutside(dpRef)
 
 const filterData = computed(() => {
   if (search.value) {
-    const val = search.value.toLocaleLowerCase()
-    return currencies.value.filter((item) => {
-      return item.base.toLowerCase().includes(val) || item[optionLabel].toLowerCase().includes(val)
+    const val = search.value.toLowerCase()
+    return documents.value.filter((item) => {
+      return item[optionLabel].toLowerCase().includes(val)
     })
   }
-  return currencies.value
+  return documents.value
 })
 
 function isValid() {
@@ -63,6 +68,12 @@ watchEffect(() => {
     open.value = false
   }
 })
+
+const lazyFetch = debounce(() => {
+  getDocuments()
+}, 300)
+
+watch(() => country, () => lazyFetch())
 
 watch(model, (val, oldVal) => {
   if (val === null) model.value = oldVal
@@ -94,9 +105,7 @@ interface Response<T> {
         :optionLabel="optionLabel"
         listStyle="max-height:250px"
         :loading="loading"
-      >
-        <template #option="{ option }">{{ option[optionLabel] }} ({{ option.base }})</template>
-      </ListBox>
+      />
     </div>
     <div v-else-if="open" class="dropdown">
       <div class="absolute empty">{{ emptyText }}</div>
