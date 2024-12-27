@@ -74,7 +74,7 @@ interface Response<T> {
 </script>
 
 <template>
-  <div class="airline-input-autocomplete relative" ref="dpRef" @clickOutside="open = false">
+  <div class="currency-autocomplete relative" ref="dpRef" @clickOutside="open = false">
     <EasyInput
       v-model="search"
       :label

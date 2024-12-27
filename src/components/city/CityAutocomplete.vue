@@ -7,7 +7,6 @@ import EasyInput from '@/components/input/EasyInput.vue'
 import ListBox from 'primevue/listbox'
 import './CityAutocomplete.scss'
 import { useClickOutside } from '@/composables/useClickOutside'
-import { debounce } from '@/utils/debounce'
 
 const {
   size = 'large',
@@ -80,7 +79,7 @@ interface Response<T> {
 </script>
 
 <template>
-  <div class="airline-input-autocomplete relative" ref="dpRef" @clickOutside="open = false">
+  <div class="city-autocomplete relative" ref="dpRef" @clickOutside="open = false">
     <EasyInput
       v-model="search"
       :label

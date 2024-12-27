@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watchEffect, watch, unref } from 'vue'
+import { ref, watchEffect, watch } from 'vue'
 import { IAirline } from '@/types/autocomplete'
 import { useFetch } from '@/composables/useFetch'
 import { catcher } from '@/utils/catcher'
@@ -24,7 +24,7 @@ withDefaults(defineProps<{
 
 const { get } = useFetch()
 
-const model = ref<IAirline | null>(null)
+const model = defineModel<IAirline>()
 
 const dpRef = ref<HTMLElement>()
 const loading = ref(false)
@@ -53,8 +53,6 @@ const fetchData = debounce(getAirlines, 400)
 useClickOutside(dpRef)
 
 function isValid() {
-  console.log(typeof unref(model.value), model.value);
-
   invalid.value = search.value?.length && airlines.value.length === 0 && model.value === null
 }
 
@@ -76,7 +74,7 @@ interface Response<T> {
 </script>
 
 <template>
-  <div class="airline-input-autocomplete relative" ref="dpRef" @clickOutside="open = false">
+  <div class="airline-autocomplete relative" ref="dpRef" @clickOutside="open = false">
     <EasyInput
       v-model="search"
       :label

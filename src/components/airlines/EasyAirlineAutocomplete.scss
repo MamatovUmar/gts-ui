@@ -1,4 +1,4 @@
-.airline-input-autocomplete {
+.airline-autocomplete {
   .dropdown {
     position: relative;
     .p-listbox, .empty {
@@ -9,6 +9,7 @@
       position: absolute;
       top: 5px;
       width: 100%;
+      z-index: 2;
       &-item {
         color: var(--text-default);
       }
