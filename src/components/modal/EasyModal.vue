@@ -40,7 +40,6 @@ const { maxWidth, noScroll = false, dismissableMask = true, showHeader = true } 
       <slot name="header" />
     </template>
     <slot />
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt facere illum error sit obcaecati fugit minima numquam nemo quo quod, quae quibusdam pariatur corporis eius hic eveniet sapiente aliquam laborum.
     <template v-if="$slots?.footer" #footer>
       <slot name="footer" />
       sadfsdf

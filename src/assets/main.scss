@@ -7,7 +7,7 @@
 /* Import icomoon font */
 @import './icomoon/style.css';
 
-body {
+body *:not([class^='path']) {
   font-family: 'Mulish', sans-serif;
 }
 
@@ -108,7 +108,9 @@ body {
 .w-half {
   width: 50%;
 }
-
+.text-center {
+  text-align: center;
+}
 @keyframes rotate {
   from {
     transform: rotate(0deg);
