@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import dts from 'vite-plugin-dts';
+import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
 import type { PreRenderedAsset } from 'rollup'
 
@@ -19,7 +19,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "@/assets/colors" as *;`
+        additionalData: '@use "@/assets/colors" as *;'
       }
     }
   },
@@ -37,9 +37,9 @@ export default defineConfig({
         },
         assetFileNames: (assetInfo: PreRenderedAsset): string => {
           if (assetInfo.name && /style\.css$/.test(assetInfo.name)) {
-            return 'gts-ui.css';
+            return 'gts-ui.css'
           }
-          return assetInfo.name || 'assets/[name][extname]';
+          return assetInfo.name || 'assets/[name][extname]'
         },
       },
     },

@@ -1,0 +1,52 @@
+<script setup lang="ts">
+import RadioButton from 'primevue/radiobutton';
+import './EasyRadiobutton.scss'
+
+defineProps<{
+  name: string
+  value: string | number | object
+  label?: string
+  small?: boolean
+  disabled?: boolean
+  text?: string
+}>()
+
+const model = defineModel()
+
+</script>
+
+<template>
+  <label :class="['easy-radiobutton', { small }]">
+    <RadioButton
+      v-model="model"
+      :name="name"
+      :value="value"
+      :disabled
+    />
+    <span :class="['easy-radiobutton__label pointer']">
+      <template v-if="!$slots.default">
+        <span class="easy-radiobutton__title">{{ label }}</span>
+        <span v-if="text" class="easy-radiobutton__description">
+          {{ text }}
+        </span>
+      </template>
+      <slot />
+    </span>
+  </label>
+</template>
+
+<style scoped lang="scss">
+.easy-radiobutton {
+  &.menu {
+    padding: 10px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover {
+      background: var(--radiobutton-hover-bg);
+      span {
+        color: var(--primary-color)
+      }
+    }
+  }
+}
+</style>

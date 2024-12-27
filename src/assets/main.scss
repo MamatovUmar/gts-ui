@@ -1,6 +1,8 @@
- @use 'primevue/resources/themes/aura-light-green/theme.css';
+@use 'primevue/resources/themes/aura-light-green/theme.css';
 @use './colors';
 @use './fonts';
+@use './utils';
+@use './components/toast';
 
 /* Import icomoon font */
 @import './icomoon/style.css';
@@ -105,4 +107,13 @@ body {
 
 .w-half {
   width: 50%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -202,7 +202,6 @@ const IconsDemo = defineComponent({
       'Heart-Outline',
       'Hide-Outline',
       'Home-Outline',
-      'Image-2-Outline',
       'Image-Outline',
       'Info-Circle-Outline',
       'Info-Square-Outline',
@@ -255,9 +254,9 @@ const IconsDemo = defineComponent({
     const searchQuery = ref('');
     const filteredIcons = computed(() => {
       if (!searchQuery.value) return icons;
-      
+
       const normalizedQuery = searchQuery.value.toLowerCase().trim();
-      return icons.filter(icon => 
+      return icons.filter(icon =>
         icon.toLowerCase().includes(normalizedQuery) ||
         // Also search by category (e.g., 'Outline', 'Arrow', etc.)
         icon.toLowerCase().split('---').some(part => part.includes(normalizedQuery))
@@ -279,36 +278,36 @@ const IconsDemo = defineComponent({
       }
     };
 
-    return { 
-      icons, 
-      multiPathIcons, 
-      copyToClipboard, 
+    return {
+      icons,
+      multiPathIcons,
+      copyToClipboard,
       copiedIcon,
       searchQuery,
-      filteredIcons 
+      filteredIcons
     };
   },
   template: `
     <div class="icons-demo">
       <h1>Icomoon Icons</h1>
       <p>This page showcases all available icons in our icomoon font set. Click on any icon to copy its class name.</p>
-      
+
       <div class="search-container">
-        <input 
-          type="text" 
-          v-model="searchQuery" 
-          placeholder="Search icons..." 
+        <input
+          type="text"
+          v-model="searchQuery"
+          placeholder="Search icons..."
           class="icon-search-input"
         />
         <span class="icon-count">
           {{ filteredIcons.length }} / {{ icons.length }} icons
         </span>
       </div>
-      
+
       <div class="icons-grid">
-        <div 
-          v-for="icon in filteredIcons" 
-          :key="icon" 
+        <div
+          v-for="icon in filteredIcons"
+          :key="icon"
           class="icon-item"
           :class="{ 'copied': copiedIcon === icon }"
           @click="copyToClipboard(icon)"
@@ -332,17 +331,17 @@ const IconsDemo = defineComponent({
       <div class="usage-section">
         <h2>Usage</h2>
         <p>To use an icon in your component:</p>
-        
+
         <h3>1. Use the icon class in your template:</h3>
         <pre><code>&lt;i class="icon-Home"&gt;&lt;/i&gt;</code></pre>
-        
+
         <h3>2. For multi-path icons (like flags):</h3>
         <pre><code>&lt;span class="icon-uzbekistan"&gt;
   &lt;span class="path1"&gt;&lt;/span&gt;
   &lt;span class="path2"&gt;&lt;/span&gt;
   ...
 &lt;/span&gt;</code></pre>
-        
+
         <h3>3. Customize size and color:</h3>
         <pre><code>&lt;i class="icon-Home" style="font-size: 24px; color: #007bff;"&gt;&lt;/i&gt;</code></pre>
       </div>

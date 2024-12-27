@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineModel } from 'vue'
 import Checkbox from 'primevue/checkbox'
 import {useId} from 'vue'
 import './EasyCheckbox.scss'

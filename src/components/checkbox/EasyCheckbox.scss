@@ -14,16 +14,12 @@
       border-color: var(--border-bold);
       background: var(--elevation-surface-overlay);
     }
-    &:not(.p-disabled):has(&-input:hover) &-box {
-      border-color: var(--text-brand-default);
-      background: var(--checkbox-hover-background)
-    }
     &.p-highlight .p-checkbox-box {
       background: var(--text-brand-default) !important;
       border-color: var(--text-brand-default);
     }
     input {
-      width: 0;
+      width: var(--size);
     }
   }
   &__label {
