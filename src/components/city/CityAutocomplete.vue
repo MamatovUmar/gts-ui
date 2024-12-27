@@ -1,66 +1,60 @@
 <script setup lang="ts">
 import { ref, watchEffect, watch, computed } from 'vue'
-import { IDocument } from '@/types/autocomplete'
+import { ICity } from '@/types/autocomplete'
 import { useFetch } from '@/composables/useFetch'
 import { catcher } from '@/utils/catcher'
 import EasyInput from '@/components/input/EasyInput.vue'
 import ListBox from 'primevue/listbox'
-import './DocumentAutocomplete.scss'
+import './CityAutocomplete.scss'
 import { useClickOutside } from '@/composables/useClickOutside'
 import { debounce } from '@/utils/debounce'
 
 const {
   size = 'large',
-  optionLabel = 'title',
+  optionLabel = 'name',
   emptyText = 'Нет совподений',
-  country
+  countryCode
 } = defineProps<{
   label?: string
   placeholder?: string
   prefixIcon?: string
-  optionLabel?: 'title' | 'type'
+  optionLabel?: 'name' | 'state_name'
   emptyText?: string
-  country?: string
+  countryCode?: string
   size?: 'small' | 'large'
 }>()
 
 const { get } = useFetch()
 
-const model = defineModel<IDocument>()
+const model = defineModel<ICity>()
 
 const dpRef = ref<HTMLElement>()
 const loading = ref(false)
 const open = ref(false)
 const invalid = ref(false)
-const documents = ref<IDocument[]>([])
+const cities = ref<ICity[]>([])
 const search = ref<string>('')
 
-const getDocuments = catcher(async () => {
+const getCities = catcher(async () => {
+  if (!countryCode) return
   loading.value = true
-  const params: { country?: string } = {}
-  if (country) {
-    params.country = country
-  }
-
-  const { data } = await get<Response<IDocument[]>>(`/typedocument`, {
-    params
-  })
+  const { data } = await get<Response<ICity[]>>(`/cities/${countryCode}`)
   loading.value = false
-  documents.value = data
+  cities.value = data
 })
 
-getDocuments()
+getCities()
 
 useClickOutside(dpRef)
 
 const filterData = computed(() => {
   if (search.value) {
     const val = search.value.toLowerCase()
-    return documents.value.filter((item) => {
+    return cities.value.filter((item) => {
       return item[optionLabel].toLowerCase().includes(val)
     })
   }
-  return documents.value
+  return cities.value
 })
 
 function isValid() {
@@ -74,11 +68,7 @@ watchEffect(() => {
   }
 })
 
-const lazyFetch = debounce(() => {
-  getDocuments()
-}, 300)
-
-watch(() => country, () => lazyFetch())
+watch(() => countryCode, () => getCities())
 
 watch(model, (val, oldVal) => {
   if (val === null) model.value = oldVal

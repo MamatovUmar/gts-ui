@@ -31,3 +31,9 @@ export interface IDocument {
   country: string[]
   title: string
 }
+
+export interface ICity {
+  name: string
+  state_name: string
+  country_name: string
+}
