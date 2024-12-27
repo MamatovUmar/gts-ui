@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/vue3';
 import EasyModal from './EasyModal.vue';
 
 const meta: Meta = {
-  title: 'Components/EasyModal',
+  title: 'Components/Modals/EasyModal',
   component: EasyModal,
   tags: ['autodocs'],
   argTypes: {
@@ -20,14 +20,6 @@ const meta: Meta = {
       table: {
         type: {summary: 'string'},
         defaultValue: {summary: '""'},
-      },
-    },
-    whiteBg: {
-      control: 'boolean',
-      description: 'Determines if the modal background should be white.',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: 'false'},
       },
     },
     maxWidth: {
@@ -87,7 +79,6 @@ type Story = StoryObj<typeof meta>;
 export const Basic: Story = {
   args: {
     title: 'This is default modal',
-    whiteBg: true,
     model: false,
     maxWidth: '650px',
     hideClose: false,
@@ -102,7 +93,6 @@ export const Basic: Story = {
       <button class="p-button" @click="args.model = true">Open Modal</button>
       <h3>Basic modal</h3>
       <EasyModal
-        :white-bg="args.whiteBg"
         v-model="args.model"
         v-bind="args"
         :max-width="args.maxWidth"
@@ -115,7 +105,6 @@ export const Basic: Story = {
 export const ExpandToWidth: Story = {
   args: {
     title: "full width",
-    whiteBg: true,
     model: false,
     hideClose: false,
     noScroll: true,
@@ -136,7 +125,6 @@ export const ExpandToWidth: Story = {
       <h3>full width modal</h3>
 
       <EasyModal
-        :white-bg="args.whiteBg"
         v-model="args.model"
         v-bind="args"
         :position="args.position"
