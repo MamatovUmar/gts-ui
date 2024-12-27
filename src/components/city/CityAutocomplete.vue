@@ -67,7 +67,11 @@ watchEffect(() => {
   }
 })
 
-watch(() => countryCode, () => getCities())
+watch(() => countryCode, () => {
+  search.value = ''
+  cities.value = []
+  getCities()
+})
 
 watch(model, (val, oldVal) => {
   if (val === null) model.value = oldVal

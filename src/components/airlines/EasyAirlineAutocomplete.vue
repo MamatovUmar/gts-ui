@@ -53,7 +53,7 @@ const fetchData = debounce(getAirlines, 400)
 useClickOutside(dpRef)
 
 function isValid() {
-  invalid.value = search.value?.length && airlines.value.length === 0 && model.value === null
+  invalid.value = search.value?.length && airlines.value.length === 0
 }
 
 watchEffect(() => {
