@@ -7,8 +7,16 @@ import EasyIcon from './components/icon/EasyIcon.vue';
 import EasyCheckbox from './components/checkbox/EasyCheckbox.vue';
 import EasyRadioButton from './components/radio/EasyRadioButton.vue';
 import EasyButton from './components/button/EasyButton.vue';
-import EasyTag from './components/tag/EasyTag.vue'
-// import EasyTextarea from "@/components/textarea/EasyTextarea.vue";
+import EasyDropdown from './components/dropdown/EasyDropdown.vue';
+import EasyLoader from './components/loader/EasyLoader.vue';
+import EasyAirline from './components/airlines/EasyAirlineAutocomplete.vue';
+import EasyAvatar from './components/avatar/EasyAvatar.vue';
+import EasySelect from './components/select/EasySelect.vue';
+import EasyCity from './components/city/CityAutocomplete.vue';
+import EasyCountry from './components/country/CountryAutocomplete.vue';
+import EasyCurrency from './components/currency/CurrencyAutocomplete.vue';
+import EasyDocument from './components/document/DocumentAutocomplete.vue';
+import EasyTabs from './components/tabs/EasyTabs.vue';
 
 const components = [
   EasyInput,
@@ -16,8 +24,16 @@ const components = [
   EasyRadioButton,
   EasyCheckbox,
   EasyButton,
-  EasyTag,
-  // EasyTextarea
+  EasyDropdown,
+  EasyLoader,
+  EasyAirline,
+  EasyAvatar,
+  EasySelect,
+  EasyCity,
+  EasyCountry,
+  EasyCurrency,
+  EasyDocument,
+  EasyTabs
   // Add more components
 ];
 
@@ -39,7 +55,30 @@ export {
   EasyRadioButton,
   EasyCheckbox,
   EasyButton,
-  EasyTag,
-  // EasyTextarea
+  EasyDropdown,
+  EasyLoader,
+  EasyAirline,
+  EasyAvatar,
+  EasySelect,
+  EasyCity,
+  EasyCountry,
+  EasyCurrency,
+  EasyDocument,
+  EasyTabs
   // Add more component exports
 };
+
+// Export all types
+export type {
+  IAirline,
+  ICountry,
+  ICurrency,
+  IDocument,
+  ICity
+} from './types/autocomplete';
+export type { IItem, DatepickerModelType } from './types/ui';
+
+// Export utility functions
+export { catcher } from './utils/catcher';
+export { debounce } from './utils/debounce';
+export { padStart } from './utils/string';

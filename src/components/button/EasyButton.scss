@@ -3,6 +3,7 @@
   background: var(--background-brand-bold-default);
   border-color: var(--background-brand-bold-default);
   color: var(--elevation-surface-overlay);
+  justify-content: center;
   &.p-button-danger {
     background: var(--background-danger-default);
     border-color: var(--background-danger-default);
@@ -91,6 +92,11 @@
       background: var(--background-neutral-default);
       color: var(--text-subtle);
       border-color: var(--border-bold);
+    }
+    &.p-button-plain {
+      background: var(--background-neutral-default);
+      color: var(--text-default);
+      border-color: var(--background-neutral-default);
     }
   }
 
