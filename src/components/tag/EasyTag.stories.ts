@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import EasyTag from './EasyTag.vue';
+import Tag from 'primevue/tag'
 
 const meta: Meta = {
-  title: 'Components/EasyTag',
-  component: EasyTag,
+  title: 'Components/Tag',
+  component: Tag,
   tags: ['autodocs'],
 };
 
@@ -12,24 +12,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   argTypes: {
-    value: {
-      control: 'text',
-      type: 'string',
-      description: 'Value to display in the tag.',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'Default Value' },
-      },
-    },
-    rounded: {
-      control: 'boolean',
-      type: 'boolean',
-      description: 'Rounded makes it circular.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    },
     severity: {
       control: 'select',
       options: ['success', 'secondary', 'info', 'warning', 'danger', 'contrast'],
@@ -40,6 +22,7 @@ export const Basic: Story = {
       },
     },
   },
+  tags: ['autodocs'],
   args: {
     value: 'Default Value',
     rounded: false,
@@ -98,16 +81,16 @@ export const WithSlot: Story = {
     severity: 'danger',
   },
   render: (args) => ({
-    components: { EasyTag },
+    components: { Tag },
     setup() {
       return { args };
     },
     template: `
-      <EasyTag severity="danger" v-bind="args">
+      <Tag severity="danger" v-bind="args">
         <span>
           <i class="icon-Add-User-Outline"></i>
         </span>
-      </EasyTag>
+      </Tag>
     `,
   }),
 };
