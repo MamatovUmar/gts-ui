@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 import EasyInput from './EasyInput.vue';
 
 const meta = {
-  title: 'Components/EasyInput',
+  title: 'Components/Form/EasyInput',
   component: EasyInput,
   tags: ['autodocs'],
   argTypes: {

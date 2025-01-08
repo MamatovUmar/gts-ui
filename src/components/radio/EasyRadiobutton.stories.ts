@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import EasyRadioButton from './EasyRadioButton.vue';
 
 const meta: Meta = {
-  title: 'Components/EasyRadioButton',
+  title: 'Components/Form/EasyRadioButton',
   component: EasyRadioButton,
   tags: ['autodocs']
 }

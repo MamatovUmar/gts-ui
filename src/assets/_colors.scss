@@ -64,11 +64,11 @@
   --border-accent-green-default: var(--green-500);
   --border-accent-green-subtle: var(--green-200);
   --border-accent-navy-default: var(--navy-500);
-  --border-accent-navy-subtle: #ffffff;
-  --border-accent-navy-subtler: #ffffff;
+  --border-accent-navy-subtle: var(--navy-100);
+  --border-accent-navy-subtler: var(--navy-200);
   --border-accent-orange-default: var(--brown-500);
   --border-accent-orange-subtle: var(--brown-200);
-  --border-accent-yellow-default: #ffca00;
+  --border-accent-yellow-default: var(--yellow-500);
   --icon-danger: var(--red-500);
   --icon-default: var(--black-500);
   --icon-disabled: var(--alpha-neutral400a);
@@ -343,8 +343,8 @@
   --border-accent-green-default: var(--green-500);
   --border-accent-green-subtle: var(--green-200);
   --border-accent-navy-default: var(--navy-400);
-  --border-accent-navy-subtle: #ffffff;
-  --border-accent-navy-subtler: #ffffff;
+  --border-accent-navy-subtle: var(--navy-100);
+  --border-accent-navy-subtler: var(--navy-200);
   --border-accent-orange-default: var(--brown-500);
   --border-accent-orange-subtle: var(--brown-200);
   --border-accent-yellow-default: var(--yellow-500);

@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import EasyCheckbox from './EasyCheckbox.vue';
 
 const meta: Meta = {
-  title: 'Components/EasyCheckbox',
+  title: 'Components/Form/EasyCheckbox',
   component: EasyCheckbox,
   tags: ['autodocs']
 }

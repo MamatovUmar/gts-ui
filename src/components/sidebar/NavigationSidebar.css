@@ -1,8 +1,5 @@
 .navigation-sidebar {
-  --sidebar-short-width: 52px;
-  --sidebar-full-width: 248px;
-
-  width: var(--sidebar-full-width);
+  width: var(--sidebar-width);
   box-sizing: border-box;
   height: 100dvh;
   display: grid;
@@ -24,7 +21,7 @@
   transform: rotate(180deg);
 }
 .navigation-sidebar.short {
-  width: var(--sidebar-short-width);
+  width: var(--sidebar-width);
   grid-template-rows: 97px auto 72px;
 }
 .navigation-sidebar__body {
@@ -80,6 +77,7 @@
   font-size: 14px;
   color: var(--text-subtle);
   position: relative;
+  text-decoration: none;
 }
 .navigation-sidebar__link:not(.disable):hover {
   cursor: pointer;
@@ -151,7 +149,7 @@
   background: transparent;
 }
 .sidebar-op {
-  left: var(--sidebar-short-width) !important;
+  left: var(--sidebar-width) !important;
   background: var(--elevation-surface-overlay);
   border: none;
   box-shadow: 0px 1px 2px 0px #1018280F;

@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/vue3';
 import EasySelect from './EasySelect.vue';
 
 const meta = {
-  title: 'Components/EasySelect',
+  title: 'Components/Form/EasySelect',
   component: EasySelect,
   tags: ['autodocs'],
   argTypes: {

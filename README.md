@@ -62,6 +62,52 @@ const app = createApp(App)
 app.use(gts)
 ```
 
+## Utils
+
+### catcher
+function for handling asynchronous errors. Wraps an asynchronous function and handles potential errors.
+
+```typescript
+import { catcher } from 'gts-ui'
+
+// example usage
+const safeFetch = catcher(async () => {
+  const response = await fetch('https://api.example.com/data')
+  return response.json()
+})
+
+const fetchInfo = catcher(async () => {
+  const response = await fetch('https://api.example.com/data')
+  return response.json()
+}, (error) => {
+  console.error('Произошла ошибка:', error)
+})
+```
+
+### debounce
+Function for preventing frequent function calls. Useful for handling input events or scrolling.
+
+```typescript
+import { debounce } from 'gts-ui'
+
+// example usage
+const handleSearch = debounce((searchTerm: string) => {
+  // search
+  console.log('Search:', searchTerm)
+}, 300) // Delay of 300ms
+```
+
+### padStart
+Function for padding a string or number with zeros to the left to a specified length.
+
+```typescript
+import { padStart } from 'gts-ui'
+
+// Example usage
+const formattedNumber = padStart(5, 2) // "05"
+const formattedHour = padStart(9, 2)   // "09"
+```
+
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
 
