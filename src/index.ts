@@ -17,6 +17,11 @@ import EasyCountry from './components/country/CountryAutocomplete.vue';
 import EasyCurrency from './components/currency/CurrencyAutocomplete.vue';
 import EasyDocument from './components/document/DocumentAutocomplete.vue';
 import EasyTabs from './components/tabs/EasyTabs.vue';
+import EasyBackground from './components/background/EasyBackground.vue';
+import EasyLayout from './components/layout/EasyLayout.vue';
+import EasyModal from './components/modal/EasyModal.vue';
+import EasyConfirmModal from './components/modal/EasyConfirmModal.vue';
+import EasySidebar from './components/sidebar/NavigationSidebar.vue';
 
 const components = [
   EasyInput,
@@ -33,7 +38,12 @@ const components = [
   EasyCountry,
   EasyCurrency,
   EasyDocument,
-  EasyTabs
+  EasyTabs,
+  EasyBackground,
+  EasyLayout,
+  EasyModal,
+  EasyConfirmModal,
+  EasySidebar
   // Add more components
 ];
 
@@ -64,7 +74,12 @@ export {
   EasyCountry,
   EasyCurrency,
   EasyDocument,
-  EasyTabs
+  EasyTabs,
+  EasyBackground,
+  EasyLayout,
+  EasyModal,
+  EasyConfirmModal,
+  EasySidebar
   // Add more component exports
 };
 
@@ -76,7 +91,7 @@ export type {
   IDocument,
   ICity
 } from './types/autocomplete';
-export type { IItem, DatepickerModelType } from './types/ui';
+export type { IItem, DatepickerModelType, ISidebarItem } from './types/ui';
 
 // Export utility functions
 export { catcher } from './utils/catcher';
