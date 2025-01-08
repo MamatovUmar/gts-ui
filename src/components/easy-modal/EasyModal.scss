@@ -1,33 +1,43 @@
 .easy-modal {
   background: var(--bg-blur-80);
   backdrop-filter: blur(20px);
-  border-radius: 28px;
+  border-radius: 12px;
   width: calc(100% - 40px);
   min-width: 300px;
   position: relative;
+
   &.white-bg {
     background: var(--base-white);
   }
   .header {
     .title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
+      color: var(--black-500);
+    }
+    .text{
+      font-size: 14px;
+      color: var(--neutral-800);
+      margin-top: 8px;
     }
   }
   .close {
     width: 28px;
     height: 28px;
+    transition: 0.3s;
     color: var(--icon-primary-dark-700);
-    border: 1px solid;
     border-radius: 100%;
     position: absolute;
     top: 12px;
     right: 12px;
     z-index: 11;
+    &:hover{
+      background : var(--background-neutral-subtle-default);
+    }
   }
   .p-dialog-content {
     margin: 24px 10px 24px 24px;
-    padding: 0 14px 0 0;
+    padding: 0 16px 0 0;
     background: transparent;
     height: auto !important;
     overflow-x: hidden;

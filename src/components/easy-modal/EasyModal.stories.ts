@@ -22,9 +22,9 @@ const meta: Meta = {
         defaultValue: {summary: '""'},
       },
     },
-    whiteBg: {
-      control: 'boolean',
-      description: 'Determines if the modal background should be white.',
+    bgColor: {
+      control: 'text',
+      description: 'to change the background of the modal.',
       table: {
         type: {summary: 'boolean'},
         defaultValue: {summary: 'false'},
@@ -38,7 +38,7 @@ const meta: Meta = {
         defaultValue: {summary: '"650px"'},
       },
     },
-    hideClose: {
+    closable: {
       control: 'boolean',
       description: 'If true, hides the close button.',
       table: {
@@ -86,63 +86,69 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   args: {
-    title: 'This is default modal',
-    whiteBg: true,
+    title: "This is default modal",
+    text: "esos et facilis labore quam quia ratione saepe, sapiente similique ",
+    bgColor: "--base-white",
     model: false,
-    maxWidth: '650px',
-    hideClose: false,
+    maxWidth: "650px",
+    closable: true,
     noScroll: true,
+    showHeader: true
   },
   render: (args) => ({
     components: {EasyModal},
     setup() {
       return {args};
     },
-    template: `
+    template:`
       <button class="p-button" @click="args.model = true">Open Modal</button>
       <h3>Basic modal</h3>
       <EasyModal
-        :white-bg="args.whiteBg"
+        :bgColor="args.whiteBg"
         v-model="args.model"
         v-bind="args"
+        :closable="args.closable"
+        :title="args.title"
+        :text="args.text"
+        :show-header="false"
         :max-width="args.maxWidth"
-        :hide-close="args.hideClose"
         :no-scroll="args.noScroll"
-        @close="args.close"/>`,
+        @close="args.close">
+      </EasyModal>`,
   }),
 };
 
-export const ExpandToWidth: Story = {
-  args: {
-    title: "full width",
-    whiteBg: true,
-    model: false,
-    hideClose: false,
-    noScroll: true,
-    position: 'center'
-  },
-  render: (args) => ({
-    components: {EasyModal},
-    setup() {
-      return {args};
-    },
-    template: `
-      <button
-        class="p-button"
-        @click="args.model = true">
-        Open Modal
-      </button>
-
-      <h3>full width modal</h3>
-
-      <EasyModal
-        :white-bg="args.whiteBg"
-        v-model="args.model"
-        v-bind="args"
-        :position="args.position"
-        :max-width="args.maxWidth"
-        :hide-close="args.hideClose"
-        :no-scroll="args.noScroll"
-        @close="args.close"/>`,
-  }),
-}
+// export const ExpandToWidth: Story = {
+//   args: {
+//     title: "full width",
+//     bgColor: true,
+//     model: false,
+//     closable: false,
+//     noScroll: true,
+//     position: 'center'
+//   },
+//   render: (args) => ({
+//     components: {EasyModal},
+//     setup() {
+//       return {args};
+//     },
+//     template: `
+//       <button
+//         class="p-button"
+//         @click="args.model = true">
+//         Open Modal
+//       </button>
+//
+//       <h3>full width modal</h3>
+//
+//       <EasyModal
+//         :bgColor="args.whiteBg"
+//         v-model="args.model"
+//         v-bind="args"
+//         :position="args.position"
+//         :max-width="args.maxWidth"
+//         :closable="args.hideClose"
+//         :no-scroll="args.noScroll"
+//         @close="args.close"/>`,
+//   }),
+// }
