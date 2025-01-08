@@ -8,7 +8,7 @@
 }
 
 .dynamic-bg {
-  position: fixed;
+  position: absolute;
   overflow: hidden;
   top: 0;
   left: 0;
@@ -21,62 +21,25 @@
 .sphere {
   border-radius: 100%;
   position: absolute;
+  box-shadow: var(--d-background-shadow);
 }
-
 .violet {
-  box-shadow: 4px -12px 19px 0px #ffffff87 inset;
-  background: radial-gradient(
-    96.36% 96.84% at 24.63% 38.89%,
-    #ffffff 0%,
-    #e6fbfe 0.01%,
-    #709eff 71.35%,
-    #e4f9ff 100%
-  );
+  box-shadow: var(--d-background-violet-shadow);
+  background: var(--d-background-violet);
 }
-
-.transparent {
-  background: linear-gradient(180deg, rgba(206, 222, 254, 0.15) 0%, rgba(247, 248, 250, 0.15) 100%);
+.grey {
+  background: var(--d-background-grey);
   border: 1.5px solid;
-  border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 100%);
-  box-shadow:
-    54px 0 100px 0 #525eca1a inset,
-    2px 3px 84px 0 #0047ff0d;
-}
+  border-image-source: var(--d-background-grey-border);
+  box-shadow: var(--d-background-grey-shadow)
 
+}
 .blue {
-  background: radial-gradient(
-    92.57% 92.97% at 30.24% 36.1%,
-    #ffffff 0.01%,
-    #9bffff 0%,
-    #75efff 28.56%,
-    #50ddff 43.72%,
-    #04baf6 67.5%,
-    #e4f9ff 100%
-  );
-  box-shadow: 4px -12px 19px 0px #ffffff2e inset;
+  background: var(--d-background-blue)
 }
-
 .green {
-  background: radial-gradient(70.16% 70.52% at 21.88% 28.61%, #40f7d6 0%, #00efb6 50%, #19dba1 75%, #00b988 100%);
-  box-shadow:
-    4px -12px 19px 0px #39d2b099 inset,
-    -17px 22px 20.799999237060547px 0px #01f8f86e inset;
+  background: var(--d-background-green);
 }
-
-.pink {
-  background-image: linear-gradient(
-    to left top,
-    #bf6eb8,
-    #cb75c4,
-    #d77cd0,
-    #e383dc,
-    #ef8ae8,
-    #f494ee,
-    #fa9ef5,
-    #ffa8fb,
-    #ffb7fd,
-    #ffc5fe,
-    #ffd2ff,
-    #ffe0ff
-  );
+.violet {
+  background-image: var(--d-background-pink);
 }

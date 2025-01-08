@@ -6,7 +6,7 @@ const props = defineProps<{
   routePath?: string
 }>()
 
-const colors = ['violet', 'transparent', 'green', 'pink', 'blue', 'transparent']
+const colors = ['violet', 'violet', 'grey', 'green', 'blue', 'orange', 'grey']
 const minHeight = 125
 const maxHeight = 660
 const elements = ref<Element[]>([])
