@@ -5,9 +5,7 @@ const meta = {
   title: 'Components/EasyLoader',
   component: EasyLoader,
   tags: ['autodocs'],
-  argTypes: {
-    size: String,
-  },
+  argTypes: {},
 } satisfies Meta<typeof EasyLoader>;
 
 export default meta;
@@ -15,6 +13,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    size: 'large'
+    size: 50
   },
 };

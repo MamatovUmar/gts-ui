@@ -12,6 +12,15 @@ export default [
     ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
   },
 
+  {
+    name: 'app/style',
+    rules: {
+      // quotes: ['error', 'single'],
+      'vue/html-quotes': ['error', 'double'],
+      // semi: ['error', 'never']
+    }
+  },
+
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
 ]

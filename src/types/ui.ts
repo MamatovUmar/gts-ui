@@ -5,3 +5,15 @@ export interface IItem {
   disabled?: boolean
   items?: string[]
 }
+
+export type DatepickerModelType = ((Date | Date[] | (Date | null)[]) & (string | Date | Date[] | string[])) | null | undefined
+
+export interface ISidebarItem {
+  path: string
+  icon?: string
+  activeIcon?: string
+  label: string
+  code: string
+  children?: ISidebarItem[]
+  disabled?: boolean
+}

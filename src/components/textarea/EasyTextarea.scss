@@ -1,0 +1,19 @@
+.easy-textarea {
+  .p-inputtext {
+    padding: 8px;
+    border: 2px solid var(--cadet-blue-200);
+
+    &::placeholder {
+      font-size: 14px;
+      color: var(--light-text-color);
+    }
+  }
+
+  .p-inputtext.p-invalid.p-component {
+    border: 2px solid var(--red-500) !important;
+  }
+
+  .p-inputtextarea.p-inputtext:enabled:focus {
+    outline: 2px solid var(--teal-500);
+  }
+}

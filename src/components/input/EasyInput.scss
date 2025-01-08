@@ -2,13 +2,18 @@
   position: relative;
   height: 48px;
   display: block;
+  .loading {
+    position: absolute;
+    top: min(50%, 24px);
+    right: 0;
+    transform: translate(-50%, -50%);
+  }
   &.p-float-label > label,
   &.p-float-label:has(.p-password) label{
     color: var(--text-subtle);
     font-size: 16px;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     left: 16px;
     transition: 0.2s;
   }
@@ -16,7 +21,6 @@
     position: absolute;
     right: 16px;
     top: 50%;
-    transform: translateY(-50%)
   }
   .prefix {
     position: absolute;
@@ -64,13 +68,13 @@
     border: 1px solid var(--border-bold);
     background: var(--background-input-default);
     font-size: 15px;
-    color: var(--black-500);
+    color: var(--text-subtle);
     box-sizing: border-box;
     width: 100%;
     padding-left: 16px;
     outline: none;
     &::placeholder {
-      color: var(--text-subtle);
+      color: var(--text-subtlest);
       opacity: 1;
     }
     &.p-invalid {
