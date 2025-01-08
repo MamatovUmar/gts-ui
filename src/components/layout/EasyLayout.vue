@@ -115,12 +115,12 @@ watch(width, () => {
   height: calc(100% - 136px);
 }
 .easy-layout__body-inner {
-  background: #ffffff59;
   border: 1px solid #ffffff;
   border-radius: 16px;
   padding: 8px 5px 8px 8px;
   box-sizing: border-box;
   height: 100%;
+  background: #ffffff59;
 }
 .easy-layout__scrollbar {
   box-sizing: border-box;
@@ -129,18 +129,30 @@ watch(width, () => {
   padding-right: 3px;
 }
 .blur-block {
-  background: #ffffffb2;
   border-radius: 8px;
-  backdrop-filter: blur(42px);
+  position: relative;
   height: 100%;
+  &::after {
+    content: "";
+    position: absolute;
+    background: #ffffffb2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    backdrop-filter: blur(42px);
+    border-radius: inherit;
+  }
 }
 .dark .easy-layout__body-inner {
-  background: #0c111d66;
+  background: #0C111D66;
   border: 1px solid #ffffff33;
 }
-.dark .blur-block {
+.dark .blur-block::after {
   background: #0c111dcc;
 }
+
 .easy-layout .copyright {
   font-size: 14px;
   font-weight: 600;

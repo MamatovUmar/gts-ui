@@ -20,6 +20,7 @@ withDefaults(
         <span>Header</span>
       </template>
 
+      <div class="blur-block">dfgd</div>
     </EasyLayout>
   </div>
 </template>
