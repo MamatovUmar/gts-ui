@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import EasyLayout from '@/components/layout/EasyLayout.vue'
 import routes from '@/constants/sidebar'
+import EasyProfileDropdown from '@/components/header/profile/ProfileDropdown.vue'
+import { links, user } from '@/constants';
 
 withDefaults(
   defineProps<{
@@ -17,7 +19,7 @@ withDefaults(
   <div class="layout-page">
     <EasyLayout :routePath :routes="routes" :isDark>
       <template #header>
-        <span>Header</span>
+        <EasyProfileDropdown :user="user" :links="links" />
       </template>
 
       <div class="blur-block">dfgd</div>

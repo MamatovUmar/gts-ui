@@ -37,3 +37,7 @@ export interface ICity {
   state_name: string
   country_name: string
 }
+export interface IPhoneNumber {
+  phone_code: string
+  phone_number: string
+}

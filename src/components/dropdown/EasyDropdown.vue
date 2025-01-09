@@ -7,6 +7,10 @@ const emit = defineEmits<{
   (e: 'toggle', val: boolean): void
 }>()
 
+defineProps<{
+  dropdownClass?: string
+}>()
+
 const op = ref<OverlayPanel>()
 
 function toggle(event: Event) {
@@ -22,6 +26,7 @@ function toggle(event: Event) {
     </div>
     <OverlayPanel
       ref="op"
+      :class="dropdownClass"
       @show="emit('toggle', true)"
       @hide="emit('toggle', false)"
     >

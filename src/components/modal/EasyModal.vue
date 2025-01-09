@@ -42,7 +42,6 @@ const { maxWidth, noScroll = false, dismissableMask = true, showHeader = true } 
     <slot />
     <template v-if="$slots?.footer" #footer>
       <slot name="footer" />
-      sadfsdf
     </template>
   </Dialog>
 </template>
