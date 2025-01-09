@@ -4,7 +4,6 @@ import {IItem} from "@/types/ui";
 import FloatLabel from "primevue/floatlabel";
 import MultiSelect from "primevue/multiselect";
 import './EasyMultiSelect.scss'
-import Dropdown from "primevue/dropdown";
 const id = useId()
 
 const model = defineModel()
