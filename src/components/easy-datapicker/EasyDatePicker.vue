@@ -7,20 +7,25 @@ import {ref, watch} from "vue";
 import moment from "moment";
 import {useId} from "vue";
 import './EasyDatePicker.scss'
+
 const model = defineModel<DatepickerModelType>();
 const fromDate = ref<string>("");
 const toDate = ref<string>("");
 
-const {label, selectionMode = "single"} = defineProps<{
-  label?: string;
-  placeholder?: string;
-  selectionMode?: "multiple" | "range" | "single";
-  minDate?: Date;
-  maxDate?: Date;
-  showIcon?: boolean;
-  invalid?: boolean;
-}>();
-
+const {label, selectionMode = "single"} = withDefaults(
+  defineProps<{
+    label?: string;
+    size?: 'small' | 'large'
+    placeholder?: string;
+    selectionMode?: "multiple" | "range" | "single";
+    minDate?: Date;
+    maxDate?: Date;
+    showIcon?: boolean;
+    invalid?: boolean;
+  }>(), {
+    size: 'large',
+  },
+)
 const id = useId();
 
 function isSideDate(date: CalendarDateSlotOptions) {
@@ -68,7 +73,7 @@ watch(model, (val) => {
 </script>
 
 <template>
-  <FloatLabel :class="['easy-input w-full easy-datepicker', {'has-label': label}]">
+  <FloatLabel :class="['easy-input w-full easy-datepicker', size, {'has-label': label}]">
     <Calendar
       v-model="model"
       :selection-mode="selectionMode"
