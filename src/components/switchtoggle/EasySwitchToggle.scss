@@ -1,0 +1,59 @@
+.easy-switchtoggle {
+  .p-selectbutton {
+    .p-button {
+      background: var(--background-neutral-subtle-default);
+      border: none;
+      height: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
+      &:first-child {
+        border-bottom-left-radius: 100px;
+        border-top-left-radius: 100px;
+      }
+
+      &:last-child {
+        border-bottom-right-radius: 100px;
+        border-top-right-radius: 100px;
+      }
+
+      &:before {
+        top: 2px;
+        left: 2px;
+        width: calc(100% - 0.25rem);
+        height: calc(100% - 0.25rem);
+
+        border-radius: 100px;
+        border-color: var(--text-inverse);
+      }
+      .p-button-label {
+        color: var(--text-subtle);
+        font-size: 14px;
+        font-weight: 600;
+      }
+      &:hover {
+        &::before {
+          background: var(--background-neutral-subtle-hovered);
+          border: 0px solid var(--background-neutral-subtle-hovered);
+        }
+      }
+      &.p-highlight {
+        &::before {
+          background: var(--text-inverse);
+          border: 0.3px solid var(--text-inverse);
+          box-sizing: border-box;
+        }
+
+        .p-button-label {
+          color: var(--text-selected);
+        }
+      }
+    }
+  }
+  &.large {
+    .p-button {
+      height: 48px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+}
