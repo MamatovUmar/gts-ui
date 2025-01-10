@@ -22,6 +22,7 @@ import EasyLayout from './components/layout/EasyLayout.vue';
 import EasyModal from './components/modal/EasyModal.vue';
 import EasyConfirmModal from './components/modal/EasyConfirmModal.vue';
 import EasySidebar from './components/sidebar/NavigationSidebar.vue';
+import EasyBreadcrumb from "@/components/breadcrumb/EasyBreadcrumb.vue";
 
 const components = [
   EasyInput,
@@ -43,7 +44,8 @@ const components = [
   EasyLayout,
   EasyModal,
   EasyConfirmModal,
-  EasySidebar
+  EasySidebar,
+  EasyBreadcrumb
   // Add more components
 ];
 
@@ -79,7 +81,8 @@ export {
   EasyLayout,
   EasyModal,
   EasyConfirmModal,
-  EasySidebar
+  EasySidebar,
+  EasyBreadcrumb
   // Add more component exports
 };
 
