@@ -19,7 +19,7 @@ export interface ISidebarItem {
 }
 
 
-export interface BreadCrumbItem {
+export interface BreadcrumbItem {
   label: string
   route?: string
 }

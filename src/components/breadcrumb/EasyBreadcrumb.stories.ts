@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/vue3';
 import EasyBreadcrumb from './EasyBreadcrumb.vue';
 
 const meta: Meta = {
-  title: 'Components/Breadcrumb',
+  title: 'Components/EasyBreadcrumb',
   component: EasyBreadcrumb,
   tags: ['autodocs'],
   argTypes: {

@@ -21,12 +21,12 @@
 
 <script lang="ts" setup>
 import Breadcrumb from 'primevue/breadcrumb';
-import type {BreadCrumbItem, BreadcrumbHomeItem} from '@/types/ui';
+import type {BreadcrumbItem, BreadcrumbHomeItem} from '@/types/ui';
 import "./EasyBreadcrumb.scss";
 
 
 const {items, home} = defineProps<{
-  items: BreadCrumbItem[],
+  items: BreadcrumbItem[],
   home?: BreadcrumbHomeItem
 }>()
 </script>
