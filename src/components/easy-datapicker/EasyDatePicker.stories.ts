@@ -8,7 +8,11 @@ const meta = {
   argTypes: {
     selectionMode: {
       options: ['multiple', 'range', 'single'],
-    }
+    },
+    size: {
+      control: {type: 'select'},
+      options: ['small', 'large'],
+    },
   },
 } satisfies Meta<typeof EasyDatePicker>;
 
