@@ -1,0 +1,39 @@
+.easy-breadcrumb {
+
+  @mixin link-item {
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+
+  .p-breadcrumb {
+    background: var(--elevation-surface-subtler);
+  }
+
+  .link {
+    color: var(--text-subtle);
+    border-radius: 6px;
+    @include link-item;
+  }
+
+  .p-menuitem-separator {
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+  }
+
+  .p-icon {
+    font-size: 14px;
+    color: red;
+  }
+
+  .last {
+    color: var(--text-subtlest);
+    @include link-item;
+  }
+
+  .home {
+    text-decoration: none;
+    color: var(--icon-subtlest)
+  }
+}

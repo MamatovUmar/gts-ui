@@ -17,3 +17,14 @@ export interface ISidebarItem {
   children?: ISidebarItem[]
   disabled?: boolean
 }
+
+
+export interface BreadCrumbItem {
+  label: string
+  route?: string
+}
+
+export interface BreadcrumbHomeItem{
+  icon: string,
+  route?: string
+}
