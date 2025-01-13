@@ -30,7 +30,7 @@
     }
 
     &-month, &-year {
-      color: var(--text-subtles);
+      color: var(--text-default);
       font-size: 14px;
     }
 
@@ -100,7 +100,7 @@
 
             .first, .last, .alone {
               background: var(--teal-500);
-              color: var(--base-white);
+              color: var(--elevation-surface-overlay);
             }
 
             .alone {
@@ -128,6 +128,10 @@
           background: var(--alpha-neutral200a);
           color: var(--teal-500);
         }
+
+        &:not(.p-disabled):not(.p-highlight):hover {
+          background: var(--background-neutral-subtle-hovered);
+        }
       }
 
     }
@@ -141,12 +145,16 @@
           background: var(--alpha-neutral200a);
           color: var(--teal-500);
         }
+
+        &:not(.p-disabled):not(.p-highlight):hover {
+          background: var(--background-neutral-subtle-hovered);
+        }
       }
     }
   }
 
   .p-datepicker .p-datepicker-header .p-datepicker-prev, .p-datepicker .p-datepicker-header .p-datepicker-next {
-    background: var(--teal-100);
+    background: var(--background-brand-subtlest-default);
     width: 24px;
     height: 24px;
     border-radius: 12px;
@@ -155,6 +163,7 @@
     .p-icon {
       width: 12ox;
       height: 12px;
+      color: var(--icon-subtle);
     }
   }
 }
@@ -177,6 +186,12 @@
 
   .p-inputtext {
     padding-left: 12px;
+    background: var(--background-input-default);
+
+    &:enabled:focus, &:not(:disabled):hover {
+      border: 1px solid var(--border-focused);
+      outline: none;
+    }
   }
 
   &.p-float-label:has(.p-inputwrapper-filled) label,
@@ -184,19 +199,23 @@
     top: 12px;
     font-size: 15px;
   }
+
   &.has-label {
     .p-inputtext {
       padding-bottom: 5px;
       padding-top: 20px;
+
       &::placeholder {
         opacity: 0;
       }
     }
   }
+
   &.large {
     .dp-flight {
       height: 48px;
     }
+
     &.p-float-label > label {
       font-size: 17px;
       left: 12px;
@@ -221,10 +240,12 @@
       top: 12px;
       font-size: 13px;
     }
+
     &.has-label {
       .p-inputtext {
         padding-bottom: 5px;
         padding-top: 20px;
+
         &::placeholder {
           opacity: 0;
         }
