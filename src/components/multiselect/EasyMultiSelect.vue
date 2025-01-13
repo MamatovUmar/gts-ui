@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import {useId} from "vue";
+import {computed, useId} from "vue";
 import {IItem} from "@/types/ui";
 import FloatLabel from "primevue/floatlabel";
 import MultiSelect from "primevue/multiselect";
 import './EasyMultiSelect.scss'
+
 const id = useId()
 
 const model = defineModel()
@@ -44,11 +45,11 @@ const props = withDefaults(defineProps<{
       :filter="filter"
       :invalid="invalid"
       close-icon="none"
-    />
+    >
+    </MultiSelect>
     <label v-if="label" :for="id">{{ label }}</label>
   </FloatLabel>
 </template>
-ё
 
 
 

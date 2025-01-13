@@ -1,7 +1,7 @@
 .easy-multi-select {
   .p-multiselect {
     height: 40px;
-    border-radius: 12px;
+    border-radius: 8px;
     border: 1px solid var(--cadet-blue-300);
     background: transparent;
     font-size: 15px;
@@ -40,6 +40,7 @@
     &.large {
       height: 48px;
       font-size: 17px;
+
       &-label {
         font-size: 16px;
       }
@@ -129,15 +130,29 @@
     background: var(--bg-white);
     border: none;
     top: 48px !important;
+
+    .p-checkbox .p-checkbox-box {
+      border-radius: 6px;
+      background: var(--background-input-default);
+      border-color: var(--border-bold)
+    }
+
     .p-multiselect-header {
       background: var(--elevation-surface-overlay);
+
+      .p-checkbox .p-checkbox-box {
+        border-radius: 6px;
+      }
+
       .p-checkbox.p-variant-filled.p-highlight .p-checkbox-box {
         background: var(--teal-500);
+
         svg {
           color: var(--elevation-surface-overlay)
         }
       }
     }
+
     .p-multiselect-items-wrapper {
       background: var(--elevation-surface-overlay);
       border-bottom-right-radius: 6px;
@@ -154,25 +169,31 @@
     &:hover {
       background: var(--alpha-neutral200a);
     }
+
     &.p-focus {
       background: var(--background-neutral-subtle-hovered);
     }
+
     &.p-highlight {
       background: var(--alpha-neutral300a);
     }
+
     .p-checkbox.p-variant-filled.p-highlight .p-checkbox-box {
-      background: var(--teal-500);
+      background: var(--background-brand-bold-default);
+      border: none;
       svg {
         color: var(--elevation-surface-overlay)
       }
     }
   }
+
   ::-webkit-scrollbar {
     max-height: 30%;
     height: 100%;
     width: 4px;
     border-radius: 10px;
   }
+
   ::-webkit-scrollbar-thumb {
     background: var(--border-bold);
     border-radius: 10px;
