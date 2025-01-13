@@ -21,9 +21,9 @@ export const Default: Story = {
     size: "large",
     label: "Select label",
     options: [
-      {label: 'item 1', value: 'aassd'},
-      {label: 'item 2', value: 'aas3sd'},
-      {label: 'item 3', value: 'aas3sdf'}
+      {label: 'item 1', value: 'aassd', constant: false},
+      {label: 'item 2', value: 'aas3sd', constant: true},
+      {label: 'item 3', value: 'aas3sdf', constant: false}
     ]
   },
 };

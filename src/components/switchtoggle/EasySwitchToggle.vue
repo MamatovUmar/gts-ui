@@ -2,6 +2,7 @@
 import type { IItem } from 'src/types/ui'
 import './EasySwitchToggle.scss'
 import SelectButton from 'primevue/selectbutton';
+import {onMounted} from "vue";
 
 const props = withDefaults(
   defineProps<{
@@ -25,6 +26,6 @@ if (props.options?.length > 0) {
 
 <template>
 <div :class="['easy-switchtoggle', size]">
-  <SelectButton v-model="model" :unselectable="false" :options="options" option-label="label" aria-labelledby="basic" />
+  <SelectButton v-model="model" :unselectable="false" :options="options" optionDisabled="constant" option-label="label" aria-labelledby="basic"/>
 </div>
 </template>
