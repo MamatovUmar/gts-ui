@@ -1,5 +1,5 @@
 // src/stories/PrimeTooltip.stories.ts
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type {Meta, StoryObj} from '@storybook/vue3';
 import Tooltip from 'primevue/tooltip';
 import Button from 'primevue/button';
 
@@ -11,7 +11,9 @@ const meta: Meta = {
     docs: {
       description: {
         component: `
-The **EasyTooltip** directive provides advisory information for a component. You can use it with different positions like \`top\`, \`bottom\`, \`left\`, and \`right\`.
+<h1 style="color: var(--text-brand-default); font-size: 22px;">
+ The **EasyTooltip** directive provides advisory information for a component. You can use it with different positions like **\`top\`**, **\`bottom\`**, **\`left\`**, and **\`right\`**.
+ </h1>
         `,
       },
     },
@@ -24,16 +26,17 @@ type Story = StoryObj;
 
 export const Default: Story = {
   render: () => ({
-    directives: { tooltip: Tooltip },
-    components: { Button },
+    directives: {tooltip: Tooltip},
+    components: {Button},
     setup() {
       return {};
     },
     template: `
-      <div style="padding: 20px;">
+      <div style="padding: 20px;display: flex; justify-content: center;">
         <Button
           v-tooltip="'this is tooltip'"
-          style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+          severity="contrast"
+        >
           Hover me
         </Button>
       </div>
@@ -44,11 +47,11 @@ export const Default: Story = {
       source: {
         code: `
 <div style="padding: 20px;">
-  <button
+  <Button
     v-tooltip="'Default Tooltip'"
-    style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+    severity="contrast">
     Hover me
-  </button>
+  </Button>
 </div>
         `,
       },
@@ -59,20 +62,18 @@ export const Default: Story = {
 
 export const AutoHide: Story = {
   render: () => ({
-    directives: { tooltip: Tooltip },
-    components: { Button },
+    directives: {tooltip: Tooltip},
+    components: {Button},
     setup() {
       return {};
     },
     template: `
-      <div style="padding: 20px;">
+      <div style="padding: 20px; display: flex; justify-content: center;">
         <Button
           v-tooltip="{value: 'autoHide false', autoHide: false}"
-          style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+          severity="contrast">
           Hover me
         </Button>
-<br>
-        how to use: v-tooltip="{value: 'something', autoHide: false}"
       </div>
     `,
   }),
@@ -81,12 +82,12 @@ export const AutoHide: Story = {
       source: {
         code: `
 <div style="padding: 20px;">
-  <button
+  <Button
     v-tooltip="'autoHide false'"
-    style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+    severity="contrast"
+    >
     Hover me
-  </button>
-
+  </Button>
 
 </div>
         `,
@@ -98,34 +99,34 @@ export const AutoHide: Story = {
 
 export const Positioning: Story = {
   render: () => ({
-    directives: { tooltip: Tooltip },
-    components: { Button },
+    directives: {tooltip: Tooltip},
+    components: {Button},
     setup() {
       return {};
     },
     template: `
-      <div style="padding: 20px; display: flex; gap: 20px;">
+      <div style="padding: 20px; display: flex; gap: 20px; justify-content: center">
 
         <Button
-          severity="secondary"
+          severity="contrast"
           v-tooltip.bottom="'Bottom Tooltip'">
           Hover me (Bottom)
         </Button>
 
         <Button
-          severity="primary"
+          severity="contrast"
           v-tooltip.left="'Left Tooltip'">
           Hover me (Left)
         </Button>
 
         <Button
-          severity="danger"
-          v-tooltip.right="'Right Tooltip'">
-          Hover me (Right)
+          severity="contrast"
+          v-tooltip.top="'Top Tooltip'">
+          Hover me (Top)
         </Button>
 
         <Button
-          severity="primary"
+          severity="contrast"
           v-tooltip.right="'Right Tooltip'">
           Hover me (Right)
         </Button>
@@ -136,29 +137,64 @@ export const Positioning: Story = {
     docs: {
       source: {
         code: `
-<div style="padding: 20px; display: flex; gap: 20px;">
+    <div style="padding: 20px; display: flex; gap: 20px;">
 
-  <button
-    v-tooltip.bottom="'Bottom Tooltip'"
-    style="padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">
-    Hover me (Bottom)
-  </button>
+      <Button
+        v-tooltip.bottom="'Bottom Tooltip'"
+        severity="contrast">
+        Hover me (Bottom)
+      </Button>
 
-  <button
-    v-tooltip.left="'Left Tooltip'"
-    style="padding: 10px 20px; background: #ffc107; color: white; border: none; border-radius: 4px; cursor: pointer;">
-    Hover me (Left)
-  </button>
+      <Button
+        v-tooltip.left="'Left Tooltip'"
+        severity="contrast">
+        Hover me (Left)
+      </Button>
 
-  <button
-    v-tooltip.right="'Right Tooltip'"
-    style="padding: 10px 20px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">
-    Hover me (Right)
-  </button>
+      <Button
+        v-tooltip.right="'Right Tooltip'"
+        severity="contrast">
+        Hover me (Right)
+      </Button>
 
-</div>
+    </div>
         `,
       },
     },
   },
 };
+
+export const Event: Story = {
+  render: () => ({
+    directives: {tooltip: Tooltip},
+    components: {Button},
+    setup() {
+      return {};
+    },
+    template: `
+      <Button
+        v-tooltip.focus.top="'your text here'"
+        severity="contrast">
+        Hover me
+      </Button>
+    `,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `
+    <div style="padding: 20px; display:flex; justify-content:center;">
+      <Button
+        v-tooltip="'autoHide false'"
+        severity="contrast">
+        Hover me
+      </Button>
+    </div>
+        `,
+      },
+    },
+  },
+};
+
+
+
