@@ -184,14 +184,17 @@
     }
   }
 
-  .p-inputtext {
-    padding-left: 12px;
-    background: var(--background-input-default);
-
-    &:enabled:focus, &:not(:disabled):hover {
+  .p-focus {
+    .p-inputtext {
       border: 1px solid var(--border-focused);
       outline: none;
     }
+  }
+
+  .p-inputtext {
+    color: var(--text-subtle);
+    padding-left: 12px;
+    background: var(--background-input-default);
   }
 
   &.p-float-label:has(.p-inputwrapper-filled) label,
