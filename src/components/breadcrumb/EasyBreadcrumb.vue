@@ -1,5 +1,5 @@
 <template>
-  <div class="easy-breadcrumb">
+  <div class="easy-breadcrumb" :class="{withoutBg}">
     <Breadcrumb :home="home" :model="items">
       <template #item="{item}">
         <a v-if="item?.icon" :class="[home?.icon, 'home']" :href="item.route"/>
@@ -25,8 +25,12 @@ import type {BreadcrumbItem, BreadcrumbHomeItem} from '@/types/ui';
 import "./EasyBreadcrumb.scss";
 
 
-const {items, home} = defineProps<{
+defineProps<{
   items: BreadcrumbItem[],
-  home?: BreadcrumbHomeItem
+  home?: BreadcrumbHomeItem,
+  withoutBg?: boolean
 }>()
+
 </script>
+
+
