@@ -23,6 +23,7 @@ import EasyModal from './components/modal/EasyModal.vue';
 import EasyConfirmModal from './components/modal/EasyConfirmModal.vue';
 import EasySidebar from './components/sidebar/NavigationSidebar.vue';
 
+
 const components = [
   EasyInput,
   EasyIcon,
@@ -53,6 +54,7 @@ export default {
       const componentName = component.name || component.__name;
       if (componentName) {
         app.component(componentName, component);
+
       }
     });
   }

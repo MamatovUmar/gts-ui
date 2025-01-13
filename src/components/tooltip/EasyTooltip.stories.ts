@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 import Tooltip from 'primevue/tooltip';
 import Button from 'primevue/button';
 
+
 const meta: Meta = {
   title: 'PrimeVue/EasyTooltip',
   tags: ['autodocs'],
@@ -31,7 +32,7 @@ export const Default: Story = {
     template: `
       <div style="padding: 20px;">
         <Button
-          v-tooltip="'Default Tooltip'"
+          v-tooltip="'this is tooltip'"
           style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
           Hover me
         </Button>
@@ -54,6 +55,46 @@ export const Default: Story = {
     },
   },
 };
+
+
+export const AutoHide: Story = {
+  render: () => ({
+    directives: { tooltip: Tooltip },
+    components: { Button },
+    setup() {
+      return {};
+    },
+    template: `
+      <div style="padding: 20px;">
+        <Button
+          v-tooltip="{value: 'autoHide false', autoHide: false}"
+          style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+          Hover me
+        </Button>
+<br>
+        how to use: v-tooltip="{value: 'something', autoHide: false}"
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<div style="padding: 20px;">
+  <button
+    v-tooltip="'autoHide false'"
+    style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+    Hover me
+  </button>
+
+
+</div>
+        `,
+      },
+    },
+  },
+};
+
 
 export const Positioning: Story = {
   render: () => ({
