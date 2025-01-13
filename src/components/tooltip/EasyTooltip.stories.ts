@@ -2,6 +2,7 @@
 import type {Meta, StoryObj} from '@storybook/vue3';
 import Tooltip from 'primevue/tooltip';
 import Button from 'primevue/button';
+import "./EasyTooltip.scss";
 
 
 const meta: Meta = {
@@ -11,7 +12,7 @@ const meta: Meta = {
     docs: {
       description: {
         component: `
-<h1 style="color: var(--text-brand-default); font-size: 22px;">
+<h1 style="color: var(--text-brand-default); font-size: 18px;">
  The **EasyTooltip** directive provides advisory information for a component. You can use it with different positions like **\`top\`**, **\`bottom\`**, **\`left\`**, and **\`right\`**.
  </h1>
         `,
@@ -34,7 +35,7 @@ export const Default: Story = {
     template: `
       <div style="padding: 20px;display: flex; justify-content: center;">
         <Button
-          v-tooltip="'this is tooltip'"
+          v-tooltip="{value : 'dddd'}"
           severity="contrast"
         >
           Hover me
@@ -46,7 +47,7 @@ export const Default: Story = {
     docs: {
       source: {
         code: `
-<div style="padding: 20px;">
+<div style="padding: 20px;" >
   <Button
     v-tooltip="'Default Tooltip'"
     severity="contrast">
@@ -172,11 +173,13 @@ export const Event: Story = {
       return {};
     },
     template: `
-      <Button
-        v-tooltip.focus.top="'your text here'"
-        severity="contrast">
-        Hover me
-      </Button>
+      <div class="container">
+        <Button
+          v-tooltip.focus.top="'your text here'"
+          severity="contrast">
+          Hover me
+        </Button>
+      </div>
     `,
   }),
   parameters: {
@@ -196,5 +199,62 @@ export const Event: Story = {
   },
 };
 
+
+
+export const Custom: Story = {
+  render: () => ({
+    directives: {tooltip: Tooltip},
+    components: {Button},
+    setup() {
+      return {};
+    },
+    template: `
+  <div class="container">
+    <Button
+      v-tooltip.bottom="{
+                value: 'PrimeVue Rocks',
+                pt: {
+                    arrow: {
+                        style: {
+                            borderBottomColor: 'var(--background-selected-pressed)'
+                        }
+                    },
+                    text: {
+                      style : {backgroundColor: 'var(--background-selected-pressed)'}
+                    }
+                }
+            }"
+      severity="contrast"
+      label="Button"
+    />
+  </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `
+    <div style="padding: 20px; display:flex; justify-content:center;">
+      <Button
+            v-tooltip.bottom="{
+                value: 'PrimeVue Rocks',
+                pt: {
+                    arrow: {
+                        style: {
+                            borderBottomColor: 'var(--background-selected-pressed)'
+                        }
+                    },
+                    text: 'bg-primary font-medium'
+                }
+            }"
+            severity="secondary"
+            label="Button"
+        />
+    </div>
+        `,
+      },
+    },
+  },
+};
 
 
