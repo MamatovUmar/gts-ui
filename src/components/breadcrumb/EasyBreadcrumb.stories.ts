@@ -11,12 +11,12 @@ const meta: Meta = {
   parameters: {
     docs: {
       description: {
-        component: ` EasyBreadcrumb component developed by EasyTechnologies "LLC"
+        component: `
+         "EasyBreadcrumb" component developed by EasyTechnologies **"LLC"**
         `,
       },
     },
   },
-
 };
 
 export default meta;
@@ -32,16 +32,9 @@ export const Basic: Story = {
       {label: 'main', route: '/main'},
       {label: 'form', route: '/form'},
       {label: 'current-page'}
-    ]
-  },
-  render: (args) => ({
-    components: {EasyBreadcrumb},
-    setup() {
-      return {args};
-    },
-    template: `
-      <EasyBreadcrumb :home="args.home" :items="args.items"/>`,
-  }),
+    ],
+
+  }
 };
 
 

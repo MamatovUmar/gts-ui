@@ -21,6 +21,9 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
   viteFinal: (config) => {
+    config.optimizeDeps = {
+      include: ['primevue/tooltip', 'primevue/button'],
+    };
     config.base = process.env.NODE_ENV === 'production' ? '/gts-ui/' : '/'
     return config
   },
