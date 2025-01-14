@@ -21,7 +21,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    selectionMode: 'single'
+    selectionMode: 'single',
+    placeholder: 'Select date',
   },
 };
 export const Range: Story = {
