@@ -5,13 +5,15 @@
     position: absolute;
     right: 12px;
     font-size: 20px;
-    color: var(--black-500);
+    color: var(--text-default);
     top: 50%;
     transform: translateY(-50%);
   }
 
   &.p-invalid {
-    border-color: var(--red-500) !important;
+    .p-inputtext {
+      border-color: var(--border-danger) !important;
+    }
   }
 
   .p-datepicker {
@@ -195,6 +197,12 @@
     color: var(--text-subtle);
     padding-left: 12px;
     background: var(--background-input-default);
+    border-color: var(--border-bold);
+
+    &::placeholder {
+      color: var(--text-subtlest);
+      opacity: 1;
+    }
   }
 
   &.p-float-label:has(.p-inputwrapper-filled) label,
