@@ -2,7 +2,7 @@
   .p-multiselect {
     height: 40px;
     border-radius: 8px;
-    border: 1px solid var(--cadet-blue-300);
+    border: 1px solid var(--border-bold);
     background: var(--background-input-default);
     font-size: 15px;
     color: var(--neutral-800);
@@ -32,6 +32,7 @@
       height: 44px;
       border-radius: 12px;
       background: var(--background-input-default);
+      border-color: var(--border-bold);
       color: var(--text-subtle);
       &:enabled:focus {
         outline: 1px solid var(--cadet-blue-300);

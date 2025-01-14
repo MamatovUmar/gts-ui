@@ -46,6 +46,9 @@ const props = withDefaults(defineProps<{
       :invalid="invalid"
       close-icon="none"
     >
+      <template #closeicon>
+        <span class="icon-Close-2"></span>
+      </template>
     </MultiSelect>
     <label v-if="label" :for="id">{{ label }}</label>
   </FloatLabel>
