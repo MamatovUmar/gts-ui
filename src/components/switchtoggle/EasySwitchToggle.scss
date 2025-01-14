@@ -7,7 +7,7 @@
     .p-button {
       background: var(--background-neutral-subtle-default);
       border: none;
-      height: 40px;
+      height: 44px;
       padding-left: 20px;
       padding-right: 20px;
 
@@ -62,14 +62,6 @@
           color: var(--text-selected);
         }
       }
-    }
-  }
-
-  &.large {
-    .p-button {
-      height: 48px;
-      padding-left: 24px;
-      padding-right: 24px;
     }
   }
 }

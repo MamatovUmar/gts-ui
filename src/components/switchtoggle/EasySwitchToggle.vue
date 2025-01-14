@@ -1,20 +1,19 @@
 <script setup lang="ts">
-import type { IItem } from 'src/types/ui'
+import type {IItem} from 'src/types/ui'
 import './EasySwitchToggle.scss'
 import SelectButton from 'primevue/selectbutton';
-import {onMounted} from "vue";
 
 const props = withDefaults(
   defineProps<{
     options: IItem[]
-    size?: 'small' | 'large'
     optionValue?: string
     optionLabel?: string
+    optionDisabled?: string
   }>(),
   {
-    size: 'large',
     optionValue: 'value',
     optionLabel: 'label',
+    optionDisabled: 'constant',
   },
 )
 const model = defineModel()
@@ -25,7 +24,14 @@ if (props.options?.length > 0) {
 </script>
 
 <template>
-<div :class="['easy-switchtoggle', size]">
-  <SelectButton v-model="model" :unselectable="false" :options="options" optionDisabled="constant" option-label="label" aria-labelledby="basic"/>
-</div>
+  <div :class="['easy-switchtoggle']">
+    <SelectButton
+      v-model="model"
+      :unselectable="false"
+      :options="options"
+      :optionDisabled="optionDisabled"
+      :option-label="optionLabel"
+      :option-value="optionValue"
+      aria-labelledby="basic"/>
+  </div>
 </template>
