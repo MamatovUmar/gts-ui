@@ -1,6 +1,6 @@
 export interface IItem {
   label: string
-  value: string
+  value: string | number
   icon?: string
   disabled?: boolean
   items?: string[]

@@ -77,6 +77,12 @@ useClickOutside(dpRef)
           bar-color="var(--icon-ssubtle)"
         ></EasyLoader>
       </template>
+      <template #option="slotProps">
+        <slot name="option" v-bind="slotProps"></slot>
+      </template>
+      <template #value="slotProps">
+        <slot name="value" v-bind="slotProps"></slot>
+      </template>
     </Dropdown>
     <label v-if="props.label" :for="id">{{ props.label }}</label>
   </FloatLabel>
