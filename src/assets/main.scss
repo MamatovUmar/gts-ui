@@ -3,7 +3,7 @@
 @use './fonts';
 @use './utils';
 @use './components/toast';
-@use '../components/table/EasyTable';
+@use './components/easy-table';
 
 /* Import icomoon font */
 @import './icomoon/style.css';
