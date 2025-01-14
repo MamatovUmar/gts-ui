@@ -1,0 +1,53 @@
+ .p-button-label {
+    font-weight: 600
+  }
+
+ .p-overlaypanel .p-overlaypanel-content {
+   padding: 0.75rem 0;
+ }
+
+ .wrapper {
+   max-height: calc(5 * 44px);
+   overflow-y: auto;
+
+   p {
+     margin: 0;
+   }
+
+   .option {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     cursor: pointer;
+     height: 44px;
+     padding: 0.75rem;
+     transition: 200ms ease;
+
+     &:hover {
+       background: var(--alpha-neutral200a);
+     }
+   }
+
+   .active {
+     background: var(--background-neutral-subtle-pressed);
+   }
+
+   .disabled {
+     color: var(--text-disabled);
+
+     &:hover {
+       background: transparent;
+     }
+   }
+ }
+
+ ::-webkit-scrollbar {
+   width: 8px;
+   border-radius: 10px;
+ }
+
+ ::-webkit-scrollbar-thumb {
+   background: var(--border-bolder);
+   border-radius: 10px;
+   padding-right: 15px;
+ }
