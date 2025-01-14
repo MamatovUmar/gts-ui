@@ -1,5 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/vue3';
 import EasyBreadcrumb from './EasyBreadcrumb.vue';
+import "./EasyBreadcrumb.scss";
 
 const meta: Meta = {
   title: 'Components/EasyBreadcrumb',
@@ -36,7 +37,6 @@ export const Basic: Story = {
 
   }
 };
-
 
 export const WithoutHomeIcon: Story = {
   args: {
