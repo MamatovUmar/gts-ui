@@ -27,3 +27,10 @@
   background: var(--background-information-default);
   color:var(--text-accent-blue);
 }
+
+.p-badge{
+  height: 32px;
+  display:flex;
+  width: fit-content;
+  align-items: center;
+}
