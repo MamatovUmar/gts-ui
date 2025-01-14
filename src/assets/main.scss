@@ -3,9 +3,11 @@
 @use './fonts';
 @use './utils';
 @use './components/toast';
+@use './components/easy-table';
 
 /* Import icomoon font */
 @import './icomoon/style.css';
+
 
 body *:not([class^='path']) {
   font-family: 'Mulish', sans-serif;

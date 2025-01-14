@@ -2,8 +2,6 @@ import type { StoryObj } from '@storybook/vue3';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 
-import './EasyTable.scss'
-
 const meta = {
   components: { DataTable, Column },
   title: 'Components/EasyTable',
@@ -62,7 +60,6 @@ export const Default: Story = {
         return { args, columns };
       },
       template: `
-        <section class="easy-table">
           <DataTable :value="args.value">
             <Column
               v-for="col in columns"
@@ -72,7 +69,6 @@ export const Default: Story = {
               class="easy-table-row"
             />
           </DataTable>
-        </section>
       `,
     };
   },
