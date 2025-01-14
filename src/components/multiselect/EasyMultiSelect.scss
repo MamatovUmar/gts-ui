@@ -3,7 +3,7 @@
     height: 40px;
     border-radius: 8px;
     border: 1px solid var(--cadet-blue-300);
-    background: transparent;
+    background: var(--background-input-default);
     font-size: 15px;
     color: var(--neutral-800);
 
@@ -31,7 +31,8 @@
     .p-multiselect-filter.p-inputtext {
       height: 44px;
       border-radius: 12px;
-
+      background: var(--background-input-default);
+      color: var(--text-subtle);
       &:enabled:focus {
         outline: 1px solid var(--cadet-blue-300);
       }
@@ -56,8 +57,9 @@
     }
 
     &.p-float-label > label {
-      font-size: 14px;
+      font-size: 16px;
       left: 12px;
+      color: var(--text-subtlest);
     }
 
     &.has-prefix {
@@ -87,8 +89,9 @@
     }
 
     &.p-float-label > label {
-      font-size: 14px;
+      font-size: 16px;
       left: 12px;
+      color: var(--text-subtlest);
     }
 
     &.has-prefix {
@@ -104,7 +107,7 @@
     &.p-float-label:has(.p-inputwrapper-filled) label,
     &.p-float-label:has(.p-inputwrapper-focus) label,
     &.p-float-label:has(input.p-filled) label {
-      top: 10px;
+      top: 13px;
       font-size: 10px;
     }
   }
@@ -157,6 +160,9 @@
       background: var(--elevation-surface-overlay);
       border-bottom-right-radius: 6px;
       border-bottom-left-radius: 6px;
+      .p-multiselect-empty-message {
+        color: var(--text-subtle);
+      }
     }
   }
 
