@@ -51,7 +51,7 @@ export const Default: Story = {
       return {args};
     },
     template: `
-      <h1>It can be controlled <br> through the Prime Vue badge component </h1>
+      <h1 style="color:var(--text-default)">It can be controlled <br> through the Prime Vue badge component </h1>
       <Badge :size="args.size" :value="args.value" :severity="args.severity"/>
     `,
   }),
