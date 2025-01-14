@@ -18,26 +18,27 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    size: "small",
+    size: "large",
+    label: "Select label",
     options: [
-      {label: 'asdf', value: 'aassd'},
-      {label: 'asdf', value: 'awas3sd'},
-      {label: 'asdf', value: 'aaws3sd'},
-      {label: 'asdf', value: 'aawas3sd'},
-      {label: 'asdf', value: 'aasssdfd'}
+      {label: 'Item 1', value: 'item1'},
+      {label: 'Item 2', value: 'item2'},
+      {label: 'Item 3', value: 'item3'},
+      {label: 'Item 4', value: 'item4'},
+      {label: 'Item 5', value: 'item5'}
     ]
   },
 };
 export const Filter: Story = {
   args: {
-    size: "small",
+    size: "large",
     filter: true,
     options: [
-      {label: 'asdf', value: 'aassd'},
-      {label: 'asdf', value: 'aass3sd'},
-      {label: 'asdf', value: 'aadf3sd'},
-      {label: 'asdf', value: 'aas3аsd'},
-      {label: 'asdf', value: 'aassdfd'}
+      {label: 'Item 1', value: 'item1'},
+      {label: 'Item 2', value: 'item2'},
+      {label: 'Item 3', value: 'item3'},
+      {label: 'Item 4', value: 'item4'},
+      {label: 'Item 5', value: 'item5'}
     ]
   },
 };
