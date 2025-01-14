@@ -23,6 +23,7 @@ import EasyModal from './components/modal/EasyModal.vue';
 import EasyConfirmModal from './components/modal/EasyConfirmModal.vue';
 import EasySidebar from './components/sidebar/NavigationSidebar.vue';
 import EasyBreadcrumb from "@/components/breadcrumb/EasyBreadcrumb.vue";
+import EasyLanguageCurrencyDropdown from "@/components/language-currency-dropdown /EasyLanguageCurrencyDropdown.vue";
 
 
 const components = [
@@ -46,7 +47,8 @@ const components = [
   EasyModal,
   EasyConfirmModal,
   EasySidebar,
-  EasyBreadcrumb
+  EasyBreadcrumb,
+  EasyLanguageCurrencyDropdown
   // Add more components
 ];
 
@@ -84,7 +86,8 @@ export {
   EasyModal,
   EasyConfirmModal,
   EasySidebar,
-  EasyBreadcrumb
+  EasyBreadcrumb,
+  EasyLanguageCurrencyDropdown
   // Add more component exports
 };
 
