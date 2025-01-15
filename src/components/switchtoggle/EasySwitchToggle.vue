@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type {IItem} from 'src/types/ui'
+import type { IItem } from 'src/types/ui'
 import './EasySwitchToggle.scss'
-import SelectButton from 'primevue/selectbutton';
+import SelectButton from 'primevue/selectbutton'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     options: IItem[]
     optionValue?: string
@@ -11,27 +11,25 @@ const props = withDefaults(
     optionDisabled?: string
   }>(),
   {
-    optionValue: 'value',
     optionLabel: 'label',
     optionDisabled: 'constant',
   },
 )
-const model = defineModel()
 
-if (props.options?.length > 0) {
-  model.value = props.options[0];
-}
+const emit = defineEmits(['change'])
+const model = defineModel()
 </script>
 
 <template>
-  <div :class="['easy-switchtoggle']">
-    <SelectButton
-      v-model="model"
-      :unselectable="false"
-      :options="options"
-      :optionDisabled="optionDisabled"
-      :option-label="optionLabel"
-      :option-value="optionValue"
-      aria-labelledby="basic"/>
-  </div>
+  <SelectButton
+    v-model="model"
+    :unselectable="false"
+    :options="options"
+    :optionDisabled="optionDisabled"
+    :option-label="optionLabel"
+    :option-value="optionValue"
+    aria-labelledby="basic"
+    class="easy-switchtoggle"
+    @change="emit('change', $event.value)"
+  />
 </template>

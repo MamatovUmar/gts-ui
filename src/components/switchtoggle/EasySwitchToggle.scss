@@ -1,15 +1,19 @@
 .easy-switchtoggle {
+  width: 100%;
+
   .p-ink {
     display: none;
   }
 
-  .p-selectbutton {
+  &.p-selectbutton {
+    display: flex;
     .p-button {
       background: var(--background-neutral-subtle-default);
       border: none;
       height: 44px;
       padding-left: 20px;
       padding-right: 20px;
+      flex: 1;
 
       &:first-child {
         border-bottom-left-radius: 100px;
