@@ -53,7 +53,6 @@ export const Default: Story = {
         base: 'UZS',
         ru: 'Узбекские сумы',
         bool: true,
-        disabled: true
       },
     ]
   }

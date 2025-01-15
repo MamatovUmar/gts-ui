@@ -19,6 +19,9 @@
     font-weight: 600;
     white-space: nowrap;
   }
+  &:hover &-label, &:hover &-icon {
+    color: var(--text-default);
+  }
 }
 
 .p-overlaypanel {
@@ -56,7 +59,7 @@
       }
 
       &:hover:not(.disabled) {
-        background: var(--alpha-neutral200a);
+        background: var(--background-neutral-subtle-hovered);
       }
 
       &:not(.disabled).active {
@@ -73,13 +76,4 @@
   .p-button-label {
     color: var(--text-default) !important;
   }
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border-bolder);
-  border-radius: 100px;
 }
