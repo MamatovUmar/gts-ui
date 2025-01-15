@@ -8,8 +8,7 @@
     color: var(--neutral-800);
 
     &.p-disabled {
-      border-color: var(--alpha-neutral200a);
-      color: var(--alpha-neutral400a);
+      opacity: 0.5;
     }
 
     &.p-invalid {
@@ -35,7 +34,7 @@
       border-color: var(--border-bold);
       color: var(--text-subtle);
       &:enabled:focus {
-        outline: 1px solid var(--cadet-blue-300);
+        outline: 1px solid var(--border-focused);
       }
     }
 
