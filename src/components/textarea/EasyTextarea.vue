@@ -2,8 +2,6 @@
 import Textarea from "primevue/textarea";
 import "./EasyTextarea.scss"
 
-import {computed} from "vue";
-
 const model = defineModel<string>({default: ""});
 
 const props = defineProps<{
@@ -12,38 +10,40 @@ const props = defineProps<{
   invalid?: boolean;
   rows?: number;
   disabled?: boolean;
+  readonly?: boolean
+}>();
+const emit = defineEmits<{
+  (e: 'keydown.down', val?: string): void;
+  (e: 'keydown.up', val?: string): void;
+  (e: 'keydown.enter', val?: string): void;
+  (e: 'keydown.tab', val?: string): void;
+  (e: 'focus', val?: string): void;
+  (e: 'focusout', val?: string): void;
 }>();
 
-const notValid = computed(() => {
-  return props.invalid ? "2px solid var(--red-500)" : "2px solid var(--teal-500)"
-})
-
-const isDisabled = computed(() => {
-  return props.disabled ? "var(--cadet-blue-200)" : "--neutral-0"
-})
 
 </script>
 
 <template>
-  <div :class="['easy-textarea']">
       <Textarea
         v-model="model"
         :rows="props.rows"
+        auto-resize
         :placeholder="props.placeholder"
+        :readonly="readonly"
         :disabled="props.disabled"
         class="w-full"
         :tabindex="props.tabindex"
-        :invalid="props.invalid"/>
-  </div>
+        :invalid="props.invalid"
+        @keydown.down="emit('keydown.down')"
+        @keydown.up="emit('keydown.up')"
+        @keydown.enter="emit('keydown.enter')"
+        @keydown.tab="emit('keydown.tab')"
+        @focus="emit('focus')"
+        @focusout="emit('focusout')"
+      />
 </template>
 
 <style lang="scss">
-.easy-textarea {
-  .p-inputtextarea.p-inputtext:enabled:focus {
-    outline: v-bind(notValid);
-  }
-  .p-inputtext {
-    background-color: v-bind(isDisabled);
-  }
-}
+
 </style>
