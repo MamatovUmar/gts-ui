@@ -11,7 +11,7 @@ const { perPageOptions = [10, 20, 30, 40, 50], selectPlaceholder = 'Показа
   totalRecords?: number
 }>()
 
-const page = defineModel({ default: 2 })
+const page = defineModel({ default: 1 })
 const perPage = defineModel('perPage', { default: 10 })
 
 const first = ref(0)

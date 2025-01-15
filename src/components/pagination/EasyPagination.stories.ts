@@ -46,7 +46,7 @@ export const Basic: Story = {
       description: 'Текущая страница',
       table: {
         type: { summary: 'number' },
-        defaultValue: { summary: 2 },
+        defaultValue: { summary: 1 },
       },
     },
     perPage: {
