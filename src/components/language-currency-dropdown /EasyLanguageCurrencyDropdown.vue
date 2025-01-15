@@ -1,83 +1,82 @@
 <script setup lang="ts">
-
 import EasyDropdown from "@/components/dropdown/EasyDropdown.vue";
 import EasyButton from "@/components/button/EasyButton.vue";
 import EasyIcon from "@/components/icon/EasyIcon.vue";
 import EasySwitchToggle from "@/components/switchtoggle/EasySwitchToggle.vue";
-import {IItem} from "@/types/ui";
-import {ref} from "vue";
+import { IItem } from "@/types/ui";
+import { ref } from "vue";
 
-import './EasyLanguageCurrencyDropdown.scss'
-import {ICurrency} from "@/types/autocomplete";
+import "./EasyLanguageCurrencyDropdown.scss";
+import { ICurrency } from "@/types/autocomplete";
 
-const {currencies, currency: selCurrency} = defineProps<{currencies: ICurrency[], locale: string, currency: string}>();
-const emit = defineEmits(['currency', 'locale']);
+defineProps<{ currencies: ICurrency[] }>();
+const selCurrency = defineModel("currency", { default: "EUR" });
+const locale = defineModel("locale", { default: "UZB" });
 
 const options: IItem[] = [
-  {
-    label: 'Язык',
-    value: 'language'
-  },
-  {
-    label: 'Валюта',
-    value: 'currency',
-  }
+  { label: "Язык", value: "language" },
+  { label: "Валюта", value: "currency" },
 ];
 
-const languages:IItem[] = [
-  {
-    label: "O'zbekcha",
-    value: 'uz',
-    icon: 'icon-uzbekistan'
-  },
-  {
-    label: 'English',
-    value: 'en',
-    icon: 'icon-united-kingdom'
-  },
-  {
-    label: 'Русский',
-    value: 'ru',
-    icon: 'icon-russia'
-  }
-]
+const languages: IItem[] = [
+  { label: "O'zbekcha", value: "UZB", icon: "icon-uzbekistan" },
+  { label: "English", value: "ENG", icon: "icon-united-kingdom" },
+  { label: "Русский", value: "RUS", icon: "icon-russia" },
+];
 
 const value = ref<IItem>();
+const isOpen = ref(false);
 
+function selectLanguage(language: IItem) {
+  locale.value = language.value as string;
+}
+
+function selectCurrency(currency: ICurrency) {
+  if (!currency.disabled) {
+    selCurrency.value = currency.base;
+  }
+}
 </script>
 
 <template>
-  <EasyDropdown>
+  <EasyDropdown @toggle="isOpen = $event">
     <template #trigger>
-      <EasyButton size="sm" outlined icon="icon-Global" label="RUB • UZB" aria-label="Выбор языка и валюты"/>
+      <EasyButton
+        size="sm"
+        plain
+        icon="icon-Global"
+        :label="`${selCurrency} • ${locale}`"
+        aria-label="Выбор языка и валюты"
+        :class="{ isOpen }"
+      />
     </template>
 
     <template #default>
-      <EasySwitchToggle :options="options" v-model="value" :style="{margin: '0.75rem', marginTop: '0'}"/>
+      <EasySwitchToggle :options="options" v-model="value" :style="{ marginBottom: '8px' }" />
       <div class="wrapper">
-          <template v-if="value?.value === 'language'">
-            <div
-              v-for="language in languages"
-              :key="language.value"
-              class="option"
-              :class="{'active': language.value === locale}"
-              @click="emit('locale', language.value)"
-            >
-              <EasyIcon :name="String(language.icon)" :size="24" />
-              <p>{{ language.label }}</p>
-            </div>
-          </template>
-          <template v-else>
-            <p
-              class="option"
-              v-for="currency in currencies"
-              :key="currency.base"
-              :class="{ disabled: currency.disabled, 'active': currency.base === selCurrency }"
-              @click="!currency.disabled && emit('currency', currency.base)"
-            >
-              {{ currency.base }}
-            </p>
-          </template>
+        <template v-if="value?.value === 'language'">
+          <div
+            v-for="language in languages"
+            :key="language.value"
+            class="option"
+            :class="{ active: language.value === locale }"
+            @click="selectLanguage(language)"
+          >
+            <EasyIcon :name="String(language.icon)" :size="24" />
+            <p>{{ language.label }}</p>
+          </div>
+        </template>
+        <template v-else>
+          <p
+            class="option"
+            v-for="currency in currencies"
+            :key="currency.base"
+            :class="{ disabled: currency.disabled, active: currency.base === selCurrency }"
+            @click="selectCurrency(currency)"
+          >
+            {{ currency.base }}
+          </p>
+        </template>
       </div>
     </template>
   </EasyDropdown>

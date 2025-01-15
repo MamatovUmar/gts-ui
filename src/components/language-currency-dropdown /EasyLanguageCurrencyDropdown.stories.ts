@@ -55,8 +55,6 @@ export const Default: Story = {
         bool: true,
         disabled: true
       },
-    ],
-    locale: 'ru',
-    currency: 'EUR'
+    ]
   }
 }
