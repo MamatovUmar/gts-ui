@@ -22,9 +22,12 @@ import EasyLayout from './components/layout/EasyLayout.vue';
 import EasyModal from './components/modal/EasyModal.vue';
 import EasyConfirmModal from './components/modal/EasyConfirmModal.vue';
 import EasySidebar from './components/sidebar/NavigationSidebar.vue';
-import EasyBreadcrumb from "@/components/breadcrumb/EasyBreadcrumb.vue";
-import EasyLanguageCurrencyDropdown from "@/components/language-currency-dropdown /EasyLanguageCurrencyDropdown.vue";
-
+import EasyBreadcrumb from "./components/breadcrumb/EasyBreadcrumb.vue";
+import EasyLanguageCurrencyDropdown from "./components/header/language-currency-dropdown/EasyLanguageCurrencyDropdown.vue";
+import EasyDatePicker from './components/datapicker/EasyDatePicker.vue';
+import EasyMultiSelect from './components/multiselect/EasyMultiSelect.vue';
+import EasyPagination from './components/pagination/EasyPagination.vue';
+import EasySwitchToggle from './components/switchtoggle/EasySwitchToggle.vue';
 
 const components = [
   EasyInput,
@@ -48,8 +51,11 @@ const components = [
   EasyConfirmModal,
   EasySidebar,
   EasyBreadcrumb,
-  EasyLanguageCurrencyDropdown
-  // Add more components
+  EasyLanguageCurrencyDropdown,
+  EasyDatePicker,
+  EasyMultiSelect,
+  EasyPagination,
+  EasySwitchToggle
 ];
 
 export default {
@@ -87,8 +93,11 @@ export {
   EasyConfirmModal,
   EasySidebar,
   EasyBreadcrumb,
-  EasyLanguageCurrencyDropdown
-  // Add more component exports
+  EasyLanguageCurrencyDropdown,
+  EasyDatePicker,
+  EasyMultiSelect,
+  EasyPagination,
+  EasySwitchToggle
 };
 
 // Export all types
