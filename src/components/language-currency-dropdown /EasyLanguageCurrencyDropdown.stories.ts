@@ -2,7 +2,7 @@ import type {StoryObj} from '@storybook/vue3';
 import EasyLanguageCurrencyDropdown from "./EasyLanguageCurrencyDropdown.vue";
 
 const meta = {
-  title: 'Components/EasyLanguageCurrencyDropdown',
+  title: 'Components/Header/EasyLanguageCurrencyDropdown',
   component: EasyLanguageCurrencyDropdown,
   tags: ['autodocs'],
   argTypes: {
