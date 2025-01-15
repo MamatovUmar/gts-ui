@@ -1,79 +1,78 @@
 <script setup lang="ts">
-import FloatLabel from "primevue/floatlabel";
-import Calendar, {type CalendarDateSlotOptions} from "primevue/calendar";
-import {type DatepickerModelType} from "src/types/ui"
-import {padStart} from "/src/utils/string";
-import {ref, watch} from "vue";
-import moment from "moment";
-import {useId} from "vue";
+import FloatLabel from 'primevue/floatlabel'
+import Calendar, { type CalendarDateSlotOptions } from 'primevue/calendar'
+import { type DatepickerModelType } from 'src/types/ui'
+import { padStart } from '../../utils/string'
+import { ref, watch } from 'vue'
+import moment from 'moment'
+import { useId } from 'vue'
 import './EasyDatePicker.scss'
 
-const model = defineModel<DatepickerModelType>();
-const fromDate = ref<string>("");
-const toDate = ref<string>("");
+const model = defineModel<DatepickerModelType>()
+const fromDate = ref<string>('')
+const toDate = ref<string>('')
 
-const {label, selectionMode = "single"} = withDefaults(
-  defineProps<{
-    label?: string;
-    size?: 'small' | 'large'
-    placeholder?: string;
-    selectionMode?: "multiple" | "range" | "single";
-    minDate?: Date;
-    maxDate?: Date;
-    showIcon?: boolean;
-    invalid?: boolean;
-  }>(), {
-    size: 'large',
-  },
-)
-const id = useId();
+const {
+  label,
+  selectionMode = 'single',
+  size = 'large',
+} = defineProps<{
+  label?: string
+  size?: 'small' | 'large'
+  placeholder?: string
+  selectionMode?: 'multiple' | 'range' | 'single'
+  minDate?: Date
+  maxDate?: Date
+  showIcon?: boolean
+  invalid?: boolean
+}>()
+const id = useId()
 
 function isSideDate(date: CalendarDateSlotOptions) {
-  if (selectionMode !== "range") return "alone";
-  const fullDate = `${padStart(date.day)}.${padStart(date.month + 1)}.${date.year}`;
-  if (fullDate === fromDate.value && toDate.value === "") {
-    return "alone";
+  if (selectionMode !== 'range') return 'alone'
+  const fullDate = `${padStart(date.day)}.${padStart(date.month + 1)}.${date.year}`
+  if (fullDate === fromDate.value && toDate.value === '') {
+    return 'alone'
   } else if (fullDate === fromDate.value) {
-    return "first";
+    return 'first'
   } else if (fullDate === toDate.value) {
-    return "last";
+    return 'last'
   }
 }
 
 function onChangeDatePicker(event: KeyboardEvent): void {
-  const target = event.target as HTMLInputElement;
+  const target = event.target as HTMLInputElement
 
   if (event.key === ' ') {
-    event.preventDefault();
+    event.preventDefault()
   }
 
-  target.value = target.value.replace(/\s+/g, '');
+  target.value = target.value.replace(/\s+/g, '')
 
   if (target.value !== target.value.replace(/[^0-9.]/g, '')) {
-    target.value = target.value.replace(/[^0-9.]/g, '');
+    target.value = target.value.replace(/[^0-9.]/g, '')
   }
 
   if ([2, 5].includes(target.value.replace(/[^0-9.]/g, '').length)) {
-    target.value += '.';
+    target.value += '.'
   }
 }
 
 watch(model, (val) => {
-  if (val && selectionMode === "range") {
-    const arr = val as string[];
+  if (val && selectionMode === 'range') {
+    const arr = val as string[]
     if (arr[0]) {
-      fromDate.value = moment(arr[0]).format("DD.MM.YYYY");
+      fromDate.value = moment(arr[0]).format('DD.MM.YYYY')
     }
     if (arr[1]) {
-      toDate.value = moment(arr[1]).format("DD.MM.YYYY");
+      toDate.value = moment(arr[1]).format('DD.MM.YYYY')
     }
   }
-});
-
+})
 </script>
 
 <template>
-  <FloatLabel :class="['easy-input w-full easy-datepicker', size, {'has-label': label}]">
+  <FloatLabel :class="['easy-input w-full easy-datepicker', size, { 'has-label': label }]">
     <Calendar
       v-model="model"
       :selection-mode="selectionMode"
