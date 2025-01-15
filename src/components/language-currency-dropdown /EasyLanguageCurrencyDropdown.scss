@@ -1,53 +1,85 @@
- .p-button-label {
-    font-weight: 600
+.p-button {
+  width: 120px;
+  height: 32px;
+  border: none !important;
+  padding: 8px 12px;
+
+  &-icon-left {
+    margin-right: 7px;
   }
 
- .p-overlaypanel .p-overlaypanel-content {
-   padding: 0.75rem 0;
- }
+  &-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--text-subtle);
+  }
 
- .wrapper {
-   max-height: calc(5 * 44px);
-   overflow-y: auto;
+  &-label {
+    color: var(--text-subtle);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+}
 
-   p {
-     margin: 0;
-   }
+.p-overlaypanel {
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  overflow: hidden;
 
-   .option {
-     display: flex;
-     align-items: center;
-     gap: 10px;
-     cursor: pointer;
-     height: 44px;
-     padding: 0.75rem;
-     transition: 200ms ease;
+  &-content {
+    padding: 8px;
+  }
 
-     &:hover {
-       background: var(--alpha-neutral200a);
-     }
-   }
+  .p-button {
+    height: 44px !important;
+  }
 
-   .active {
-     background: var(--background-neutral-subtle-pressed);
-   }
+  .wrapper {
+    max-height: calc(5 * 44px);
+    overflow-y: auto;
 
-   .disabled {
-     color: var(--text-disabled);
+    p {
+      margin: 0;
+    }
 
-     &:hover {
-       background: transparent;
-     }
-   }
- }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      height: 44px;
+      padding: 10px 12px;
+      border-radius: 8px;
 
- ::-webkit-scrollbar {
-   width: 8px;
-   border-radius: 10px;
- }
+      &.disabled {
+        color: var(--text-disabled);
+      }
 
- ::-webkit-scrollbar-thumb {
-   background: var(--border-bolder);
-   border-radius: 10px;
-   padding-right: 15px;
- }
+      &:hover:not(.disabled) {
+        background: var(--alpha-neutral200a);
+      }
+
+      &:not(.disabled).active {
+        background: var(--background-neutral-subtle-pressed);
+      }
+    }
+  }
+}
+
+.isOpen {
+  background-color: var(--background-neutral-default) !important;
+
+  .p-button-icon,
+  .p-button-label {
+    color: var(--text-default) !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-bolder);
+  border-radius: 100px;
+}
