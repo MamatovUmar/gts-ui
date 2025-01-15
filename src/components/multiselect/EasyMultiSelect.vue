@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, useId} from "vue";
+import {ref, useId} from "vue";
 import {IItem} from "@/types/ui";
 import FloatLabel from "primevue/floatlabel";
 import MultiSelect from "primevue/multiselect";
@@ -9,7 +9,7 @@ const id = useId()
 
 const model = defineModel()
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   options: IItem[]
   label?: string
   size?: 'small' | 'large'
@@ -28,6 +28,9 @@ const props = withDefaults(defineProps<{
   optionLabel: 'label',
   loading: false
 })
+
+const overlayVisible = ref()
+
 </script>
 
 <template>
@@ -35,17 +38,22 @@ const props = withDefaults(defineProps<{
     <MultiSelect
       :id="id"
       v-model="model"
-      :options="props.options"
-      :optionLabel="optionLabel || 'label'"
-      :option-value="optionValue || 'value'"
-      :class="['w-full',props.size]"
-      :disabled="props.disabled"
-      :loading="props.loading"
+      :options="options"
+      :optionLabel="optionLabel"
+      :option-value="optionValue"
+      :class="['w-full', size]"
+      :disabled="disabled"
+      :loading="loading"
       append-to="self"
       :filter="filter"
       :invalid="invalid"
       close-icon="none"
+      @show="overlayVisible = true"
+      @hide="overlayVisible = false"
     >
+    <template #dropdownicon>
+        <i class="icon-Arrow---Down-2-Outline down-icon" :class="{ rotate: overlayVisible }"></i>
+      </template>
       <template #closeicon>
         <span class="icon-Close-2"></span>
       </template>

@@ -80,6 +80,9 @@
       font-size: 12px;
     }
   }
+  &.p-float-label:has(.p-inputwrapper-focus) label {
+    color: var(--border-selected);
+  }
 
   &.small {
     height: 40px;
@@ -165,6 +168,15 @@
         color: var(--text-subtle);
       }
     }
+  }
+  .down-icon {
+    color: var(--icon-subtle) !important;
+    font-size: 20px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  .rotate {
+    transform: rotate(180deg);
   }
 
   .p-multiselect-item {
