@@ -2,17 +2,18 @@
   resize: none;
   border: 1px solid var(--border-default);
   background: var(--background-input-default);
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-default);
   box-sizing: border-box;
   width: 100%;
+  box-shadow: none;
 
   &.p-invalid {
     border: 1px solid var(--border-danger);
   }
 
   &::placeholder {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--text-subtle)
   }
 
