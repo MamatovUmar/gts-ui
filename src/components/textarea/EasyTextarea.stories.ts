@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/vue3';
 import EasyTextarea from './EasyTextarea.vue';
 
 const meta: Meta = {
-  title: "Components/EasyTextarea",
+  title: "Components/Form/EasyTextarea",
   component: EasyTextarea,
   tags: ["autodocs"],
   argTypes: {
