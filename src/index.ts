@@ -29,6 +29,7 @@ import EasyMultiSelect from './components/multiselect/EasyMultiSelect.vue';
 import EasyPagination from './components/pagination/EasyPagination.vue';
 import EasySwitchToggle from './components/switchtoggle/EasySwitchToggle.vue';
 import EasyNotificationDropdown from "@/components/header/notification/EasyNotificationDropdown.vue";
+import EasyTextarea from './components/textarea/EasyTextarea.vue';
 
 const components = [
   EasyInput,
@@ -56,8 +57,9 @@ const components = [
   EasyDatePicker,
   EasyMultiSelect,
   EasyPagination,
+  EasyNotificationDropdown,
   EasySwitchToggle,
-  EasyNotificationDropdown
+  EasyTextarea
 ];
 
 export default {
@@ -100,6 +102,7 @@ export {
   EasyMultiSelect,
   EasyPagination,
   EasySwitchToggle,
+  EasyTextarea,
   EasyNotificationDropdown
 };
 
@@ -112,6 +115,7 @@ export type {
   ICity
 } from './types/autocomplete';
 export type { IItem, DatepickerModelType, ISidebarItem } from './types/ui';
+export type { IUser, IUserCurrency, IUserLanguage, IContactItem, ICompanyInfo, IBankDetails } from './types/user';
 
 // Export utility functions
 export { catcher } from './utils/catcher';

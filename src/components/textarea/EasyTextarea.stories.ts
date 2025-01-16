@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/vue3';
 import EasyTextarea from './EasyTextarea.vue';
 
 const meta: Meta = {
-  title: "Components/EasyTextarea",
+  title: "Components/Form/EasyTextarea",
   component: EasyTextarea,
   tags: ["autodocs"],
   argTypes: {
@@ -41,6 +41,15 @@ const meta: Meta = {
         }
       },
     },
+    readonly: {
+      control: "boolean",
+      description: "Change field to read-only",
+      table: {
+        defaultValue: {
+          summary: "false"
+        }
+      }
+    }
   },
 };
 
@@ -49,90 +58,34 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   args: {
-    invalid: false,
-    placeholder: "Enter your text...",
-  },
-  render: (args) => ({
-    components: {EasyTextarea},
-    setup() {
-      return {args};
-    },
-    template: `
-      <div style="max-width: 400px; margin: auto;">
-        <EasyTextarea
-          :invalid="args.invalid"
-          v-model="args.model"
-          :placeholder="args.placeholder"/>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #42b2d7">
-          Current Value: {{ args.model ? args.model : "enter the text" }}
-        </p>
-      </div>
-    `,
-  }),
+    placeholder: "Enter long form text here",
+  }
 };
 
 export const Invalid: Story = {
   args: {
-    placeholder: 'Enter your text...',
+    placeholder: 'Enter long form text here',
     invalid: true,
   },
-  render: (args) => ({
-    components: {EasyTextarea},
-    setup() {
-      return {args};
-    },
-    template: `
-      <div style="max-width: 400px; margin: auto;">
-        <EasyTextarea
-          v-model="args.model"
-          :placeholder="args.placeholder"
-          :invalid="args.invalid"/>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">
-          Current Value: {{ args.model }}
-        </p>
-      </div>
-    `,
-  }),
 };
 
 export const Disabled: Story = {
   args: {
-    placeholder: 'Enter your text...',
+    placeholder: 'Enter long form text here',
     disabled: true,
   },
-  render: (args) => ({
-    components: {EasyTextarea},
-    setup() {
-      return {args};
-    },
-    template: `
-      <div style="max-width: 400px; margin: auto;">
-        <EasyTextarea
-          v-model="args.model"
-          :placeholder="args.placeholder"
-          :disabled="args.disabled"/>
-      </div>
-    `,
-  }),
 };
 
 export const Rows: Story = {
   args: {
-    placeholder: "Enter your text...",
-    rows: 20,
+    placeholder: "Enter long form text here",
+    rows: 10,
   },
-  render: (args) => ({
-    components: {EasyTextarea},
-    setup() {
-      return {args};
-    },
-    template: `
-      <div style="max-width: 400px; margin: auto;">
-        <EasyTextarea
-          v-model="args.model"
-          :placeholder="args.placeholder"
-          :rows="args.rows"/>
-      </div>
-    `,
-  }),
+};
+
+export const Readonly: Story = {
+  args: {
+    placeholder: "Enter long form text here",
+    readonly: true
+  },
 };
