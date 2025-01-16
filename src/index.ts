@@ -109,6 +109,7 @@ export type {
   ICity
 } from './types/autocomplete';
 export type { IItem, DatepickerModelType, ISidebarItem } from './types/ui';
+export type { IUser, IUserCurrency, IUserLanguage, IContactItem, ICompanyInfo, IBankDetails } from './types/user';
 
 // Export utility functions
 export { catcher } from './utils/catcher';
