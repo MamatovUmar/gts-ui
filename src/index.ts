@@ -28,6 +28,7 @@ import EasyDatePicker from './components/datapicker/EasyDatePicker.vue';
 import EasyMultiSelect from './components/multiselect/EasyMultiSelect.vue';
 import EasyPagination from './components/pagination/EasyPagination.vue';
 import EasySwitchToggle from './components/switchtoggle/EasySwitchToggle.vue';
+import EasyTextarea from './components/textarea/EasyTextarea.vue';
 
 const components = [
   EasyInput,
@@ -55,7 +56,8 @@ const components = [
   EasyDatePicker,
   EasyMultiSelect,
   EasyPagination,
-  EasySwitchToggle
+  EasySwitchToggle,
+  EasyTextarea
 ];
 
 export default {
@@ -97,7 +99,8 @@ export {
   EasyDatePicker,
   EasyMultiSelect,
   EasyPagination,
-  EasySwitchToggle
+  EasySwitchToggle,
+  EasyTextarea
 };
 
 // Export all types
