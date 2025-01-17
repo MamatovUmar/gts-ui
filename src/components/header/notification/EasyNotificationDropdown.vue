@@ -2,11 +2,15 @@
 import EasyDropdown from "@/components/dropdown/EasyDropdown.vue";
 import EasyButton from "@/components/button/EasyButton.vue";
 import EasyIcon from "@/components/icon/EasyIcon.vue";
-
 import './EasyNotificationDropdown.scss'
 import {IItem} from "@/types/ui";
 import EasyTabs from "@/components/tabs/EasyTabs.vue";
+import EasyNotificationItem from "./EasyNotificationItem.vue";
 import {ref} from "vue";
+
+const { title = 'Уведомления' } = defineProps<{
+  title?: string
+}>()
 
 const tabs: IItem[] = [
   {
@@ -32,9 +36,10 @@ const isOpen = ref(false)
     <template #trigger>
       <EasyButton
         plain
-        aria-label="Уведомления"
-        v-tooltip.bottom="'Уведомления'"
+        :aria-label="title"
+        v-tooltip.bottom="title"
         :class="{'no-background': isOpen}"
+        style="max-width: 32px;"
       >
         <EasyIcon class="icon" name="icon-Notification" :size="24">
           <span class="notification-count">24</span>
@@ -44,12 +49,12 @@ const isOpen = ref(false)
 
     <template #default>
       <div class="dropdown-header-navigation">
-        <h5 class="dropdown-header-navigation-title">Уведомления</h5>
+        <h5 class="dropdown-header-navigation-title">{{ title }}</h5>
         <div class="flex items-center" :style="{gap: '12px'}">
-          <EasyButton plain>
+          <EasyButton plain style="max-width: 32px;">
             <EasyIcon class="icon" name="icon-arrow-up-right-from-square-1" :size="20"/>
           </EasyButton>
-          <EasyButton plain>
+          <EasyButton plain style="max-width: 32px;">
             <EasyIcon class="icon" name="icon-Setting-Outline" :size="20"/>
           </EasyButton>
         </div>
@@ -58,23 +63,7 @@ const isOpen = ref(false)
         <EasyTabs :items="tabs" v-model="activeTab"/>
       </div>
       <div class="event-container scrollbar" v-if="activeTab === 'event'">
-        <div class="event-item" v-for="item in 5" :key="item">
-          <div class="event-item-icon">
-            <EasyIcon name="icon-Document" :size="24"/>
-          </div>
-          <div class="event-item-main">
-            <div class="event-item-header">
-              <div>
-                <h6 class="event-item-header-title">Сумма активации договора снизилась  </h6>
-                <p class="event-item-header-subtitle">#9601912 • RizoTravel</p>
-              </div>
-              <time class="event-item-header-time">2 ч.</time>
-            </div>
-            <p class="event-item-desc">
-              Сумма активации договора с агентом {имя агента} снизилась до {новая сумма} USD. Пожалуйста, внесите дополнительные средства
-            </p>
-          </div>
-        </div>
+        <EasyNotificationItem v-for="item in 5" :key="item"/>
       </div>
     </template>
   </EasyDropdown>

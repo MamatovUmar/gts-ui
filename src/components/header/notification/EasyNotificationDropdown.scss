@@ -1,4 +1,6 @@
 .trigger {
+  display: flex;
+  width: fit-content;
   .p-button {
     position: relative;
     overflow: initial;
@@ -106,7 +108,9 @@
         gap: 16px;
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid var(--border-default);
+        &:not(:last-child) {
+          border-bottom: 1px solid var(--border-default);
+        }
 
         &-icon {
           min-width: 40px;

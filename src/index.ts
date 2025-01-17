@@ -61,6 +61,7 @@ const components = [
   EasyNotificationDropdown,
   EasySwitchToggle,
   EasyTextarea,
+  EasyNotificationDropdown,
   EasyProfileDropdown
 ];
 
@@ -105,7 +106,7 @@ export {
   EasyPagination,
   EasySwitchToggle,
   EasyTextarea,
-  EasyNotificationDropdown
+  EasyNotificationDropdown,
   EasyProfileDropdown
 };
 
