@@ -30,6 +30,7 @@ import EasyPagination from './components/pagination/EasyPagination.vue';
 import EasySwitchToggle from './components/switchtoggle/EasySwitchToggle.vue';
 import EasyNotificationDropdown from "@/components/header/notification/EasyNotificationDropdown.vue";
 import EasyTextarea from './components/textarea/EasyTextarea.vue';
+import EasyProfileDropdown from './components/header/profile/ProfileDropdown.vue';
 
 const components = [
   EasyInput,
@@ -59,7 +60,8 @@ const components = [
   EasyPagination,
   EasyNotificationDropdown,
   EasySwitchToggle,
-  EasyTextarea
+  EasyTextarea,
+  EasyProfileDropdown
 ];
 
 export default {
@@ -104,6 +106,7 @@ export {
   EasySwitchToggle,
   EasyTextarea,
   EasyNotificationDropdown
+  EasyProfileDropdown
 };
 
 // Export all types

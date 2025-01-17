@@ -158,6 +158,7 @@ const IconsDemo = defineComponent({
       'close',
       'hotel-Outline',
       // Outline versions
+      'arrow-up-right-from-square-1',
       'Activity-Outline',
       'Add-User-Outline',
       'Arrow---Down-2-Outline',
