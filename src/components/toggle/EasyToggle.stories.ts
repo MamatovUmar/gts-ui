@@ -1,37 +1,24 @@
 import type {Meta, StoryObj} from '@storybook/vue3';
 import InputSwitch from 'primevue/inputswitch';
+import { ref } from 'vue';
 
-import './EasyToggle.scss'
-
-const meta: Meta = {
-  title: 'Components/EasyToggle',
+const meta = {
+  title: 'Primevue/EasyToggle',
   tags: ['autodocs'],
-  component: InputSwitch,
-  argTypes: {
-    model: {
-      control: 'boolean',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: 'false'},
-      },
-    },
-  }
-};
+  argTypes: {}
+} satisfies Meta<typeof InputSwitch>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
-  args: {
-    model: false,
-  },
+  args: {},
   render: (args) => ({
-    components: {InputSwitch},
+    components: { InputSwitch },
     setup() {
-      return {args};
+      const bool = ref(false);
+      return { bool, args };
     },
-      template: `
-        <InputSwitch v-model="args.model" />
-      `
+    template: '<InputSwitch v-bind="args" v-model="bool" />'
   })
 };

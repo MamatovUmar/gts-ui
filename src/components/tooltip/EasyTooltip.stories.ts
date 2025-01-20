@@ -2,8 +2,6 @@
 import type {Meta, StoryObj} from '@storybook/vue3';
 import Tooltip from 'primevue/tooltip';
 import Button from 'primevue/button';
-import "./EasyTooltip.scss";
-
 
 const meta: Meta = {
   title: 'PrimeVue/EasyTooltip',
