@@ -13,7 +13,8 @@ const meta: Meta = {
       control: "text"
     },
     type: {
-      control: 'text'
+      control: { type: 'select' },
+      options: ['information', 'success', 'warning', 'error', 'discovery']
     }
   }
 }
