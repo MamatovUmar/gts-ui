@@ -7,9 +7,12 @@ import {IItem} from "@/types/ui";
 import EasyTabs from "@/components/tabs/EasyTabs.vue";
 import EasyNotificationItem from "./EasyNotificationItem.vue";
 import {ref} from "vue";
+import EasyNoNotification from "@/components/header/notification/EasyNoNotification.vue";
 
-const { title = 'Уведомления' } = defineProps<{
-  title?: string
+const { title = 'Уведомления', emptyTitle = 'No notifications yet', emptySubtitle = 'We\'ll let you know when updates arrive!' } = defineProps<{
+  title?: string;
+  emptyTitle?: string;
+  emptySubtitle?: string;
 }>()
 
 const tabs: IItem[] = [
@@ -62,8 +65,13 @@ const isOpen = ref(false)
       <div class="tabs-container">
         <EasyTabs :items="tabs" v-model="activeTab"/>
       </div>
-      <div class="event-container scrollbar" v-if="activeTab === 'event'">
-        <EasyNotificationItem v-for="item in 5" :key="item"/>
+      <div class="event-container scrollbar">
+        <template v-if="activeTab === 'event'">
+          <EasyNotificationItem v-for="item in 5" :key="item"/>
+        </template>
+        <template v-else>
+          <EasyNoNotification :title="emptyTitle" :subtitle="emptySubtitle"/>
+        </template>
       </div>
     </template>
   </EasyDropdown>
