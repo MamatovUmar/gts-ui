@@ -1,0 +1,28 @@
+.section {
+  background-color: var(--background-information-default);
+  border-radius: 8px;
+  padding: 16px;
+  gap: 16px;
+  display: flex;
+
+  &-icon {
+    color: var(--icon-information) !important;
+  }
+
+  &-main {
+    &-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-default);
+      margin: 0;
+    }
+
+    &-desc {
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--text-default);
+      margin: 9px 0 0 0;
+      font-weight: 400
+    }
+  }
+}
