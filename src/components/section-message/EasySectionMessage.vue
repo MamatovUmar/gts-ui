@@ -2,7 +2,7 @@
 import './EasySectionMessage.scss'
 import EasyIcon from "@/components/icon/EasyIcon.vue";
 
-defineProps<{title: string, description: string}>();
+defineProps<{title: string, description: string, type?: string}>();
 </script>
 
 <template>

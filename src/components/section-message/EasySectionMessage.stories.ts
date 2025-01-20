@@ -11,6 +11,9 @@ const meta: Meta = {
     },
     description: {
       control: "text"
+    },
+    type: {
+      control: 'text'
     }
   }
 }
