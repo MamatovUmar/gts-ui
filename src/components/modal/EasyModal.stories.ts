@@ -1,5 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/vue3';
 import EasyModal from './EasyModal.vue';
+import Button from "primevue/button";
+
 
 const meta: Meta = {
   title: 'Components/Modals/EasyModal',
@@ -85,20 +87,39 @@ export const Basic: Story = {
     noScroll: true,
   },
   render: (args) => ({
-    components: {EasyModal},
+    components: {EasyModal, Button},
     setup() {
       return {args};
     },
     template: `
-      <button class="p-button" @click="args.model = true">Open Modal</button>
-      <h3>Basic modal</h3>
-      <EasyModal
-        v-model="args.model"
-        v-bind="args"
-        :max-width="args.maxWidth"
-        :hide-close="args.hideClose"
-        :no-scroll="args.noScroll"
-        @close="args.close"/>`,
+
+      <div style="display:flex; align-items:center; flex-direction:column;">
+        <h3 style="color:var(--text-subtlest)">Basic modal</h3>
+        <button class="p-button" @click="args.model = true">Open Modal</button>
+        <EasyModal
+          v-model="args.model"
+          v-bind="args"
+          :max-width="args.maxWidth"
+          :hide-close="args.hideClose"
+          :no-scroll="args.noScroll"
+          @close="args.close">
+
+          <template #default>
+            <p style="margin:0; color: var(--text-subtlest)"> Hello this is example Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit.
+              Consequatur deleniti incidunt laboriosam modi sit? Architecto
+              consequatur excepturi hic, illo iusto maiores necessitatibus nisi, odio praesentium quasi saepe sed,
+              tempora
+              vero?</p>
+          </template>
+
+          <template #footer>
+            <Button @click="args.model = false" severity="danger" rounded>Rejected</Button>
+            <Button @click="args.model = false" severity="success" rounded>success</Button>
+          </template>
+
+        </EasyModal>
+      </div>`,
   }),
 };
 
@@ -116,21 +137,24 @@ export const ExpandToWidth: Story = {
       return {args};
     },
     template: `
-      <button
-        class="p-button"
-        @click="args.model = true">
-        Open Modal
-      </button>
+      <div style="display:flex; align-items:center; flex-direction:column;">
+        <button
+          class="p-button"
+          @click="args.model = true">
+          Open Modal
+        </button>
 
-      <h3>full width modal</h3>
+        <h3 style="color:var(--text-subtlest)">full width modal</h3>
 
-      <EasyModal
-        v-model="args.model"
-        v-bind="args"
-        :position="args.position"
-        :max-width="args.maxWidth"
-        :hide-close="args.hideClose"
-        :no-scroll="args.noScroll"
-        @close="args.close"/>`,
+        <EasyModal
+          v-model="args.model"
+          v-bind="args"
+          :position="args.position"
+          :max-width="args.maxWidth"
+          :hide-close="args.hideClose"
+          :no-scroll="args.noScroll"
+          @close="args.close"/>
+      </div>`,
+
   }),
 }
