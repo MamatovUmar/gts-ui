@@ -17,7 +17,7 @@ const id = useId()
 
 <template>
   <div :class="['easy-tabs', { big }]" :style="`--count: ${items.length};`">
-    <template v-for="item of items" :key="item.value">
+    <template  v-for="item of items" :key="item.value">
       <input
         v-model="model"
         :value="item.value"
@@ -28,7 +28,7 @@ const id = useId()
       />
       <label :for="`${id}${item.value}`" :class="['label', { disabled: item?.disabled }]">
         <i v-if="item?.icon" :class="item.icon"></i>
-        {{ item.label }}
+        <span v-html="item.label"/>
       </label>
     </template>
   </div>

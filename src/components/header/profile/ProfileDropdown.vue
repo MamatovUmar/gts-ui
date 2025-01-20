@@ -41,7 +41,7 @@ const name = computed(() => {
       </div>
 
       <div class="profile-dropdown__links">
-        <a v-for="link in links" :key="link.label" :href="link.value" class="profile-dropdown__link">
+        <a v-for="link in links" :key="link.label" :href="String(link.value)" class="profile-dropdown__link">
           <i :class="link.icon"></i>
           {{ link.label }}
         </a>

@@ -22,8 +22,15 @@ import EasyLayout from './components/layout/EasyLayout.vue';
 import EasyModal from './components/modal/EasyModal.vue';
 import EasyConfirmModal from './components/modal/EasyConfirmModal.vue';
 import EasySidebar from './components/sidebar/NavigationSidebar.vue';
-import EasyBreadcrumb from "@/components/breadcrumb/EasyBreadcrumb.vue";
-
+import EasyBreadcrumb from "./components/breadcrumb/EasyBreadcrumb.vue";
+import EasyLanguageCurrencyDropdown from "./components/header/language-currency-dropdown/EasyLanguageCurrencyDropdown.vue";
+import EasyDatePicker from './components/datapicker/EasyDatePicker.vue';
+import EasyMultiSelect from './components/multiselect/EasyMultiSelect.vue';
+import EasyPagination from './components/pagination/EasyPagination.vue';
+import EasySwitchToggle from './components/switchtoggle/EasySwitchToggle.vue';
+import EasyNotificationDropdown from "@/components/header/notification/EasyNotificationDropdown.vue";
+import EasyTextarea from './components/textarea/EasyTextarea.vue';
+import EasyProfileDropdown from './components/header/profile/ProfileDropdown.vue';
 
 const components = [
   EasyInput,
@@ -46,8 +53,16 @@ const components = [
   EasyModal,
   EasyConfirmModal,
   EasySidebar,
-  EasyBreadcrumb
-  // Add more components
+  EasyBreadcrumb,
+  EasyLanguageCurrencyDropdown,
+  EasyDatePicker,
+  EasyMultiSelect,
+  EasyPagination,
+  EasyNotificationDropdown,
+  EasySwitchToggle,
+  EasyTextarea,
+  EasyNotificationDropdown,
+  EasyProfileDropdown
 ];
 
 export default {
@@ -84,8 +99,15 @@ export {
   EasyModal,
   EasyConfirmModal,
   EasySidebar,
-  EasyBreadcrumb
-  // Add more component exports
+  EasyBreadcrumb,
+  EasyLanguageCurrencyDropdown,
+  EasyDatePicker,
+  EasyMultiSelect,
+  EasyPagination,
+  EasySwitchToggle,
+  EasyTextarea,
+  EasyNotificationDropdown,
+  EasyProfileDropdown
 };
 
 // Export all types
@@ -97,6 +119,7 @@ export type {
   ICity
 } from './types/autocomplete';
 export type { IItem, DatepickerModelType, ISidebarItem } from './types/ui';
+export type { IUser, IUserCurrency, IUserLanguage, IContactItem, ICompanyInfo, IBankDetails } from './types/user';
 
 // Export utility functions
 export { catcher } from './utils/catcher';

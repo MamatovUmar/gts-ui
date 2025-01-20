@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/vue3';
 import EasyDatePicker from "./EasyDatePicker.vue";
 
 const meta = {
-  title: 'Components/EasyDatePicker',
+  title: 'Components/Form/EasyDatePicker',
   component: EasyDatePicker,
   tags: ['autodocs'],
   argTypes: {
@@ -21,7 +21,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    selectionMode: 'single'
+    selectionMode: 'single',
+    placeholder: 'Select date',
   },
 };
 export const Range: Story = {

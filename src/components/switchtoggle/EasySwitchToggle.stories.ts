@@ -2,15 +2,10 @@ import type {Meta, StoryObj} from '@storybook/vue3';
 import EasySwitchToggle from './EasySwitchToggle.vue';
 
 const meta = {
-  title: 'Components/Form/EasySwitchToggle',
+  title: 'Components/EasySwitchToggle',
   component: EasySwitchToggle,
   tags: ['autodocs'],
-  argTypes: {
-    size: {
-      control: {type: 'select'},
-      options: ['small', 'large'],
-    },
-  },
+  argTypes: {},
 } satisfies Meta<typeof EasySwitchToggle>;
 
 export default meta;
@@ -18,12 +13,20 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    size: "large",
-    label: "Select label",
     options: [
-      {label: 'item 1', value: 'aassd', constant: false},
-      {label: 'item 2', value: 'aas3sd', constant: true},
-      {label: 'item 3', value: 'aas3sdf', constant: false}
+      {label: 'Item 1', value: 'item1', constant: false},
+      {label: 'Item 2', value: 'item2', constant: false},
+      {label: 'Item 3', value: 'item3', constant: false}
+    ]
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    options: [
+      {label: 'Item 1', value: 'item1', constant: false},
+      {label: 'Item 2', value: 'item2', constant: true},
+      {label: 'Item 3', value: 'item3', constant: true}
     ]
   },
 };

@@ -5,13 +5,15 @@
     position: absolute;
     right: 12px;
     font-size: 20px;
-    color: var(--black-500);
+    color: var(--text-default);
     top: 50%;
     transform: translateY(-50%);
   }
 
   &.p-invalid {
-    border-color: var(--red-500) !important;
+    .p-inputtext {
+      border-color: var(--border-danger) !important;
+    }
   }
 
   .p-datepicker {
@@ -170,8 +172,9 @@
 
 .easy-datepicker {
   &.p-float-label > label {
-    font-size: 17px;
+    font-size: 16px;
     left: 12px;
+    color: var(--text-subtle);
   }
 
   &.has-prefix {
@@ -195,6 +198,13 @@
     color: var(--text-subtle);
     padding-left: 12px;
     background: var(--background-input-default);
+    border-color: var(--border-bold);
+    font-size: 14px;
+
+    &::placeholder {
+      color: var(--text-subtlest);
+      opacity: 1;
+    }
   }
 
   &.p-float-label:has(.p-inputwrapper-filled) label,
@@ -220,7 +230,6 @@
     }
 
     &.p-float-label > label {
-      font-size: 17px;
       left: 12px;
     }
 
@@ -236,12 +245,17 @@
 
     .p-inputtext {
       padding-left: 12px;
+      font-size: 16px;
     }
 
     &.p-float-label:has(.p-inputwrapper-filled) label,
     &.p-float-label:has(.p-inputwrapper-focus) label {
       top: 12px;
       font-size: 13px;
+      color: var(--text-subtlest)
+    }
+    &.p-float-label:has(.p-inputwrapper-focus) label {
+      color: var(--border-focused);
     }
 
     &.has-label {

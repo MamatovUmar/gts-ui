@@ -92,7 +92,7 @@ export const user: IUser = {
   ],
   "profile_image": "/media/documents/01cc497aa78948558fca18413df7655b.png"
 }
-
+  
 export const links: IItem[] = [
   {
     label: 'Личные данные',

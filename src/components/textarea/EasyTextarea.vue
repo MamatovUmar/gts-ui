@@ -1,49 +1,45 @@
 <script setup lang="ts">
-import Textarea from "primevue/textarea";
-import "./EasyTextarea.scss"
+import Textarea from 'primevue/textarea'
+import './EasyTextarea.scss'
 
-import {computed} from "vue";
+const model = defineModel<string>({ default: '' })
 
-const model = defineModel<string>({default: ""});
-
-const props = defineProps<{
-  placeholder?: string;
-  tabindex?: number;
-  invalid?: boolean;
-  rows?: number;
-  disabled?: boolean;
-}>();
-
-const notValid = computed(() => {
-  return props.invalid ? "2px solid var(--red-500)" : "2px solid var(--teal-500)"
-})
-
-const isDisabled = computed(() => {
-  return props.disabled ? "var(--cadet-blue-200)" : "--neutral-0"
-})
-
+defineProps<{
+  placeholder?: string
+  tabindex?: number
+  invalid?: boolean
+  rows?: number
+  disabled?: boolean
+  readonly?: boolean
+}>()
+const emit = defineEmits<{
+  (e: 'keydown.down', val: string): void
+  (e: 'keydown.up', val: string): void
+  (e: 'keydown.enter', val: string): void
+  (e: 'keydown.tab', val: string): void
+  (e: 'focus', val: string): void
+  (e: 'focusout', val: string): void
+}>()
 </script>
 
 <template>
-  <div :class="['easy-textarea']">
-      <Textarea
-        v-model="model"
-        :rows="props.rows"
-        :placeholder="props.placeholder"
-        :disabled="props.disabled"
-        class="w-full"
-        :tabindex="props.tabindex"
-        :invalid="props.invalid"/>
-  </div>
+  <Textarea
+    v-model="model"
+    :rows="rows"
+    auto-resize
+    :placeholder="placeholder"
+    :readonly="readonly"
+    :disabled="disabled"
+    class="w-full"
+    :tabindex="tabindex"
+    :invalid="invalid"
+    @keydown.down="emit('keydown.down', model)"
+    @keydown.up="emit('keydown.up', model)"
+    @keydown.enter="emit('keydown.enter', model)"
+    @keydown.tab="emit('keydown.tab', model)"
+    @focus="emit('focus', model)"
+    @focusout="emit('focusout', model)"
+  />
 </template>
 
-<style lang="scss">
-.easy-textarea {
-  .p-inputtextarea.p-inputtext:enabled:focus {
-    outline: v-bind(notValid);
-  }
-  .p-inputtext {
-    background-color: v-bind(isDisabled);
-  }
-}
-</style>
+<style lang="scss"></style>

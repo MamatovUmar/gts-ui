@@ -54,6 +54,7 @@
   --background-success-bold-hovered: var(--green-800);
   --background-success-bold-pressed: var(--green-900);
   --background-brand: var(--brand);
+  --d-background-accent-red-sublest: var(--red-50);
   --border-bold: var(--cadet-blue-300);
   --border-bolder: var(--cadet-blue-400);
   --border-brand: var(--teal-500);
@@ -103,6 +104,7 @@
   --text-sucsess: var(--green-500);
   --text-waring: var(--brown-600);
   --text-accent-blue-blue: var(--teal-700);
+  --text-accent-blue: var(--accent-blue);
   --text-accent-green-bolder: var(--green-700);
   --text-accent-green-boldered: var(--green-800);
   --text-accent-green-default: var(--green-600);
@@ -115,6 +117,7 @@
   --text-brand-default: var(--teal-500);
   --text-brand-hovered: var(--teal-600);
   --text-brand-pressed: var(--teal-700);
+  --text-green-bolder: var(--green-bolder);
   --elevation-surface-blanket: #475569cc;
   --elevation-surface-default: #f1f8fd;
   --elevation-surface-overlay: #ffffff;
@@ -156,6 +159,7 @@
   --blue-800: #0055cc;
   --blue-900: #09326c;
   --blue-teal-500: #388bff;
+  --accent-blue: #0A7494;
   --brown-100: #ffeed5;
   --brown-200: #f7d1b5;
   --brown-300: #ffbd72;
@@ -194,6 +198,7 @@
   --green-700: #1c7c44;
   --green-800: #156035;
   --green-900: #104928;
+  --green-bolder: #2ABB7F;
   --grey-100: #d0d5dd;
   --grey-200: #aab1ba;
   --grey-300: #475569cc;
@@ -395,6 +400,7 @@
   --text-brand-default: var(--teal-500);
   --text-brand-hovered: var(--teal-600);
   --text-brand-pressed: var(--teal-700);
+  --text-green-bolder: var(--green-bolder);
   --elevation-surface-blanket: #101214bf;
   --elevation-surface-default: #161b26;
   --elevation-surface-overlay: #161b26;
