@@ -1,44 +1,45 @@
 <script setup lang="ts">
 import { ref, watchEffect, watch } from 'vue'
-import { ICountry } from '@/types/autocomplete'
-import { useFetch } from '@/composables/useFetch'
+import { ICountryNew } from '@/types/autocomplete'
 import { catcher } from '@/utils/catcher'
 import EasyInput from '@/components/input/EasyInput.vue'
 import { debounce } from '@/utils/debounce'
 import ListBox from 'primevue/listbox'
 import './CountryAutocomplete.scss'
 import { useClickOutside } from '@/composables/useClickOutside'
+import countryList from '@/constants/countries'
 
 const {
   size = 'large',
-  optionLabel = 'country_rus',
+  optionLabel = 'ru',
   emptyText = 'Нет совподений',
 } = defineProps<{
   label?: string
   placeholder?: string
   prefixIcon?: string
-  optionLabel?: keyof ICountry
+  optionLabel?: 'ru' | 'uz' | 'en'
   emptyText?: string
   size?: 'small' | 'large'
 }>()
 
-const { get } = useFetch()
-
-const model = defineModel<ICountry>()
+const model = defineModel<ICountryNew>()
 
 const dpRef = ref<HTMLElement>()
 const loading = ref(false)
 const empty = ref(false)
 const open = ref(false)
 const invalid = ref(false)
-const countries = ref<ICountry[]>([])
+const countries = ref<ICountryNew[]>([])
 const search = ref()
 
 const getCountries = catcher(async (val: string) => {
   empty.value = false
   if (!val || val?.length < 2) return
   loading.value = true
-  const { data } = await get<Response<ICountry[]>>(`/country/${val}`)
+
+  const data = countryList.filter((item) => {
+    return JSON.stringify(item).toLowerCase().includes(val.toLowerCase())
+  })
   loading.value = false
   open.value = true
 
@@ -58,7 +59,7 @@ function isValid() {
 
 watchEffect(() => {
   if (model.value) {
-    search.value = model.value[optionLabel]
+    search.value = model.value.name[optionLabel]
     open.value = false
     countries.value = []
   }
@@ -68,9 +69,6 @@ watch(model, (val, oldVal) => {
   if (val === null) model.value = oldVal
 })
 
-interface Response<T> {
-  data: T
-}
 </script>
 
 <template>
@@ -88,7 +86,7 @@ interface Response<T> {
       @focusout="isValid"
     />
     <div v-if="countries.length > 0 && open" class="dropdown">
-      <ListBox v-model="model" :options="countries" :optionLabel="optionLabel" listStyle="max-height:250px" />
+      <ListBox v-model="model" :options="countries" :optionLabel="`name.${optionLabel}`" listStyle="max-height:250px" />
     </div>
     <div v-else-if="search && empty && open" class="dropdown">
       <div class="absolute empty">{{ emptyText }}</div>

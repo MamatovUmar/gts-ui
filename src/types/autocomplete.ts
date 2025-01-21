@@ -18,6 +18,20 @@ export interface ICountry {
   image: string
 }
 
+export interface ICountryNew {
+  name: {
+    ru: string
+    uz: string
+    en: string
+  }
+  code: string
+  phone_code: number
+  phone_mask: string
+  emoji: string
+  unicode: string
+  image: string
+}
+
 export interface ICurrency {
   base: string
   ru: string

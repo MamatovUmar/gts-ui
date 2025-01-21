@@ -47,6 +47,7 @@ const IconsDemo = defineComponent({
       'Global',
       'Flight-on',
       'Flight-off',
+      'help-circle',
       'Coffee',
       'Card-pos',
       'Buildings',
