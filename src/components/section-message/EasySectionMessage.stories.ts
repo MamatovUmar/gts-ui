@@ -11,6 +11,10 @@ const meta: Meta = {
     },
     description: {
       control: "text"
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['information', 'success', 'warning', 'error', 'discovery']
     }
   }
 }
