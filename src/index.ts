@@ -116,7 +116,6 @@ export type {
   ICountry,
   ICurrency,
   IDocument,
-  ICountryNew,
   ICity
 } from './types/autocomplete';
 export type { IItem, DatepickerModelType, ISidebarItem } from './types/ui';

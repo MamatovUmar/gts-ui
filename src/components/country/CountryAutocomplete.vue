@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watchEffect, watch } from 'vue'
-import { ICountryNew } from '@/types/autocomplete'
+import { ICountry } from '@/types/autocomplete'
 import { catcher } from '@/utils/catcher'
 import EasyInput from '@/components/input/EasyInput.vue'
 import { debounce } from '@/utils/debounce'
@@ -11,25 +11,25 @@ import countryList from '@/constants/countries'
 
 const {
   size = 'large',
-  optionLabel = 'ru',
+  optionLabel = 'country_rus',
   emptyText = 'Нет совподений',
 } = defineProps<{
   label?: string
   placeholder?: string
   prefixIcon?: string
-  optionLabel?: 'ru' | 'uz' | 'en'
+  optionLabel?: 'country_rus' | 'country_eng' | 'country_uzb'
   emptyText?: string
   size?: 'small' | 'large'
 }>()
 
-const model = defineModel<ICountryNew>()
+const model = defineModel<ICountry>()
 
 const dpRef = ref<HTMLElement>()
 const loading = ref(false)
 const empty = ref(false)
 const open = ref(false)
 const invalid = ref(false)
-const countries = ref<ICountryNew[]>([])
+const countries = ref<ICountry[]>([])
 const search = ref()
 
 const getCountries = catcher(async (val: string) => {
@@ -38,7 +38,8 @@ const getCountries = catcher(async (val: string) => {
   loading.value = true
 
   const data = countryList.filter((item) => {
-    return JSON.stringify(item).toLowerCase().includes(val.toLowerCase())
+    const {country_eng, country_rus, country_uzb, code} = item
+    return JSON.stringify([country_eng, country_rus, country_uzb, code])?.toLowerCase().includes(val.toLowerCase())
   })
   loading.value = false
   open.value = true
@@ -59,7 +60,7 @@ function isValid() {
 
 watchEffect(() => {
   if (model.value) {
-    search.value = model.value.name[optionLabel]
+    search.value = model.value[optionLabel]
     open.value = false
     countries.value = []
   }
@@ -86,7 +87,7 @@ watch(model, (val, oldVal) => {
       @focusout="isValid"
     />
     <div v-if="countries.length > 0 && open" class="dropdown">
-      <ListBox v-model="model" :options="countries" :optionLabel="`name.${optionLabel}`" listStyle="max-height:250px" />
+      <ListBox v-model="model" :options="countries" :optionLabel="optionLabel" listStyle="max-height:250px" />
     </div>
     <div v-else-if="search && empty && open" class="dropdown">
       <div class="absolute empty">{{ emptyText }}</div>

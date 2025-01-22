@@ -46,7 +46,8 @@ export const user: IUser = {
       "phone_code": 998,
       "phone_mask": "(##) ###-##-##",
       "country_eng": "Uzbekistan",
-      "country_rus": "Узбекистан"
+      "country_rus": "Узбекистан",
+      "country_uzb": "Узбекистан"
     },
     "city": {
       "name": "Samarqand Region",
@@ -92,7 +93,7 @@ export const user: IUser = {
   ],
   "profile_image": "/media/documents/01cc497aa78948558fca18413df7655b.png"
 }
-  
+
 export const links: IItem[] = [
   {
     label: 'Личные данные',

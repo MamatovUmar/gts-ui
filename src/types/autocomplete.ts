@@ -10,20 +10,7 @@ export interface IAirline {
 export interface ICountry {
   country_rus: string
   country_eng: string
-  code: string
-  phone_code: number
-  phone_mask: string
-  emoji: string
-  unicode: string
-  image: string
-}
-
-export interface ICountryNew {
-  name: {
-    ru: string
-    uz: string
-    en: string
-  }
+  country_uzb: string
   code: string
   phone_code: number
   phone_mask: string
