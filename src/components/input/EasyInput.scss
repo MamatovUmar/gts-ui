@@ -99,9 +99,12 @@
     height: 40px;
     .p-inputtext {
       height: 40px;
-      font-size: 13px;
+      font-size: 14px;
       border-radius: 8px;
       padding-left: 12px;
+      &::placeholder {
+        font-size: 14px;
+      }
     }
     &.p-float-label > label {
       font-size: 14px;

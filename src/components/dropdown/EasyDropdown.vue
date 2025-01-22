@@ -1,21 +1,29 @@
 <script setup lang="ts">
 import OverlayPanel from 'primevue/overlaypanel';
-import {ref} from "vue";
+import {ref, watch} from "vue";
 import './EasyDropdown.scss'
 
 const emit = defineEmits<{
   (e: 'toggle', val: boolean): void
 }>()
 
-defineProps<{
+const props =defineProps<{
   dropdownClass?: string
+  value?: unknown
+  disabled?: boolean
+  readonly?: boolean
 }>()
 
 const op = ref<OverlayPanel>()
 
 function toggle(event: Event) {
+  if (props.disabled || props.readonly) return
   op.value?.toggle(event);
 }
+
+watch(() => props.value, ()=> {
+  op.value?.hide()
+})
 
 </script>
 
