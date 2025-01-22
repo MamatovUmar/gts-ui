@@ -3,7 +3,7 @@ import Slider from 'primevue/slider/Slider.vue';
 import "../../assets/components/_easy-slider.scss";
 
 const meta: Meta = {
-  title: 'Components/EasySlider',
+  title: 'Primevue/Slider',
   component: Slider,
   tags: ['autodocs'],
 };

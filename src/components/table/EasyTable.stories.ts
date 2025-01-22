@@ -4,7 +4,7 @@ import Column from 'primevue/column';
 
 const meta = {
   components: { DataTable, Column },
-  title: 'Components/EasyTable',
+  title: 'PrimeVue/DataTable',
   component: DataTable,
   tags: ['autodocs'],
   argTypes: {

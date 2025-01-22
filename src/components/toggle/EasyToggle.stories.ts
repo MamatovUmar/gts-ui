@@ -3,7 +3,7 @@ import InputSwitch from 'primevue/inputswitch';
 import { ref } from 'vue';
 
 const meta = {
-  title: 'Primevue/EasyToggle',
+  title: 'Primevue/InputSwitch',
   tags: ['autodocs'],
   argTypes: {}
 } satisfies Meta<typeof InputSwitch>;

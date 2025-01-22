@@ -4,7 +4,7 @@ import Tooltip from 'primevue/tooltip';
 import Button from 'primevue/button';
 
 const meta: Meta = {
-  title: 'PrimeVue/EasyTooltip',
+  title: 'PrimeVue/Tooltip',
   tags: ['autodocs'],
   parameters: {
     docs: {
