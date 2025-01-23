@@ -31,12 +31,12 @@
   color: var(--icon-subtle) !important;
 }
 
-.p-overlaypanel {
+.easy-overplay {
   border: 1px solid var(--border-default);
   border-radius: 8px;
   overflow: hidden;
 
-  &-content {
+  .p-overlaypanel-content {
     padding: 0 0 10px 0;
     width: 540px !important;
 

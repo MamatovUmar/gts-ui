@@ -54,15 +54,11 @@
       padding: 10px 12px;
       border-radius: 8px;
 
-      &.disabled {
-        color: var(--text-disabled);
-      }
-
-      &:hover:not(.disabled) {
+      &:hover {
         background: var(--background-neutral-subtle-hovered);
       }
 
-      &:not(.disabled).active {
+      &.active {
         background: var(--background-neutral-subtle-pressed);
       }
     }

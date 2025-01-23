@@ -29,12 +29,6 @@ const isOpen = ref(false)
 function selectLanguage(language: IItem) {
   locale.value = language.value as string
 }
-
-function selectCurrency(currency: ICurrency) {
-  if (!currency.disabled) {
-    selCurrency.value = currency.base
-  }
-}
 </script>
 
 <template>
@@ -70,8 +64,8 @@ function selectCurrency(currency: ICurrency) {
             class="option"
             v-for="currency in currencies"
             :key="currency.base"
-            :class="{ disabled: currency.disabled, active: currency.base === selCurrency }"
-            @click="selectCurrency(currency)"
+            :class="{active: currency.base === selCurrency }"
+            @click="selCurrency = currency.base"
           >
             {{ currency.base }}
           </div>
