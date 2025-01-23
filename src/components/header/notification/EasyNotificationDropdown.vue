@@ -35,7 +35,7 @@ const isOpen = ref(false)
 </script>
 
 <template>
-  <EasyDropdown @toggle="isOpen = $event">
+  <EasyDropdown @toggle="isOpen = $event" dropdown-class="easy-overplay">
     <template #trigger>
       <EasyButton
         plain
