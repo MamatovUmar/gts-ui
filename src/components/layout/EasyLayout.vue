@@ -145,11 +145,11 @@ watch(width, () => {
     border-radius: inherit;
   }
 }
-.dark .easy-layout__body-inner {
+.dark-mode .easy-layout__body-inner {
   background: #0C111D66;
   border: 1px solid #ffffff33;
 }
-.dark .blur-block::after {
+.dark-mode .blur-block::after {
   background: #0c111dcc;
 }
 

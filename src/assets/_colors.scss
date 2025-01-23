@@ -285,7 +285,7 @@
   --d-background-grey-shadow: radial-gradient(96.36% 96.84% at 24.63% 38.89%, #FFFFFF 0%, #E6FBFE 0.01%, #709EFF 71.35%, #E4F9FF 100%);
 }
 
-:root[class*="dark"] {
+:root[class*="dark-mode"] {
   --background-accent-gray-default: var(--dark-neutral300);
   --background-accent-gray-bolder-default: var(--neutral-neutral-700);
   --background-accent-gray-subtle-default: var(--neutral-neutral-500);

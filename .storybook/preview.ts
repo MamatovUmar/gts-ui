@@ -29,8 +29,8 @@ const preview: Preview = {
   decorators: [
     withThemeByDataAttribute({
       themes: {
-        light: 'light',
-        dark: 'dark',
+        light: 'light-mode',
+        dark: 'dark-mode',
       },
       defaultTheme: 'light',
       attributeName: 'class',
