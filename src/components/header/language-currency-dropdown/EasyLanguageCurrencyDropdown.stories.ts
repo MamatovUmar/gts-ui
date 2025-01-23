@@ -23,31 +23,26 @@ export const Default: Story = {
         base: 'EUR',
         ru: 'Евро',
         bool: true,
-        disabled: false
       },
       {
         base: 'UAH',
         ru: 'Гривны',
         bool: true,
-        disabled: false
       },
       {
         base: 'KZT',
         ru: 'Тенге',
         bool: true,
-        disabled: true
       },
       {
         base: 'AZN',
         ru: 'Манат',
         bool: true,
-        disabled: false
       },
       {
         base: 'HKD',
         ru: 'Гонконгские доллары',
         bool: false,
-        disabled: false
       },
       {
         base: 'UZS',
