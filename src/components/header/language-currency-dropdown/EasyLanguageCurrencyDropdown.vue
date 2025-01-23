@@ -3,10 +3,10 @@ import EasyDropdown from '../../dropdown/EasyDropdown.vue'
 import EasyButton from '../../button/EasyButton.vue'
 import EasyIcon from '../../icon/EasyIcon.vue'
 import EasySwitchToggle from '../../switchtoggle/EasySwitchToggle.vue'
-import { IItem } from '../../../types/ui'
+import { IItem } from '@/types/ui'
 import { ref } from 'vue'
 import './EasyLanguageCurrencyDropdown.scss'
-import { ICurrency } from '../../../types/autocomplete'
+import { ICurrency } from '@/types/autocomplete'
 
 defineProps<{ currencies: ICurrency[] }>()
 const selCurrency = defineModel('currency', { default: 'EUR' })
@@ -32,7 +32,7 @@ function selectLanguage(language: IItem) {
 </script>
 
 <template>
-  <EasyDropdown @toggle="isOpen = $event">
+  <EasyDropdown @toggle="isOpen = $event" dropdown-class="easy-currency-overplay">
     <template #trigger>
       <EasyButton
         size="sm"
@@ -41,6 +41,7 @@ function selectLanguage(language: IItem) {
         :label="`${selCurrency} • ${locale}`"
         aria-label="Выбор языка и валюты"
         :class="{ isOpen }"
+        class="dropdown-button"
       />
     </template>
 
