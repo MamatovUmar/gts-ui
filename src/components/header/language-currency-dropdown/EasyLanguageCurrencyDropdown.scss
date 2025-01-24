@@ -1,4 +1,4 @@
-.dropdown-button {
+.easy-currency-language-button {
   width: 120px;
   height: 32px;
   border: none !important;
@@ -24,7 +24,7 @@
   }
 }
 
-.easy-currency-overplay {
+.easy-currency-language-overplay {
   border: 1px solid var(--border-default);
   border-radius: 8px;
   overflow: hidden;
@@ -75,7 +75,7 @@
   }
 }
 
-.isOpen {
+.isCurrencyLanguageDropdownOpen {
   background-color: var(--background-neutral-default) !important;
 
   .p-button-icon,
