@@ -32,7 +32,7 @@ function selectLanguage(language: IItem) {
 </script>
 
 <template>
-  <EasyDropdown @toggle="isOpen = $event" dropdown-class="easy-currency-overplay">
+  <EasyDropdown @toggle="isOpen = $event" dropdown-class="easy-currency-language-overplay">
     <template #trigger>
       <EasyButton
         size="sm"
@@ -40,8 +40,8 @@ function selectLanguage(language: IItem) {
         icon="icon-Global"
         :label="`${selCurrency} • ${locale}`"
         aria-label="Выбор языка и валюты"
-        :class="{ isOpen }"
-        class="dropdown-button"
+        :class="{ 'isCurrencyLanguageDropdownOpen':  isOpen}"
+        class="easy-currency-language-button"
       />
     </template>
 
