@@ -1,40 +1,50 @@
-.p-button {
+.dropdown-button {
   width: 120px;
   height: 32px;
   border: none !important;
   padding: 8px 12px;
 
-  &-icon-left {
+  .p-button-icon-left {
     margin-right: 7px;
   }
 
-  &-icon {
+  .p-button-icon {
     width: 16px;
     height: 16px;
     color: var(--text-subtle);
   }
 
-  &-label {
+  .p-button-label {
     color: var(--text-subtle);
     font-weight: 600;
     white-space: nowrap;
   }
-  &:hover &-label, &:hover &-icon {
+  &:hover .p-button-label, &:hover .p-button-icon {
     color: var(--text-default);
   }
 }
 
-.p-overlaypanel {
+.easy-currency-overplay {
   border: 1px solid var(--border-default);
   border-radius: 8px;
   overflow: hidden;
 
-  &-content {
-    padding: 8px;
+  .p-overlaypanel-content {
+    padding: 8px !important;
   }
 
   .p-button {
     height: 44px !important;
+    padding: 0 38px !important;
+
+    &.p-button-component {
+      margin: 0;
+    }
+
+    &-label {
+      flex: 0;
+      margin: 0
+    }
   }
 
   .wrapper {
