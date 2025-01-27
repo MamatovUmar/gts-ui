@@ -8,27 +8,37 @@ import { ref } from 'vue'
 import './EasyLanguageCurrencyDropdown.scss'
 import { ICurrency } from '@/types/autocomplete'
 
-defineProps<{ currencies: ICurrency[] }>()
-const selCurrency = defineModel('currency', { default: 'EUR' })
-const locale = defineModel('locale', { default: 'UZB' })
+const props = withDefaults(defineProps<{
+  currencies?: ICurrency[]
+  languageLabel?: string
+  currencyLabel?: string
+}>(), {
+  currencies: () => [],
+  languageLabel: 'Язык',
+  currencyLabel: 'Валюта',
+})
+
+const emit = defineEmits<{
+  (e: 'selectLanguage', val: string): void
+}>()
+
+const selCurrency = defineModel('currency', { default: 'UZS' })
+const locale = defineModel('locale', { default: 'uz' })
 
 const options: IItem[] = [
-  { label: 'Язык', value: 'language' },
-  { label: 'Валюта', value: 'currency' },
+  { label: props.languageLabel, value: 'language' },
+  { label: props.currencyLabel, value: 'currency' },
 ]
 
 const languages: IItem[] = [
-  { label: "O'zbekcha", value: 'UZB', icon: 'icon-uzbekistan' },
-  { label: 'English', value: 'ENG', icon: 'icon-united-kingdom' },
-  { label: 'Русский', value: 'RUS', icon: 'icon-russia' },
+  { label: "O'zbekcha", value: 'uz', icon: 'icon-uzbekistan' },
+  { label: 'English', value: 'en', icon: 'icon-united-kingdom' },
+  { label: 'Русский', value: 'ru', icon: 'icon-russia' },
 ]
 
 const value = ref('language')
 const isOpen = ref(false)
 
-function selectLanguage(language: IItem) {
-  locale.value = language.value as string
-}
 </script>
 
 <template>
@@ -38,9 +48,8 @@ function selectLanguage(language: IItem) {
         size="sm"
         plain
         icon="icon-Global"
-        :label="`${selCurrency} • ${locale}`"
-        aria-label="Выбор языка и валюты"
-        :class="{ 'isCurrencyLanguageDropdownOpen':  isOpen}"
+        :label="`${locale?.toUpperCase()} • ${selCurrency}`"
+        :class="{ 'isCurrencyLanguageDropdownOpen': isOpen}"
         class="easy-currency-language-button"
       />
     </template>
@@ -54,7 +63,7 @@ function selectLanguage(language: IItem) {
             :key="language.value"
             class="option"
             :class="{ active: language.value === locale }"
-            @click="selectLanguage(language)"
+            @click="emit('selectLanguage', String(language.value))"
           >
             <EasyIcon :name="String(language.icon)" :size="24" />
             <p>{{ language.label }}</p>
