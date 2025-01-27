@@ -23,14 +23,23 @@ defineProps<{
     <Transition name="slide-fade">
       <div v-if="open" class="navigation-sidebar-dropdown__menu">
         <template v-for="child of item.children" :key="child.path">
-          <router-link
-            v-if="child.path"
-            :to="child.path"
-            :class="['navigation-sidebar-dropdown__trigger ', { active: routePath === child.path }]"
-            style="padding-left: 24px"
-          >
-            {{ child.label }}
-          </router-link>
+          <template v-if="child.path">
+            <router-link
+              v-if="child.internal"
+              :to="child.path"
+              :class="['navigation-sidebar-dropdown__trigger ', { active: routePath === child.path }]"
+              style="padding-left: 24px"
+            >
+              {{ child.label }}
+            </router-link>
+            <a
+              v-else
+              :href="child.path"
+              :class="['navigation-sidebar-dropdown__trigger ', { active: routePath === child.path }]"
+            >
+              {{ child.label }}
+            </a>
+          </template>
           <div v-else class="navigation-sidebar-dropdown__trigger no-hover disabled" style="padding-left: 24px">
             {{ child.label }}
           </div>

@@ -58,25 +58,25 @@ watchEffect(() => {
 <template>
   <aside :class="['navigation-sidebar', { short }]">
     <section class="navigation-sidebar__header">
-      <router-link :to="baseRoute">
+      <a :href="baseRoute">
         <img v-if="isDipavia" :src="dipLogo" alt="" />
         <img v-else :src="appLogo" alt="" />
-      </router-link>
+      </a>
 
       <i class="icon-Arrow---Left-Square-Outline toggle text-dark" @click="short = !short"></i>
     </section>
 
     <ScrollPanel class="scroll-height">
       <section class="navigation-sidebar__body">
-        <router-link
+        <a
           v-if="parentRoute && !short"
-          :to="baseRoute"
+          :href="baseRoute"
           class="navigation-sidebar__link disable"
           v-tooltip="{ value: 'Вернуться к проекту', disabled: !short }"
         >
           <i class="icon-Arrow---Left-Circle-Outline navigation-sidebar__icon text-text-subtle"></i>
           <span class="text-text-subtle" v-if="!short">Вернуться к проекту</span>
-        </router-link>
+        </a>
 
         <div v-else class="navigation-sidebar__link disable text-text-subtle">
           {{ titleText }}
