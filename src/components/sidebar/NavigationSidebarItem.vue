@@ -13,7 +13,7 @@ const props = defineProps<{
   short: boolean
 }>()
 
-const tagAndAttribute = (routeItem: ISidebarItem): { tag: string, attribute: Record<string, any> } => {
+const tagAndAttribute = (routeItem: ISidebarItem): { tag: string, attribute: Record<string, unknown> } => {
   if (routeItem.internal) {
     return {tag: 'router-link', attribute: {to: routeItem.path}}
   }

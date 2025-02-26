@@ -6,7 +6,8 @@ export default [
     icon: 'icon-Home-Outline',
     activeIcon: 'icon-Home',
     label: 'Дашборд',
-    code: 'search'
+    code: 'search',
+    internal: true
   },
   {
     path: '/search',
