@@ -19,6 +19,7 @@ const props = withDefaults(
     optionValue?: string
     optionLabel?: string
     loading?: boolean
+    placeholder?: string
   }>(),
   {
     size: 'large',
@@ -47,7 +48,7 @@ useClickOutside(dpRef)
 </script>
 
 <template>
-  <FloatLabel :class="['easy-select w-full', props.size, { 'has-label': props.label }]">
+  <FloatLabel :class="['easy-select w-full', size, { 'has-label': label, 'has-placeholder': placeholder }]">
     <Dropdown
       v-model="model"
       :inputId="id"
@@ -59,6 +60,7 @@ useClickOutside(dpRef)
       :option-value="optionValue || 'value'"
       :class="['w-full', props.size]"
       append-to="self"
+      :placeholder="placeholder"
       :disabled="disabled"
       :virtualScrollerOptions="{ lazy: true, itemSize: 45 }"
       :loading

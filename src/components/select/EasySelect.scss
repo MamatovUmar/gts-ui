@@ -20,7 +20,9 @@
   }
   .p-inputtext {
     padding-left: 16px;
-    color: var(--text-default)
+    color: var(--text-subtle);
+    display: flex;
+    align-items: center;
   }
   &.has-prefix {
     & > label {
@@ -39,7 +41,9 @@
     font-size: 15px;
     color: var(--text-subtle);
     box-shadow: none;
-
+    // &-label {
+      // opacity: 1;
+    // }
     &.p-invalid {
       border-color: var(--border-danger);
     }
@@ -69,6 +73,11 @@
       &::placeholder {
         opacity: 0;
       }
+    }
+  }
+  &.has-placeholder {
+    .p-dropdown-label {
+      opacity: 1 !important;
     }
   }
 

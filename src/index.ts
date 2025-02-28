@@ -32,6 +32,7 @@ import EasyNotificationDropdown from "@/components/header/notification/EasyNotif
 import EasyTextarea from './components/textarea/EasyTextarea.vue';
 import EasyProfileDropdown from './components/header/profile/ProfileDropdown.vue';
 import EasySectionMessage from './components/section-message/EasySectionMessage.vue';
+import EasyPopover from './components/popover/EasyPopover.vue';
 
 const components = [
   EasyInput,
@@ -64,7 +65,8 @@ const components = [
   EasyTextarea,
   EasyNotificationDropdown,
   EasyProfileDropdown,
-  EasySectionMessage
+  EasySectionMessage,
+  EasyPopover
 ];
 
 export default {
@@ -110,7 +112,8 @@ export {
   EasyTextarea,
   EasyNotificationDropdown,
   EasyProfileDropdown,
-  EasySectionMessage
+  EasySectionMessage,
+  EasyPopover
 };
 
 // Export all types
