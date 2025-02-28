@@ -35,6 +35,7 @@ export default defineConfig({
         globals: {
           vue: 'Vue',
         },
+        exports: "named",
         assetFileNames: (assetInfo: PreRenderedAsset): string => {
           if (assetInfo.name && /style\.css$/.test(assetInfo.name)) {
             return 'gts-ui.css'
