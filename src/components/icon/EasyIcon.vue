@@ -45,18 +45,19 @@ const multiPathIcons: MultiPathIconsType = {
   'uzbekistan': 18,
   'russia': 3,
   'united-kingdom': 14,
-  'airlineseates': 3,
-  'Discount1': 4,
-  'Chat': 4,
-  'Chart': 4,
-  'card2': 4,
-  'card2-1': 4,
-  'card1': 4,
-  'Call-Missed': 3,
-  'Call-Silent': 3,
-  'Call': 3,
-  'Calling': 3,
-  'Leading-element': 3
+  'Bold-Bag': 3,
+  'Bold-Calendar': 7,
+  'Bold-Camera': 4,
+  'Bold-Chart': 4,
+  'Bold-Chat': 4,
+  'Bold-Discount': 3,
+  'Bold-Document': 4,
+  'Bold-help-circle': 3,
+  'Bold-MoreCircle': 4,
+  'Bold-MoreSquare': 4,
+  'Bold-Paper': 3,
+  'Outline-Chair': 4,
+  'travelOutline-tropical': 5
 };
 
 const cleanIconName = computed(() => props.name.replace(/^icon-/, ''));

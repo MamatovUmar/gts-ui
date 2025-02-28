@@ -33,6 +33,7 @@ import EasyTextarea from './components/textarea/EasyTextarea.vue';
 import EasyProfileDropdown from './components/header/profile/ProfileDropdown.vue';
 import EasySectionMessage from './components/section-message/EasySectionMessage.vue';
 import EasyPopover from './components/popover/EasyPopover.vue';
+import EasyPhoneNumber from './components/phone/EasyPhoneNumber.vue';
 
 const components = [
   EasyInput,
@@ -66,7 +67,8 @@ const components = [
   EasyNotificationDropdown,
   EasyProfileDropdown,
   EasySectionMessage,
-  EasyPopover
+  EasyPopover,
+  EasyPhoneNumber
 ];
 
 export default {
@@ -113,7 +115,8 @@ export {
   EasyNotificationDropdown,
   EasyProfileDropdown,
   EasySectionMessage,
-  EasyPopover
+  EasyPopover,
+  EasyPhoneNumber
 };
 
 // Export all types
@@ -122,7 +125,8 @@ export type {
   ICountry,
   ICurrency,
   IDocument,
-  ICity
+  ICity,
+  IPhoneNumber
 } from './types/autocomplete';
 export type { IItem, DatepickerModelType, ISidebarItem } from './types/ui';
 export type { IUser, IUserCurrency, IUserLanguage, IContactItem, ICompanyInfo, IBankDetails } from './types/user';

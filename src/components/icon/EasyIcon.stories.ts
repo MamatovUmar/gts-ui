@@ -9,14 +9,19 @@ const meta = {
     name: {
       control: 'select',
       options: [
-        'Search',
-        'Home',
+        'Bold-Search',
+        'Bold-Home',
+        'Outline-Search',
+        'Outline-Home',
         'russia',
         'uzbekistan',
         'united-kingdom',
-        'Chat',
-        'Call',
-        'Calling'
+        'Bold-Chat',
+        'Bold-Call',
+        'Bold-Calling',
+        'travelOutline-traine1',
+        'travelOutline-hotel',
+        'travelOutline-plane'
       ],
       description: 'Icon name (can be used with or without "icon-" prefix)'
     },
@@ -33,7 +38,7 @@ export default meta;
 
 export const Default: StoryFn = () => ({
   components: { EasyIcon },
-  template: '<EasyIcon name="Home" :size="24" color="var(--icon-default)" />'
+  template: '<EasyIcon name="Bold-Home" :size="24" color="var(--icon-default)" />'
 });
 
 export const MultiPathIcons: StoryFn = () => ({
@@ -52,6 +57,14 @@ export const MultiPathIcons: StoryFn = () => ({
         <EasyIcon name="united-kingdom" :size="32" />
         <span>UK</span>
       </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+        <EasyIcon name="Bold-Chat" :size="32" />
+        <span>Bold-Chat</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+        <EasyIcon name="travelOutline-tropical" :size="32" />
+        <span>Travel Tropical</span>
+      </div>
     </div>
   `
 });
@@ -60,9 +73,31 @@ export const ColoredIcons: StoryFn = () => ({
   components: { EasyIcon },
   template: `
     <div style="display: flex; gap: 16px; align-items: center;">
-      <EasyIcon name="Chat" :size="32" color="#FF0000" />
-      <EasyIcon name="Call" :size="32" color="#00FF00" />
-      <EasyIcon name="Calling" :size="32" color="#0000FF" />
+      <EasyIcon name="Bold-Chat" :size="32" color="#FF0000" />
+      <EasyIcon name="Bold-Call" :size="32" color="#00FF00" />
+      <EasyIcon name="Bold-Calling" :size="32" color="#0000FF" />
+    </div>
+  `
+});
+
+export const OutlineIcons: StoryFn = () => ({
+  components: { EasyIcon },
+  template: `
+    <div style="display: flex; gap: 16px; align-items: center;">
+      <EasyIcon name="Outline-Chat" :size="32" color="#FF0000" />
+      <EasyIcon name="Outline-Call" :size="32" color="#00FF00" />
+      <EasyIcon name="Outline-Search" :size="32" color="#0000FF" />
+    </div>
+  `
+});
+
+export const TravelIcons: StoryFn = () => ({
+  components: { EasyIcon },
+  template: `
+    <div style="display: flex; gap: 16px; align-items: center;">
+      <EasyIcon name="travelOutline-traine1" :size="32" color="#FF0000" />
+      <EasyIcon name="travelOutline-hotel" :size="32" color="#00FF00" />
+      <EasyIcon name="travelOutline-plane" :size="32" color="#0000FF" />
     </div>
   `
 });
@@ -72,19 +107,19 @@ export const Sizes: StoryFn = () => ({
   template: `
     <div style="display: flex; gap: 16px; align-items: flex-end;">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <EasyIcon name="Home" :size="16" color="var(--icon-default)" />
+        <EasyIcon name="Bold-Home" :size="16" color="var(--icon-default)" />
         <span>16px</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <EasyIcon name="Home" :size="24" color="var(--icon-default)" />
+        <EasyIcon name="Bold-Home" :size="24" color="var(--icon-default)" />
         <span>24px</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <EasyIcon name="Home" :size="32" color="var(--icon-default)" />
+        <EasyIcon name="Bold-Home" :size="32" color="var(--icon-default)" />
         <span>32px</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <EasyIcon name="Home" :size="48" color="var(--icon-default)" />
+        <EasyIcon name="Bold-Home" :size="48" color="var(--icon-default)" />
         <span>48px</span>
       </div>
     </div>

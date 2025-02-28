@@ -1,255 +1,281 @@
 import type { Meta, StoryFn } from '@storybook/vue3';
 import { defineComponent, ref, computed } from 'vue';
 import './icons-demo.scss';
+import EasyIcon from '../components/icon/EasyIcon.vue';
 
 const IconsDemo = defineComponent({
   name: 'IconsDemo',
+  components: {
+    EasyIcon
+  },
   setup() {
     // Icons with multiple paths need special handling
     const multiPathIcons = {
       'uzbekistan': 18,
       'russia': 3,
       'united-kingdom': 14,
-      'airlineseates': 3,
-      'Discount1': 4,
-      'Chat': 4,
-      'Chart': 4,
-      'card2': 4,
-      'card2-1': 4,
-      'card1': 4,
-      'Call-Missed': 3,
-      'Call-Silent': 3,
-      'Call': 3,
-      'Calling': 3,
-      'Leading-element': 3
+      'Bold-Bag': 3,
+      'Bold-Calendar': 7,
+      'Bold-Camera': 4,
+      'Bold-Chart': 4,
+      'Bold-Chat': 4,
+      'Bold-Discount': 3,
+      'Bold-Document': 4,
+      'Bold-help-circle': 3,
+      'Bold-MoreCircle': 4,
+      'Bold-MoreSquare': 4,
+      'Bold-Paper': 3,
+      'Outline-Chair': 4,
+      'travelOutline-tropical': 5
     };
 
     const icons = [
+      // Флаги и страны
       'uzbekistan',
       'russia',
       'united-kingdom',
-      'receipt-search',
-      'airlineseat-persone',
-      'airlineseates',
-      'airlineseat',
-      'violin',
-      'Move',
-      'Two-arrow-2',
-      'Refresh-2',
-      'Close-2',
-      'Sun',
-      'Moon',
-      'Minus',
-      'Add',
-      'Plane',
-      'Milk',
-      'Hospital',
-      'Global',
-      'Flight-on',
-      'Flight-off',
-      'help-circle',
-      'Coffee',
-      'Card-pos',
-      'Buildings',
-      'two-one-two',
-      'more-vertical',
-      'arrow_drop_down_24px',
-      'More-Square',
-      'More-Circle',
-      'Document',
-      'Chack',
-      'Calendar',
-      'Bag-2',
-      'Bag',
-      'User',
-      'User1',
-      'Activity',
-      'Add-User',
-      'Arrow---Down-2',
-      'Arrow---Down-3',
-      'Arrow---Down-Circle',
-      'Arrow---Down-Square',
-      'Arrow---Down',
-      'Arrow---Left-2',
-      'Arrow---Left-3',
-      'Arrow---Left-Circle',
-      'Arrow---Left-Square',
-      'Arrow---Left',
-      'Arrow---Right-2',
-      'Arrow---Right-3',
-      'Arrow---Right-Circle',
-      'Arrow---Right-Square',
-      'Arrow---Right',
-      'Arrow---Up-2',
-      'Arrow---Up-3',
-      'Arrow---Up-Circle',
-      'Arrow---Up-Square',
-      'Arrow---Up',
-      'Buy',
-      'Call',
-      'Call-Missed',
-      'Call-Silent',
-      'Calling',
-      'card2',
-      'card2-1',
-      'Category',
-      'Chart',
-      'Chat',
-      'Close-Square',
-      'Danger',
-      'Delete',
-      'Discovery',
-      'Document',
-      'Download',
-      'Edit',
-      'Edit-Square',
-      'Filter',
-      'Filter-2',
-      'Folder',
-      'Graph',
-      'Heart',
-      'Hide',
-      'Home',
-      'Image',
-      'Image-2',
-      'Info-Circle',
-      'Info-Square',
-      'Leading-element',
-      'Location',
-      'Lock',
-      'Login',
-      'Logout',
-      'Message',
-      'Notification',
-      'Paper',
-      'Paper-Download',
-      'Paper-Fail',
-      'Paper-Negative',
-      'Paper-Plus',
-      'Paper-Upload',
-      'Password',
-      'Play',
-      'Plus',
-      'Profile',
-      'Scan',
-      'Search',
-      'Send',
-      'Setting',
-      'Shield-Done',
-      'Shield-Fail',
-      'Show',
-      'Star',
-      'Swap',
-      'Tick-Square',
-      'Ticket',
-      'Ticket-Star',
-      'Time-Circle',
-      'Time-Square',
-      'transfer-filed',
-      'Unlock',
-      'Upload',
-      'Video',
-      'Voice',
-      'Voice-2',
-      'Volume-Down',
-      'Volume-Off',
-      'Volume-Up',
-      'Wallet',
-      'Work',
-      'close',
-      'hotel-Outline',
-      // Outline versions
-      'arrow-up-right-from-square-1',
-      'Activity-Outline',
-      'Add-User-Outline',
-      'Arrow---Down-2-Outline',
-      'Arrow---Down-3-Outline',
-      'Arrow---Down-Circle-Outline',
-      'Arrow---Down-Square-Outline',
-      'Arrow---Down-Outline',
-      'Arrow---Left-2-Outline',
-      'Arrow---Left-3-Outline',
-      'Arrow---Left-Circle-Outline',
-      'Arrow---Left-Square-Outline',
-      'Arrow---Left-Outline',
-      'Arrow---Right-2-Outline',
-      'Arrow---Right-3-Outline',
-      'Arrow---Right-Circle-Outline',
-      'Arrow---Right-Square-Outline',
-      'Arrow---Right-Outline',
-      'Arrow---Up-2-Outline',
-      'Arrow---Up-3-Outline',
-      'Arrow---Up-Circle-Outline',
-      'Arrow---Up-Square-Outline',
-      'Arrow---Up-Outline',
-      'Bag-Outline',
-      'Buy-Outline',
-      'Calendar-Outline',
-      'Camera-Outline',
-      'Category-Outline',
-      'Chart-Outline',
-      'Chat-Outline',
-      'Close-Square-Outline',
-      'Danger-Circle-Outline',
-      'Delete-Outline',
-      'Discovery-Outline',
-      'Document-Outline',
-      'Download-Outline',
-      'Edit-Outline',
-      'Edit-Square-Outline',
-      'Filter-Outline',
-      'Folder-Outline',
-      'Game-Outline',
-      'Graph-Outline',
-      'Heart-Outline',
-      'Hide-Outline',
-      'Home-Outline',
-      'Image-Outline',
-      'Info-Circle-Outline',
-      'Info-Square-Outline',
-      'Location-Outline',
-      'Lock-Outline',
-      'Login-Outline',
-      'Logout-Outline',
-      'Message-Outline',
-      'More-Circle-Outline',
-      'More-Square-Outline',
-      'Notification-Outline',
-      'Paper-Download-Outline',
-      'Paper-Fail-Outline',
-      'Paper-Negative-Outline',
-      'Paper-Outline',
-      'Paper-Plus-Outline',
-      'Paper-Upload-Outline',
-      'Password-Outline',
-      'Play-Outline',
-      'Plus-Outline',
-      'Profile-Outline',
-      'Scan-Outline',
-      'Search-Outline-Outline',
-      'Send-Outline',
-      'Setting-Outline',
-      'Shield-Done-Outline',
-      'Shield-Fail-Outline',
-      'Show-Outline',
-      'Star-Outline',
-      'Swap-Outline',
-      'Tick-Square-Outline',
-      'Ticket-Outline',
-      'Ticket-Star-Outline',
-      'Time-Circle-Outline',
-      'Time-Square-Outline',
-      'Unlock-Outline',
-      'Upload-Outline',
-      'User-Outline',
-      'Video-Outline',
-      'Voice-Outline',
-      'Volume-Down-Outline',
-      'Volume-Off-Outline',
-      'Volume-Up-Outline',
-      'Wallet-Outline',
-      'Work-Outline',
-      'memo-Outline'
+      
+      // Travel Outline иконки
+      'travelOutline-traine1',
+      'travelOutline-hotel',
+      'travelOutline-memo',
+      'travelOutline-plane',
+      'travelOutline-routing',
+      'travelOutline-simcard',
+      'travelOutline-transfer',
+      'travelOutline-tropical',
+      
+      // Bold иконки
+      'Bold-Arrow-LeftSquare',
+      'Bold-Arrow-Right',
+      'Bold-Arrow-Right2',
+      'Bold-Arrow-Right3',
+      'Bold-Arrow-RightCircle',
+      'Bold-Arrow-RightSquare',
+      'Bold-Arrow-Up',
+      'Bold-Arrow-Up2',
+      'Bold-Arrow-Up3',
+      'Bold-Arrow-UpCircle',
+      'Bold-Arrow-UpSquare',
+      'Bold-Bag',
+      'Bold-Bag2',
+      'Bold-Bookmark',
+      'Bold-Buy',
+      'Bold-Calendar',
+      'Bold-Call',
+      'Bold-Calling',
+      'Bold-CallMissed',
+      'Bold-CallSilent',
+      'Bold-Camera',
+      'Bold-Card',
+      'Bold-Category',
+      'Bold-Chart',
+      'Bold-Chat',
+      'Bold-check-circle',
+      'Bold-CloseSquare',
+      'Bold-Danger',
+      'Bold-Delete',
+      'Bold-Discount',
+      'Bold-Discovery',
+      'Bold-Document',
+      'Bold-Download',
+      'Bold-Edit',
+      'Bold-EditSquare',
+      'Bold-Filter',
+      'Bold-Filter2',
+      'Bold-Folder',
+      'Bold-global',
+      'Bold-Graph',
+      'Bold-Heart',
+      'Bold-help-circle',
+      'Bold-Hide',
+      'Bold-Home',
+      'Bold-Image',
+      'Bold-Image2',
+      'Bold-InfoCircle',
+      'Bold-InfoSquare',
+      'Bold-Location',
+      'Bold-Lock',
+      'Bold-Login',
+      'Bold-Logout',
+      'Bold-Message',
+      'Bold-MoreCircle',
+      'Bold-MoreSquare',
+      'Bold-Notification',
+      'Bold-Paper',
+      'Bold-PaperDownload',
+      'Bold-PaperFail',
+      'Bold-PaperNegative',
+      'Bold-PaperPlus',
+      'Bold-PaperUpload',
+      'Bold-Password',
+      'Bold-Play',
+      'Bold-Plus',
+      'Bold-Profile',
+      'Bold-receipt-search',
+      'Bold-Scan',
+      'Bold-Search',
+      'Bold-Send',
+      'Bold-Setting',
+      'Bold-ShieldDone',
+      'Bold-ShieldFail',
+      'Bold-Show',
+      'Bold-simcard',
+      'Bold-Star',
+      'Bold-Swap',
+      'Bold-Ticket',
+      'Bold-TicketStar',
+      'Bold-TickSquare',
+      'Bold-TimeCircle',
+      'Bold-TimeSquare',
+      'Bold-Unlock',
+      'Bold-Upload',
+      'Bold-User2',
+      'Bold-User3',
+      'Bold-Video',
+      'Bold-Voice',
+      'Bold-Voice2',
+      'Bold-VolumeDown',
+      'Bold-VolumeOff',
+      'Bold-VolumeUp',
+      'Bold-Wallet',
+      'Bold-Work',
+      'Bold-Activity',
+      'Bold-AddUser',
+      'Bold-Arrow-Down',
+      'Bold-Arrow-Down2',
+      'Bold-Arrow-Down3',
+      'Bold-Arrow-DownCircle',
+      'Bold-Arrow-DownSquare',
+      'Bold-Arrow-Left',
+      'Bold-Arrow-Left2',
+      'Bold-Arrow-Left3',
+      'Bold-Arrow-LeftCircle',
+      
+      // Outline иконки
+      'Outline-2User',
+      'Outline-3User',
+      'Outline-Activity',
+      'Outline-AddIcon',
+      'Outline-AddUser',
+      'Outline-airlineSeat',
+      'Outline-Arrow-Down',
+      'Outline-Arrow-Down2',
+      'Outline-Arrow-Down3',
+      'Outline-Arrow-DownCircle',
+      'Outline-Arrow-DownSquare',
+      'Outline-Arrow-Left',
+      'Outline-Arrow-Left2',
+      'Outline-Arrow-Left3',
+      'Outline-Arrow-LeftCircle',
+      'Outline-Arrow-LeftSquare',
+      'Outline-Arrow-Right',
+      'Outline-Arrow-Right2',
+      'Outline-Arrow-Right3',
+      'Outline-Arrow-RightCircle',
+      'Outline-Arrow-RightSquare',
+      'Outline-Arrow-Up',
+      'Outline-Arrow-Up2',
+      'Outline-Arrow-Up3',
+      'Outline-Arrow-UpCircle',
+      'Outline-Arrow-UpSquare',
+      'Outline-Bag',
+      'Outline-Bag3',
+      'Outline-Bookmark',
+      'Outline-Booster',
+      'Outline-Buy',
+      'Outline-Calendar',
+      'Outline-Calendar-number',
+      'Outline-Call',
+      'Outline-Calling',
+      'Outline-CallMissed',
+      'Outline-CallSilent',
+      'Outline-Camera',
+      'Outline-card',
+      'Outline-Category',
+      'Outline-Chair',
+      'Outline-Chart',
+      'Outline-Chat',
+      'Outline-Close_SM',
+      'Outline-CloseSquare',
+      'Outline-DangerCircle',
+      'Outline-DangerTriangle',
+      'Outline-Delete',
+      'Outline-Discount',
+      'Outline-Discovery',
+      'Outline-Document',
+      'Outline-Download',
+      'Outline-Download-cloud',
+      'Outline-Edit',
+      'Outline-EditSquare',
+      'Outline-External_Link',
+      'Outline-Filter',
+      'Outline-Filter3',
+      'Outline-Flag',
+      'Outline-Folder',
+      'Outline-global',
+      'Outline-Graph',
+      'Outline-Heart',
+      'Outline-Help-circle',
+      'Outline-Hide',
+      'Outline-Home',
+      'Outline-Image',
+      'Outline-Image3',
+      'Outline-InfoSquare',
+      'Outline-Location',
+      'Outline-Lock',
+      'Outline-Login',
+      'Outline-Logout',
+      'Outline-Map',
+      'Outline-Message',
+      'Outline-message-text',
+      'Outline-Minus',
+      'Outline-MoreCircle',
+      'Outline-MoreSquare',
+      'Outline-More-vertical',
+      'Outline-Notification',
+      'Outline-Paper',
+      'Outline-PaperDownload',
+      'Outline-PaperFail',
+      'Outline-PaperNegative',
+      'Outline-PaperPlus',
+      'Outline-PaperUpload',
+      'Outline-Password',
+      'Outline-Play',
+      'Outline-Plus',
+      'Outline-Profile',
+      'Outline-Receipt-edit',
+      'Outline-receipt-search',
+      'Outline-Scan',
+      'Outline-Search',
+      'Outline-Send',
+      'Outline-Setting',
+      'Outline-share',
+      'Outline-ShieldDone',
+      'Outline-ShieldFail',
+      'Outline-Show',
+      'Outline-Shuffle',
+      'Outline-Star',
+      'Outline-Strongbox',
+      'Outline-Swap',
+      'Outline-Ticket',
+      'Outline-TicketStar',
+      'Outline-TickSquare',
+      'Outline-TimeCircle',
+      'Outline-TimeSquare',
+      'Outline-u_check',
+      'Outline-Unlock',
+      'Outline-Upload',
+      'Outline-Video',
+      'Outline-Voice',
+      'Outline-Voice3',
+      'Outline-VolumeDown',
+      'Outline-VolumeOff',
+      'Outline-VolumeUp',
+      'Outline-Wallet',
+      'Outline-Work',
+      'Outline-zap',
+      'Outline-opy'
     ].sort();
 
     // Search functionality
@@ -261,7 +287,7 @@ const IconsDemo = defineComponent({
       return icons.filter(icon =>
         icon.toLowerCase().includes(normalizedQuery) ||
         // Also search by category (e.g., 'Outline', 'Arrow', etc.)
-        icon.toLowerCase().split('---').some(part => part.includes(normalizedQuery))
+        icon.toLowerCase().split('-').some(part => part.includes(normalizedQuery))
       );
     });
 
@@ -330,12 +356,93 @@ const IconsDemo = defineComponent({
         </div>
       </div>
 
+      <div class="easy-icon-demo-section">
+        <h2>EasyIcon Component Examples</h2>
+        <p>Here are some examples of using the EasyIcon component:</p>
+
+        <div class="easy-icon-examples">
+          <div class="example-row">
+            <div class="example-item">
+              <h3>Basic Icons</h3>
+              <div class="example-display">
+                <EasyIcon name="Bold-Home" :size="24" />
+                <EasyIcon name="Bold-Search" :size="24" />
+                <EasyIcon name="Bold-Chat" :size="24" />
+                <EasyIcon name="Bold-Calendar" :size="24" />
+              </div>
+              <pre><code>&lt;EasyIcon name="Bold-Home" :size="24" /&gt;</code></pre>
+            </div>
+
+            <div class="example-item">
+              <h3>Colored Icons</h3>
+              <div class="example-display">
+                <EasyIcon name="Bold-Home" :size="24" color="#FF0000" />
+                <EasyIcon name="Bold-Search" :size="24" color="#00FF00" />
+                <EasyIcon name="Bold-Chat" :size="24" color="#0000FF" />
+                <EasyIcon name="Bold-Calendar" :size="24" color="#FF00FF" />
+              </div>
+              <pre><code>&lt;EasyIcon name="Bold-Home" :size="24" color="#FF0000" /&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="example-row">
+            <div class="example-item">
+              <h3>Outline Icons</h3>
+              <div class="example-display">
+                <EasyIcon name="Outline-Home" :size="24" />
+                <EasyIcon name="Outline-Search" :size="24" />
+                <EasyIcon name="Outline-Chat" :size="24" />
+                <EasyIcon name="Outline-Calendar" :size="24" />
+              </div>
+              <pre><code>&lt;EasyIcon name="Outline-Home" :size="24" /&gt;</code></pre>
+            </div>
+
+            <div class="example-item">
+              <h3>Flag Icons (Multi-path)</h3>
+              <div class="example-display">
+                <EasyIcon name="uzbekistan" :size="32" />
+                <EasyIcon name="russia" :size="32" />
+                <EasyIcon name="united-kingdom" :size="32" />
+              </div>
+              <pre><code>&lt;EasyIcon name="uzbekistan" :size="32" /&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="example-row">
+            <div class="example-item">
+              <h3>Travel Icons</h3>
+              <div class="example-display">
+                <EasyIcon name="travelOutline-traine1" :size="24" />
+                <EasyIcon name="travelOutline-hotel" :size="24" />
+                <EasyIcon name="travelOutline-plane" :size="24" />
+                <EasyIcon name="travelOutline-tropical" :size="24" />
+              </div>
+              <pre><code>&lt;EasyIcon name="travelOutline-traine1" :size="24" /&gt;</code></pre>
+            </div>
+
+            <div class="example-item">
+              <h3>Different Sizes</h3>
+              <div class="example-display">
+                <EasyIcon name="Bold-Home" :size="16" />
+                <EasyIcon name="Bold-Home" :size="24" />
+                <EasyIcon name="Bold-Home" :size="32" />
+                <EasyIcon name="Bold-Home" :size="48" />
+              </div>
+              <pre><code>&lt;EasyIcon name="Bold-Home" :size="16" /&gt;
+&lt;EasyIcon name="Bold-Home" :size="24" /&gt;
+&lt;EasyIcon name="Bold-Home" :size="32" /&gt;
+&lt;EasyIcon name="Bold-Home" :size="48" /&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="usage-section">
         <h2>Usage</h2>
         <p>To use an icon in your component:</p>
 
         <h3>1. Use the icon class in your template:</h3>
-        <pre><code>&lt;i class="icon-Home"&gt;&lt;/i&gt;</code></pre>
+        <pre><code>&lt;i class="icon-Bold-Home"&gt;&lt;/i&gt;</code></pre>
 
         <h3>2. For multi-path icons (like flags):</h3>
         <pre><code>&lt;span class="icon-uzbekistan"&gt;
@@ -345,7 +452,31 @@ const IconsDemo = defineComponent({
 &lt;/span&gt;</code></pre>
 
         <h3>3. Customize size and color:</h3>
-        <pre><code>&lt;i class="icon-Home" style="font-size: 24px; color: #007bff;"&gt;&lt;/i&gt;</code></pre>
+        <pre><code>&lt;i class="icon-Bold-Home" style="font-size: 24px; color: #007bff;"&gt;&lt;/i&gt;</code></pre>
+
+        <h3>4. Using EasyIcon component:</h3>
+        <p>The EasyIcon component provides a convenient way to use icons with automatic handling of multi-path icons.</p>
+        
+        <h4>Basic usage:</h4>
+        <pre><code>&lt;EasyIcon name="Bold-Home" /&gt;</code></pre>
+        
+        <h4>With size and color:</h4>
+        <pre><code>&lt;EasyIcon name="Bold-Home" :size="24" color="#007bff" /&gt;</code></pre>
+        
+        <h4>Multi-path icons (like flags):</h4>
+        <pre><code>&lt;EasyIcon name="uzbekistan" :size="32" /&gt;</code></pre>
+        
+        <h4>Import in your component:</h4>
+        <pre><code>import { EasyIcon } from 'gts-ui';</code></pre>
+        
+        <h4>Or register globally:</h4>
+        <pre><code>import { createApp } from 'vue';
+import { EasyIcon } from 'gts-ui';
+import App from './App.vue';
+
+const app = createApp(App);
+app.component('EasyIcon', EasyIcon);
+app.mount('#app');</code></pre>
       </div>
     </div>
   `
