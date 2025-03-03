@@ -27,7 +27,7 @@ const id = useId()
         type="radio"
         class="input"
       />
-      <label :for="`${id}${item.value}`" :class="['label', { disabled: item?.disabled }]">
+      <label :for="`${id}${item.value}`" :class="['label', { disabled: item?.disabled }, {active: item.value === model}]">
         <EasyIcon v-if="item?.icon" :name="item.icon" :size="24"></EasyIcon>
         <span v-html="item.label"/>
       </label>
