@@ -11,7 +11,7 @@
   padding: 5px;
   backdrop-filter: blur(50px);
   min-width: unset !important;
-
+  width: fit-content;
   @for $i from 1 through 10 {
     &:has(:checked:nth-of-type(#{$i})) {
       --active: #{$i - 1};
@@ -19,7 +19,8 @@
   }
 
   .label {
-    padding: 0;
+    width: fit-content;
+    padding: 0 12px;
     cursor: pointer;
     text-align: center;
     height: 100%;
@@ -39,8 +40,9 @@
       font-size: 24px;
     }
     &.disabled {
-      pointer-events: none;
       cursor: not-allowed;
+      color: var(--text-disabled);
+
     }
   }
   input[type="radio"]:checked + label {
