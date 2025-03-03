@@ -13,11 +13,13 @@ const {
   size = 'large',
   optionLabel = 'country_rus',
   emptyText = 'Нет совподений',
+  optionValue
 } = defineProps<{
   label?: string
   placeholder?: string
   prefixIcon?: string
   optionLabel?: 'country_rus' | 'country_eng' | 'country_uzb'
+  optionValue?: 'code' | 'country_rus' | 'country_eng' | 'country_uzb'
   emptyText?: string
   size?: 'small' | 'large'
   invalid?: boolean
@@ -64,8 +66,8 @@ watchEffect(() => {
     search.value = model.value[optionLabel]
     open.value = false
     countries.value = []
-  } else if (model.value && typeof model.value === 'string') {
-    const found = countryList.find((item) => item.code === model.value)
+  } else if (optionValue) {
+    const found = countryList.find((item) => item[optionValue] === model.value)
     if (!found) return
     search.value = found[optionLabel]
     open.value = false
@@ -97,7 +99,7 @@ watch(model, (val, oldVal) => {
         v-model="model"
         :options="countries"
         :optionLabel="optionLabel"
-        :option-value="typeof model === 'string' ? 'code' : undefined"
+        :optionValue="optionValue"
         listStyle="max-height:250px"
       />
     </div>

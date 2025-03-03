@@ -30,7 +30,7 @@ const country = ref('UZ')
       <div class="blur-block">
         {{ country }}
 
-        <EasyCountry v-model="country" label="Country" />
+        <EasyCountry v-model="country" label="Country" optionValue="code" />
 
 
       </div>
