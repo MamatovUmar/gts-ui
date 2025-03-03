@@ -28,7 +28,7 @@ const id = useId()
         class="input"
       />
       <label :for="`${id}${item.value}`" :class="['label', { disabled: item?.disabled }, {active: item.value === model}]">
-        <EasyIcon v-if="item?.icon" :name="item.icon" :size="24"></EasyIcon>
+        <EasyIcon v-if="item?.icon" :name="item.icon" :size="20"></EasyIcon>
         <span v-html="item.label"/>
       </label>
     </template>
