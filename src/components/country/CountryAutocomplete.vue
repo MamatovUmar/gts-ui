@@ -20,15 +20,16 @@ const {
   optionLabel?: 'country_rus' | 'country_eng' | 'country_uzb'
   emptyText?: string
   size?: 'small' | 'large'
+  invalid?: boolean
 }>()
 
-const model = defineModel<ICountry>()
+const model = defineModel<ICountry | string>()
 
 const dpRef = ref<HTMLElement>()
 const loading = ref(false)
 const empty = ref(false)
 const open = ref(false)
-const invalid = ref(false)
+const invalidVal = ref(false)
 const countries = ref<ICountry[]>([])
 const search = ref()
 
@@ -38,7 +39,7 @@ const getCountries = catcher(async (val: string) => {
   loading.value = true
 
   const data = countryList.filter((item) => {
-    const {country_eng, country_rus, country_uzb, code} = item
+    const { country_eng, country_rus, country_uzb, code } = item
     return JSON.stringify([country_eng, country_rus, country_uzb, code])?.toLowerCase().includes(val.toLowerCase())
   })
   loading.value = false
@@ -55,12 +56,18 @@ const fetchData = debounce(getCountries, 400)
 useClickOutside(dpRef)
 
 function isValid() {
-  invalid.value = search.value?.length && countries.value.length === 0
+  invalidVal.value = search.value?.length && countries.value.length === 0
 }
 
 watchEffect(() => {
-  if (model.value) {
+  if (model.value && typeof model.value !== 'string') {
     search.value = model.value[optionLabel]
+    open.value = false
+    countries.value = []
+  } else if (model.value && typeof model.value === 'string') {
+    const found = countryList.find((item) => item.code === model.value)
+    if (!found) return
+    search.value = found[optionLabel]
     open.value = false
     countries.value = []
   }
@@ -69,7 +76,6 @@ watchEffect(() => {
 watch(model, (val, oldVal) => {
   if (val === null) model.value = oldVal
 })
-
 </script>
 
 <template>
@@ -80,14 +86,20 @@ watch(model, (val, oldVal) => {
       :placeholder
       :prefix-icon="prefixIcon"
       :loading
-      :invalid
+      :invalid="invalidVal || invalid"
       :size
       @input="fetchData(search)"
       @focus="fetchData(search)"
       @focusout="isValid"
     />
     <div v-if="countries.length > 0 && open" class="dropdown">
-      <ListBox v-model="model" :options="countries" :optionLabel="optionLabel" listStyle="max-height:250px" />
+      <ListBox
+        v-model="model"
+        :options="countries"
+        :optionLabel="optionLabel"
+        :option-value="typeof model === 'string' ? 'code' : undefined"
+        listStyle="max-height:250px"
+      />
     </div>
     <div v-else-if="search && empty && open" class="dropdown">
       <div class="absolute empty">{{ emptyText }}</div>

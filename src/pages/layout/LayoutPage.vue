@@ -4,7 +4,7 @@ import routes from '@/constants/sidebar'
 import EasyProfileDropdown from '@/components/header/profile/ProfileDropdown.vue'
 import { links, user } from '@/constants';
 import { ref } from 'vue';
-import EasyPhoneNumber from '@/components/phone/EasyPhoneNumber.vue';
+import { EasyCountry } from '@/index';
 
 withDefaults(
   defineProps<{
@@ -16,10 +16,7 @@ withDefaults(
   },
 )
 
-const phoneNumber = ref({
-  phone_code: '',
-  phone_number: '',
-})
+const country = ref('UZ')
 
 </script>
 
@@ -31,8 +28,9 @@ const phoneNumber = ref({
       </template>
 
       <div class="blur-block">
+        {{ country }}
 
-        <EasyPhoneNumber v-model="phoneNumber" locale="uz" />
+        <EasyCountry v-model="country" label="Country" />
 
 
       </div>
