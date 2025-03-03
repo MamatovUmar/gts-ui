@@ -2,6 +2,7 @@
 import {useId} from "vue";
 import type {IItem} from "src/types/ui";
 import './EasyTabs.scss'
+import EasyIcon from "../icon/EasyIcon.vue";
 
 withDefaults(defineProps<{
   items: IItem[]
@@ -27,7 +28,7 @@ const id = useId()
         class="input"
       />
       <label :for="`${id}${item.value}`" :class="['label', { disabled: item?.disabled }]">
-        <i v-if="item?.icon" :class="item.icon"></i>
+        <EasyIcon v-if="item?.icon" :name="item.icon" :size="24"></EasyIcon>
         <span v-html="item.label"/>
       </label>
     </template>
