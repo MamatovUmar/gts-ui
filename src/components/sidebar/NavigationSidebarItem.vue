@@ -50,7 +50,7 @@ watch(() => props.routePath, () => {
       <i v-if="routeItem?.icon" :class="[getIcon(routeItem), 'navigation-sidebar__icon']"></i>
       <i
         v-if="short && routeItem?.children"
-        class="icon-more-vertical navigation-sidebar__more">
+        class="icon-Outline-More-vertical navigation-sidebar__more">
       </i>
     </div>
 

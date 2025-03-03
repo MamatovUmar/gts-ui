@@ -78,14 +78,14 @@ onMounted(() => {
       <template #trigger>
         <div :class="['easy-phone-number__trigger', size, { disabled, readonly, invalid }]">
           +{{ selectedCountry?.phone_code }}
-          <EasyIcon name="icon-Arrow---Down-2-Outline" :size="20" />
+          <EasyIcon name="icon-Outline-Arrow-Down2" :size="20" />
         </div>
       </template>
       <template #default>
         <EasyInput
           v-model="search"
           placeholder="Поиск по странам"
-          prefix-icon="icon-Search-Outline-Outline"
+          prefix-icon="icon-Outline-Search"
           size="small"
           @input="getCountries"
         />

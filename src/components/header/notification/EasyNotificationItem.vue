@@ -5,7 +5,7 @@ import EasyIcon from "@/components/icon/EasyIcon.vue";
 <template>
   <div class="event-item">
     <div class="event-item-icon">
-      <EasyIcon name="icon-Document" :size="24" />
+      <EasyIcon name="icon-Bold-Document" color="#475569" :size="24" />
     </div>
     <div class="event-item-main">
       <div class="event-item-header">

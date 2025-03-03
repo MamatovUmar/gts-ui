@@ -98,11 +98,11 @@ export const links: IItem[] = [
   {
     label: 'Личные данные',
     value: '/personal-account',
-    icon: 'icon-Profile-Outline'
+    icon: 'icon-Outline-Profile'
   },
   {
     label: 'Пароль',
     value: '/personal-account?tab=password',
-    icon: 'icon-Password-Outline'
+    icon: 'icon-Outline-Password'
   }
 ]

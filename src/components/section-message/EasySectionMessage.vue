@@ -9,11 +9,11 @@ interface IProps {
 }
 
 const icons:Record<string, string> = {
-  information: 'icon-Info-Circle',
-  success: 'icon-Tick-Square',
-  warning: 'icon-Danger',
-  error: 'icon-Info-Square',
-  discovery: 'icon-help-circle'
+  information: 'icon-Bold-InfoCircle',
+  success: 'icon-Bold-check-circle',
+  warning: 'icon-Bold-Danger',
+  error: 'icon-Bold-InfoCircle',
+  discovery: 'icon-Bold-help-circle'
 }
 
 withDefaults(defineProps<IProps>(), {

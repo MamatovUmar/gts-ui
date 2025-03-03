@@ -15,9 +15,9 @@ defineProps<{
   <div :class="['navigation-sidebar-dropdown', { expand }]">
     <div class="navigation-sidebar-dropdown__trigger no-hover" @click="open = !open">
       <span>{{ item.label }}</span>
-      <i v-if="expand" class="icon-more-vertical"></i>
-      <i v-else-if="open" class="icon-Arrow---Up-2"></i>
-      <i v-else class="icon-Arrow---Down-2"></i>
+      <i v-if="expand" class="icon-Outline-More-vertical"></i>
+      <i v-else-if="open" class="icon-Outline-Arrow-Up2"></i>
+      <i v-else class="icon-Outline-Arrow-Down2"></i>
     </div>
 
     <Transition name="slide-fade">

@@ -89,7 +89,7 @@ watch(model, (val) => {
       @keypress="onChangeDatePicker"
     >
       <template #inputicon>
-        <i class="icon-Calendar-Outline dp-flight-icon" :class="{ 'easy-datepicker__error': invalid }"></i>
+        <i class="icon-Outline-Calendar dp-flight-icon" :class="{ 'easy-datepicker__error': invalid }"></i>
       </template>
       <template #date="{ date }">
         <div :class="['day center', isSideDate(date)]">

@@ -54,10 +54,10 @@ const overlayVisible = ref()
       @hide="overlayVisible = false"
     >
       <template #dropdownicon>
-        <i class="icon-Arrow---Down-2-Outline down-icon" :class="{ rotate: overlayVisible }"></i>
+        <i class="icon-Outline-Arrow-Down2 down-icon" :class="{ rotate: overlayVisible }"></i>
       </template>
       <template #closeicon>
-        <span class="icon-Close-2"></span>
+        <span class="icon-Outline-Close_SM"></span>
       </template>
     </MultiSelect>
     <label v-if="label" :for="id">{{ label }}</label>

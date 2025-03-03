@@ -80,6 +80,27 @@ export const ColoredIcons: StoryFn = () => ({
   `
 });
 
+export const ColoredMultipathIcons: StoryFn = () => ({
+  components: { EasyIcon },
+  template: `
+    <div style="display: flex; gap: 16px; align-items: center;">
+      <EasyIcon name="Bold-Chat" :size="32" color="#FF0000" />
+      <EasyIcon name="Bold-Calendar" :size="32" color="#00FF00" />
+      <EasyIcon name="Bold-Camera" :size="32" color="#0000FF" />
+      <EasyIcon name="Bold-Chart" :size="32" color="#0000FF" />
+      <EasyIcon name="Bold-Bag" :size="32" color="#0000FF" />
+      <EasyIcon name="Bold-Discount" :size="32" color="#0000FF" />
+      <EasyIcon name="Bold-Document" :size="32" color="#0000FF" />
+      <EasyIcon name="Bold-help-circle" :size="32" color="#0000FF" />
+      <EasyIcon name="Bold-MoreCircle" :size="32" color="#0000FF" />
+      <EasyIcon name="Bold-MoreSquare" :size="32" color="#0000FF" />
+      <EasyIcon name="Bold-Paper" :size="32" color="#0000FF" />
+      <EasyIcon name="Outline-Chair" :size="32" color="#0000FF" />
+      <EasyIcon name="travelOutline-tropical" :size="32" color="#0000FF" />
+    </div>
+  `
+});
+
 export const OutlineIcons: StoryFn = () => ({
   components: { EasyIcon },
   template: `

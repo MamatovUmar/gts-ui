@@ -16,11 +16,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     items: [
-      {label: 'Tab 1', value: 'qq', icon: 'icon-Image-Outline'},
-      {label: 'Tab 2', value: 'ww', icon: 'icon-Image-Outline'},
-      {label: 'Tab 3', value: 'ee', icon: 'icon-Image-Outline'},
-      {label: 'Tab 4', value: 'rr', icon: 'icon-Image-Outline'},
-      {label: 'Tab 5', value: 'tt', icon: 'icon-Image-Outline'}
+      {label: 'Tab 1', value: 'qq', icon: 'icon-Outline-Image'},
+      {label: 'Tab 2', value: 'ww', icon: 'icon-Outline-Image'},
+      {label: 'Tab 3', value: 'ee', icon: 'icon-Outline-Image'},
+      {label: 'Tab 4', value: 'rr', icon: 'icon-Outline-Image'},
+      {label: 'Tab 5', value: 'tt', icon: 'icon-Outline-Image'}
     ]
   }
 };

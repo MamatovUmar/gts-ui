@@ -2,66 +2,66 @@ import { ISidebarItem } from "@/types/ui";
 
 export default [
   {
-    path: '/home',
-    icon: 'icon-Home-Outline',
-    activeIcon: 'icon-Home',
+    path: '/',
+    icon: 'icon-Outline-Home',
+    activeIcon: 'icon-Bold-Home',
     label: 'Дашборд',
     code: 'search',
     internal: true
   },
   {
     path: '/search',
-    icon: 'icon-Search-Outline-Outline',
-    activeIcon: 'icon-Search-Outline-Outline',
+    icon: 'icon-Outline-Search',
+    activeIcon: 'icon-Bold-Search',
     label: 'Поиск',
     code: 'search'
   },
   {
     path: '/charter',
-    icon: 'icon-plane-Outline',
-    activeIcon: 'icon-plane-filed',
+    icon: 'icon-travelOutline-plane',
+    activeIcon: 'icon-travelOutline-plane',
     label: 'Чартер',
     code: 'provider-charter-list'
   },
   {
     path: '/orders',
-    icon: 'icon-Buy-Outline',
-    activeIcon: 'icon-Buy',
+    icon: 'icon-Outline-Buy',
+    activeIcon: 'icon-Bold-Buy',
     label: 'Заказы',
     code: 'list-own-order'
   },
   {
     path: '/agreements',
-    icon: 'icon-Document-Outline',
-    activeIcon: 'icon-Document',
+    icon: 'icon-Outline-Document',
+    activeIcon: 'icon-Bold-Document',
     label: 'Договоры',
     code: 'agreement-list'
   },
   {
     path: '/community',
-    icon: 'icon-Chat-Outline',
-    activeIcon: 'icon-Chat-Outline',
+    icon: 'icon-Outline-Chat',
+    activeIcon: 'icon-Bold-Chat',
     label: 'Сообщество',
     code : 'group-community'
   },
   {
     path: '/users',
-    icon: 'icon-User-Outline',
-    activeIcon: 'icon-User',
+    icon: 'icon-Outline-2User',
+    activeIcon: 'icon-Bold-2User',
     label: 'Пользователи',
     code: 'list-staff'
   },
   {
     path: '/suppliers',
-    icon: 'icon-Ticket-Outline',
-    activeIcon: 'icon-Ticket',
+    icon: 'icon-Outline-Ticket',
+    activeIcon: 'icon-Bold-Ticket',
     label: 'Поставщики',
     code: 'suppliers-list'
   },
   {
     path: '/reports',
-    icon: 'icon-Activity-Outline',
-    activeIcon: 'icon-Activity',
+    icon: 'icon-Outline-Activity',
+    activeIcon: 'icon-Bold-Activity',
     label: 'Отчеты',
     code: 'customize-list',
     children: [
@@ -74,8 +74,8 @@ export default [
   },
   {
     path: '/settings',
-    icon: 'icon-Setting-Outline',
-    activeIcon: 'icon-Setting',
+    icon: 'icon-Outline-Setting',
+    activeIcon: 'icon-Bold-Setting',
     label: 'Настройки',
     children: [
       {

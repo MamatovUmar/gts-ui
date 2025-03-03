@@ -34,7 +34,7 @@ const IconsDemo = defineComponent({
       'uzbekistan',
       'russia',
       'united-kingdom',
-      
+
       // Travel Outline иконки
       'travelOutline-traine1',
       'travelOutline-hotel',
@@ -44,7 +44,7 @@ const IconsDemo = defineComponent({
       'travelOutline-simcard',
       'travelOutline-transfer',
       'travelOutline-tropical',
-      
+
       // Bold иконки
       'Bold-Arrow-LeftSquare',
       'Bold-Arrow-Right',
@@ -151,7 +151,7 @@ const IconsDemo = defineComponent({
       'Bold-Arrow-Left2',
       'Bold-Arrow-Left3',
       'Bold-Arrow-LeftCircle',
-      
+
       // Outline иконки
       'Outline-2User',
       'Outline-3User',
@@ -456,19 +456,19 @@ const IconsDemo = defineComponent({
 
         <h3>4. Using EasyIcon component:</h3>
         <p>The EasyIcon component provides a convenient way to use icons with automatic handling of multi-path icons.</p>
-        
+
         <h4>Basic usage:</h4>
         <pre><code>&lt;EasyIcon name="Bold-Home" /&gt;</code></pre>
-        
+
         <h4>With size and color:</h4>
         <pre><code>&lt;EasyIcon name="Bold-Home" :size="24" color="#007bff" /&gt;</code></pre>
-        
+
         <h4>Multi-path icons (like flags):</h4>
         <pre><code>&lt;EasyIcon name="uzbekistan" :size="32" /&gt;</code></pre>
-        
+
         <h4>Import in your component:</h4>
         <pre><code>import { EasyIcon } from 'gts-ui';</code></pre>
-        
+
         <h4>Or register globally:</h4>
         <pre><code>import { createApp } from 'vue';
 import { EasyIcon } from 'gts-ui';

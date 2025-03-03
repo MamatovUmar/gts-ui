@@ -63,7 +63,7 @@ watchEffect(() => {
         <img v-else :src="appLogo" alt="" />
       </a>
 
-      <i class="icon-Arrow---Left-Square-Outline toggle text-dark" @click="short = !short"></i>
+      <i class="icon-Outline-Arrow-LeftSquare toggle text-dark" @click="short = !short"></i>
     </section>
 
     <ScrollPanel class="scroll-height">
@@ -74,7 +74,7 @@ watchEffect(() => {
           class="navigation-sidebar__link disable"
           v-tooltip="{ value: 'Вернуться к проекту', disabled: !short }"
         >
-          <i class="icon-Arrow---Left-Circle-Outline navigation-sidebar__icon text-text-subtle"></i>
+          <i class="icon-Outline-Arrow-LeftCircle navigation-sidebar__icon text-text-subtle"></i>
           <span class="text-text-subtle" v-if="!short">Вернуться к проекту</span>
         </a>
 
@@ -98,7 +98,7 @@ watchEffect(() => {
           v-tooltip="{ value: logoutText, disabled: !short }"
           @click="emit('logOut')"
         >
-          <i class="icon-Login-Outline"></i>
+          <i class="icon-Outline-Logout"></i>
           <span v-if="!short">{{ logoutText }}</span>
         </div>
       </section>

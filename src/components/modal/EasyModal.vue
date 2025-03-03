@@ -34,7 +34,7 @@ const { maxWidth, noScroll = false, dismissableMask = true, showHeader = true } 
     @hide="emit('close')"
   >
     <div v-if="!hideClose" class="close center pointer" @click="model = false">
-      <i class="icon-Close-2"></i>
+      <i class="icon-Outline-Close_SM"></i>
     </div>
     <template #header>
       <slot name="header" />

@@ -12,7 +12,7 @@
       </template>
 
       <template #separator>
-        <span class="icon-Arrow---Right-2-Outline"/>
+        <span class="icon-Outline-Arrow-Right2"/>
       </template>
 
     </Breadcrumb>

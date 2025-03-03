@@ -80,9 +80,9 @@ export const WithIcon: Story = {
     components: { EasyButton },
     template: `
       <div class="flex" style="gap: 16px; flex-wrap: wrap">
-        <EasyButton label="Add user" icon="icon-Add-User-Outline" />
-        <EasyButton label="Left icon" outlined icon="icon-Add-User-Outline" />
-        <EasyButton label="Right icon" outlined icon="icon-Add-User-Outline" icon-pos="right" />
+        <EasyButton label="Add user" icon="icon-Bold-AddUser" />
+        <EasyButton label="Left icon" outlined icon="icon-Outline-Arrow-Left2" />
+        <EasyButton label="Right icon" outlined icon="icon-Outline-Arrow-Right2" icon-pos="right" />
       </div>
     `
   })

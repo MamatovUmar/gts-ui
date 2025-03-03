@@ -47,7 +47,7 @@ const isOpen = ref(false)
       <EasyButton
         size="sm"
         plain
-        icon="icon-Global"
+        icon="icon-Bold-global"
         :label="`${locale?.toUpperCase()} • ${selCurrency}`"
         :class="{ 'isCurrencyLanguageDropdownOpen': isOpen}"
         class="easy-currency-language-button"

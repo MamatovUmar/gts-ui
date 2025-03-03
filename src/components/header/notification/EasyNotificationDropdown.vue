@@ -44,7 +44,7 @@ const isOpen = ref(false)
         :class="{'no-background': isOpen}"
         style="max-width: 32px;"
       >
-        <EasyIcon class="icon" name="icon-Notification" :size="24">
+        <EasyIcon class="icon" name="icon-Bold-Notification" :size="24">
           <span class="notification-count">24</span>
         </EasyIcon>
       </EasyButton>
@@ -55,10 +55,10 @@ const isOpen = ref(false)
         <h5 class="dropdown-header-navigation-title">{{ title }}</h5>
         <div class="flex items-center" :style="{gap: '12px'}">
           <EasyButton plain style="max-width: 32px;">
-            <EasyIcon class="icon" name="icon-arrow-up-right-from-square-1" :size="20"/>
+            <EasyIcon class="icon" name="icon-Outline-External_Link" :size="20"/>
           </EasyButton>
           <EasyButton plain style="max-width: 32px;">
-            <EasyIcon class="icon" name="icon-Setting-Outline" :size="20"/>
+            <EasyIcon class="icon" name="icon-Outline-Setting" :size="20"/>
           </EasyButton>
         </div>
       </div>

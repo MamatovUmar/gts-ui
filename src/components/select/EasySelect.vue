@@ -68,7 +68,7 @@ useClickOutside(dpRef)
       @hide="overlayVisible = false"
     >
       <template #dropdownicon>
-        <i class="icon-Arrow---Down-2-Outline down-icon" :class="{ rotate: overlayVisible }"></i>
+        <i class="icon-Outline-Arrow-Down2 down-icon" :class="{ rotate: overlayVisible }"></i>
       </template>
       <template #loadingicon>
         <EasyLoader

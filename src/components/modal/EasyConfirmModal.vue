@@ -14,10 +14,10 @@ const { confirmButtonText = 'Подтвердить', cancelButtonText = 'Отм
 }>()
 
 const icons = {
-  warning: 'icon-Danger',
-  success: 'icon-Tick-Square',
-  danger: 'icon-Info-Circle',
-  info: 'icon-Tick-Square',
+  warning: 'icon-Bold-Danger',
+  success: 'icon-Bold-check-circle',
+  danger: 'icon-Bold-InfoCircle',
+  info: 'icon-Info-Circle',
 }
 
 const emit = defineEmits<{

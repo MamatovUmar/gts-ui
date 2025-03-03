@@ -79,7 +79,6 @@
 }
 .icon-Bold-Bag .path1:before {
   content: "\e90b";
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-Bag .path2:before {
   content: "\e90c";
@@ -105,7 +104,6 @@
 }
 .icon-Bold-Calendar .path1:before {
   content: "\e911";
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-Calendar .path2:before {
   content: "\e912";
@@ -155,7 +153,6 @@
 }
 .icon-Bold-Camera .path1:before {
   content: "\e91c";
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-Camera .path2:before {
   content: "\e91d";
@@ -170,7 +167,6 @@
 .icon-Bold-Camera .path4:before {
   content: "\e91f";
   margin-left: -1em;
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-Card:before {
   content: "\e920";
@@ -182,7 +178,6 @@
 }
 .icon-Bold-Chart .path1:before {
   content: "\e922";
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-Chart .path2:before {
   content: "\e923";
@@ -201,7 +196,6 @@
 }
 .icon-Bold-Chat .path1:before {
   content: "\e926";
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-Chat .path2:before {
   content: "\e927";
@@ -236,7 +230,6 @@
 }
 .icon-Bold-Discount .path1:before {
   content: "\e92e";
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-Discount .path2:before {
   content: "\e92f";
@@ -254,7 +247,6 @@
 }
 .icon-Bold-Document .path1:before {
   content: "\e932";
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-Document .path2:before {
   content: "\e933";
@@ -309,7 +301,6 @@
 }
 .icon-Bold-help-circle .path1:before {
   content: "\e93f";
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-help-circle .path2:before {
   content: "\e940";
@@ -367,7 +358,6 @@
 }
 .icon-Bold-MoreCircle .path1:before {
   content: "\e94d";
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-MoreCircle .path2:before {
   content: "\e94e";
@@ -386,7 +376,6 @@
 }
 .icon-Bold-MoreSquare .path1:before {
   content: "\e951";
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-MoreSquare .path2:before {
   content: "\e952";
@@ -409,7 +398,6 @@
 }
 .icon-Bold-Paper .path1:before {
   content: "\e956";
-  color: rgb(71, 85, 105);
 }
 .icon-Bold-Paper .path2:before {
   content: "\e957";
@@ -731,7 +719,6 @@
 }
 .icon-Outline-Chair .path1:before {
   content: "\e9a6";
-  color: rgb(71, 85, 105);
 }
 .icon-Outline-Chair .path2:before {
   content: "\e9a7";
@@ -741,12 +728,10 @@
 .icon-Outline-Chair .path3:before {
   content: "\e9a8";
   margin-left: -1em;
-  color: rgb(71, 85, 105);
 }
 .icon-Outline-Chair .path4:before {
   content: "\e9a9";
   margin-left: -1em;
-  color: rgb(71, 85, 105);
 }
 .icon-Outline-Chart:before {
   content: "\e9aa";
@@ -1098,7 +1083,6 @@
 }
 .icon-travelOutline-tropical .path1:before {
   content: "\ea03";
-  color: rgb(71, 85, 105);
 }
 .icon-travelOutline-tropical .path2:before {
   content: "\ea04";

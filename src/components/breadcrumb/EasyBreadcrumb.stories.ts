@@ -26,7 +26,7 @@ type Story = StoryObj<typeof meta>;
 export const Basic: Story = {
   args: {
     home: {
-      icon: 'icon-Home',
+      icon: 'icon-Bold-Home',
       route: '/'
     },
     items: [
