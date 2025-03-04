@@ -34,6 +34,7 @@ import EasyProfileDropdown from './components/header/profile/ProfileDropdown.vue
 import EasySectionMessage from './components/section-message/EasySectionMessage.vue';
 import EasyPopover from './components/popover/EasyPopover.vue';
 import EasyPhoneNumber from './components/phone/EasyPhoneNumber.vue';
+import EasyServicesTab from './components/services-tab/ServicesTab.vue';
 
 const components = [
   EasyInput,
@@ -68,7 +69,8 @@ const components = [
   EasyProfileDropdown,
   EasySectionMessage,
   EasyPopover,
-  EasyPhoneNumber
+  EasyPhoneNumber,
+  EasyServicesTab
 ];
 
 export default {
@@ -116,7 +118,8 @@ export {
   EasyProfileDropdown,
   EasySectionMessage,
   EasyPopover,
-  EasyPhoneNumber
+  EasyPhoneNumber,
+  EasyServicesTab
 };
 
 // Export all types
