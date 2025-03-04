@@ -6,7 +6,7 @@ import { useWindowSize } from '../../composables/useWindowSize'
 import { ref, watch } from 'vue'
 
 defineProps<{
-  routePath: string
+  routeName: string
   isDark?: boolean
   routes: ISidebarItem[]
 }>()
@@ -35,7 +35,7 @@ watch(width, () => {
   <div :class="['easy-layout', { short }]">
     <EasyBackground />
 
-    <NavigationSidebar v-model:short="short" :routePath :routes="routes" :isDark />
+    <NavigationSidebar v-model:short="short"  :routeName  :routes="routes" :isDark />
 
     <div class="easy-layout__content">
       <div class="easy-layout__header">

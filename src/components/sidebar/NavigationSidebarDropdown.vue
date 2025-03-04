@@ -1,14 +1,18 @@
 <script lang="ts" setup>
-import { ISidebarItem } from '@/types/ui'
-import { ref } from 'vue'
+import {ISidebarItem} from '@/types/ui'
+import {computed, ref} from 'vue'
 
 const open = ref(false)
 
-defineProps<{
+const props = defineProps<{
   item: ISidebarItem
   expand?: boolean
-  routePath: string
+  routeName: string
 }>()
+
+const name = computed(()=>{
+  return props.routeName.replace(/^\//, "")
+})
 </script>
 
 <template>
@@ -22,12 +26,12 @@ defineProps<{
 
     <Transition name="slide-fade">
       <div v-if="open" class="navigation-sidebar-dropdown__menu">
-        <template v-for="child of item.children" :key="child.path">
+        <template v-for="child of props.item.children" :key="child.path">
           <template v-if="child.path">
             <router-link
               v-if="child.internal"
               :to="child.path"
-              :class="['navigation-sidebar-dropdown__trigger ', { active: routePath === child.path }]"
+              :class="['navigation-sidebar-dropdown__trigger ', { active: child?.pages.includes(name)}]"
               style="padding-left: 24px"
             >
               {{ child.label }}
@@ -35,7 +39,7 @@ defineProps<{
             <a
               v-else
               :href="child.path"
-              :class="['navigation-sidebar-dropdown__trigger ', { active: routePath === child.path }]"
+              :class="['navigation-sidebar-dropdown__trigger ', { active: child?.pages.includes(name)}]"
             >
               {{ child.label }}
             </a>
@@ -48,3 +52,10 @@ defineProps<{
     </Transition>
   </div>
 </template>
+
+
+<style scoped lang="scss">
+.active {
+  color: var(--text-selected) !important;
+}
+</style>
