@@ -9,7 +9,7 @@ const op = ref()
 const props = defineProps<{
   routeItem: ISidebarItem,
   isChild: boolean,
-  routePath: string,
+  routeName: string,
   short: boolean
 }>()
 
@@ -21,19 +21,20 @@ const tagAndAttribute = (routeItem: ISidebarItem): { tag: string, attribute: Rec
   return {tag: 'a', attribute: {href: routeItem.path}}
 }
 
-function isActive(path: string) {
-  return props.routePath.startsWith(path)
+function isActive(pages: string[] ) {
+  return pages.includes(props.routeName)
 }
 
 function getIcon(route: ISidebarItem) {
-  return isActive(route.path) ? route.activeIcon : route.icon
+  return isActive(route.pages ?? []) ? route.activeIcon : route.icon
 }
+
 
 function toggle(event: unknown) {
   op.value.toggle(event)
 }
 
-watch(() => props.routePath, () => {
+watch(() => props.routeName, () => {
   op.value.hide()
 })
 
@@ -44,7 +45,7 @@ watch(() => props.routePath, () => {
   <template v-if="routeItem">
     <div
       v-if="short && routeItem?.children"
-      :class="['navigation-sidebar__link', { active: routePath.includes(routeItem.path) }]"
+      :class="['navigation-sidebar__link', { active: routeItem.pages.includes(routeName) }]"
       @click="toggle"
     >
       <i v-if="routeItem?.icon" :class="[getIcon(routeItem), 'navigation-sidebar__icon']"></i>
@@ -58,14 +59,15 @@ watch(() => props.routePath, () => {
       v-else-if="isChild && routeItem?.children"
       expand
       :item="routeItem"
-      :routePath
+      :routeName
     />
+
     <component
       v-else
       :is="tagAndAttribute(routeItem).tag"
       v-bind="tagAndAttribute(routeItem).attribute"
       v-tooltip="{value: routeItem.label, disabled: !short || !!routeItem?.children}"
-      :class="['navigation-sidebar__link', { 'active': isActive(routeItem.path)}, {'pointer-events-none' : routeItem.disabled}]">
+      :class="['navigation-sidebar__link', { 'active': isActive(routeItem?.pages)}, {'pointer-events-none' : routeItem.disabled}]">
       <i v-if="routeItem?.icon" :class="[getIcon(routeItem), 'navigation-sidebar__icon']"></i>
       <span v-if="!short">{{ routeItem.label }}</span>
     </component>
@@ -73,12 +75,12 @@ watch(() => props.routePath, () => {
     <OverlayPanel ref="op" append-to="self" class="sidebar-op">
       <section v-if="routeItem?.children" class="sidebar-short-items">
         <template v-for="(item, j) of routeItem.children" :key="`${j}-${item.path}`">
-          <NavigationSidebarDropdown v-if="item?.children" :item="item" :routePath="routePath"/>
+          <NavigationSidebarDropdown v-if="item?.children" :item="item" :routeName="routeName"/>
           <component
             v-else-if="item.path"
             :is="tagAndAttribute(item).tag"
             v-bind="tagAndAttribute(item).attribute"
-            :class="['sidebar-short-items__link', { active: isActive(item?.path) }]"
+            :class="['sidebar-short-items__link', { active: isActive(routeItem.pages) }]"
           >
             {{ item.label }}
           </component>

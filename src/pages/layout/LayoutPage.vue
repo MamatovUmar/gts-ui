@@ -8,11 +8,11 @@ import { EasyCountry } from '@/index';
 
 withDefaults(
   defineProps<{
-    routePath: string
+    routeName: string
     isDark?: boolean
   }>(),
   {
-    routePath: '/home',
+    routeName: 'settings/route-receipt',
   },
 )
 
@@ -22,7 +22,7 @@ const country = ref('UZ')
 
 <template>
   <div class="layout-page">
-    <EasyLayout :routePath :routes="routes" :isDark>
+    <EasyLayout :routeName :routes="routes" :isDark>
       <template #header>
         <EasyProfileDropdown :user="user" :links="links" />
       </template>
