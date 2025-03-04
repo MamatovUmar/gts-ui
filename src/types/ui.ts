@@ -15,7 +15,8 @@ export interface ISidebarItem {
   label: string
   code: string
   children?: ISidebarItem[]
-  disabled?: boolean
+  disabled?: boolean,
+  pages?: string[]
 }
 
 

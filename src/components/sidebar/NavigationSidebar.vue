@@ -13,7 +13,7 @@ const darkModeLogo = 'https://api.globaltravel.space/media/imgs/logo/dark-logo.s
 const props = withDefaults(defineProps<{
   baseRoute?: string
   isDark?: boolean
-  routePath: string
+  routeName: string
   routes: ISidebarItem[]
   titleText?: string
   logoutText?: string
@@ -43,7 +43,7 @@ const appLogo = computed(() => {
 
 
 watchEffect(() => {
-  const found = props.routes.find(el => props.routePath.includes(el.path))
+  const found = props.routes.find(el => props.routeName.includes(el.path))
   if (found?.children && !short.value) {
     parentRoute.value = true
     routes.value = found.children
@@ -86,7 +86,7 @@ watchEffect(() => {
           <NavigationSidebarItem
             :route-item="routeItem"
             :is-child="parentRoute && !short"
-            :route-path="routePath"
+            :routeName="props.routeName"
             :short
           />
         </template>

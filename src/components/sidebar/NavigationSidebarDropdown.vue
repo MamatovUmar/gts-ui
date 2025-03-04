@@ -7,7 +7,7 @@ const open = ref(false)
 defineProps<{
   item: ISidebarItem
   expand?: boolean
-  routePath: string
+  routeName: string
 }>()
 </script>
 
@@ -26,7 +26,7 @@ defineProps<{
           <router-link
             v-if="child.path"
             :to="child.path"
-            :class="['navigation-sidebar-dropdown__trigger ', { active: routePath === child.path }]"
+            :class="['navigation-sidebar-dropdown__trigger ', { active: routeName === child.path }]"
             style="padding-left: 24px"
           >
             {{ child.label }}

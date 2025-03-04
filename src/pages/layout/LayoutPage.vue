@@ -6,18 +6,18 @@ import { links, user } from '@/constants';
 
 withDefaults(
   defineProps<{
-    routePath: string
+    routeName: string
     isDark?: boolean
   }>(),
   {
-    routePath: '/home',
+    routeName: 'home',
   },
 )
 </script>
 
 <template>
   <div class="layout-page">
-    <EasyLayout :routePath :routes="routes" :isDark>
+    <EasyLayout :routeName  :routes="routes" :isDark>
       <template #header>
         <EasyProfileDropdown :user="user" :links="links" />
       </template>

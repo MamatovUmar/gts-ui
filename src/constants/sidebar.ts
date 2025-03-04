@@ -1,4 +1,4 @@
-import { ISidebarItem } from "@/types/ui";
+import {ISidebarItem} from "@/types/ui";
 
 export default [
   {
@@ -6,56 +6,64 @@ export default [
     icon: 'icon-Home-Outline',
     activeIcon: 'icon-Home',
     label: 'Дашборд',
-    code: 'search'
+    code: 'search',
+    pages: ['home']
   },
   {
     path: '/search',
     icon: 'icon-Search-Outline-Outline',
     activeIcon: 'icon-Search-Outline-Outline',
     label: 'Поиск',
-    code: 'search'
+    code: 'search',
+    pages: ['search']
   },
   {
     path: '/charter',
     icon: 'icon-plane-Outline',
     activeIcon: 'icon-plane-filed',
     label: 'Чартер',
-    code: 'provider-charter-list'
+    code: 'provider-charter-list',
+    pages: ['charter']
   },
   {
     path: '/orders',
     icon: 'icon-Buy-Outline',
     activeIcon: 'icon-Buy',
     label: 'Заказы',
-    code: 'list-own-order'
+    code: 'list-own-order',
+    pages: ['orders']
   },
   {
     path: '/agreements',
     icon: 'icon-Document-Outline',
     activeIcon: 'icon-Document',
     label: 'Договоры',
-    code: 'agreement-list'
+    code: 'agreement-list',
+    pages: ['agreements']
   },
   {
     path: '/community',
     icon: 'icon-Chat-Outline',
     activeIcon: 'icon-Chat-Outline',
     label: 'Сообщество',
-    code : 'group-community'
+    code: 'group-community',
+    pages: ['community']
   },
   {
     path: '/users',
     icon: 'icon-User-Outline',
     activeIcon: 'icon-User',
     label: 'Пользователи',
-    code: 'list-staff'
+    code: 'list-staff',
+    pages: ['users']
   },
   {
     path: '/suppliers',
     icon: 'icon-Ticket-Outline',
     activeIcon: 'icon-Ticket',
     label: 'Поставщики',
-    code: 'suppliers-list'
+    code: 'suppliers-list',
+    pages: ['suppliers']
   },
   {
     path: '/reports',
@@ -63,6 +71,7 @@ export default [
     activeIcon: 'icon-Activity',
     label: 'Отчеты',
     code: 'customize-list',
+    pages: ['reports'],
     children: [
       {
         path: '/reports/basic-indicators',
@@ -76,6 +85,7 @@ export default [
     icon: 'icon-Setting-Outline',
     activeIcon: 'icon-Setting',
     label: 'Настройки',
+    pages: ['settings'],
     children: [
       {
         path: '/settings/exchange-rates',
