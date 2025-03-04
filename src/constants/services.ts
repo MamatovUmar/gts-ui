@@ -1,4 +1,6 @@
-export const services = [
+import { IService } from "@/types";
+
+export const services: IService[] = [
   {
     label: {
       ru: "Перелеты",

@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { computed, useId } from 'vue'
+import { computed } from 'vue'
 import type { IItem } from 'src/types/ui'
 import './ServicesTab.scss'
 import { services } from '@/constants/services'
 import EasyTabs from '@/components/tabs/EasyTabs.vue'
+import { LocaleTypes, ServicesTypes } from '@/types'
 
 const props = withDefaults(
   defineProps<{
-    locale: 'ru' | 'uz' | 'en'
+    locale: LocaleTypes
   }>(),
   {
     locale: 'ru',
@@ -15,13 +16,12 @@ const props = withDefaults(
 )
 const transformedItems = computed<IItem[]>(() =>
   services.map(({ label, ...rest }) => ({
-    label: label[props.locale as keyof typeof label],
+    label: label[props.locale],
     ...rest,
   })),
 )
 
-const model = defineModel()
-const id = useId()
+const model = defineModel<ServicesTypes>()
 </script>
 
 <template>
