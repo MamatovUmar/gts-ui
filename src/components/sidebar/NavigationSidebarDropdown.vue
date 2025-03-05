@@ -31,7 +31,7 @@ const name = computed(()=>{
             <router-link
               v-if="child.internal"
               :to="child.path"
-              :class="['navigation-sidebar-dropdown__trigger ', { active: child?.pages.includes(name)}]"
+              :class="['navigation-sidebar-dropdown__trigger ', { active: child?.pages?.includes(name)}]"
               style="padding-left: 24px"
             >
               {{ child.label }}
@@ -39,7 +39,7 @@ const name = computed(()=>{
             <a
               v-else
               :href="child.path"
-              :class="['navigation-sidebar-dropdown__trigger ', { active: child?.pages.includes(name)}]"
+              :class="['navigation-sidebar-dropdown__trigger ', { active: child?.pages?.includes(name)}]"
             >
               {{ child.label }}
             </a>

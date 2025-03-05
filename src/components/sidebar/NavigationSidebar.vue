@@ -43,7 +43,9 @@ const appLogo = computed(() => {
 
 
 watchEffect(() => {
-  const found = props.routes.find(el => props.routeName.includes(el.path))
+  const found = props.routes.find((el) =>{
+    return el.pages?.includes(props.routeName)
+  })
   if (found?.children && !short.value) {
     parentRoute.value = true
     routes.value = found.children
