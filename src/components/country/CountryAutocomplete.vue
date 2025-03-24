@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watchEffect, watch } from 'vue'
+import { ref, watchEffect, watch, inject, computed } from 'vue'
 import { ICountry } from '@/types/autocomplete'
 import { catcher } from '@/utils/catcher'
 import EasyInput from '@/components/input/EasyInput.vue'
@@ -8,17 +8,16 @@ import ListBox from 'primevue/listbox'
 import './CountryAutocomplete.scss'
 import { useClickOutside } from '@/composables/useClickOutside'
 import countryList from '@/constants/countries'
+import { LocaleTypes } from '@/types'
 
 const {
   size = 'large',
-  optionLabel = 'country_rus',
   emptyText = 'Нет совподений',
   optionValue
 } = defineProps<{
   label?: string
   placeholder?: string
   prefixIcon?: string
-  optionLabel?: 'country_rus' | 'country_eng' | 'country_uzb'
   optionValue?: 'code' | 'country_rus' | 'country_eng' | 'country_uzb'
   emptyText?: string
   size?: 'small' | 'large'
@@ -34,6 +33,12 @@ const open = ref(false)
 const invalidVal = ref(false)
 const countries = ref<ICountry[]>([])
 const search = ref()
+
+const locale = inject<LocaleTypes>('locale') || 'ru'
+
+const optionLabel = computed<'country_rus' | 'country_eng' | 'country_uzb'>(() => {
+  return locale === 'ru' ? 'country_rus' : locale === 'en' ? 'country_eng' : 'country_uzb'
+})
 
 const getCountries = catcher(async (val: string) => {
   empty.value = false
@@ -63,13 +68,13 @@ function isValid() {
 
 watchEffect(() => {
   if (model.value && typeof model.value !== 'string') {
-    search.value = model.value[optionLabel]
+    search.value = model.value[optionLabel.value]
     open.value = false
     countries.value = []
   } else if (optionValue) {
     const found = countryList.find((item) => item[optionValue] === model.value)
     if (!found) return
-    search.value = found[optionLabel]
+    search.value = found[optionLabel.value]
     open.value = false
     countries.value = []
   }

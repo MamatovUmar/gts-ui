@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, inject } from 'vue'
 import EasySelect from '../select/EasySelect.vue'
 import './EasyPagination.scss'
 import Paginator from 'primevue/paginator'
@@ -10,11 +10,12 @@ import { LocaleTypes } from '@/types'
 const { perPageOptions = [10, 20, 30, 40, 50], totalRecords } = defineProps<{
   perPageOptions?: number[]
   totalRecords: number
-  locale: LocaleTypes
 }>()
 
 const page = defineModel({ default: 1 })
 const perPage = defineModel('perPage', { default: 10 })
+
+const locale = inject<LocaleTypes>('locale') || 'ru'
 
 const first = ref(0)
 

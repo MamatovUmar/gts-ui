@@ -4,18 +4,16 @@ import EasyButton from '../../button/EasyButton.vue'
 import EasyIcon from '../../icon/EasyIcon.vue'
 import EasySwitchToggle from '../../switchtoggle/EasySwitchToggle.vue'
 import { IItem } from '@/types/ui'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import './EasyLanguageCurrencyDropdown.scss'
 import { ICurrency } from '@/types/autocomplete'
+import { LocaleTypes } from '@/types'
+import { lang } from '@/constants/lang'
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   currencies?: ICurrency[]
-  languageLabel?: string
-  currencyLabel?: string
 }>(), {
   currencies: () => [],
-  languageLabel: 'Язык',
-  currencyLabel: 'Валюта',
 })
 
 const emit = defineEmits<{
@@ -23,12 +21,12 @@ const emit = defineEmits<{
 }>()
 
 const selCurrency = defineModel('currency', { default: 'UZS' })
-const locale = defineModel('locale', { default: 'uz' })
+const locale = defineModel<LocaleTypes>('locale', { default: 'ru' })
 
-const options: IItem[] = [
-  { label: props.languageLabel, value: 'language' },
-  { label: props.currencyLabel, value: 'currency' },
-]
+const options = computed<IItem[]>(() => ([
+  { label: lang[locale.value as LocaleTypes].language, value: 'language' },
+  { label: lang[locale.value as LocaleTypes].currency, value: 'currency' },
+]))
 
 const languages: IItem[] = [
   { label: "O'zbekcha", value: 'uz', icon: 'icon-uzbekistan' },

@@ -40,7 +40,7 @@ const locale = ref<LocaleTypes>('en')
 
       <div class="blur-block">
 
-        <EasyPagination :total-records="30" v-model:per-page="params.per_page" v-model="params.page" :locale="locale" />
+        <EasyPagination :total-records="30" v-model:per-page="params.per_page" v-model="params.page" />
 
           {{ params }}
 

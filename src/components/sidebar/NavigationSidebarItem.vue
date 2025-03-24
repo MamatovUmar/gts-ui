@@ -1,27 +1,29 @@
 <script lang="ts" setup>
 import OverlayPanel from 'primevue/overlaypanel'
-import {computed, ref, watch} from 'vue'
+import { ref, watch } from 'vue'
 import NavigationSidebarDropdown from './NavigationSidebarDropdown.vue'
-import {ISidebarItem} from '@/types/ui';
+import { ISidebarItem } from '@/types/ui'
 
 const op = ref()
 
 const props = defineProps<{
-  routeItem: ISidebarItem,
-  isChild: boolean,
-  routeName: string,
+  routeItem: ISidebarItem
+  isChild: boolean
+  routeName: string
   short: boolean
 }>()
 
-const tagAndAttribute = (routeItem: ISidebarItem): { tag: string, attribute: Record<string, unknown> } => {
+const tagAndAttribute = (routeItem: ISidebarItem): { tag: string; attribute: Record<string, unknown> } => {
   if (routeItem.internal) {
-    return {tag: 'router-link', attribute: {to: routeItem.path}}
+    return { tag: 'router-link', attribute: { to: routeItem.path } }
+  } else if (routeItem.children?.length) {
+    return { tag: 'div', attribute: { } }
   }
 
-  return {tag: 'a', attribute: {href: routeItem.path}}
+  return { tag: 'a', attribute: { href: routeItem.path } }
 }
 
-function isActive(pages: string[] ) {
+function isActive(pages: string[]) {
   return pages.includes(props.routeName)
 }
 
@@ -29,19 +31,19 @@ function getIcon(route: ISidebarItem) {
   return isActive(route.pages ?? []) ? route.activeIcon : route.icon
 }
 
-
 function toggle(event: unknown) {
   op.value.toggle(event)
 }
 
-watch(() => props.routeName, () => {
-  op.value.hide()
-})
-
+watch(
+  () => props.routeName,
+  () => {
+    op.value.hide()
+  },
+)
 </script>
 
 <template>
-
   <template v-if="routeItem">
     <div
       v-if="short && routeItem?.children"
@@ -49,33 +51,31 @@ watch(() => props.routeName, () => {
       @click="toggle"
     >
       <i v-if="routeItem?.icon" :class="[getIcon(routeItem), 'navigation-sidebar__icon']"></i>
-      <i
-        v-if="short && routeItem?.children"
-        class="icon-Outline-More-vertical navigation-sidebar__more">
-      </i>
+      <i class="icon-Outline-More-vertical navigation-sidebar__more"></i>
     </div>
 
-    <NavigationSidebarDropdown
-      v-else-if="isChild && routeItem?.children"
-      expand
-      :item="routeItem"
-      :routeName
-    />
+    <NavigationSidebarDropdown v-else-if="isChild && routeItem?.children" expand :item="routeItem" :routeName />
 
     <component
       v-else
       :is="tagAndAttribute(routeItem).tag"
       v-bind="tagAndAttribute(routeItem).attribute"
-      v-tooltip="{value: routeItem.label, disabled: !short || !!routeItem?.children}"
-      :class="['navigation-sidebar__link', { 'active': isActive(routeItem?.pages)}, {'pointer-events-none' : routeItem.disabled}]">
+      v-tooltip="{ value: routeItem.label, disabled: !short || !!routeItem?.children }"
+      :class="[
+        'navigation-sidebar__link',
+        { active: isActive(routeItem?.pages) },
+        { 'pointer-events-none': routeItem.disabled },
+      ]"
+    >
       <i v-if="routeItem?.icon" :class="[getIcon(routeItem), 'navigation-sidebar__icon']"></i>
-      <span v-if="!short">{{ routeItem.label }}</span>
+      <span v-if="!short">{{ routeItem.label }} </span>
+      <i v-if="routeItem?.children" class="icon-Outline-More-vertical navigation-sidebar__more"></i>
     </component>
 
     <OverlayPanel ref="op" append-to="self" class="sidebar-op">
       <section v-if="routeItem?.children" class="sidebar-short-items">
         <template v-for="(item, j) of routeItem.children" :key="`${j}-${item.path}`">
-          <NavigationSidebarDropdown v-if="item?.children" :item="item" :routeName="routeName"/>
+          <NavigationSidebarDropdown v-if="item?.children" :item="item" :routeName="routeName" />
           <component
             v-else-if="item.path"
             :is="tagAndAttribute(item).tag"
@@ -93,7 +93,4 @@ watch(() => props.routeName, () => {
   </template>
 </template>
 
-<style lang="scss">
-
-
-</style>
+<style lang="scss"></style>

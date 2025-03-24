@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref, watchEffect } from 'vue'
+import { computed, inject, ref, watchEffect } from 'vue'
 import NavigationSidebarItem from './NavigationSidebarItem.vue'
 import ScrollPanel from 'primevue/scrollpanel'
 import { ISidebarItem } from '@/types/ui'
@@ -17,7 +17,6 @@ const props = withDefaults(defineProps<{
   isDark?: boolean
   routeName: string
   routes: ISidebarItem[]
-  locale: LocaleTypes
 }>(), {
   baseRoute: '/home',
 })
@@ -25,6 +24,8 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{
   (e: 'logOut'): void
 }>()
+
+const locale = inject<LocaleTypes>('locale') || 'ru'
 
 const short = defineModel<boolean>('short', {default: false})
 
@@ -69,15 +70,15 @@ watchEffect(() => {
 
     <ScrollPanel class="scroll-height">
       <section class="navigation-sidebar__body">
-        <a
+        <router-link
           v-if="parentRoute && !short"
-          :href="baseRoute"
+          to="/"
           class="navigation-sidebar__link disable"
-          v-tooltip="{ value: 'Вернуться к проекту', disabled: !short }"
+          v-tooltip="{ value: lang[locale].sidebar.back, disabled: !short }"
         >
           <i class="icon-Outline-Arrow-LeftCircle navigation-sidebar__icon text-text-subtle"></i>
-          <span class="text-text-subtle" v-if="!short">Вернуться к проекту</span>
-        </a>
+          <span class="text-text-subtle" v-if="!short">{{ lang[locale].sidebar.back }}</span>
+        </router-link>
 
         <div v-else class="navigation-sidebar__link disable text-text-subtle">
           {{ lang[locale].sidebar.title }}
