@@ -22,7 +22,7 @@ const country = ref('UZ')
 
 <template>
   <div class="layout-page">
-    <EasyLayout :routeName :routes="routes" :isDark>
+    <EasyLayout :routeName :routes="routes" :isDark locale="ru">
       <template #header>
         <EasyProfileDropdown :user="user" :links="links" />
       </template>

@@ -4,6 +4,8 @@ import NavigationSidebarItem from './NavigationSidebarItem.vue'
 import ScrollPanel from 'primevue/scrollpanel'
 import { ISidebarItem } from '@/types/ui'
 import './NavigationSidebar.css'
+import { lang } from '@/constants/lang'
+import { LocaleTypes } from '@/types'
 
 const dipLogo = 'https://api.globaltravel.space/media/imgs/logo/dip-logo.png'
 const logo = 'https://api.globaltravel.space/media/imgs/logo/logo.svg'
@@ -15,12 +17,9 @@ const props = withDefaults(defineProps<{
   isDark?: boolean
   routeName: string
   routes: ISidebarItem[]
-  titleText?: string
-  logoutText?: string
+  locale: LocaleTypes
 }>(), {
   baseRoute: '/home',
-  titleText: 'Меню',
-  logoutText: 'Выйти',
 })
 
 const emit = defineEmits<{
@@ -81,7 +80,7 @@ watchEffect(() => {
         </a>
 
         <div v-else class="navigation-sidebar__link disable text-text-subtle">
-          {{ titleText }}
+          {{ lang[locale].sidebar.title }}
         </div>
 
         <template v-for="(routeItem, i) of routes" :key="`${i}-${routeItem.path}`">
@@ -97,11 +96,11 @@ watchEffect(() => {
       <section class="navigation-sidebar__footer">
         <div
           class="navigation-sidebar__link"
-          v-tooltip="{ value: logoutText, disabled: !short }"
+          v-tooltip="{ value: lang[locale].sidebar.logout, disabled: !short }"
           @click="emit('logOut')"
         >
           <i class="icon-Outline-Logout"></i>
-          <span v-if="!short">{{ logoutText }}</span>
+          <span v-if="!short">{{ lang[locale].sidebar.logout }}</span>
         </div>
       </section>
     </ScrollPanel>
