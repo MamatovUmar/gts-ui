@@ -3,10 +3,10 @@ import { ISidebarItem } from '@/types/ui'
 import EasyBackground from '../background/EasyBackground.vue'
 import NavigationSidebar from '../sidebar/NavigationSidebar.vue'
 import { useWindowSize } from '../../composables/useWindowSize'
-import { ref, watch } from 'vue'
+import { ref, watch, provide } from 'vue'
 import { LocaleTypes } from '@/types'
 
-defineProps<{
+const { locale } = defineProps<{
   routeName: string
   isDark?: boolean
   routes: ISidebarItem[]
@@ -18,6 +18,8 @@ const emit = defineEmits<{
 }>()
 
 const { width } = useWindowSize()
+
+provide('locale', locale)
 
 const short = ref(false)
 const logoBaseUrl = 'https://api.globaltravel.space/media/imgs/footer'

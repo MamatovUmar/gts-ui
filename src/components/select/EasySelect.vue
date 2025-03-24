@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useId } from 'vue'
+import { inject, useId } from 'vue'
 import type { IItem } from 'src/types/ui'
 import { useClickOutside } from '../../composables/useClickOutside'
 import { computed, ref } from 'vue'
@@ -7,6 +7,8 @@ import './EasySelect.scss'
 import Dropdown from 'primevue/dropdown'
 import FloatLabel from 'primevue/floatlabel'
 import EasyLoader from '@/components/loader/EasyLoader.vue'
+import { LocaleTypes } from '@/types'
+import { lang } from '@/constants/lang'
 
 const props = withDefaults(
   defineProps<{
@@ -31,6 +33,8 @@ const props = withDefaults(
     loading: false,
   },
 )
+
+const locale = inject<LocaleTypes>('locale') || 'ru'
 
 const id = useId()
 const model = defineModel()
@@ -64,6 +68,7 @@ useClickOutside(dpRef)
       :disabled="disabled"
       :virtualScrollerOptions="{ lazy: true, itemSize: 45 }"
       :loading
+      :empty-message="lang[locale].empty_options"
       @show="overlayVisible = true"
       @hide="overlayVisible = false"
     >

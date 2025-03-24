@@ -2,7 +2,9 @@
 
 .easy-select {
   height: 48px;
-
+  .p-virtualscroller {
+    min-height: 47px;
+  }
   &.p-float-label > label {
     color: var(--text-subtle);
     font-size: 16px;

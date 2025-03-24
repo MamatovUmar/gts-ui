@@ -4,8 +4,11 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
+  min-height: 45px;
   .p-paginator {
     background: transparent;
+    padding-top: 0;
+    padding-bottom: 0;
     .p-paginator-pages {
       .p-paginator-page {
         color: var(--text-subtle);

@@ -4,11 +4,13 @@ import EasySelect from '../select/EasySelect.vue'
 import './EasyPagination.scss'
 import Paginator from 'primevue/paginator'
 import { watch } from 'vue';
+import { lang } from '@/constants/lang'
+import { LocaleTypes } from '@/types'
 
-const { perPageOptions = [10, 20, 30, 40, 50], selectPlaceholder = 'Показать по', totalRecords } = defineProps<{
+const { perPageOptions = [10, 20, 30, 40, 50], totalRecords } = defineProps<{
   perPageOptions?: number[]
-  selectPlaceholder?: string
-  totalRecords?: number
+  totalRecords: number
+  locale: LocaleTypes
 }>()
 
 const page = defineModel({ default: 1 })
@@ -42,11 +44,12 @@ onMounted(() => {
   <div class="easy-pagination">
     <EasySelect v-model="perPage" :options="options" size="small" style="max-width: 200px">
       <template #value="{ value }">
-        <span class="easy-pagination__option">{{ selectPlaceholder }} {{ value }}</span>
+        <span class="easy-pagination__option">{{ lang[locale].pagination }} {{ value }}</span>
       </template>
     </EasySelect>
 
     <Paginator
+      v-if="totalRecords > perPage"
       v-model:first="first"
       :rows="perPage"
       :totalRecords="totalRecords"

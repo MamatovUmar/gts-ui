@@ -3,8 +3,9 @@ import EasyLayout from '@/components/layout/EasyLayout.vue'
 import routes from '@/constants/sidebar'
 import EasyProfileDropdown from '@/components/header/profile/ProfileDropdown.vue'
 import { links, user } from '@/constants';
-import { ref } from 'vue';
-import { EasyCountry } from '@/index';
+import { reactive, ref } from 'vue';
+import EasyPagination from '@/components/pagination/EasyPagination.vue';
+import { LocaleTypes } from '@/types';
 
 withDefaults(
   defineProps<{
@@ -16,22 +17,32 @@ withDefaults(
   },
 )
 
-const country = ref('UZ')
+const params = reactive({
+  page: 1,
+  per_page: 1,
+  provider_id: undefined,
+  supplier_id: undefined,
+  status: undefined,
+  type: undefined,
+  code: undefined,
+})
+
+const locale = ref<LocaleTypes>('en')
 
 </script>
 
 <template>
   <div class="layout-page">
-    <EasyLayout :routeName :routes="routes" :isDark locale="ru">
+    <EasyLayout :routeName :routes="routes" :isDark :locale="locale">
       <template #header>
         <EasyProfileDropdown :user="user" :links="links" />
       </template>
 
       <div class="blur-block">
-        {{ country }}
 
-        <EasyCountry v-model="country" label="Country" optionValue="code" />
+        <EasyPagination :total-records="30" v-model:per-page="params.per_page" v-model="params.page" :locale="locale" />
 
+          {{ params }}
 
       </div>
     </EasyLayout>
