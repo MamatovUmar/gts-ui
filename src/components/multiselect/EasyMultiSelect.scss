@@ -75,7 +75,7 @@
   &:not(.has-label) {
     .p-placeholder {
       opacity: 1 !important;
-
+      color: var(--text-subtle) !important;
     }
   }
   &.large {
