@@ -6,6 +6,7 @@ import { links, user } from '@/constants';
 import { reactive, ref } from 'vue';
 import EasyPagination from '@/components/pagination/EasyPagination.vue';
 import { LocaleTypes } from '@/types';
+import { EasyCountry } from '@/index';
 
 withDefaults(
   defineProps<{
@@ -27,7 +28,9 @@ const params = reactive({
   code: undefined,
 })
 
-const locale = ref<LocaleTypes>('en')
+const locale = ref<LocaleTypes>('ru')
+
+const country = ref('')
 
 </script>
 
@@ -42,7 +45,9 @@ const locale = ref<LocaleTypes>('en')
 
         <EasyPagination :total-records="30" v-model:per-page="params.per_page" v-model="params.page" />
 
-          {{ params }}
+        <br>
+
+        <EasyCountry v-model="country" />
 
       </div>
     </EasyLayout>

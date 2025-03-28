@@ -98,7 +98,14 @@ export const Basic: Story = {
         :max-width="args.maxWidth"
         :hide-close="args.hideClose"
         :no-scroll="args.noScroll"
-        @close="args.close"/>`,
+        @close="args.close">
+        <template #header>
+          <h3>Header</h3>
+        </template>
+        <template #footer>
+          <button class="p-button" @click="args.model = false">Close</button>
+        </template>
+      </EasyModal>`,
   }),
 };
 

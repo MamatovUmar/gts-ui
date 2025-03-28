@@ -13,6 +13,7 @@ export const lang: Record<LocaleTypes, any> = {
     currency: 'Valyuta',
     language: 'Til',
     empty_text: 'Mavjud variantlar yo\'q',
+    search: 'Qidirish'
   },
   ru: {
     sidebar: {
@@ -24,7 +25,8 @@ export const lang: Record<LocaleTypes, any> = {
     empty_options: 'Нет доступных вариантов',
     currency: 'Валюта',
     language: 'Язык',
-    empty_text: 'Нет совпадений'
+    empty_text: 'Нет совпадений',
+    search: 'Поиск'
   },
   en: {
     sidebar: {
@@ -36,6 +38,7 @@ export const lang: Record<LocaleTypes, any> = {
     empty_options: 'No available options',
     currency: 'Currency',
     language: 'Language',
-    empty_text: 'No matches'
+    empty_text: 'No matches',
+    search: 'Search'
   },
 }

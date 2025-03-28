@@ -59,7 +59,7 @@ export const services: IService[] = [
     },
     icon: 'icon-travelOutline-memo',
     value: 'insurance',
-    disabled: true
+    disabled: false
   },
   {
     label: {

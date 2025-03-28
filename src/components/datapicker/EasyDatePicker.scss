@@ -46,7 +46,7 @@
       margin-top: 0;
 
       th {
-        color: var(--neutral-700);
+        color: var(--text-subtlest);
         font-size: 12px;
         line-height: 18px;
         font-weight: 400;
@@ -61,8 +61,8 @@
           background: transparent;
 
           .day {
-            border: 1px solid var(--teal-500);
-            color: var(--teal-500);
+            border: 1px solid var(--border-brand);
+            color: var(--text-brand);
             border-radius: 12px;
           }
         }
@@ -80,7 +80,7 @@
           }
 
           &.p-disabled {
-            color: var(--alpha-neutral400a);
+            color: var(--text-disabled);
           }
 
           .day {
@@ -95,13 +95,13 @@
 
           &.p-highlight, &.p-highlight:hover {
             .day {
-              color: var(--teal-500);
-              background: var(--teal-100);
+              color: var(--text-brand-default);
+              background: var(--background-information-default);
               border-radius: 0;
             }
 
             .first, .last, .alone {
-              background: var(--teal-500);
+              background: var(--border-focused);
               color: var(--elevation-surface-overlay);
             }
 
@@ -128,7 +128,7 @@
 
         &.p-highlight {
           background: var(--alpha-neutral200a);
-          color: var(--teal-500);
+          color: var(--text-brand-default);
         }
 
         &:not(.p-disabled):not(.p-highlight):hover {

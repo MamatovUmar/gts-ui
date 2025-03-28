@@ -10,6 +10,10 @@ const meta = {
       control: {type: 'select'},
       options: ['small', 'large'],
     },
+    display: {
+      control: {type: 'select'},
+      options: ['comma', 'chip'],
+    },
   },
 } satisfies Meta<typeof EasyMultiSelect>;
 

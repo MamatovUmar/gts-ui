@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watchEffect, watch, inject, computed } from 'vue'
+import { ref, watchEffect, watch, inject, computed, type Ref } from 'vue'
 import { ICountry } from '@/types/autocomplete'
 import { catcher } from '@/utils/catcher'
 import EasyInput from '@/components/input/EasyInput.vue'
@@ -34,10 +34,10 @@ const invalidVal = ref(false)
 const countries = ref<ICountry[]>([])
 const search = ref()
 
-const locale = inject<LocaleTypes>('locale') || 'ru'
+const locale = inject<Ref<LocaleTypes>>('locale') || ref<LocaleTypes>('ru')
 
 const optionLabel = computed<'country_rus' | 'country_eng' | 'country_uzb'>(() => {
-  return locale === 'ru' ? 'country_rus' : locale === 'en' ? 'country_eng' : 'country_uzb'
+  return locale.value === 'ru' ? 'country_rus' : locale.value === 'en' ? 'country_eng' : 'country_uzb'
 })
 
 const getCountries = catcher(async (val: string) => {

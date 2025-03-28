@@ -10,6 +10,9 @@
     &.p-disabled {
       opacity: 0.5;
     }
+    &-close {
+      display: none;
+    }
 
     &.p-invalid {
       border-color: var(--red-500);
@@ -21,6 +24,7 @@
       font-size: 14px;
       height: 100%;
       color: var(--text-default);
+      padding-left: 12px;
     }
 
     &.p-focus {
@@ -28,14 +32,23 @@
     }
 
     .p-multiselect-filter.p-inputtext {
-      height: 44px;
-      border-radius: 12px;
+      height: 40px;
+      border-radius: 8px;
       background: var(--background-input-default);
       border-color: var(--border-bold);
       color: var(--text-subtle);
+      font-size: 14px;
+      padding-left: 36px;
       &:enabled:focus {
         outline: 1px solid var(--border-focused);
       }
+      &:placeholder {
+        opacity: 1 !important;
+        color: var(--text-subtle) !important;
+      }
+    }
+    .p-multiselect-filter-container .p-multiselect-filter-icon {
+      left: 12px;
     }
 
     &.large {
@@ -46,8 +59,25 @@
         font-size: 16px;
       }
     }
+    &.p-multiselect-chip .p-multiselect-token {
+      border-radius: 3px;
+      background-color: var(--background-neutral-default);
+      color: var(--text-default);
+      font-size: 14px;
+      line-height: 14px;
+      font-weight: 500;
+      padding: 3px 4px;
+      svg {
+        height: 14px;;
+      }
+    }
   }
+  &:not(.has-label) {
+    .p-placeholder {
+      opacity: 1 !important;
 
+    }
+  }
   &.large {
     height: 48px;
     font-size: 17px;

@@ -1,5 +1,6 @@
 import { App } from 'vue';
 import './assets/main.scss';
+import countries from './constants/countries';
 
 // Import all components
 import EasyInput from './components/input/EasyInput.vue';
@@ -139,3 +140,4 @@ export type { LocaleTypes, ServicesTypes, IService } from './types';
 export { catcher } from './utils/catcher';
 export { debounce } from './utils/debounce';
 export { padStart } from './utils/string';
+export { countries };
