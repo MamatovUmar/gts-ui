@@ -8,7 +8,11 @@ const meta = {
   argTypes: {
     locale: {
       options: ['ru', 'uz', 'en'],
-    }
+    },
+    modelValue: {
+      control: 'select',
+      options: ['insurance', 'esim', 'flight'],
+    },
   },
 } satisfies Meta<typeof ServicesTab>
 
@@ -18,5 +22,6 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     locale: 'ru',
+    modelValue: 'insurance',
   },
 }

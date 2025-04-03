@@ -22,6 +22,7 @@ const props = withDefaults(
     optionLabel?: string
     loading?: boolean
     placeholder?: string
+    dropdownHeight?: string
   }>(),
   {
     size: 'large',
@@ -42,7 +43,9 @@ const overlayVisible = ref()
 const dpRef = ref<HTMLElement>()
 
 const setSize = computed(() => {
-  if (props.options?.length > 4) {
+  if (props.dropdownHeight) {
+    return props.dropdownHeight
+  } else if (props.options?.length > 4) {
     return '200px'
   } else {
     return `${props.options?.length * 45 + 14}px`

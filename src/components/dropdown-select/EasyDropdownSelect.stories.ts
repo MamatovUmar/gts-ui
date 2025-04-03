@@ -1,22 +1,26 @@
 import type {Meta, StoryObj} from '@storybook/vue3';
-import EasyDropdown from "./EasyDropdown.vue";
+import EasyDropdownSelect from "./EasyDropdownSelect.vue";
 import EasyButton from "../button/EasyButton.vue";
 import { computed, ref } from 'vue';
-import Listbox from 'primevue/listbox';
+
 const meta = {
-  title: 'Components/EasyDropdown',
-  component: EasyDropdown,
+  title: 'Components/EasyDropdownSelect',
+  component: EasyDropdownSelect,
   tags: ['autodocs'],
   argTypes: {
+    options: {
+      description: 'Массив опций для выбора',
+      control: 'object',
+    },
   },
-} satisfies Meta<typeof EasyDropdown>;
+} satisfies Meta<typeof EasyDropdownSelect>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: (args) => ({
-    components: { EasyButton, EasyDropdown, Listbox },
+    components: { EasyButton, EasyDropdownSelect },
     setup() {
       const options = computed(() => {
         return [
@@ -29,21 +33,28 @@ export const Default: Story = {
           { label: '360 дней', value: 360 },
         ]
       })
-      const selectedPolis = ref(null)
-      return { args, options, selectedPolis };
+      
+      return { args, options };
     },
     template: `
-      <EasyDropdown class="mb-30">
+      <EasyDropdownSelect :options="options" class="mb-30">
         <template #trigger>
-          <EasyButton label="Dropdown" size="mini" severity="secondary" outlined />
+          <EasyButton label="Выберите период" size="mini" severity="secondary" outlined />
         </template>
-
-        <Listbox v-model="selectedPolis" :options="options" optionLabel="label" class="w-full" />
-      </EasyDropdown>
+      </EasyDropdownSelect>
       <br /><br /><br /><br /><br />
       <br /><br /><br /><br /><br />
     `,
   }),
   args: {
+    options: [
+      { label: 'Не выбрано', value: null },
+      { label: '15 дней', value: 15 },
+      { label: '30 дней', value: 30 },
+      { label: '60 дней', value: 60 },
+      { label: '90 дней', value: 90 },
+      { label: '180 дней', value: 180 },
+      { label: '360 дней', value: 360 },
+    ],
   },
 };
