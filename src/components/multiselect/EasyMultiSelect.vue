@@ -27,6 +27,7 @@ withDefaults(
     display?: 'comma' | 'chip'
     showToggleAll?: boolean
     placeholder?: string
+    maxSelectedLabels?: number
   }>(),
   {
     size: 'small',
@@ -67,6 +68,7 @@ const overlayVisible = ref()
       :empty-message="lang[locale].empty_text"
       :filter-placeholder="lang[locale].search"
       :placeholder="placeholder"
+      :max-selected-labels="maxSelectedLabels"
     >
       <template #dropdownicon>
         <i class="icon-Outline-Arrow-Down2 down-icon" :class="{ rotate: overlayVisible }"></i>

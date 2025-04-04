@@ -18,6 +18,7 @@ withDefaults(defineProps<{
 
 const emit = defineEmits<{
   (e: 'selectLanguage', val: string): void
+  (e: 'selectCurrency', val: string): void
 }>()
 
 const selCurrency = defineModel('currency', { default: 'UZS' })
@@ -73,7 +74,7 @@ const isOpen = ref(false)
             v-for="currency in currencies"
             :key="currency.base"
             :class="{active: currency.base === selCurrency }"
-            @click="selCurrency = currency.base"
+            @click="emit('selectCurrency', currency.base)"
           >
             {{ currency.base }}
           </div>

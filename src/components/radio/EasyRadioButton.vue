@@ -23,9 +23,9 @@ const model = defineModel()
       :value="value"
       :disabled
     />
-    <span :class="['easy-radiobutton__label pointer']">
+    <span v-if="label || text" :class="['easy-radiobutton__label pointer']">
       <template v-if="!$slots.default">
-        <span class="easy-radiobutton__title">{{ label }}</span>
+        <span v-if="label" class="easy-radiobutton__title">{{ label }}</span>
         <span v-if="text" class="easy-radiobutton__description">
           {{ text }}
         </span>

@@ -172,6 +172,10 @@
       background: var(--background-input-default);
       border-color: var(--border-bold)
     }
+    .p-checkbox.p-highlight .p-checkbox-box {
+      background: var(--background-brand-bold-default);
+      border-color: var(--background-brand-bold-default);
+    }
 
     .p-multiselect-header {
       background: var(--elevation-surface-overlay);
@@ -181,7 +185,7 @@
       }
 
       .p-checkbox.p-variant-filled.p-highlight .p-checkbox-box {
-        background: var(--teal-500);
+        background: var(--background-brand-bold-default);
 
         svg {
           color: var(--elevation-surface-overlay)
