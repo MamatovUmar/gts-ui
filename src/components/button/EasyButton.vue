@@ -21,6 +21,7 @@ interface Props {
   link?: boolean;
   plain?: boolean;
   disabled?: boolean;
+  square?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -31,14 +32,15 @@ const props = withDefaults(defineProps<Props>(), {
   iconPos: 'left',
   loading: false,
   link: false,
-  plain: false
+  plain: false,
+  square: false
 });
 
 const buttonProps = computed(() => {
   const { size, ...rest } = props;
   return {
     ...rest,
-    class: ['easy-button', size]
+    class: ['easy-button', size, { square: props.square }]
   };
 });
 </script>

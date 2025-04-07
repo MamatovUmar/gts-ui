@@ -111,12 +111,17 @@
   .p-button-loading-icon {
     animation: rotate 1s linear infinite;
   }
-
+  &.square {
+    border-radius: 8px;
+  }
   &.sm {
     font-size: 14px;
     height: 32px;
     .p-button-icon {
       font-size: 16px;
+    }
+    &.square {
+      border-radius: 6px;
     }
   }
 
@@ -143,4 +148,5 @@
       font-size: 24px;
     }
   }
+
 }
