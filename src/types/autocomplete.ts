@@ -7,6 +7,25 @@ export interface IAirline {
   logo: string
 }
 
+export interface IAirport {
+  name: string
+  iata_code: string
+  name_rus: string
+  name_eng: string
+  city_rus: string
+  city_eng: string
+  gmt_offset: string
+  country_rus: string
+  country_eng: string
+  iso_code: string
+  latitude: string
+  longitude: string
+  hide: number
+  is_city: number
+  content: string
+  is_airport: boolean
+}
+
 export interface ICountry {
   country_rus: string
   country_eng: string

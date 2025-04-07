@@ -37,6 +37,7 @@ import EasyPopover from './components/popover/EasyPopover.vue';
 import EasyPhoneNumber from './components/phone/EasyPhoneNumber.vue';
 import EasyServicesTab from './components/services-tab/ServicesTab.vue';
 import EasyDropdownSelect from './components/dropdown-select/EasyDropdownSelect.vue';
+import EasyAirport from './components/airports/EasyAirportAutocomplete.vue';
 
 const components = [
   EasyInput,
@@ -73,7 +74,8 @@ const components = [
   EasyPopover,
   EasyPhoneNumber,
   EasyServicesTab,
-  EasyDropdownSelect
+  EasyDropdownSelect,
+  EasyAirport
 ];
 
 export default {
@@ -123,7 +125,8 @@ export {
   EasyPopover,
   EasyPhoneNumber,
   EasyServicesTab,
-  EasyDropdownSelect
+  EasyDropdownSelect,
+  EasyAirport
 };
 
 // Export all types
@@ -133,7 +136,8 @@ export type {
   ICurrency,
   IDocument,
   ICity,
-  IPhoneNumber
+  IPhoneNumber,
+  IAirport
 } from './types/autocomplete';
 export type { IItem, DatepickerModelType, ISidebarItem } from './types/ui';
 export type { IUser, IUserCurrency, IUserLanguage, IContactItem, ICompanyInfo, IBankDetails } from './types/user';
