@@ -1,11 +1,11 @@
 <template>
-  <div class="easy-breadcrumb" :class="{withoutBg}">
+  <div class="easy-breadcrumb" :class="{'blur-block': !withoutBg}">
     <Breadcrumb :home="home" :model="items">
       <template #item="{item}">
-        <a v-if="item?.icon" :class="[home?.icon, 'home']" :href="item.route"/>
-        <a v-if="item?.route" class="link" :href="item.route">
+        <router-link v-if="item?.icon" :class="[home?.icon, 'home']" :to="item.route"/>
+        <router-link v-if="item?.route" class="link" :to="item.route">
           {{ item.label }}
-        </a>
+        </router-link>
         <span v-else class="last">
           {{ item.label }}
         </span>
@@ -14,7 +14,6 @@
       <template #separator>
         <span class="icon-Outline-Arrow-Right2"/>
       </template>
-
     </Breadcrumb>
   </div>
 </template>
@@ -23,7 +22,6 @@
 import Breadcrumb from 'primevue/breadcrumb';
 import type {BreadcrumbItem, BreadcrumbHomeItem} from '@/types/ui';
 import "./EasyBreadcrumb.scss";
-
 
 defineProps<{
   items: BreadcrumbItem[],

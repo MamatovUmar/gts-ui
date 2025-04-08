@@ -136,29 +136,9 @@ watch(width, () => {
   overflow-y: auto;
   padding-right: 3px;
 }
-.blur-block {
-  border-radius: 8px;
-  position: relative;
-  height: 100%;
-  &::after {
-    content: "";
-    position: absolute;
-    background: #ffffffb2;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    backdrop-filter: blur(42px);
-    border-radius: inherit;
-  }
-}
 .dark-mode .easy-layout__body-inner {
   background: #0C111D66;
   border: 1px solid #ffffff33;
-}
-.dark-mode .blur-block::after {
-  background: #0c111dcc;
 }
 
 .easy-layout .copyright {

@@ -6,14 +6,8 @@
     text-transform: capitalize;
   }
 
-  .p-breadcrumb {
-    background: var(--elevation-surface-subtler);
-  }
-
-  &.withoutBg{
-    .p-breadcrumb{
-      background: transparent;
-    }
+  .p-breadcrumb{
+    background: transparent;
   }
 
   .link {
