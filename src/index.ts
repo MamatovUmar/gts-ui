@@ -147,4 +147,5 @@ export type { LocaleTypes, ServicesTypes, IService } from './types';
 export { catcher } from './utils/catcher';
 export { debounce } from './utils/debounce';
 export { padStart } from './utils/string';
+export { formatNumber, formatCurrency } from './utils/formatter';
 export { countries };
