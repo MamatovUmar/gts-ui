@@ -67,6 +67,9 @@
       }
     }
   }
+  .p-virtualscroller-content {
+    position: static;
+  }
 
   &.has-label {
     .p-inputtext {

@@ -29,7 +29,7 @@ export const services: IService[] = [
     },
     icon: 'icon-travelOutline-traine1',
     value: 'railway',
-    disabled: true
+    disabled: false
   },
   {
     label: {

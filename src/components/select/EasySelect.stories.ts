@@ -21,7 +21,7 @@ export const Default: Story = {
     size: "large",
     label: "Select label",
     options: [
-      {label: 'asdf', value: 'aassd'},
+      {label: 'asdfsdsdferdfgedb efgefgefg', value: 'aassd'},
       {label: 'asdf', value: 'aas3sd'},
       {label: 'asdf', value: 'aas3sdf'},
       {label: 'asdf', value: 'aas3sdg'},

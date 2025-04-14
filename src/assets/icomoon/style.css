@@ -83,12 +83,12 @@
 .icon-Bold-Bag .path2:before {
   content: "\e90c";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Bag .path3:before {
   content: "\e90d";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Bag2:before {
   content: "\e90e";
@@ -108,32 +108,32 @@
 .icon-Bold-Calendar .path2:before {
   content: "\e912";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Calendar .path3:before {
   content: "\e913";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Calendar .path4:before {
   content: "\e914";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Calendar .path5:before {
   content: "\e915";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Calendar .path6:before {
   content: "\e916";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Calendar .path7:before {
   content: "\e917";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Call:before {
   content: "\e918";
@@ -157,12 +157,12 @@
 .icon-Bold-Camera .path2:before {
   content: "\e91d";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Camera .path3:before {
   content: "\e91e";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Camera .path4:before {
   content: "\e91f";
@@ -182,17 +182,17 @@
 .icon-Bold-Chart .path2:before {
   content: "\e923";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Chart .path3:before {
   content: "\e924";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Chart .path4:before {
   content: "\e925";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Chat .path1:before {
   content: "\e926";
@@ -200,17 +200,17 @@
 .icon-Bold-Chat .path2:before {
   content: "\e927";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Chat .path3:before {
   content: "\e928";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Chat .path4:before {
   content: "\e929";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-check-circle:before {
   content: "\e92a";
@@ -234,12 +234,12 @@
 .icon-Bold-Discount .path2:before {
   content: "\e92f";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Discount .path3:before {
   content: "\e930";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Discovery:before {
   content: "\e931";
@@ -251,17 +251,17 @@
 .icon-Bold-Document .path2:before {
   content: "\e933";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Document .path3:before {
   content: "\e934";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Document .path4:before {
   content: "\e935";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Download:before {
   content: "\e936";
@@ -305,12 +305,12 @@
 .icon-Bold-help-circle .path2:before {
   content: "\e940";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-help-circle .path3:before {
   content: "\e941";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Hide:before {
   content: "\e942";
@@ -362,17 +362,17 @@
 .icon-Bold-MoreCircle .path2:before {
   content: "\e94e";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-MoreCircle .path3:before {
   content: "\e94f";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-MoreCircle .path4:before {
   content: "\e950";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-MoreSquare .path1:before {
   content: "\e951";
@@ -380,17 +380,17 @@
 .icon-Bold-MoreSquare .path2:before {
   content: "\e952";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-MoreSquare .path3:before {
   content: "\e953";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-MoreSquare .path4:before {
   content: "\e954";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Notification:before {
   content: "\e955";
@@ -402,12 +402,12 @@
 .icon-Bold-Paper .path2:before {
   content: "\e957";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Paper .path3:before {
   content: "\e958";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-PaperDownload:before {
   content: "\e959";
@@ -723,7 +723,7 @@
 .icon-Outline-Chair .path2:before {
   content: "\e9a7";
   margin-left: -1em;
-  color: rgb(247, 248, 249);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Outline-Chair .path3:before {
   content: "\e9a8";
@@ -1087,22 +1087,22 @@
 .icon-travelOutline-tropical .path2:before {
   content: "\ea04";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-travelOutline-tropical .path3:before {
   content: "\ea05";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-travelOutline-tropical .path4:before {
   content: "\ea06";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-travelOutline-tropical .path5:before {
   content: "\ea07";
   margin-left: -1em;
-  color: rgb(255, 255, 255);
+  color: var(--elevation-surface-overlay);
 }
 .icon-Bold-Activity:before {
   content: "\ea08";
