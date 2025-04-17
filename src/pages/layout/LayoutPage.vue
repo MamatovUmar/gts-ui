@@ -32,11 +32,15 @@ const locale = ref<LocaleTypes>('ru')
 
 const country = ref('')
 
+function logOut() {
+  console.log(123132)
+}
+
 </script>
 
 <template>
   <div class="layout-page">
-    <EasyLayout :routeName :routes="routes" :isDark :locale="locale">
+    <EasyLayout :routeName :routes="routes" :isDark :locale="locale" @log-out="logOut">
       <template #header>
         <EasyProfileDropdown :user="user" :links="links" />
       </template>
