@@ -21,6 +21,7 @@ const {
   emptyText?: string
   countryCode?: string
   size?: 'small' | 'large'
+  invalid?: boolean
 }>()
 
 const { get } = useFetch()
@@ -30,7 +31,7 @@ const model = defineModel<ICity>()
 const dpRef = ref<HTMLElement>()
 const loading = ref(false)
 const open = ref(false)
-const invalid = ref(false)
+const invalidVal = ref(false)
 const cities = ref<ICity[]>([])
 const search = ref<string>('')
 
@@ -57,7 +58,7 @@ const filterData = computed(() => {
 })
 
 function isValid() {
-  invalid.value = filterData.value.length === 0
+  invalidVal.value = filterData.value.length === 0
 }
 
 watchEffect(() => {
@@ -90,7 +91,7 @@ interface Response<T> {
       :placeholder
       :prefix-icon="prefixIcon"
       :loading
-      :invalid
+      :invalid="invalid || invalidVal"
       :size
       @focusout="isValid"
       @focus="open = true"
