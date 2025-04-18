@@ -16,6 +16,7 @@ withDefaults(defineProps<{
   placeholder?: string
   prefixIcon?: string
   size?: 'small' | 'large'
+  disabled?: boolean
 }>(), {
   size: 'large',
 })
@@ -64,7 +65,7 @@ function isValid() {
 
 watchEffect(() => {
   if (model.value) {
-    search.value = model.value.name
+    search.value = model.value[optionLabel.value]
     open.value = false
     airports.value = []
   }
@@ -88,6 +89,7 @@ interface Response<T> {
       :prefix-icon="prefixIcon"
       :loading
       :invalid
+      :disabled="disabled"
       :size
       @input="fetchData(search)"
       @focus="fetchData(search)"

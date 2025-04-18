@@ -7,6 +7,8 @@ import { reactive, ref } from 'vue';
 import EasyPagination from '@/components/pagination/EasyPagination.vue';
 import { LocaleTypes } from '@/types';
 import { EasyCountry } from '@/index';
+import EasyAirportAutocomplete from '@/components/airports/EasyAirportAutocomplete.vue';
+import { IAirport } from '@/types/autocomplete';
 
 withDefaults(
   defineProps<{
@@ -31,6 +33,7 @@ const params = reactive({
 const locale = ref<LocaleTypes>('ru')
 
 const country = ref('')
+const airport = ref<IAirport>()
 
 function logOut() {
   console.log(123132)
@@ -45,14 +48,17 @@ function logOut() {
         <EasyProfileDropdown :user="user" :links="links" />
       </template>
 
-      <div class="blur-block">
+      <div class="blur-block" style="padding: 16px;">
 
         <EasyPagination :total-records="30" v-model:per-page="params.per_page" v-model="params.page" />
 
         <br>
 
-        <EasyCountry v-model="country" />
+        <EasyCountry v-model="country" label="Country" />
+        <br>
+        <EasyAirportAutocomplete v-model="airport" label="Airport" />
 
+        {{ airport }}
       </div>
     </EasyLayout>
   </div>

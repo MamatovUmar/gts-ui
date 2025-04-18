@@ -22,6 +22,7 @@ const {
   countryCode?: string
   size?: 'small' | 'large'
   invalid?: boolean
+  disabled?: boolean
 }>()
 
 const { get } = useFetch()
@@ -93,6 +94,7 @@ interface Response<T> {
       :loading
       :invalid="invalid || invalidVal"
       :size
+      :disabled="disabled"
       @focusout="isValid"
       @focus="open = true"
       @input="open = true"

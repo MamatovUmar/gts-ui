@@ -33,6 +33,11 @@
     border-color: transparent;
     color: var(--text-default);
   }
+  &.p-button-loading {
+    .p-button-label {
+      flex: none;
+    }
+  }
 
   // hover styles
   &:hover{
