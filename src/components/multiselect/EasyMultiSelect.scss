@@ -18,13 +18,17 @@
       border-color: var(--red-500);
     }
 
-    &-label {
+    &-label.p-placeholder {
       display: flex;
       align-items: center;
       font-size: 14px;
       height: 100%;
       color: var(--text-default);
       padding-left: 12px;
+    }
+    &-label-container {
+      display: flex;
+      align-items: center;
     }
 
     &.p-focus {

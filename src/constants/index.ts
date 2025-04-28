@@ -91,7 +91,50 @@ export const user: IUser = {
       "additional_emails": null
     }
   ],
-  "profile_image": "/media/documents/01cc497aa78948558fca18413df7655b.png"
+  "profile_image": "/media/documents/01cc497aa78948558fca18413df7655b.png",
+  "staff": {
+    "firstname": "Олимбек",
+    "lastname": "Мухиддинов",
+    "patronymic": "",
+    "birthday": null,
+    "passport_type": "NP",
+    "passport_number": "212212",
+    "passport_pinfl": "",
+    "passport_expired": null,
+    "passport_issue": null,
+    "country": {
+      "code": "UZ",
+      "emoji": "🇺🇿",
+      "image": "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/UZ.svg",
+      "phone_code": 998,
+      "phone_mask": "(##) ###-##-##",
+      "country_eng": "Uzbekistan",
+      "country_rus": "Узбекистан",
+      "country_uzb": "Узбекистан",
+      "unicode": "U+1F1FA U+1F1FF"
+    },
+    "city": {
+      "name": "Andijan Region",
+      "state_name": "Andijan Region",
+      "country_name": "Uzbekistan"
+    },
+    "address": "Али Кушчи 18/9",
+    "postcode": null,
+    "phone": {
+      "phone_code": "998",
+      "phone_number": "993797733"
+    },
+    "additional_phone": {
+      "phone_code": "998",
+      "phone_number": "993797733"
+    },
+    "additional_email": "olim@gmail.com",
+    "gender": null,
+    "role": {
+      "uuid": "c9e1b72a-9b21-449a-af31-14229f0bbaf6",
+      "name": "Руководитель системы"
+    }
+  },
 }
 
 export const links: IItem[] = [

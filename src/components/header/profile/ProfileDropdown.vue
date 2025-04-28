@@ -21,6 +21,8 @@ const imageUrl = computed(() => {
 const name = computed(() => {
   if (props.user.type_cabinet === 'BUSINESS') {
     return props.user?.company_info?.name
+  } else if (props.user.user_type === 'STAFF') {
+    return `${props.user.staff.firstname} ${props.user.staff.lastname}`
   }
   return props.user?.username || props.user?.email
 })
@@ -37,7 +39,9 @@ const name = computed(() => {
       <div class="profile-dropdown__content">
         <EasyAvatar size="64px" :url="imageUrl" :username="name" />
         <div class="profile-dropdown__username">{{ name }}</div>
-        <div v-if="user.type_cabinet !== 'BUSINESS'" class="profile-dropdown__user-role">Проект менеджер</div>
+        <div v-if="user.user_type === 'STAFF'" class="profile-dropdown__user-role">
+          {{ user.staff.role.name }}
+        </div>
       </div>
 
       <div class="profile-dropdown__links">

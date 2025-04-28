@@ -26,8 +26,32 @@ export interface IUser {
   physical_data: Record<string, unknown>
   contacts: IContactItem[]
   profile_image: string
+  staff: IStaffInfo
 }
 
+export interface IStaffInfo {
+  firstname: string
+  lastname: string
+  patronymic: string
+  birthday: null
+  passport_type: 'NP'
+  passport_number: string
+  passport_pinfl: string
+  passport_expired: null
+  passport_issue: null
+  country: ICountry
+  city: ICity
+  address: string
+  postcode: null
+  phone: IPhoneNumber
+  additional_phone: IPhoneNumber
+  additional_email: string
+  gender: null
+  role: {
+    uuid: string
+    name: string
+  }
+}
 export interface IUserCurrency {
   code: string
   name: string

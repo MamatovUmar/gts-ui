@@ -70,7 +70,7 @@ const uppercaseModel = computed({
       :feedback="false"
       :tabindex="tabindex"
       :readonly="readonly"
-      autocomplete="new-password"
+      autocomplete="off"
       :mask="mask"
       :disabled="disabled"
       :loading
