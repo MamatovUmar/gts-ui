@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?o0kov');
-  src:  url('fonts/icomoon.eot?o0kov#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?o0kov') format('truetype'),
-    url('fonts/icomoon.woff?o0kov') format('woff'),
-    url('fonts/icomoon.svg?o0kov#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?2w4cbg');
+  src:  url('fonts/icomoon.eot?2w4cbg#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?2w4cbg') format('truetype'),
+    url('fonts/icomoon.woff?2w4cbg') format('woff'),
+    url('fonts/icomoon.svg?2w4cbg#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,13 +25,108 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-Outline-baggage-2:before {
+  content: "\ea49";
+}
+.icon-Outline-baggage:before {
+  content: "\ea4a";
+}
+.icon-Bold-restaurant:before {
+  content: "\ea48";
+}
+.icon-Outline-vana .path1:before {
+  content: "\ea01";
+  color: rgb(68, 84, 111);
+}
+.icon-Outline-vana .path2:before {
+  content: "\ea37";
+  margin-left: -1em;
+  color: rgb(253, 253, 253);
+}
+.icon-Outline-vana .path3:before {
+  content: "\ea38";
+  margin-left: -1em;
+  color: rgb(68, 84, 111);
+}
+.icon-Outline-vana .path4:before {
+  content: "\ea39";
+  margin-left: -1em;
+  color: rgb(253, 253, 253);
+}
+.icon-Outline-Coffee:before {
+  content: "\ea3a";
+  color: #44546f;
+}
+.icon-Outline-conductor:before {
+  content: "\ea3b";
+  color: #44546f;
+}
+.icon-Outline-tualit .path1:before {
+  content: "\ea3c";
+  color: rgb(68, 84, 111);
+}
+.icon-Outline-tualit .path2:before {
+  content: "\ea3d";
+  margin-left: -1em;
+  color: rgb(253, 253, 253);
+}
+.icon-Outline-tualit .path3:before {
+  content: "\ea3e";
+  margin-left: -1em;
+  color: rgb(253, 253, 253);
+}
+.icon-Outline-tualit .path4:before {
+  content: "\ea3f";
+  margin-left: -1em;
+  color: rgb(253, 253, 253);
+}
+.icon-Outline-tualit .path5:before {
+  content: "\ea40";
+  margin-left: -1em;
+  color: rgb(68, 84, 111);
+}
+.icon-Outline-tualit .path6:before {
+  content: "\ea41";
+  margin-left: -1em;
+  color: rgb(253, 253, 253);
+}
+.icon-Outline-tualit .path7:before {
+  content: "\ea42";
+  margin-left: -1em;
+  color: rgb(68, 84, 111);
+}
+.icon-Outline-tualit .path8:before {
+  content: "\ea43";
+  margin-left: -1em;
+  color: rgb(68, 84, 111);
+}
+.icon-Outline-tualit .path9:before {
+  content: "\ea44";
+  margin-left: -1em;
+  color: rgb(253, 253, 253);
+}
+.icon-Outline-tualit .path10:before {
+  content: "\ea45";
+  margin-left: -1em;
+  color: rgb(253, 253, 253);
+}
+.icon-Outline-tualit .path11:before {
+  content: "\ea46";
+  margin-left: -1em;
+  color: rgb(253, 253, 253);
+}
+.icon-Outline-tualit .path12:before {
+  content: "\ea47";
+  margin-left: -1em;
+  color: rgb(253, 253, 253);
+}
+
 .icon-travelOutline-traine1:before {
   content: "\ea36";
 
 }
 .icon-Outline-global:before {
   content: "\e9bd";
-  color: #44546f;
 }
 .icon-Bold-Arrow-LeftSquare:before {
   content: "\e900";

@@ -26,7 +26,9 @@ const IconsDemo = defineComponent({
       'Bold-MoreSquare': 4,
       'Bold-Paper': 3,
       'Outline-Chair': 4,
-      'travelOutline-tropical': 5
+      'travelOutline-tropical': 5,
+      'Outline-vana': 4,
+      'Outline-tualit': 12
     };
 
     const icons = [
@@ -153,6 +155,7 @@ const IconsDemo = defineComponent({
       'Bold-Arrow-LeftCircle',
 
       // Outline иконки
+      'Outline-tualit',
       'Outline-2User',
       'Outline-3User',
       'Outline-Activity',
@@ -275,7 +278,13 @@ const IconsDemo = defineComponent({
       'Outline-Wallet',
       'Outline-Work',
       'Outline-zap',
-      'Outline-opy'
+      'Outline-opy',
+      'Outline-baggage-2',
+      'Outline-baggage',
+      'Bold-restaurant',
+      'Outline-Coffee',
+      'Outline-conductor',
+      'Outline-vana'
     ].sort();
 
     // Search functionality
