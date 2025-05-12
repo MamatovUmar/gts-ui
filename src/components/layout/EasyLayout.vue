@@ -1,25 +1,27 @@
 <script lang="ts" setup>
-import { ISidebarItem } from '@/types/ui'
+import {ISidebarItem} from '@/types/ui'
 import EasyBackground from '../background/EasyBackground.vue'
 import NavigationSidebar from '../sidebar/NavigationSidebar.vue'
-import { useWindowSize } from '@/composables/useWindowSize'
-import { ref, watch, provide, computed } from 'vue'
-import { LocaleTypes } from '@/types'
+import {useWindowSize} from '@/composables/useWindowSize'
+import {ref, watch, provide, computed} from 'vue'
+import {LocaleTypes} from '@/types'
 
 const props = defineProps<{
   routeName: string
   isDark?: boolean
   routes: ISidebarItem[]
   locale: LocaleTypes
+  baseUrl?: string
 }>()
 
 const emit = defineEmits<{
   (e: 'logOut'): void
 }>()
 
-const { width } = useWindowSize()
+const {width} = useWindowSize()
 
 provide('locale', computed(() => props.locale))
+provide('baseUrl', computed(() => props.baseUrl || 'https://api.globaltravel.space'))
 
 const short = ref(false)
 const logoBaseUrl = 'https://api.globaltravel.space/media/imgs/footer'
@@ -41,31 +43,33 @@ watch(width, () => {
 
 <template>
   <div :class="['easy-layout', { short }]">
-    <EasyBackground />
+    <EasyBackground/>
 
-    <NavigationSidebar v-model:short="short"  :routeName  :routes="routes" :isDark @logOut="emit('logOut')" />
+    <NavigationSidebar v-model:short="short" :routeName :routes="routes" :isDark @logOut="emit('logOut')"/>
 
     <div class="easy-layout__content">
       <div class="easy-layout__header">
         <slot name="header"></slot>
       </div>
+      <div class="easy-layout__scrollbar scrollbar">
+        <div class="easy-layout__body">
+          <div class="easy-layout__body-inner">
 
-      <div class="easy-layout__body">
-        <div class="easy-layout__body-inner">
-            <div class="easy-layout__scrollbar scrollbar">
-              <slot></slot>
-            </div>
-        </div>
-      </div>
+            <slot></slot>
 
-      <div class="easy-layout__footer">
-        <div class="partners-logo">
-          <img :src="`${logoBaseUrl}/${isDark ? 'dark' : 'light'}/iata-logo.svg`" alt="iata" />
-          <img :src="`${logoBaseUrl}/${isDark ? 'dark' : 'light'}/tcp-logo.svg`" alt="iata" />
-          <img :src="`${logoBaseUrl}/${isDark ? 'dark' : 'light'}/payments.svg`" alt="iata" />
+          </div>
         </div>
 
-        <div class="copyright">© Easybooking.uz | All rights reserved</div>
+        <div class="easy-layout__footer">
+          <div class="partners-logo">
+            <img :src="`${logoBaseUrl}/${isDark ? 'dark' : 'light'}/iata-logo.svg`" alt="iata"/>
+            <img :src="`${logoBaseUrl}/${isDark ? 'dark' : 'light'}/tcp-logo.svg`" alt="iata"/>
+            <img :src="`${logoBaseUrl}/${isDark ? 'dark' : 'light'}/payments.svg`" alt="iata"/>
+          </div>
+
+          <div class="copyright">© Easybooking.uz | All rights reserved</div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -83,6 +87,7 @@ watch(width, () => {
 
   --sidebar-width: 248px;
 }
+
 .easy-layout.short {
   --sidebar-width: 90px;
 }
@@ -94,15 +99,18 @@ watch(width, () => {
   justify-content: space-between;
   gap: 8px;
   box-sizing: border-box;
-  padding-right: 16px;
+  padding-right: 8px;
 }
+
 .easy-layout__header {
   height: 64px;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   justify-content: flex-end;
+  padding-right: 8px;
 }
+
 .easy-layout__footer {
   height: 56px;
   display: flex;
@@ -111,17 +119,21 @@ watch(width, () => {
   box-sizing: border-box;
   justify-content: space-between;
 }
+
 .easy-layout__footer .partners-logo {
   display: flex;
   gap: 12px;
 }
+
 .easy-layout__footer .partners-logo img {
   height: 24px;
 }
+
 .easy-layout__body {
   flex: 1;
-  height: calc(100% - 136px);
+  min-height: calc(100vh - 123px);
 }
+
 .easy-layout__body-inner {
   border: 1px solid #ffffff;
   border-radius: 16px;
@@ -130,12 +142,14 @@ watch(width, () => {
   height: 100%;
   background: #ffffff59;
 }
+
 .easy-layout__scrollbar {
   box-sizing: border-box;
   height: 100%;
   overflow-y: auto;
-  padding-right: 3px;
+  padding-right: 4px;
 }
+
 .dark-mode .easy-layout__body-inner {
   background: #0C111D66;
   border: 1px solid #ffffff33;
