@@ -42,7 +42,7 @@ const getDocuments = catcher(async () => {
     params.country = country
   }
 
-  const { data } = await get<Response<IDocument[]>>(`/typedocument`, {
+  const { data } = await get<Response<IDocument[]>>(`/static/typedocument`, {
     params
   })
   loading.value = false

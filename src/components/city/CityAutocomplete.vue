@@ -39,7 +39,7 @@ const search = ref<string>('')
 const getCities = catcher(async () => {
   if (!countryCode) return
   loading.value = true
-  const { data } = await get<Response<ICity[]>>(`/cities/${countryCode}`)
+  const { data } = await get<Response<ICity[]>>(`/static/cities/${countryCode}`)
   loading.value = false
   cities.value = data
 })

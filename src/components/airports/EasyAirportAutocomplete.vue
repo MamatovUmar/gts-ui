@@ -45,7 +45,7 @@ const getAirports = catcher(async (val: string) => {
   empty.value = false
   if (!val || val?.length < 2) return
   loading.value = true
-  const { data } = await get<Response<IAirport[]>>(`/airports/${val}`)
+  const { data } = await get<Response<IAirport[]>>(`/static/airports/${val}`)
   loading.value = false
   open.value = true
 

@@ -34,7 +34,7 @@ const search = ref()
 
 const getCurrencies = catcher(async () => {
   loading.value = true
-  const { data } = await get<Response<ICurrency[]>>(`/currency`)
+  const { data } = await get<Response<ICurrency[]>>(`/static/currency`)
   loading.value = false
   currencies.value = data
 })
