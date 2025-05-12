@@ -38,6 +38,7 @@ import EasyPhoneNumber from './components/phone/EasyPhoneNumber.vue';
 import EasyServicesTab from './components/services-tab/ServicesTab.vue';
 import EasyDropdownSelect from './components/dropdown-select/EasyDropdownSelect.vue';
 import EasyAirport from './components/airports/EasyAirportAutocomplete.vue';
+import EasyPaymentModal from './components/payment/PaymentModal.vue';
 
 const components = [
   EasyInput,
@@ -75,7 +76,8 @@ const components = [
   EasyPhoneNumber,
   EasyServicesTab,
   EasyDropdownSelect,
-  EasyAirport
+  EasyAirport,
+  EasyPaymentModal
 ];
 
 export default {
@@ -126,7 +128,8 @@ export {
   EasyPhoneNumber,
   EasyServicesTab,
   EasyDropdownSelect,
-  EasyAirport
+  EasyAirport,
+  EasyPaymentModal
 };
 
 // Export all types

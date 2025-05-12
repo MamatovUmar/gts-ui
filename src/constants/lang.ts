@@ -13,7 +13,19 @@ export const lang: Record<LocaleTypes, any> = {
     currency: 'Valyuta',
     language: 'Til',
     empty_text: 'Mavjud variantlar yo\'q',
-    search: 'Qidirish'
+    search: 'Qidirish',
+    payment: {
+      title: 'To\'lov turini tanlang',
+      balance: 'Shartnoma balansi',
+      supplier: 'Поставщик',
+      agree: 'To\'lovni tasdiqlashdan avval o\'qib chiqing',
+      public_offer: 'offertani',
+      cancel: 'Yopish',
+      confirm: 'Tasdiqlash',
+      deposit: 'Depozit',
+      card: 'Kredit karta',
+      wallet: 'Hamyon',
+    }
   },
   ru: {
     sidebar: {
@@ -26,7 +38,19 @@ export const lang: Record<LocaleTypes, any> = {
     currency: 'Валюта',
     language: 'Язык',
     empty_text: 'Нет совпадений',
-    search: 'Поиск'
+    search: 'Поиск',
+    payment: {
+      title: 'Выберите способ оплаты',
+      balance: 'Баланс договора',
+      supplier: 'Поставщик',
+      agree: 'Перед подтверждением оплаты, предварительно ознакомьтесь с',
+      public_offer: 'Публичной оффертой',
+      cancel: 'Отменить',
+      confirm: 'Подтвердить',
+      deposit: 'Депозит',
+      card: 'Кредитная карта',
+      wallet: 'Кошелек',
+    }
   },
   en: {
     sidebar: {
@@ -39,6 +63,18 @@ export const lang: Record<LocaleTypes, any> = {
     currency: 'Currency',
     language: 'Language',
     empty_text: 'No matches',
-    search: 'Search'
+    search: 'Search',
+    payment: {
+      title: 'Select payment method',
+      balance: 'Contract balance',
+      supplier: 'Supplier',
+      agree: 'Before confirming the payment, please familiarize yourself with',
+      public_offer: 'Public offer',
+      cancel: 'Cancel',
+      confirm: 'Confirm',
+      deposit: 'Deposit',
+      card: 'Credit card',
+      wallet: 'Wallet',
+    }
   },
 }

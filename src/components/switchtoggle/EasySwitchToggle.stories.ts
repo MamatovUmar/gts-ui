@@ -14,9 +14,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     options: [
-      {label: 'Item 1', value: 'item1', constant: false},
-      {label: 'Item 2', value: 'item2', constant: false},
-      {label: 'Item 3', value: 'item3', constant: false}
+      {label: 'Мои заказы', value: 'item1', constant: false},
+      {label: 'Заказы контрагентов', value: 'item2', constant: false},
+      {label: 'Заказы ', value: 'item3', constant: false},
     ]
   },
 };

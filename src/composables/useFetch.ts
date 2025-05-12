@@ -1,17 +1,19 @@
-const BASE_URL = 'https://api2.globaltravel.space/static'
+import { inject, ComputedRef } from 'vue'
 
+const BASE_URL = 'https://api2.globaltravel.space'
 interface RequestConfig {
-  baseURL?: string
   headers?: Record<string, string>
   params?: Record<string, string>
   timeout?: number
 }
 
 export function useFetch(config: RequestConfig = {}) {
-  const { baseURL = BASE_URL, headers: defaultHeaders = {} } = config
+  const { headers: defaultHeaders = {} } = config
+
+  const baseUrl = inject<ComputedRef<string>>('baseUrl')
 
   const createUrl = (url: string, params?: Record<string, string>) => {
-    const fullUrl = `${baseURL}${url}`
+    const fullUrl = `${baseUrl?.value || BASE_URL}${url}`
     if (!params) return fullUrl
 
     const searchParams = new URLSearchParams()
@@ -29,12 +31,7 @@ export function useFetch(config: RequestConfig = {}) {
   const request = async <T = unknown>(
     method: string,
     url: string,
-    {
-      data,
-      params,
-      headers = {},
-      ...customConfig
-    }: RequestConfig & { data?: unknown } = {}
+    { data, params, headers = {}, ...customConfig }: RequestConfig & { data?: unknown } = {},
   ): Promise<T> => {
     try {
       const response = await fetch(createUrl(url, params), {
@@ -44,6 +41,7 @@ export function useFetch(config: RequestConfig = {}) {
           ...defaultHeaders,
           ...headers,
         },
+        credentials: 'include',
         body: data ? JSON.stringify(data) : undefined,
         ...customConfig,
       })
@@ -55,15 +53,13 @@ export function useFetch(config: RequestConfig = {}) {
   }
 
   return {
-    get: <T = unknown>(url: string, config?: RequestConfig) =>
-      request<T>('GET', url, config),
+    get: <T = unknown>(url: string, config?: RequestConfig) => request<T>('GET', url, config),
     post: <T = unknown>(url: string, data?: unknown, config?: RequestConfig) =>
       request<T>('POST', url, { ...config, data }),
     put: <T = unknown>(url: string, data?: unknown, config?: RequestConfig) =>
       request<T>('PUT', url, { ...config, data }),
     patch: <T = unknown>(url: string, data?: unknown, config?: RequestConfig) =>
       request<T>('PATCH', url, { ...config, data }),
-    delete: <T = unknown>(url: string, config?: RequestConfig) =>
-      request<T>('DELETE', url, config),
+    delete: <T = unknown>(url: string, config?: RequestConfig) => request<T>('DELETE', url, config),
   }
 }
