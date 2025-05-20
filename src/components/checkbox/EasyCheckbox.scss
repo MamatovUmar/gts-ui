@@ -18,6 +18,10 @@
       background: var(--text-brand-default) !important;
       border-color: var(--text-brand-default);
     }
+    &.p-disabled .p-checkbox-box {
+      background: var(--background-input-default) !important;
+      border-color: var(--background-neutral-default);
+    }
     input {
       width: var(--size);
     }
@@ -27,6 +31,9 @@
     color: var(--text-default);
     display: flex;
     flex-direction: column;
+    &.disabled {
+      opacity: 0.5;
+    }
   }
   &__title {
     line-height: var(--size);

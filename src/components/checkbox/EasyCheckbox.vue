@@ -27,8 +27,9 @@ const id = useId()
       :binary="binary"
       :name="name"
       :value="value"
+      :disabled="disabled"
     />
-    <label :for="id" :class="['easy-checkbox__label pointer']">
+    <label :for="id" :class="['easy-checkbox__label pointer' , { disabled }]">
       <template v-if="!$slots.default">
         <span class="easy-checkbox__title">{{ label }}</span>
         <span v-if="text" class="easy-checkbox__description">

@@ -12,6 +12,9 @@
     top: 50%;
     left: 16px;
   }
+  &.p-float-label > .p-invalid + label {
+    color: var(--border-danger);
+  }
   &.p-float-label:has(.p-inputwrapper-filled) label{
     top: 13px;
     font-size: 12px;

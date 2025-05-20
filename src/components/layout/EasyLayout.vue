@@ -131,7 +131,7 @@ watch(width, () => {
 
 .easy-layout__body {
   flex: 1;
-  min-height: calc(100vh - 123px);
+  min-height: calc(100vh - 125px);
 }
 
 .easy-layout__body-inner {
