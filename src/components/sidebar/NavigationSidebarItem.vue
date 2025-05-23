@@ -16,10 +16,7 @@ const props = defineProps<{
 const tagAndAttribute = (routeItem: ISidebarItem): { tag: string; attribute: Record<string, unknown> } => {
   if (routeItem.internal) {
     return { tag: 'router-link', attribute: { to: routeItem.path } }
-  } else if (routeItem.children?.length) {
-    return { tag: 'div', attribute: { } }
   }
-
   return { tag: 'a', attribute: { href: routeItem.path } }
 }
 

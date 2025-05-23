@@ -4,6 +4,9 @@
   border-color: var(--background-brand-bold-default);
   color: var(--elevation-surface-overlay);
   justify-content: center;
+  &.p-button .p-button-label {
+    white-space: nowrap;
+  }
   &.p-button-danger {
     background: var(--background-danger-default);
     border-color: var(--background-danger-default);

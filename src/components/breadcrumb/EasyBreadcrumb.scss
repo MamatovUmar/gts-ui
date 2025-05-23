@@ -3,7 +3,9 @@
   @mixin link-item {
     font-size: 14px;
     text-decoration: none;
-    text-transform: capitalize;
+    &:first-letter {
+      text-transform: capitalize;
+    }
   }
 
   .p-breadcrumb{
