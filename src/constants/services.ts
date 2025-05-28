@@ -47,7 +47,7 @@ export const services: IService[] = [
       en: "Tours",
       uz: "Sayohatlar"
     },
-    icon: 'icon-travelOutline-tropical',
+    icon: 'icon-Outline-tropical',
     value: 'tours',
     disabled: true
   },

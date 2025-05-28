@@ -62,7 +62,7 @@ export const MultiPathIcons: StoryFn = () => ({
         <span>Bold-Chat</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <EasyIcon name="travelOutline-tropical" :size="32" />
+        <EasyIcon name="icon-Outline-tropical" :size="32" />
         <span>Travel Tropical</span>
       </div>
     </div>
@@ -96,7 +96,7 @@ export const ColoredMultipathIcons: StoryFn = () => ({
       <EasyIcon name="Bold-MoreSquare" :size="32" color="#0000FF" />
       <EasyIcon name="Bold-Paper" :size="32" color="#0000FF" />
       <EasyIcon name="Outline-Chair" :size="32" color="#0000FF" />
-      <EasyIcon name="travelOutline-tropical" :size="32" color="#0000FF" />
+      <EasyIcon name="icon-Outline-tropical" :size="32" color="#0000FF" />
     </div>
   `
 });

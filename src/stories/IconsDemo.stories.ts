@@ -45,9 +45,9 @@ const IconsDemo = defineComponent({
       'travelOutline-routing',
       'travelOutline-simcard',
       'travelOutline-transfer',
-      'travelOutline-tropical',
 
       // Bold иконки
+      'Bold-Create',
       'Bold-Arrow-LeftSquare',
       'Bold-Arrow-Right',
       'Bold-Arrow-Right2',
@@ -155,6 +155,9 @@ const IconsDemo = defineComponent({
       'Bold-Arrow-LeftCircle',
 
       // Outline иконки
+      'Outline-tropical',
+      'Outline-arrowstwo',
+      'Outline-Create',
       'Outline-tualit',
       'Outline-2User',
       'Outline-3User',
@@ -424,7 +427,7 @@ const IconsDemo = defineComponent({
                 <EasyIcon name="travelOutline-traine1" :size="24" />
                 <EasyIcon name="travelOutline-hotel" :size="24" />
                 <EasyIcon name="travelOutline-plane" :size="24" />
-                <EasyIcon name="travelOutline-tropical" :size="24" />
+                <EasyIcon name="icon-Outline-tropical" :size="24" />
               </div>
               <pre><code>&lt;EasyIcon name="travelOutline-traine1" :size="24" /&gt;</code></pre>
             </div>

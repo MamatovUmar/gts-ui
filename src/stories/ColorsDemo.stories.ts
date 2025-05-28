@@ -6,7 +6,7 @@ const ColorsDemo = defineComponent({
   name: 'ColorsDemo',
   setup() {
     const searchQuery = ref('');
-    
+
     // Базовые цвета
     const baseColors = [
       // Черные оттенки
@@ -20,7 +20,7 @@ const ColorsDemo = defineComponent({
       { name: '--black-700', value: '#171717' },
       { name: '--black-800', value: '#121212' },
       { name: '--black-900', value: '#0e0e0e' },
-      
+
       // Синие оттенки
       { name: '--blue-50', value: '#e9f2ff' },
       { name: '--blue-100', value: '#e9f2ff' },
@@ -33,7 +33,7 @@ const ColorsDemo = defineComponent({
       { name: '--blue-900', value: '#09326c' },
       { name: '--blue-1000', value: '#1c2b41' },
       { name: '--blue-teal-500', value: '#388bff' },
-      
+
       // Коричневые оттенки
       { name: '--brown-50', value: '#fff7ed' },
       { name: '--brown-100', value: '#ffeed5' },
@@ -45,7 +45,7 @@ const ColorsDemo = defineComponent({
       { name: '--brown-700', value: '#c4450a' },
       { name: '--brown-800', value: '#9c3610' },
       { name: '--brown-900', value: '#7d2f11' },
-      
+
       // Зеленые оттенки
       { name: '--green-50', value: '#dcfff1' },
       { name: '--green-100', value: '#bce6ce' },
@@ -58,7 +58,7 @@ const ColorsDemo = defineComponent({
       { name: '--green-800', value: '#156035' },
       { name: '--green-900', value: '#104928' },
       { name: '--green-bolder', value: '#2ABB7F' },
-      
+
       // Серые оттенки
       { name: '--grey-50', value: '#edeef0' },
       { name: '--grey-100', value: '#d0d5dd' },
@@ -70,7 +70,7 @@ const ColorsDemo = defineComponent({
       { name: '--grey-700', value: '#323c4b' },
       { name: '--grey-800', value: '#272f3a' },
       { name: '--grey-900', value: '#1e242c' },
-      
+
       // Нейтральные оттенки
       { name: '--neutral-0', value: '#ffffff' },
       { name: '--neutral-100', value: '#f9fafc' },
@@ -84,7 +84,7 @@ const ColorsDemo = defineComponent({
       { name: '--neutral-900', value: '#2c3e5d' },
       { name: '--neutral-1000', value: '#172b4d' },
       { name: '--neutral-1100', value: '#091e42' },
-      
+
       // Красные оттенки
       { name: '--red-50', value: '#fff1f5' },
       { name: '--red-100', value: '#fde5ec' },
@@ -96,7 +96,7 @@ const ColorsDemo = defineComponent({
       { name: '--red-700', value: '#ac274f' },
       { name: '--red-800', value: '#851e3d' },
       { name: '--red-900', value: '#66172f' },
-      
+
       // Бирюзовые оттенки
       { name: '--teal-100', value: '#e2f3ff' },
       { name: '--teal-200', value: '#c6edfb' },
@@ -108,7 +108,7 @@ const ColorsDemo = defineComponent({
       { name: '--teal-800', value: '#206a83' },
       { name: '--teal-900', value: '#164555' },
       { name: '--teal-1000', value: '#1e3137' },
-      
+
       // Желтые оттенки
       { name: '--yellow-50', value: '#fffae6' },
       { name: '--yellow-100', value: '#ffefb0' },
@@ -287,9 +287,9 @@ const ColorsDemo = defineComponent({
     // Фильтрация переменных по поисковому запросу
     const filteredVariables = computed(() => {
       if (!searchQuery.value) return allVariables;
-      
+
       const query = searchQuery.value.toLowerCase();
-      return allVariables.filter(variable => 
+      return allVariables.filter(variable =>
         variable.name.toLowerCase().includes(query)
       );
     });
@@ -297,7 +297,7 @@ const ColorsDemo = defineComponent({
     // Группировка переменных по категориям
     const groupedVariables = computed(() => {
       const groups: { [key: string]: typeof allVariables } = {};
-      
+
       filteredVariables.value.forEach(variable => {
         const category = variable.name.split('-')[1] || 'other';
         if (!groups[category]) {
@@ -305,7 +305,7 @@ const ColorsDemo = defineComponent({
         }
         groups[category].push(variable);
       });
-      
+
       return groups;
     });
 
@@ -357,7 +357,7 @@ const ColorsDemo = defineComponent({
               <div class="color-name">{{ variable.name }}</div>
               <code class="color-value">{{ variable.value }}</code>
             </div>
-          </div>
+          </div>∆
         </div>
       </div>
     </div>

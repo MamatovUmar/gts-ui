@@ -56,8 +56,7 @@ const multiPathIcons: MultiPathIconsType = {
   'Bold-MoreCircle': 4,
   'Bold-MoreSquare': 4,
   'Bold-Paper': 3,
-  'Outline-Chair': 4,
-  'travelOutline-tropical': 5
+  'Outline-Chair': 4
 };
 
 const cleanIconName = computed(() => props.name.replace(/^icon-/, ''));
