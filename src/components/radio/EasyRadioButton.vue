@@ -9,6 +9,7 @@ defineProps<{
   small?: boolean
   disabled?: boolean
   text?: string
+  block?: boolean
 }>()
 
 const model = defineModel()
@@ -16,7 +17,7 @@ const model = defineModel()
 </script>
 
 <template>
-  <label :class="['easy-radiobutton', { small }]">
+  <label :class="['easy-radiobutton', { small, block, active: model === value }]">
     <RadioButton
       v-model="model"
       :name="name"
@@ -36,17 +37,4 @@ const model = defineModel()
 </template>
 
 <style scoped lang="scss">
-.easy-radiobutton {
-  &.menu {
-    padding: 10px 8px;
-    border-radius: 8px;
-    cursor: pointer;
-    &:hover {
-      background: var(--radiobutton-hover-bg);
-      span {
-        color: var(--primary-color)
-      }
-    }
-  }
-}
 </style>

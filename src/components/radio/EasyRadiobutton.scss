@@ -47,4 +47,34 @@
       height: var(7rem);
     }
   }
+  &.menu {
+    padding: 10px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover {
+      background: var(--radiobutton-hover-bg);
+      span {
+        color: var(--primary-color)
+      }
+    }
+  }
+  &.block {
+    border: 1px solid var(--border-bold);
+    border-radius: 8px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    cursor: pointer;
+    &:hover {
+      border-color: var(--border-selected);
+    }
+  }
+  &.active {
+    border-color: var(--border-selected);
+  }
+  &.block &__title {
+    font-size: 16px;
+  }
 }
