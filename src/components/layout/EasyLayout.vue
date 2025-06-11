@@ -4,7 +4,7 @@ import EasyBackground from '../background/EasyBackground.vue'
 import NavigationSidebar from '../sidebar/NavigationSidebar.vue'
 import {useWindowSize} from '@/composables/useWindowSize'
 import {ref, watch, provide, computed} from 'vue'
-import {LocaleTypes} from '@/types'
+import {LocaleTypes, EnvTypes} from '@/types'
 
 const props = defineProps<{
   routeName: string
@@ -12,6 +12,7 @@ const props = defineProps<{
   routes: ISidebarItem[]
   locale: LocaleTypes
   baseUrl?: string
+  env?: EnvTypes
 }>()
 
 const emit = defineEmits<{
@@ -22,6 +23,7 @@ const {width} = useWindowSize()
 
 provide('locale', computed(() => props.locale))
 provide('baseUrl', computed(() => props.baseUrl || 'https://api.globaltravel.space'))
+provide('env', computed(() => props.env || 'production'))
 
 const short = ref(false)
 const logoBaseUrl = 'https://api.globaltravel.space/media/imgs/footer'

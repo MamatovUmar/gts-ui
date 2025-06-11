@@ -10,6 +10,9 @@ import { EasyCountry } from '@/index'
 import EasyAirportAutocomplete from '@/components/airports/EasyAirportAutocomplete.vue'
 import { IAirport } from '@/types/autocomplete'
 import PaymentModal from '@/components/payment/PaymentModal.vue'
+import { EnvTypes } from '@/types'
+import EasyServicesTab from '@/components/services-tab/ServicesTab.vue'
+import { ServicesTypes } from '@/types'
 
 withDefaults(
   defineProps<{
@@ -37,6 +40,8 @@ const country = ref('')
 const airport = ref<IAirport>()
 const payment = ref(false)
 const baseUrl = ref('https://api2.globaltravel.space')
+const env = ref<EnvTypes>('development')
+const service = ref<ServicesTypes>('flights')
 
 function logOut() {
   console.log(123132)
@@ -45,7 +50,7 @@ function logOut() {
 
 <template>
   <div class="layout-page">
-    <EasyLayout :routeName :routes="routes" :isDark :locale="locale" :baseUrl="baseUrl" @log-out="logOut">
+    <EasyLayout :routeName :routes="routes" :isDark :locale="locale" :baseUrl="baseUrl" :env="env" @log-out="logOut">
       <template #header>
         <EasyProfileDropdown :user="user" :links="links" />
       </template>
@@ -68,6 +73,8 @@ function logOut() {
           description="description"
           v-model="payment"
         />
+
+        <EasyServicesTab :locale="locale" v-model="service" />
       </div>
     </EasyLayout>
   </div>

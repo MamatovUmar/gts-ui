@@ -2,18 +2,21 @@
 import EasyDropdown from '../../dropdown/EasyDropdown.vue';
 import EasyAvatar from '../../avatar/EasyAvatar.vue';
 import { IUser } from '@/types/user';
-import { computed } from 'vue';
+import { computed, ComputedRef } from 'vue';
 import { IItem } from '@/types/ui';
 import './ProfileDropdown.scss'
+import { inject } from 'vue';
 
 const props = defineProps<{
   user: IUser
   links: IItem[]
 }>()
 
+const baseUrl = inject<ComputedRef<string>>('baseUrl')
+
 const imageUrl = computed(() => {
   if (props.user.profile_image && !props.user.profile_image.includes('default_profile')) {
-    return `https://api2.globaltravel.space${props.user.profile_image}`
+    return `${baseUrl?.value}${props.user.profile_image}`
   }
   return undefined
 })

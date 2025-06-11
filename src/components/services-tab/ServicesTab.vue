@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ComputedRef, inject } from 'vue'
 import type { IItem } from 'src/types/ui'
 import './ServicesTab.scss'
 import { services } from '@/constants/services'
 import EasyTabs from '@/components/tabs/EasyTabs.vue'
-import { LocaleTypes, ServicesTypes } from '@/types'
+import { EnvTypes, LocaleTypes, ServicesTypes } from '@/types'
 
 const props = withDefaults(
   defineProps<{
@@ -14,10 +14,15 @@ const props = withDefaults(
     locale: 'ru',
   },
 )
+
+
+const env = inject<ComputedRef<EnvTypes>>('env')
+
 const transformedItems = computed<IItem[]>(() =>
   services.map(({ label, ...rest }) => ({
     label: label[props.locale],
     ...rest,
+    disabled: !rest.env?.includes(env?.value as EnvTypes),
   })),
 )
 

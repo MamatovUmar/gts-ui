@@ -6,7 +6,7 @@ export interface IService {
   label: Record<LocaleTypes, string>
   icon: string
   value: ServicesTypes
-  disabled?: boolean
+  env?: EnvTypes[]
 }
 
 export interface IProvider {
@@ -43,3 +43,5 @@ export interface IPagination {
   per_page: number
   total: number
 }
+
+export type EnvTypes = 'production' | 'development'
