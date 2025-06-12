@@ -147,7 +147,7 @@ export type {
 } from './types/autocomplete';
 export type { IItem, DatepickerModelType, ISidebarItem } from './types/ui';
 export type { IUser, IUserCurrency, IUserLanguage, IContactItem, ICompanyInfo, IBankDetails } from './types/user';
-export type { LocaleTypes, ServicesTypes, IService } from './types';
+export type { LocaleTypes, ServicesTypes, IService, EnvTypes } from './types';
 
 // Export utility functions
 export { catcher } from './utils/catcher';

@@ -9,7 +9,7 @@ export const services: IService[] = [
     },
     icon: 'icon-travelOutline-plane',
     value: 'flights',
-    env: ['development', 'production']
+    env: ['development', 'production', 'local']
   },
   {
     label: {
@@ -19,7 +19,7 @@ export const services: IService[] = [
     },
     icon: 'icon-travelOutline-hotel',
     value: 'hotels',
-    env: ['development']
+    env: ['development', 'local']
   },
   {
     label: {
@@ -29,7 +29,7 @@ export const services: IService[] = [
     },
     icon: 'icon-travelOutline-traine1',
     value: 'railway',
-    env: ['development']
+    env: ['development', 'local']
   },
   {
     label: {
@@ -39,7 +39,7 @@ export const services: IService[] = [
     },
     icon: 'icon-travelOutline-transfer',
     value: 'transfers',
-    env: ['development']
+    env: ['development', 'local']
   },
   {
     label: {
@@ -49,7 +49,7 @@ export const services: IService[] = [
     },
     icon: 'icon-Outline-tropical',
     value: 'tours',
-    env: ['development']
+    env: ['development', 'local']
   },
   {
     label: {
@@ -59,7 +59,7 @@ export const services: IService[] = [
     },
     icon: 'icon-travelOutline-memo',
     value: 'insurance',
-    env: ['development', 'production']
+    env: ['development', 'production', 'local']
   },
   {
     label: {
@@ -69,7 +69,7 @@ export const services: IService[] = [
     },
     icon: 'icon-travelOutline-routing',
     value: 'excursions',
-    env: ['development']
+    env: ['development', 'local']
   },
   {
     label: {
@@ -79,6 +79,6 @@ export const services: IService[] = [
     },
     icon: 'icon-travelOutline-simcard',
     value: 'esim',
-    env: ['development']
+    env: ['development', 'local']
   }
 ]

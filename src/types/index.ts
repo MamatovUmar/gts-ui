@@ -44,4 +44,4 @@ export interface IPagination {
   total: number
 }
 
-export type EnvTypes = 'production' | 'development'
+export type EnvTypes = 'production' | 'development' | 'local'

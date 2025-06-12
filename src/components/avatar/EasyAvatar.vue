@@ -46,8 +46,10 @@ const style = computed(() => {
 
   if (props.url) {
     data.backgroundImage = `url(${props.url})`
+    data.backgroundColor = 'transparent'
   } else if (!props.username) {
     data.backgroundImage = `url(${defaultAvatar})`
+    data.backgroundColor = 'transparent'
   }
   return data
 })
