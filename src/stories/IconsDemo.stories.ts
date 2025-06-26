@@ -153,8 +153,11 @@ const IconsDemo = defineComponent({
       'Bold-Arrow-Left2',
       'Bold-Arrow-Left3',
       'Bold-Arrow-LeftCircle',
+      'Bold-anchor',
 
       // Outline иконки
+      'Outline-clipboard-text',
+      'Outline-ship',
       'Outline-tropical',
       'Outline-arrowstwo',
       'Outline-Create',
