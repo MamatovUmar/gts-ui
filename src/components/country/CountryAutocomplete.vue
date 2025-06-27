@@ -66,6 +66,15 @@ function isValid() {
   invalidVal.value = search.value?.length && countries.value.length === 0
 }
 
+function tabHandle() {
+  if (countries.value.length > 0) {
+    model.value = countries.value[0]
+    open.value = false
+    countries.value = []
+    invalidVal.value = false
+  }
+}
+
 watchEffect(() => {
   if (model.value && typeof model.value !== 'string') {
     search.value = model.value[optionLabel.value]
@@ -96,6 +105,7 @@ watch(model, (val, oldVal) => {
       :invalid="invalidVal || invalid"
       :size
       @input="fetchData(search)"
+      @keydown.tab="tabHandle"
       @focus="fetchData(search)"
       @focusout="isValid"
     />
