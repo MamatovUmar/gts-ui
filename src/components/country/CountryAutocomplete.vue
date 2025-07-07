@@ -68,7 +68,11 @@ function isValid() {
 
 function tabHandle() {
   if (countries.value.length > 0) {
-    model.value = countries.value[0]
+    if (optionValue) {
+      model.value = countries.value[0][optionValue]
+    } else {
+      model.value = countries.value[0]
+    }
     open.value = false
     countries.value = []
     invalidVal.value = false

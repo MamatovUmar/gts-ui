@@ -36,6 +36,8 @@ export interface ICountry {
   emoji: string
   unicode: string
   image: string
+  latitude?: number
+  longitude?: number
 }
 
 export interface ICurrency {

@@ -11,16 +11,16 @@ export const services: IService[] = [
     value: 'flights',
     env: ['development', 'production', 'local']
   },
-  // {
-  //   label: {
-  //     ru: "Отели",
-  //     en: "Hotels",
-  //     uz: "Mehmonxonalar"
-  //   },
-  //   icon: 'icon-travelOutline-hotel',
-  //   value: 'hotels',
-  //   env: ['development', 'local']
-  // },
+  {
+    label: {
+      ru: "Отели",
+      en: "Hotels",
+      uz: "Mehmonxonalar"
+    },
+    icon: 'icon-travelOutline-hotel',
+    value: 'hotels',
+    env: ['development', 'local']
+  },
   {
     label: {
       ru: "Ж/Д",
@@ -41,16 +41,16 @@ export const services: IService[] = [
     value: 'transfers',
     env: ['development', 'local']
   },
-  // {
-  //   label: {
-  //     ru: "Туры",
-  //     en: "Tours",
-  //     uz: "Sayohatlar"
-  //   },
-  //   icon: 'icon-Outline-tropical',
-  //   value: 'tours',
-  //   env: ['development', 'local']
-  // },
+  {
+    label: {
+      ru: "Туры",
+      en: "Tours",
+      uz: "Sayohatlar"
+    },
+    icon: 'icon-Outline-tropical',
+    value: 'tours',
+    env: ['development', 'local']
+  },
   {
     label: {
       ru: "Страхование",
@@ -79,16 +79,16 @@ export const services: IService[] = [
     },
     icon: 'icon-travelOutline-simcard',
     value: 'esim',
-    env: ['development', 'local']
+    env: ['development', 'local', 'production']
   },
-  {
-    label: {
-      ru: "Корабли",
-      en: "Cruise",
-      uz: "Korabllar"
-    },
-    icon: 'icon-Outline-ship',
-    value: 'cruise',
-    env: ['development', 'local']
-  }
+  // {
+  //   label: {
+  //     ru: "Корабли",
+  //     en: "Cruise",
+  //     uz: "Korabllar"
+  //   },
+  //   icon: 'icon-Outline-ship',
+  //   value: 'cruise',
+  //   env: ['development', 'local']
+  // }
 ]
