@@ -1,8 +1,7 @@
-import sidebar from '@/constants/sidebar'
 import { computed } from 'vue'
 import { ISidebarItem } from '@/types/ui'
 
-export const usePermission = () => {
+export const usePermission = (sidebar: ISidebarItem[] = []) => {
 
   const apiList = localStorage.getItem('apis')
   const userType = localStorage.getItem('userType')

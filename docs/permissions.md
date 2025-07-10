@@ -44,17 +44,18 @@ app.mount('#app')
 
 ### Описание
 
-`usePermission` - композабл, предоставляющий функции для работы с разрешениями пользователя и маршрутами на основе этих разрешений.
+`usePermission` - композабл, предоставляющий функции для работы с разрешениями пользователя и маршрутами на основе этих разрешений. Принимает опциональный параметр `sidebar` для фильтрации маршрутов.
 
 ### Использование
 
 ```typescript
 import { usePermission } from 'gts-ui'
+import sidebarRoutes from '@/constants/sidebar' // Ваши маршруты боковой панели
 
 // В компоненте Vue
 export default {
   setup() {
-    const { hasAccessAction, definePermission, availableRoutes, getFirstAvailablePage } = usePermission()
+    const { hasAccessAction, definePermission, availableRoutes, getFirstAvailablePage } = usePermission(sidebarRoutes)
     
     // Проверка доступа к действию
     const canCreateUser = hasAccessAction(['user-create'])
@@ -154,6 +155,7 @@ export default router
 
 ## Заметки по реализации
 
-- `usePermission` получает список разрешений пользователя из localStorage (`apiList`).
+- `usePermission` принимает опциональный параметр `sidebar` - массив элементов боковой панели для фильтрации.
+- Список разрешений пользователя (`apiList`) получается из localStorage.
 - Тип пользователя (`userType`) также берется из localStorage.
 - Пользователи с типом 'AGENT' имеют доступ ко всем функциям без проверки разрешений.
