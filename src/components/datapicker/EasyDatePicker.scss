@@ -270,4 +270,14 @@
       }
     }
   }
+  .p-datepicker .p-timepicker span {
+    color: var(--text-default);
+    font-size: 14px;
+  }
+  .p-datepicker .p-timepicker button {
+    color: var(--icon-default);
+  }
+  .p-datepicker .p-timepicker button:enabled:hover {
+    background: var(--background-neutral-subtle-hovered);
+  }
 }

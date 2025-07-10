@@ -24,6 +24,7 @@ const {
   minDate?: Date
   maxDate?: Date
   showIcon?: boolean
+  timeOnly?: boolean
   invalid?: boolean
 }>()
 const id = useId()
@@ -83,13 +84,19 @@ watch(model, (val) => {
       :class="['w-full dp-flight']"
       date-format="dd.mm.yy"
       :showIcon="showIcon"
+      :timeOnly="timeOnly"
       iconDisplay="input"
       append-to="self"
       :invalid="invalid"
       @keypress="onChangeDatePicker"
     >
       <template #inputicon>
-        <i class="icon-Outline-Calendar dp-flight-icon" :class="{ 'easy-datepicker__error': invalid }"></i>
+        <i
+          v-if="timeOnly"
+          class="icon-Outline-TimeCircle dp-flight-icon"
+          :class="{ 'easy-datepicker__error': invalid }"
+        ></i>
+        <i v-else class="icon-Outline-Calendar dp-flight-icon" :class="{ 'easy-datepicker__error': invalid }"></i>
       </template>
       <template #date="{ date }">
         <div :class="['day center', isSideDate(date)]">

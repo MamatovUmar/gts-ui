@@ -155,3 +155,8 @@ export { debounce } from './utils/debounce';
 export { padStart } from './utils/string';
 export { formatNumber, formatCurrency } from './utils/formatter';
 export { countries };
+
+export { usePermission } from './composables/usePermission';
+export { useWindowSize } from './composables/useWindowSize';
+export { useClickOutside } from './composables/useClickOutside';
+
