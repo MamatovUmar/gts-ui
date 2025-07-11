@@ -213,6 +213,7 @@ const selectTab = (tab: IItem) => {
     white-space: nowrap;
     font-size: 14px;
     font-weight: 600;
+    color: var(--text-subtle);
 
     &:hover {
       background-color: var(--background-neutral-subtle-hovered);
