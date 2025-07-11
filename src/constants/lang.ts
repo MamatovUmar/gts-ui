@@ -25,6 +25,9 @@ export const lang: Record<LocaleTypes, any> = {
       deposit: 'Depozit',
       card: 'Kredit karta',
       wallet: 'Hamyon',
+    },
+    tabs: {
+      more: 'Yana',
     }
   },
   ru: {
@@ -50,6 +53,9 @@ export const lang: Record<LocaleTypes, any> = {
       deposit: 'Депозит',
       card: 'Кредитная карта',
       wallet: 'Кошелек',
+    },
+    tabs: {
+      more: 'Ещё',
     }
   },
   en: {
@@ -75,6 +81,9 @@ export const lang: Record<LocaleTypes, any> = {
       deposit: 'Deposit',
       card: 'Credit card',
       wallet: 'Wallet',
+    },
+    tabs: {
+      more: 'More',
     }
   },
 }

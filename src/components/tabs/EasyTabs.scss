@@ -33,6 +33,9 @@
     justify-content: center;
     gap: 8px;
     user-select: none;
+    &__text {
+      white-space: nowrap;
+    }
     &.active {
       position: relative;
       &::after {
