@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/vue3';
 import EasySwitchToggle from './EasySwitchToggle.vue';
 
 const meta = {
-  title: 'Components/EasySwitchToggle',
+  title: 'Components/Tabs/EasySwitchToggle',
   component: EasySwitchToggle,
   tags: ['autodocs'],
   argTypes: {},

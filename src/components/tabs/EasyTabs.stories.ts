@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/vue3';
 import EasyTabs from './EasyTabs.vue';
 
 const meta = {
-  title: 'Components/EasyTabs',
+  title: 'Components/Tabs/EasyTabs',
   component: EasyTabs,
   tags: ['autodocs'],
   argTypes: {

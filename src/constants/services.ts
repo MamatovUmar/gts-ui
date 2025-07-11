@@ -2,6 +2,7 @@ import { IService } from "@/types";
 
 export const services: IService[] = [
   {
+    id: 1,
     label: {
       ru: "Перелеты",
       en: "Flights",
@@ -12,6 +13,7 @@ export const services: IService[] = [
     env: ['development', 'production', 'local']
   },
   {
+    id: 3,
     label: {
       ru: "Отели",
       en: "Hotels",
@@ -22,16 +24,18 @@ export const services: IService[] = [
     env: ['development', 'local']
   },
   {
+    id: 4,
     label: {
       ru: "Ж/Д",
       en: "Train",
-      uz: "Temir yo‘l"
+      uz: "Temir yo'l"
     },
     icon: 'icon-travelOutline-traine1',
     value: 'railway',
     env: ['development', 'local']
   },
   {
+    id: 5,
     label: {
       ru: "Трансферы",
       en: "Transfers",
@@ -42,6 +46,7 @@ export const services: IService[] = [
     env: ['development', 'local']
   },
   {
+    id: 2,
     label: {
       ru: "Туры",
       en: "Tours",
@@ -52,6 +57,7 @@ export const services: IService[] = [
     env: ['development', 'local']
   },
   {
+    id: 6,
     label: {
       ru: "Страхование",
       en: "Insurance",
@@ -62,6 +68,7 @@ export const services: IService[] = [
     env: ['development', 'production', 'local']
   },
   {
+    id: 8,
     label: {
       ru: "Экскурсия",
       en: "Excursion",
@@ -72,6 +79,7 @@ export const services: IService[] = [
     env: ['development', 'local']
   },
   {
+    id: 7,
     label: {
       ru: "e-sim",
       en: "e-sim",
@@ -81,14 +89,15 @@ export const services: IService[] = [
     value: 'esim',
     env: ['development', 'local', 'production']
   },
-  // {
-  //   label: {
-  //     ru: "Корабли",
-  //     en: "Cruise",
-  //     uz: "Korabllar"
-  //   },
-  //   icon: 'icon-Outline-ship',
-  //   value: 'cruise',
-  //   env: ['development', 'local']
-  // }
+  {
+    id: 9,
+    label: {
+      ru: "Корабли",
+      en: "Cruise",
+      uz: "Korabllar"
+    },
+    icon: 'icon-Outline-ship',
+    value: 'cruise',
+    env: ['development', 'local']
+  }
 ]

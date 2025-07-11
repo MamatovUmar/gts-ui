@@ -3,6 +3,7 @@ export type LocaleTypes = 'en' | 'ru' | 'uz'
 export type ServicesTypes = 'flights' | 'hotels' | 'railway' | 'transfers' | 'tours' | 'insurance' | 'excursions' | 'esim' | 'cruise'
 
 export interface IService {
+  id: number
   label: Record<LocaleTypes, string>
   icon: string
   value: ServicesTypes
@@ -45,3 +46,11 @@ export interface IPagination {
 }
 
 export type EnvTypes = 'production' | 'development' | 'local'
+
+export interface ISignInResponse {
+  user: {
+    uid: string
+    user_type: string
+    apis: string[]
+  }
+}

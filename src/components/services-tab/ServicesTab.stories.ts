@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import ServicesTab from './ServicesTab.vue'
 
 const meta = {
-  title: 'Components/ServicesTab',
+  title: 'Components/Tabs/ServicesTab',
   component: ServicesTab,
   tags: ['autodocs'],
   argTypes: {
