@@ -89,6 +89,17 @@ function allSelected(e: string[]) {
       <template #closeicon>
         <span class="icon-Outline-Close_SM"></span>
       </template>
+      <template #value="slotProps">
+        <span>
+          {{
+            slotProps.value
+              .filter((val: string) => val !== 'all')
+              .map((val: string) => options.find(opt => opt.value === val)?.label || val)
+              .join(', ')
+          }}
+        </span>
+      </template>
+
     </MultiSelect>
     <label v-if="label" :for="id">{{ label }}</label>
   </FloatLabel>
