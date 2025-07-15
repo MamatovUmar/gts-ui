@@ -70,6 +70,8 @@ function allSelected(e: string[]) {
   if (!isAllHave && isAllSelected) return model.value = e.filter(item => item !== 'all')
 
   if (isAllHave && !isAllSelected) return model.value = ['all', ...e]
+
+  model.value = e
 }
 </script>
 
