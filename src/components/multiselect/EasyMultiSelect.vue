@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, ref, useId, computed, watch } from 'vue'
+import { inject, ref, useId, computed, type ComputedRef } from 'vue'
 import { IItem } from '@/types/ui'
 import FloatLabel from 'primevue/floatlabel'
 import MultiSelect from 'primevue/multiselect'
@@ -8,12 +8,14 @@ import { lang } from '@/constants/lang'
 import { LocaleTypes } from '@/types'
 
 const id = useId()
-
 const model = defineModel<string[]>({ default: () => [] })
 
-const locale = inject<LocaleTypes>('locale') || 'ru'
+const locale = inject<ComputedRef<LocaleTypes>>('locale') || ref('ru')
 
-const { options, showToggleAll } = withDefaults(
+const {
+  options,
+  showToggleAll,
+} = withDefaults(
   defineProps<{
     options: IItem[]
     label?: string
@@ -42,34 +44,45 @@ const { options, showToggleAll } = withDefaults(
   },
 )
 
-const overlayVisible = ref()
+const overlayVisible = ref(false)
 
 const computedOptions = computed(() => {
   if (showToggleAll) {
     return [
       {
-        label: lang[locale].select_all,
+        label: lang[locale.value].select_all,
         value: 'all',
       },
       ...options,
     ]
   }
-
   return options
 })
 
 function allSelected(e: string[]) {
   const isAllSelected = e.includes('all')
-  const isModelHaveAll = model.value.includes('all')
-  const isAllHave = options.every(item => e.includes(item.value as string))
+  const wasAllSelected = model.value.includes('all')
+  const hasAllItems = options.every(item => e.includes(item.value as string))
 
-  if (!isAllSelected && isModelHaveAll) return model.value = []
+  if (!isAllSelected && wasAllSelected) {
+    model.value = []
+    return
+  }
 
-  if (isAllSelected && !isModelHaveAll) return model.value = computedOptions.value.map(item => item.value as string)
+  if (isAllSelected && !wasAllSelected) {
+    model.value = computedOptions.value.map(item => item.value as string)
+    return
+  }
 
-  if (!isAllHave && isAllSelected) return model.value = e.filter(item => item !== 'all')
+  if (!hasAllItems && isAllSelected) {
+    model.value = e.filter(item => item !== 'all')
+    return
+  }
 
-  if (isAllHave && !isAllSelected) return model.value = ['all', ...e]
+  if (hasAllItems && !isAllSelected) {
+    model.value = ['all', ...e]
+    return
+  }
 
   model.value = e
 }
@@ -77,18 +90,20 @@ function allSelected(e: string[]) {
 
 <template>
   <FloatLabel :class="['easy-multi-select w-full', size, { 'has-label': label }]">
-    <MultiSelect :id="id" :model-value="model" :options="computedOptions" :optionLabel="optionLabel"
-      :option-value="optionValue" :class="['w-full', size]" :disabled="disabled" :loading="loading" append-to="self"
-      :filter="filter" :invalid="invalid" :display="display" close-icon="none" :close-button="false"
-      :show-toggle-all="false" @show="overlayVisible = true" @hide="overlayVisible = false"
-      :empty-message="lang[locale].empty_text" :filter-placeholder="lang[locale].search" :placeholder="placeholder"
-      :max-selected-labels="maxSelectedLabels" @change="(e) => allSelected(e.value)">
+    <MultiSelect :id="id" :model-value="model" :options="computedOptions" :option-label="optionLabel"
+      :option-value="optionValue" :class="['w-full', size]" :disabled="disabled" :loading="loading" :filter="filter"
+      :invalid="invalid" :display="display" append-to="self" close-icon="none" :close-button="false"
+      :show-toggle-all="false" :empty-message="lang[locale].empty_text" :filter-placeholder="lang[locale].search"
+      :placeholder="placeholder" :max-selected-labels="maxSelectedLabels" @show="overlayVisible = true"
+      @hide="overlayVisible = false" @change="e => allSelected(e.value)">
       <template #dropdownicon>
         <i class="icon-Outline-Arrow-Down2 down-icon" :class="{ rotate: overlayVisible }"></i>
       </template>
+
       <template #closeicon>
         <span class="icon-Outline-Close_SM"></span>
       </template>
+
       <template #value="slotProps">
         <span>
           {{
@@ -99,8 +114,8 @@ function allSelected(e: string[]) {
           }}
         </span>
       </template>
-
     </MultiSelect>
+
     <label v-if="label" :for="id">{{ label }}</label>
   </FloatLabel>
 </template>
