@@ -2,12 +2,12 @@
 import Password from 'primevue/password';
 import InputText from 'primevue/inputtext';
 import InputMask from 'primevue/inputmask';
-import {computed, useId} from "vue";
+import { computed, useId } from "vue";
 import FloatLabel from 'primevue/floatlabel';
 import './EasyInput.scss';
 import EasyLoader from '@/components/loader/EasyLoader.vue';
 
-const model = defineModel<string>({default: ''});
+const model = defineModel<string>({ default: '' });
 const props = withDefaults(defineProps<{
   label?: string
   placeholder?: string
@@ -55,32 +55,21 @@ const uppercaseModel = computed({
     model.value = val;
   },
 });
+
+function handleInput(e: Event) {
+  const val = (e.target as HTMLInputElement).value
+  model.value = props.uppercase ? val.toUpperCase() : val
+}
+
 </script>
 
 <template>
   <FloatLabel :class="['easy-input w-full', size, { 'has-label': label, disabled, 'has-prefix': prefixIcon }]">
-    <component
-      :is="activeComponent"
-      :id="id"
-      v-model="uppercaseModel"
-      :placeholder="placeholder"
-      :class="{ 'p-invalid': invalid, 'has-prefix': prefixIcon }"
-      :upperCase="uppercase"
-      toggleMask
-      :feedback="false"
-      :tabindex="tabindex"
-      :readonly="readonly"
-      autocomplete="off"
-      :mask="mask"
-      :disabled="disabled"
-      :loading
-      @keydown.down="emit('keydown.down')"
-      @keydown.up="emit('keydown.up')"
-      @keydown.enter="emit('keydown.enter')"
-      @keydown.tab="emit('keydown.tab')"
-      @focus="emit('focus')"
-      @focusout="emit('focusout')"
-    />
+    <component :is="activeComponent" :id="id" v-model="uppercaseModel" :placeholder="placeholder"
+      :class="{ 'p-invalid': invalid, 'has-prefix': prefixIcon }" :upperCase="uppercase" toggleMask :feedback="false"
+      :tabindex="tabindex" :readonly="readonly" autocomplete="off" :mask="mask" :disabled="disabled" :loading
+      @keydown.down="emit('keydown.down')" @keydown.up="emit('keydown.up')" @keydown.enter="emit('keydown.enter')"
+      @keydown.tab="emit('keydown.tab')" @focus="emit('focus')" @focusout="emit('focusout')" @input="handleInput" />
 
     <div v-if="loading" class="loading">
       <EasyLoader :size="20" :borderWidth="2" />

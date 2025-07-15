@@ -12,6 +12,7 @@ export const lang: Record<LocaleTypes, any> = {
     empty_options: 'Mavjud variantlar yo\'q',
     currency: 'Valyuta',
     language: 'Til',
+    select_all: 'Barchasini tanlash',
     empty_text: 'Mavjud variantlar yo\'q',
     search: 'Qidirish',
     payment: {
@@ -40,6 +41,7 @@ export const lang: Record<LocaleTypes, any> = {
     empty_options: 'Нет доступных вариантов',
     currency: 'Валюта',
     language: 'Язык',
+    select_all: 'Выбрать все',
     empty_text: 'Нет совпадений',
     search: 'Поиск',
     payment: {
@@ -68,6 +70,7 @@ export const lang: Record<LocaleTypes, any> = {
     empty_options: 'No available options',
     currency: 'Currency',
     language: 'Language',
+    select_all: 'Select all',
     empty_text: 'No matches',
     search: 'Search',
     payment: {
