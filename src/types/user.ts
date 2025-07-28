@@ -26,7 +26,17 @@ export interface IUser {
   physical_data: Record<string, unknown>
   contacts: IContactItem[]
   profile_image: string
+  id?: number
+  is_active?: boolean
+  allow_signin?: boolean
   staff: IStaffInfo
+  parent?: {
+    uid: string
+    email: string
+    type_cabinet: string
+    user_type: string
+    currency: IUserCurrency
+  }
 }
 
 export interface IStaffInfo {

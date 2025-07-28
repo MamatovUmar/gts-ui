@@ -26,7 +26,7 @@ provide('baseUrl', computed(() => props.baseUrl || 'https://api.globaltravel.spa
 provide('env', computed(() => props.env || 'production'))
 
 const short = ref(false)
-const logoBaseUrl = 'https://api.globaltravel.space/media/imgs/footer'
+const logoBaseUrl = `https://api.globaltravel.space/media/imgs/footer`
 
 function sidebarToggle() {
   if (width.value < 1420 && !short.value) {

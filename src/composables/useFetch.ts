@@ -5,15 +5,17 @@ interface RequestConfig {
   headers?: Record<string, string>
   params?: Record<string, string>
   timeout?: number
+  baseUrl?: string
 }
 
 export function useFetch(config: RequestConfig = {}) {
   const { headers: defaultHeaders = {} } = config
+  const {baseUrl} = config
 
-  const baseUrl = inject<ComputedRef<string>>('baseUrl')
+  const injectedBaseUrl = inject<ComputedRef<string>>('baseUrl')
 
   const createUrl = (url: string, params?: Record<string, string>) => {
-    const fullUrl = `${baseUrl?.value || BASE_URL}${url}`
+    const fullUrl = `${baseUrl || injectedBaseUrl?.value || BASE_URL}${url}`
     if (!params) return fullUrl
 
     const searchParams = new URLSearchParams()

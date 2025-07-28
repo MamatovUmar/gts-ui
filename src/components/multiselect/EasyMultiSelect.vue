@@ -107,17 +107,30 @@ function allSelected(e: string[]) {
       <template #closeicon>
         <span class="icon-Outline-Close_SM"></span>
       </template>
-      <template #value="slotProps">
-        <span>
+      <template #value="{ value }">
+        {{ !value.length && placeholder ? placeholder : '' }}
+        <span v-if="display === 'comma'">
           {{
-            slotProps.value
+            value
               .filter((val: string) => val !== 'all')
+              .slice(0, maxSelectedLabels)
               .map((val: string) => options.find((opt) => opt.value === val)?.label || val)
               .join(', ')
           }}
         </span>
+        <template v-else>
+          <div
+            v-for="item in value.filter((val: string) => val !== 'all').slice(0, maxSelectedLabels)"
+            :key="item"
+            class="p-multiselect-token"
+          >
+            <span class="p-multiselect-token-label">
+              {{ options.find((opt) => opt.value === item)?.label || item }}
+            </span>
+          </div>
+        </template>
+        <span v-if="maxSelectedLabels && value.length > maxSelectedLabels">...</span>
       </template>
-
     </MultiSelect>
     <label v-if="label" :for="id">{{ label }}</label>
   </FloatLabel>
