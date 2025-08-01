@@ -6,13 +6,14 @@ import { links, user } from '@/constants'
 import { reactive, ref } from 'vue'
 import EasyPagination from '@/components/pagination/EasyPagination.vue'
 import { LocaleTypes } from '@/types'
-import { EasyCountry } from '@/index'
+import { EasyCountry, ICountry } from '@/index'
 import EasyAirportAutocomplete from '@/components/airports/EasyAirportAutocomplete.vue'
-import { IAirport } from '@/types/autocomplete'
+import { IAirport, ICity } from '@/types/autocomplete'
 import PaymentModal from '@/components/payment/PaymentModal.vue'
 import { EnvTypes } from '@/types'
 import EasyServicesTab from '@/components/services-tab/ServicesTab.vue'
 import { ServicesTypes } from '@/types'
+import EasyCity from '@/components/city/CityAutocomplete.vue'
 
 withDefaults(
   defineProps<{
@@ -36,7 +37,8 @@ const params = reactive({
 
 const locale = ref<LocaleTypes>('ru')
 
-const country = ref('')
+const country = ref<ICountry>()
+const city = ref<ICity>()
 const airport = ref<IAirport>()
 const payment = ref(false)
 const baseUrl = ref('https://api2.globaltravel.space')
@@ -62,6 +64,11 @@ function logOut() {
 
         <EasyCountry v-model="country" label="Country" />
         <br />
+        {{ country }}
+
+        <EasyCity v-model="city" label="City" :countryCode="country?.code" />
+        <br />
+        {{ city }}
 
         <EasyAirportAutocomplete v-model="airport" label="Airport" />
         <PaymentModal

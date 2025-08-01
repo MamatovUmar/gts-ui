@@ -12,12 +12,14 @@ const {
   size = 'large',
   optionLabel = 'name',
   emptyText = 'Нет совподений',
-  countryCode
+  countryCode,
+  optionValue
 } = defineProps<{
   label?: string
   placeholder?: string
   prefixIcon?: string
   optionLabel?: 'name' | 'state_name'
+  optionValue?: 'name' | 'state_name'
   emptyText?: string
   countryCode?: string
   size?: 'small' | 'large'
@@ -27,7 +29,7 @@ const {
 
 const { get } = useFetch()
 
-const model = defineModel<ICity>()
+const model = defineModel<ICity | string>()
 
 const dpRef = ref<HTMLElement>()
 const loading = ref(false)
@@ -63,8 +65,13 @@ function isValid() {
 }
 
 watchEffect(() => {
-  if (model.value) {
+  if (model.value && typeof model.value !== 'string') {
     search.value = model.value[optionLabel]
+    open.value = false
+  } else if (optionValue) {
+    const found = cities.value.find((item) => item[optionValue] === model.value)
+    if (!found) return
+    search.value = found[optionLabel]
     open.value = false
   }
 })
@@ -104,6 +111,7 @@ interface Response<T> {
         v-model="model"
         :options="filterData"
         :optionLabel="optionLabel"
+        :optionValue="optionValue"
         listStyle="max-height:250px"
         :loading="loading"
       />
