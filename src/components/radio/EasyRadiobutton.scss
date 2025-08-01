@@ -60,6 +60,7 @@
   }
   &.block {
     border: 1px solid var(--border-bold);
+    background: var(--background-input-default);
     border-radius: 8px;
     height: 52px;
     display: flex;

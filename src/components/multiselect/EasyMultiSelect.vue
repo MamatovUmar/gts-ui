@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, ref, useId, computed, type ComputedRef } from 'vue'
+import { inject, ref, useId, computed, type ComputedRef, watch } from 'vue'
 import { IItem } from '@/types/ui'
 import FloatLabel from 'primevue/floatlabel'
 import MultiSelect from 'primevue/multiselect'
@@ -10,6 +10,8 @@ import { LocaleTypes } from '@/types'
 const id = useId()
 
 const model = defineModel<string[]>({ default: () => [] })
+
+const selected = ref<string[]>([])
 
 const locale = inject<ComputedRef<LocaleTypes>>('locale') || ref('ru')
 
@@ -30,7 +32,7 @@ const props = withDefaults(
     maxSelectedLabels?: number
   }>(),
   {
-    size: 'small',
+    size: 'large',
     invalid: false,
     filter: false,
     disabled: false,
@@ -60,26 +62,30 @@ const computedOptions = computed(() => {
 
 function allSelected(e: string[]) {
   const isAllSelected = e.includes('all')
-  const isModelHaveAll = model.value.includes('all')
+  const isModelHaveAll = selected.value.includes('all')
   const isAllHave = props.options.every((item) => e.includes(item.value as string))
 
-  if (!isAllSelected && isModelHaveAll) return (model.value = [])
+  if (!isAllSelected && isModelHaveAll) return (selected.value = [])
 
-  if (isAllSelected && !isModelHaveAll) return (model.value = computedOptions.value.map((item) => item.value as string))
+  if (isAllSelected && !isModelHaveAll) return (selected.value = computedOptions.value.map((item) => item.value as string))
 
-  if (!isAllHave && isAllSelected) return (model.value = e.filter((item) => item !== 'all'))
+  if (!isAllHave && isAllSelected) return (selected.value = e.filter((item) => item !== 'all'))
 
-  if (isAllHave && !isAllSelected) return (model.value = ['all', ...e])
+  if (isAllHave && !isAllSelected) return (selected.value = ['all', ...e])
 
-  model.value = e
+  selected.value = e
 }
+
+watch(selected, (val) => {
+  model.value = val.filter((item) => item !== 'all')
+})
 </script>
 
 <template>
   <FloatLabel :class="['easy-multi-select w-full', size, { 'has-label': label }]">
     <MultiSelect
       :id="id"
-      :model-value="model"
+      :model-value="selected"
       :options="computedOptions"
       :optionLabel="optionLabel"
       :option-value="optionValue"

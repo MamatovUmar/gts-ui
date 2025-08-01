@@ -14,6 +14,7 @@ import { EnvTypes } from '@/types'
 import EasyServicesTab from '@/components/services-tab/ServicesTab.vue'
 import { ServicesTypes } from '@/types'
 import EasyCity from '@/components/city/CityAutocomplete.vue'
+import EasyMultiSelect from '@/components/multiselect/EasyMultiSelect.vue'
 
 withDefaults(
   defineProps<{
@@ -44,7 +45,11 @@ const payment = ref(false)
 const baseUrl = ref('https://api2.globaltravel.space')
 const env = ref<EnvTypes>('development')
 const service = ref<ServicesTypes>('flights')
-
+const providers = ref([
+  { label: 'Provider 1', value: 1 },
+  { label: 'Provider 2', value: 2 },
+  { label: 'Provider 3', value: 3 },
+])
 function logOut() {
   console.log(123132)
 }
@@ -64,12 +69,14 @@ function logOut() {
 
         <EasyCountry v-model="country" label="Country" />
         <br />
-        {{ country }}
 
         <EasyCity v-model="city" label="City" :countryCode="country?.code" />
         <br />
-        {{ city }}
+        {{ params.provider_id }}
+        <EasyMultiSelect v-model="params.provider_id" :options="providers" size="large" display="chip" />
+        <br />
 
+        <br>
         <EasyAirportAutocomplete v-model="airport" label="Airport" />
         <PaymentModal
           :loading="false"

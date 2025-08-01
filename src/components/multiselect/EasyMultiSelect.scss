@@ -64,15 +64,15 @@
       }
     }
     &.p-multiselect-chip .p-multiselect-token {
-      border-radius: 3px;
+      border-radius: 5px;
       background-color: var(--background-neutral-default);
       color: var(--text-default);
       font-size: 14px;
       line-height: 14px;
       font-weight: 500;
-      padding: 3px 4px;
-      svg {
-        height: 14px;;
+      padding: 7px 8px;
+      &:first-child {
+        margin-left: 6px;
       }
     }
   }
@@ -162,6 +162,11 @@
       &::placeholder {
         opacity: 0;
       }
+    }
+
+    &.p-multiselect-chip .p-multiselect-token {
+      padding: 4px 5px;
+      border-radius: 3px;
     }
   }
 
