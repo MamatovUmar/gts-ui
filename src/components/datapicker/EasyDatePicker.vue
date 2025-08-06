@@ -26,6 +26,7 @@ const {
   showIcon?: boolean
   timeOnly?: boolean
   invalid?: boolean
+  disabled?: boolean
 }>()
 const id = useId()
 
@@ -88,6 +89,7 @@ watch(model, (val) => {
       iconDisplay="input"
       append-to="self"
       :invalid="invalid"
+      :disabled="disabled"
       @keypress="onChangeDatePicker"
     >
       <template #inputicon>

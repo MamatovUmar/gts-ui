@@ -40,6 +40,13 @@ export interface ICountry {
   longitude?: number
 }
 
+export interface ILanguage {
+  ru: string
+  en: string
+  uz: string
+  value: string
+}
+
 export interface ICurrency {
   base: string
   ru: string

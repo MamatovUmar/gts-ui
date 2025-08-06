@@ -169,6 +169,9 @@
       color: var(--icon-subtle);
     }
   }
+  &.p-calendar-disabled {
+    opacity: 0.6;
+  }
 }
 
 .easy-datepicker {

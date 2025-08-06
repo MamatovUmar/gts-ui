@@ -29,7 +29,7 @@ withDefaults(
 const params = reactive({
   page: 1,
   per_page: 1,
-  provider_id: undefined,
+  provider_id: [1, 2, 3],
   supplier_id: undefined,
   status: undefined,
   type: undefined,
@@ -46,9 +46,9 @@ const baseUrl = ref('https://api2.globaltravel.space')
 const env = ref<EnvTypes>('development')
 const service = ref<ServicesTypes>('flights')
 const providers = ref([
-  { label: 'Provider 1', value: 1 },
-  { label: 'Provider 2', value: 2 },
-  { label: 'Provider 3', value: 3 },
+  { label: 'Provider 1', value: "1" },
+  { label: 'Provider 2', value: "2" },
+  { label: 'Provider 3', value: "3" },
 ])
 function logOut() {
   console.log(123132)

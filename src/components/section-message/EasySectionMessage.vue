@@ -4,7 +4,7 @@ import EasyIcon from "@/components/icon/EasyIcon.vue";
 
 interface IProps {
   title: string
-  description: string
+  description?: string
   type?: 'information' | 'success' | 'warning' | 'error' | 'discovery'
 }
 
@@ -28,7 +28,10 @@ withDefaults(defineProps<IProps>(), {
       class="section-icon" :size="20"/>
     <div class="section-main">
       <h5 class="section-main-title">{{title}}</h5>
-      <p class="section-main-desc">{{description}}</p>
+      <p v-if="description" class="section-main-desc">{{description}}</p>
+      <p v-else>
+        <slot />
+      </p>
     </div>
   </div>
 </template>

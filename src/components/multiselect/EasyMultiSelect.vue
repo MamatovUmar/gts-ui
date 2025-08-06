@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { inject, ref, useId, computed, type ComputedRef, watch } from 'vue'
+import { inject, ref, useId, computed, type ComputedRef, watch, onMounted } from 'vue'
 import { IItem } from '@/types/ui'
 import FloatLabel from 'primevue/floatlabel'
 import MultiSelect from 'primevue/multiselect'
 import './EasyMultiSelect.scss'
 import { lang } from '@/constants/lang'
 import { LocaleTypes } from '@/types'
+import EasyIcon from '../icon/EasyIcon.vue'
 
 const id = useId()
 
-const model = defineModel<string[]>({ default: () => [] })
+const model = defineModel<string[] | number[]>({ default: () => [] })
 
 const selected = ref<string[]>([])
 
@@ -76,9 +77,19 @@ function allSelected(e: string[]) {
   selected.value = e
 }
 
+function removeItem(item: string) {
+  selected.value = selected.value.filter((val) => val !== item)
+  allSelected(selected.value)
+}
+
 watch(selected, (val) => {
   model.value = val.filter((item) => item !== 'all')
 })
+
+onMounted(() => {
+  selected.value = model.value.map(String)
+})
+
 </script>
 
 <template>
@@ -129,10 +140,12 @@ watch(selected, (val) => {
             v-for="item in value.filter((val: string) => val !== 'all').slice(0, maxSelectedLabels)"
             :key="item"
             class="p-multiselect-token"
+            style="gap: 5px"
           >
             <span class="p-multiselect-token-label">
               {{ options.find((opt) => opt.value === item)?.label || item }}
             </span>
+            <EasyIcon :size="16" name="icon-Outline-CloseSquare pointer" @click="removeItem(item)" />
           </div>
         </template>
         <span v-if="maxSelectedLabels && value.length > maxSelectedLabels">...</span>
