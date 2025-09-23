@@ -29,7 +29,7 @@ withDefaults(defineProps<IProps>(), {
     <div class="section-main">
       <h5 class="section-main-title">{{title}}</h5>
       <p v-if="description" class="section-main-desc">{{description}}</p>
-      <p v-else>
+      <p v-else class="section-main-desc">
         <slot />
       </p>
     </div>
