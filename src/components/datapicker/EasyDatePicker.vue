@@ -88,6 +88,7 @@ watch(model, (val) => {
       :timeOnly="timeOnly"
       iconDisplay="input"
       append-to="self"
+      v-bind="$attrs"
       :invalid="invalid"
       :disabled="disabled"
       @keypress="onChangeDatePicker"
