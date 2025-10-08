@@ -43,7 +43,7 @@ export const services: IService[] = [
     },
     icon: 'icon-travelOutline-transfer',
     value: 'transfers',
-    env: ['development', 'local']
+    env: ['development', 'local', 'production']
   },
   {
     id: 2,

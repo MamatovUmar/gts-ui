@@ -69,7 +69,7 @@ watch(width, () => {
             <img :src="`${logoBaseUrl}/${isDark ? 'dark' : 'light'}/payments.svg`" alt="iata"/>
           </div>
 
-          <div class="copyright">© Easybooking.uz | All rights reserved</div>
+          <div class="copyright">© Globaltravel.space | All rights reserved</div>
         </div>
 
       </div>
