@@ -4,6 +4,7 @@ import type { IItem } from "src/types/ui";
 import './EasyTabs.scss'
 import EasyIcon from "../icon/EasyIcon.vue";
 import EasyDropdown from "../dropdown/EasyDropdown.vue";
+import Skeleton from 'primevue/skeleton';
 import { lang } from "@/constants/lang";
 import { inject } from "vue";
 import { LocaleTypes } from "@/types";
@@ -11,6 +12,7 @@ import type { ComputedRef } from "vue";
 
 const props = withDefaults(defineProps<{
   items: IItem[]
+  loading?: boolean
   big?: boolean
 }>(), {
   big: false
@@ -102,23 +104,28 @@ const selectTab = (tab: IItem) => {
 
 <template>
   <div ref="tabsContainer" :class="['easy-tabs', { big }]" :style="`--count: ${visibleTabs.length + (showMoreButton ? 1 : 0)};`">
-    <template v-for="item of visibleTabs" :key="item.value">
-      <input
-        v-model="model"
-        :value="item.value"
-        :name="id"
-        :id="`${id}${item.value}`"
-        type="radio"
-        class="input"
-      />
-      <label
-        :for="`${id}${item.value}`"
-        :class="['label', 'tab-item', { disabled: item?.disabled }, {active: item.value === model}]"
-      >
-        <EasyIcon v-if="item?.icon" :name="item.icon" :size="20"></EasyIcon>
-        <span class="label__text" v-html="item.label"/>
-      </label>
-    </template>
+
+      <div v-if="loading" class="flex items-center" style="gap: 4px">
+        <Skeleton v-for="i in 8" :key="i" width="130px" height="40px"/>
+      </div>
+      <template v-for="item of visibleTabs" :key="item.value" v-else>
+        <input
+          v-model="model"
+          :value="item.value"
+          :name="id"
+          :id="`${id}${item.value}`"
+          type="radio"
+          class="input"
+        />
+        <label
+          :for="`${id}${item.value}`"
+          :class="['label', 'tab-item', { disabled: item?.disabled }, {active: item.value === model}]"
+        >
+          <EasyIcon v-if="item?.icon" :name="item.icon" :size="20"></EasyIcon>
+          <span class="label__text" v-html="item.label"/>
+        </label>
+      </template>
+
 
     <!-- Кнопка "Ещё" с выпадающим меню -->
     <div v-if="showMoreButton" class="tab-item center">
