@@ -37,7 +37,6 @@ export const sidebarItems = [
     pages: ['search']
   },
   {
-    path: '/excursion/extranet',
     icon: 'icon-Outline-Create',
     activeIcon: 'icon-Bold-Create',
     label: 'extranet',
@@ -50,7 +49,7 @@ export const sidebarItems = [
         pages: ['charter']
       },
       {
-        path: '/excursion/extranet',
+        path: '/excursions/extranet',
         label: 'excursion',
         code: 'excursion-list',
         pages: ['extranet', 'extranet-create-description', 'extranet-create']
@@ -83,7 +82,6 @@ export const sidebarItems = [
     pages: ['community']
   },
   {
-    path: '/reports',
     icon: 'icon-Outline-Activity',
     activeIcon: 'icon-Bold-Activity',
     label: 'reports',
@@ -101,7 +99,6 @@ export const sidebarItems = [
     ]
   },
   {
-    path: '/settings',
     icon: 'icon-Outline-Setting',
     activeIcon: 'icon-Bold-Setting',
     label: 'settings',

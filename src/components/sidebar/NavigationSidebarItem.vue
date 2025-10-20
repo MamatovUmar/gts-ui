@@ -12,6 +12,7 @@ const props = defineProps<{
   routeName: string
   short: boolean
 }>()
+const emits = defineEmits(['parentClick'])
 
 const service = inject('service', '')
 
@@ -23,6 +24,10 @@ function buildRoute(path: string): string {
 }
 
 const tagAndAttribute = (routeItem: ISidebarItem): { tag: string; attribute: Record<string, unknown> } => {
+  if(routeItem.children?.length) {
+    return { tag: 'div', attribute: {} }
+  }
+
   if (routeItem.internal) {
     const attribute = {
       to: buildRoute(routeItem.path),
@@ -43,6 +48,12 @@ function getIcon(route: ISidebarItem) {
 
 function toggle(event: unknown) {
   op.value.toggle(event)
+}
+
+function hasChilden(routeItem: ISidebarItem) {
+  if(routeItem.children && routeItem.children.length > 0) {
+    emits('parentClick', routeItem.children)
+  }
 }
 
 watch(
@@ -70,6 +81,7 @@ watch(
       v-else
       :is="tagAndAttribute(routeItem).tag"
       v-bind="tagAndAttribute(routeItem).attribute"
+      @click="hasChilden(routeItem)"
       v-tooltip="{ value: routeItem.label, disabled: !short || !!routeItem?.children }"
       :class="[
         'navigation-sidebar__link',

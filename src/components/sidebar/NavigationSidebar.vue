@@ -53,6 +53,7 @@ const translatedRoutes = computed(() => {
 })
 
 const routes = ref(translatedRoutes.value || [])
+const childrenRoutes = ref<ISidebarItem[]>([])
 
 const appLogo = computed(() => {
   if (short.value) {
@@ -88,25 +89,39 @@ watchEffect(() => {
 
     <ScrollPanel class="scroll-height">
       <section class="navigation-sidebar__body">
-        <router-link
+        <div
           v-if="parentRoute && !short"
-          to="/"
+          @click="childrenRoutes = []; parentRoute = false"
           class="navigation-sidebar__link disable"
-          v-tooltip="{ value: lang[locale].sidebar.back, disabled: !short }"
+          style="cursor: pointer"
         >
           <i class="icon-Outline-Arrow-LeftCircle navigation-sidebar__icon text-text-subtle"></i>
           <span class="text-text-subtle" v-if="!short">{{ lang[locale].sidebar.back }}</span>
-        </router-link>
+        </div>
 
         <div v-else class="navigation-sidebar__link disable text-text-subtle">
           {{ lang[locale].sidebar.title }}
         </div>
 
-        <template v-for="(routeItem, i) of routes" :key="`${i}-${routeItem.path}`">
+        <template v-if="childrenRoutes.length">
           <NavigationSidebarItem
+            v-for="(routeItem, i) of childrenRoutes"
+            :key="`${i}-${routeItem.path}`"
             :route-item="routeItem"
-            :is-child="parentRoute && !short"
+            :is-child="false"
             :routeName="routeName"
+            @parent-click="childrenRoutes = $event; parentRoute = true"
+            :short
+          />
+        </template>
+
+        <template v-else>
+          <NavigationSidebarItem
+            v-for="(routeItem, i) of routes" :key="`${i}-${routeItem.path}`"
+            :route-item="routeItem"
+            :routeName="routeName"
+            :is-child="false"
+            @parent-click="childrenRoutes = $event; parentRoute = true"
             :short
           />
         </template>
