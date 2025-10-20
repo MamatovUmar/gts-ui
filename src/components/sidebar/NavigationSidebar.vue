@@ -50,6 +50,7 @@ const translatedRoutes = computed(() => {
     })
   }
 
+  console.log(permissions.availableRoutes.value)
   return addTranslate(permissions.availableRoutes.value)
 })
 

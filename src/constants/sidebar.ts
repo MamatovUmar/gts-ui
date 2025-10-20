@@ -145,7 +145,7 @@ export const sidebarItems = [
       {
         path: '/settings/route-receipt',
         label: 'routeReceipt',
-        code: 'reciept-pattern-list',
+        code: 'receipt-pattern-list',
         pages: ['settings/route-receipt']
       },
       {

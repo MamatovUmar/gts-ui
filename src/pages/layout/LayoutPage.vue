@@ -23,7 +23,7 @@ const {serviceType} = withDefaults(
   }>(),
   {
     serviceType: '',
-    routeName: 'settings/route-receipt',
+    routeName: '',
   },
 )
 

@@ -1,10 +1,11 @@
 import { computed } from 'vue'
 import { ISidebarItem } from '@/types/ui'
+import { sidebarItems } from '@/constants/sidebar'
 
-export const usePermission = (sidebar: ISidebarItem[] = []) => {
+export const usePermission = () => {
 
   const apiList = localStorage.getItem('apis')
-  const userType = localStorage.getItem('userType')
+  const userType = localStorage.getItem('userType') ?? 'AGENT'
 
   const definePermission = (code: string) => {
     if (code === 'home') return true
@@ -32,12 +33,12 @@ export const usePermission = (sidebar: ISidebarItem[] = []) => {
   }
 
   const availableRoutes = computed(() => {
-    const sidebarList = JSON.parse(JSON.stringify(sidebar))
-
+    console.log(userType)
     if (userType === 'AGENT') {
-      return sidebarList
+      console.log(sidebarItems)
+      return sidebarItems
     }
-    return filterRoutes(sidebarList)
+    return filterRoutes(sidebarItems)
   })
 
   function getFirstAvailablePage() {
