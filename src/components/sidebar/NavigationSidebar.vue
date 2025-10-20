@@ -50,7 +50,6 @@ const translatedRoutes = computed(() => {
     })
   }
 
-  console.log(permissions.availableRoutes.value)
   return addTranslate(permissions.availableRoutes.value)
 })
 
@@ -93,7 +92,7 @@ watchEffect(() => {
       <section class="navigation-sidebar__body">
         <div
           v-if="parentRoute && !short"
-          @click="childrenRoutes = []; parentRoute = false"
+          @click="childrenRoutes = translatedRoutes; parentRoute = false"
           class="navigation-sidebar__link disable"
           style="cursor: pointer"
         >
