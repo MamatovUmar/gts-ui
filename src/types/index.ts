@@ -1,6 +1,6 @@
 export type LocaleTypes = 'en' | 'ru' | 'uz'
 
-export type ServicesTypes = 'flights' | 'hotels' | 'railway' | 'transfers' | 'tours' | 'insurance' | 'excursions' | 'esim' | 'cruise'
+export type ServicesTypes = 'flights' | 'hotels' | 'railway' | 'transfers' | 'tours' | 'insurance' | 'excursions' | 'esim' | 'cruise' | 'rentcar'
 
 export interface IService {
   id: number
