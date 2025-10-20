@@ -1,44 +1,76 @@
 import {ISidebarItem} from "@/types/ui";
 
-export default [
+
+export const sidebarItems = [
   {
     path: '/',
     icon: 'icon-Outline-Home',
     activeIcon: 'icon-Bold-Home',
-    label: 'Дашборд',
+    label: 'home',
     code: 'search',
     internal: true,
     pages: ['home']
   },
   {
+    path: '/suppliers',
+    icon: 'icon-Outline-Ticket',
+    activeIcon: 'icon-Bold-Ticket',
+    label: 'suppliers',
+    code: 'suppliers-list',
+    pages: ['suppliers']
+  },
+  {
+    path: '/users',
+    icon: 'icon-Outline-2User',
+    activeIcon: 'icon-Bold-2User',
+    label: 'users',
+    code: 'list-staff',
+    pages: ['users']
+  },
+  {
     path: '/search',
     icon: 'icon-Outline-Search',
     activeIcon: 'icon-Bold-Search',
-    label: 'Поиск',
+    label: 'search',
     code: 'search',
+    internal: true,
     pages: ['search']
   },
   {
-    path: '/charter',
-    icon: 'icon-travelOutline-plane',
-    activeIcon: 'icon-travelOutline-plane',
-    label: 'Чартер',
-    code: 'provider-charter-list',
-    pages: ['charter']
+    path: '/excursion/extranet',
+    icon: 'icon-Outline-Create',
+    activeIcon: 'icon-Bold-Create',
+    label: 'extranet',
+    pages: ['home'],
+    children: [
+      {
+        path: '/charter',
+        label: 'charters',
+        code: 'provider-charter-list',
+        pages: ['charter']
+      },
+      {
+        path: '/excursion/extranet',
+        label: 'excursion',
+        code: 'excursion-list',
+        pages: ['extranet', 'extranet-create-description', 'extranet-create']
+      }
+    ]
   },
   {
     path: '/orders',
     icon: 'icon-Outline-Buy',
     activeIcon: 'icon-Bold-Buy',
-    label: 'Заказы',
+    label: 'orders',
     code: 'list-own-order',
+    internal: true,
     pages: ['orders']
   },
   {
     path: '/agreements',
     icon: 'icon-Outline-Document',
     activeIcon: 'icon-Bold-Document',
-    label: 'Договоры',
+    label: 'contracts',
     code: 'agreement-list',
     pages: ['agreements']
   },
@@ -46,38 +78,24 @@ export default [
     path: '/community',
     icon: 'icon-Outline-Chat',
     activeIcon: 'icon-Bold-Chat',
-    label: 'Сообщество',
+    label: 'community',
     code: 'group-community',
     pages: ['community']
-  },
-  {
-    path: '/users',
-    icon: 'icon-Outline-2User',
-    activeIcon: 'icon-Bold-2User',
-    label: 'Пользователи',
-    code: 'list-staff',
-    pages: ['users']
-  },
-  {
-    path: '/suppliers',
-    icon: 'icon-Outline-Ticket',
-    activeIcon: 'icon-Bold-Ticket',
-    label: 'Поставщики',
-    code: 'suppliers-list',
-    pages: ['suppliers']
   },
   {
     path: '/reports',
     icon: 'icon-Outline-Activity',
     activeIcon: 'icon-Bold-Activity',
-    label: 'Отчеты',
+    label: 'reports',
     code: 'customize-list',
     pages: ['reports'],
+    internal: true,
     children: [
       {
         path: '/reports/basic-indicators',
-        label: 'Основные показатели',
+        label: 'basicIndicators',
         code: 'customize-list',
+        internal: true,
         pages: ['reports', 'reports/basic-indicators']
       }
     ]
@@ -86,30 +104,36 @@ export default [
     path: '/settings',
     icon: 'icon-Outline-Setting',
     activeIcon: 'icon-Bold-Setting',
-    label: 'Настройки',
+    label: 'settings',
     pages: ['settings'],
     children: [
       {
         path: '/settings/exchange-rates',
-        label: 'Курсы валют',
+        label: 'currency',
         code: 'get-exchange-rates',
         pages: ['settings/exchange-rates']
       },
       {
         path: '',
-        label: 'Правила',
+        label: 'rules',
         pages: ['settings'],
         accordion: true,
         children: [
           {
             path: '/settings/rule-list',
-            label: 'Список правил',
+            label: 'rulesList',
             code: 'rules-user-collection',
             pages: ['settings/rule-list']
           },
           {
+            path: '/settings/groups/contracts',
+            label: 'groups',
+            code: 'rules-groups',
+            pages: ['settings/groups/contracts']
+          },
+          {
             path: '/settings/rules-history',
-            label: 'История использования',
+            label: 'usageHistory',
             code: 'rules-get-history-list',
             pages: ['settings/rules-history']
           }
@@ -117,15 +141,21 @@ export default [
       },
       {
         path: '/settings/route-receipt',
-        label: 'Маршрутна',
+        label: 'routeReceipt',
         code: 'reciept-pattern-list',
         pages: ['settings/route-receipt']
       },
       {
         path: '/settings/personalization',
-        label: 'Персонализация',
-        code: 'home',
+        label: 'personalization',
+        code: 'personalization',
         pages: ['settings/personalization']
+      },
+      {
+        path: '/settings/ftp',
+        label: 'ftp',
+        code: 'ftp',
+        pages: ['settings/ftp']
       }
     ]
   }

@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import EasyLayout from '@/components/layout/EasyLayout.vue'
-import routes from '@/constants/sidebar'
 import EasyProfileDropdown from '@/components/header/profile/ProfileDropdown.vue'
 import { links, user } from '@/constants'
-import { reactive, ref } from 'vue'
+import { provide, reactive, ref } from 'vue'
 import EasyPagination from '@/components/pagination/EasyPagination.vue'
 import { LocaleTypes } from '@/types'
 import { EasyCountry, ICountry } from '@/index'
@@ -16,15 +15,19 @@ import { ServicesTypes } from '@/types'
 import EasyCity from '@/components/city/CityAutocomplete.vue'
 import EasyMultiSelect from '@/components/multiselect/EasyMultiSelect.vue'
 
-withDefaults(
+const {serviceType} = withDefaults(
   defineProps<{
     routeName: string
     isDark?: boolean
+    serviceType?: string
   }>(),
   {
+    serviceType: '',
     routeName: 'settings/route-receipt',
   },
 )
+
+provide('service', serviceType)
 
 const params = reactive({
   page: 1,
@@ -57,7 +60,7 @@ function logOut() {
 
 <template>
   <div class="layout-page">
-    <EasyLayout :routeName :routes="routes" :isDark :locale="locale" :baseUrl="baseUrl" :env="env" @log-out="logOut">
+    <EasyLayout :routeName :isDark :locale="locale" :baseUrl="baseUrl" :env="env" @log-out="logOut">
       <template #header>
         <EasyProfileDropdown :user="user" :links="links" />
       </template>
