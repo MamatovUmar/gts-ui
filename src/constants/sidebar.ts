@@ -40,7 +40,7 @@ export const sidebarItems = [
     icon: 'icon-Outline-Create',
     activeIcon: 'icon-Bold-Create',
     label: 'extranet',
-    pages: ['home'],
+    pages: ['extranet', 'extranet-create-description', 'extranet-create', 'charter'],
     children: [
       {
         path: '/charter',
@@ -86,15 +86,21 @@ export const sidebarItems = [
     activeIcon: 'icon-Bold-Activity',
     label: 'reports',
     code: 'customize-list',
-    pages: ['reports'],
-    internal: true,
+    pages: ['reports', 'files'],
     children: [
       {
-        path: '/reports/basic-indicators',
+        path: '/reports',
         label: 'basicIndicators',
         code: 'customize-list',
         internal: true,
         pages: ['reports', 'reports/basic-indicators']
+      },
+      {
+        path: '/reports/files',
+        label: 'files',
+        code: 'customize-list',
+        internal: true,
+        pages: ['files']
       }
     ]
   },

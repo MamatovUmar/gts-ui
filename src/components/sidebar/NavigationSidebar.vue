@@ -6,7 +6,7 @@ import { ISidebarItem } from '@/types/ui'
 import './NavigationSidebar.css'
 import { lang } from '@/constants/lang'
 import { LocaleTypes } from '@/types'
-import { sidebarItems } from '@/constants/sidebar'
+import { usePermission } from '@/composables/usePermission'
 
 const dipLogo = 'https://api.globaltravel.space/media/imgs/logo/dip-logo.png'
 const logo = 'https://api.globaltravel.space/media/imgs/logo/logo.svg'
@@ -28,6 +28,7 @@ const emit = defineEmits<{
   (e: 'logOut'): void
 }>()
 
+const permissions = usePermission()
 const locale = inject<Ref<LocaleTypes>>('locale', ref('ru'))
 
 const short = defineModel<boolean>('short', { default: false })
@@ -49,7 +50,7 @@ const translatedRoutes = computed(() => {
     })
   }
 
-  return addTranslate(sidebarItems)
+  return addTranslate(permissions.availableRoutes.value)
 })
 
 const routes = ref(translatedRoutes.value || [])
