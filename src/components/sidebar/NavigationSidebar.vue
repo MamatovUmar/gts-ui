@@ -1,38 +1,58 @@
 <script lang="ts" setup>
-import { computed, inject, ref, watchEffect } from 'vue'
+import { computed, inject, Ref, ref, watchEffect } from 'vue'
 import NavigationSidebarItem from './NavigationSidebarItem.vue'
 import ScrollPanel from 'primevue/scrollpanel'
 import { ISidebarItem } from '@/types/ui'
 import './NavigationSidebar.css'
 import { lang } from '@/constants/lang'
 import { LocaleTypes } from '@/types'
+import { sidebarItems } from '@/constants/sidebar'
 
 const dipLogo = 'https://api.globaltravel.space/media/imgs/logo/dip-logo.png'
 const logo = 'https://api.globaltravel.space/media/imgs/logo/logo.svg'
 const shortLogo = 'https://api.globaltravel.space/media/imgs/logo/short-logo.svg'
 const darkModeLogo = 'https://api.globaltravel.space/media/imgs/logo/dark-logo.svg'
 
-const props = withDefaults(defineProps<{
-  baseRoute?: string
-  isDark?: boolean
-  routeName: string
-  routes: ISidebarItem[]
-}>(), {
-  baseRoute: '/home',
-})
+const props = withDefaults(
+  defineProps<{
+    baseRoute?: string
+    isDark?: boolean
+    routeName: string
+  }>(),
+  {
+    baseRoute: '/home',
+  },
+)
 
 const emit = defineEmits<{
   (e: 'logOut'): void
 }>()
 
-const locale = inject<LocaleTypes>('locale') || 'ru'
+const locale = inject<Ref<LocaleTypes>>('locale', ref('ru'))
 
-const short = defineModel<boolean>('short', {default: false})
+const short = defineModel<boolean>('short', { default: false })
 
 const isDipavia = window.location.href.includes('dipavia.uz')
 
 const parentRoute = ref(false)
-const routes = ref(props.routes)
+
+const translatedRoutes = computed(() => {
+  const addTranslate = (arr: ISidebarItem[]) => {
+    return arr.map((item) => {
+      item.label = lang[locale.value]?.sidebar[item.label]
+
+      if ('children' in item && item.children?.length) {
+        addTranslate(item.children)
+      }
+
+      return item
+    })
+  }
+
+  return addTranslate(sidebarItems)
+})
+
+const routes = ref(translatedRoutes.value || [])
 
 const appLogo = computed(() => {
   if (short.value) {
@@ -41,9 +61,8 @@ const appLogo = computed(() => {
   return props.isDark ? darkModeLogo : logo
 })
 
-
 watchEffect(() => {
-  const found = props.routes.find((el) =>{
+  const found = routes.value.find((el) => {
     return el.pages?.includes(props.routeName)
   })
   if (found?.children && !short.value) {
@@ -51,10 +70,9 @@ watchEffect(() => {
     routes.value = found.children
   } else {
     parentRoute.value = false
-    routes.value = props.routes
+    routes.value = translatedRoutes.value
   }
 })
-
 </script>
 
 <template>
@@ -97,7 +115,7 @@ watchEffect(() => {
       <section class="navigation-sidebar__footer">
         <div
           class="navigation-sidebar__link"
-          v-tooltip="{ value: lang[locale].sidebar.logout, disabled: !short }"
+          v-tooltip="{ value: lang[locale]?.sidebar.logout, disabled: !short }"
           @click="emit('logOut')"
         >
           <i class="icon-Outline-Logout"></i>
@@ -108,6 +126,4 @@ watchEffect(() => {
   </aside>
 </template>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

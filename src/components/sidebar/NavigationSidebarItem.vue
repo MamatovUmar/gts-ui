@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import OverlayPanel from 'primevue/overlaypanel'
-import { ref, watch } from 'vue'
+import { inject, ref, watch } from 'vue'
 import NavigationSidebarDropdown from './NavigationSidebarDropdown.vue'
 import { ISidebarItem } from '@/types/ui'
 
@@ -13,9 +13,22 @@ const props = defineProps<{
   short: boolean
 }>()
 
+const service = inject('service', '')
+
+function buildRoute(path: string): string {
+  const cleanService = service.replace(/^\/|\/$/g, '')
+  const cleanPath = path?.replace(/^\/+/, '')
+
+  return cleanService ? `/${cleanService}/${cleanPath}` : `/${cleanPath}`
+}
+
 const tagAndAttribute = (routeItem: ISidebarItem): { tag: string; attribute: Record<string, unknown> } => {
   if (routeItem.internal) {
-    return { tag: 'router-link', attribute: { to: routeItem.path } }
+    const attribute = {
+      to: buildRoute(routeItem.path),
+    }
+
+    return { tag: 'router-link', attribute }
   }
   return { tag: 'a', attribute: { href: routeItem.path } }
 }
@@ -65,7 +78,7 @@ watch(
       ]"
     >
       <i v-if="routeItem?.icon" :class="[getIcon(routeItem), 'navigation-sidebar__icon']"></i>
-      <span v-if="!short">{{ routeItem.label }} </span>
+      <span v-if="!short">{{ routeItem.label }}</span>
       <i v-if="routeItem?.children" class="icon-Outline-More-vertical navigation-sidebar__more"></i>
     </component>
 

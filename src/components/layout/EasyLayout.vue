@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import {ISidebarItem} from '@/types/ui'
 import EasyBackground from '../background/EasyBackground.vue'
 import NavigationSidebar from '../sidebar/NavigationSidebar.vue'
 import {useWindowSize} from '@/composables/useWindowSize'
@@ -9,7 +8,6 @@ import {LocaleTypes, EnvTypes} from '@/types'
 const props = defineProps<{
   routeName: string
   isDark?: boolean
-  routes: ISidebarItem[]
   locale: LocaleTypes
   baseUrl?: string
   env?: EnvTypes
@@ -47,7 +45,7 @@ watch(width, () => {
   <div :class="['easy-layout', { short }]">
     <EasyBackground/>
 
-    <NavigationSidebar v-model:short="short" :routeName :routes="routes" :isDark @logOut="emit('logOut')"/>
+    <NavigationSidebar v-model:short="short" :routeName :isDark @logOut="emit('logOut')"/>
 
     <div class="easy-layout__content">
       <div class="easy-layout__header">
