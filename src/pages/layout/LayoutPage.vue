@@ -2,7 +2,7 @@
 import EasyLayout from '@/components/layout/EasyLayout.vue'
 import EasyProfileDropdown from '@/components/header/profile/ProfileDropdown.vue'
 import { links, user } from '@/constants'
-import { provide, reactive, ref } from 'vue'
+import { reactive, ref } from 'vue'
 import EasyPagination from '@/components/pagination/EasyPagination.vue'
 import { LocaleTypes } from '@/types'
 import { EasyCountry, ICountry } from '@/index'
@@ -15,19 +15,15 @@ import { ServicesTypes } from '@/types'
 import EasyCity from '@/components/city/CityAutocomplete.vue'
 import EasyMultiSelect from '@/components/multiselect/EasyMultiSelect.vue'
 
-const {serviceType} = withDefaults(
+withDefaults(
   defineProps<{
     routeName: string
     isDark?: boolean
-    serviceType?: string
   }>(),
   {
-    serviceType: '',
     routeName: '',
   },
 )
-
-provide('service', serviceType)
 
 const params = reactive({
   page: 1,

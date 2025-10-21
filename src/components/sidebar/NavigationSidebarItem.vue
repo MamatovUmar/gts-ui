@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import OverlayPanel from 'primevue/overlaypanel'
-import { inject, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import NavigationSidebarDropdown from './NavigationSidebarDropdown.vue'
 import { ISidebarItem } from '@/types/ui'
 
@@ -14,26 +14,13 @@ const props = defineProps<{
 }>()
 const emits = defineEmits(['parentClick'])
 
-const service = inject('service', '')
-
-function buildRoute(path: string): string {
-  const cleanService = service.replace(/^\/|\/$/g, '')
-  const cleanPath = path?.replace(/^\/+/, '')
-
-  return cleanService ? `/${cleanService}/${cleanPath}` : `/${cleanPath}`
-}
-
 const tagAndAttribute = (routeItem: ISidebarItem): { tag: string; attribute: Record<string, unknown> } => {
   if(routeItem.children?.length) {
     return { tag: 'div', attribute: {} }
   }
 
   if (routeItem.internal) {
-    const attribute = {
-      to: buildRoute(routeItem.path),
-    }
-
-    return { tag: 'router-link', attribute }
+    return { tag: 'router-link', attribute: { to: routeItem.path } }
   }
   return { tag: 'a', attribute: { href: routeItem.path } }
 }

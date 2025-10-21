@@ -26,11 +26,19 @@ const services = ref<IService[]>([])
 const loading = ref(false)
 
 const getServices = catcher(async () => {
+  const servicesInStorage = sessionStorage.getItem('services')
+
+  if (servicesInStorage) {
+    services.value = JSON.parse(servicesInStorage)
+    return
+  }
+
   loading.value = true
   const { data } = await get<Response<IService[]>>('/static/products')
   loading.value = false
 
   services.value = data
+  sessionStorage.setItem('services', JSON.stringify(data))
 })
 
 const env = inject<ComputedRef<EnvTypes>>('env')
