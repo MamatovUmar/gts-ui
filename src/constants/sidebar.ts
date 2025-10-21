@@ -51,7 +51,7 @@ export const sidebarItems = [
       {
         path: '/excursions/extranet',
         label: 'excursion',
-        code: 'excursion-list',
+        code: 'provider-charter-list',
         pages: ['extranet', 'extranet-create-description', 'extranet-create']
       }
     ]
@@ -94,13 +94,6 @@ export const sidebarItems = [
         code: 'customize-list',
         internal: true,
         pages: ['reports', 'reports/basic-indicators']
-      },
-      {
-        path: '/reports/files',
-        label: 'files',
-        code: 'customize-list',
-        internal: true,
-        pages: ['files']
       }
     ]
   },
