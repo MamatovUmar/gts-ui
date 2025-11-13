@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, inject, Ref, ref, watchEffect } from 'vue'
+import { computed, ComputedRef, inject, Ref, ref, watchEffect } from 'vue'
 import NavigationSidebarItem from './NavigationSidebarItem.vue'
 import ScrollPanel from 'primevue/scrollpanel'
 import { ISidebarItem } from '@/types/ui'
@@ -7,6 +7,7 @@ import './NavigationSidebar.css'
 import { lang } from '@/constants/lang'
 import { LocaleTypes } from '@/types'
 import { usePermission } from '@/composables/usePermission'
+import { useUser } from '@/composables/useUser'
 
 const dipLogo = 'https://api.globaltravel.space/media/imgs/logo/dip-logo.png'
 const logo = 'https://api.globaltravel.space/media/imgs/logo/logo.svg'
@@ -28,14 +29,19 @@ const emit = defineEmits<{
   (e: 'logOut'): void
 }>()
 
+const short = defineModel<boolean>('short', { default: false })
+
+const {getLogo} = useUser()
 const permissions = usePermission()
 const locale = inject<Ref<LocaleTypes>>('locale', ref('ru'))
-
-const short = defineModel<boolean>('short', { default: false })
 
 const isDipavia = window.location.href.includes('dipavia.uz')
 
 const parentRoute = ref(false)
+const fullLogoCustom = ref('')
+const shortLogoCustom = ref('')
+
+const injectedBaseUrl = inject<ComputedRef<string>>('baseUrl')
 
 const translatedRoutes = computed(() => {
   const addTranslate = (arr: ISidebarItem[]) => {
@@ -58,9 +64,19 @@ const childrenRoutes = ref<ISidebarItem[]>([])
 
 const appLogo = computed(() => {
   if (short.value) {
-    return shortLogo
+    return shortLogoCustom.value || shortLogo
+  }
+  if (fullLogoCustom.value) {
+    return fullLogoCustom.value
   }
   return props.isDark ? darkModeLogo : logo
+})
+
+getLogo().then((res) => {
+  if (res && injectedBaseUrl) {
+    fullLogoCustom.value = injectedBaseUrl.value + res.logo
+    shortLogoCustom.value = injectedBaseUrl.value + res.mini_logo
+  }
 })
 
 watchEffect(() => {

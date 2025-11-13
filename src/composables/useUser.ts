@@ -32,6 +32,11 @@ export const useUser = (baseUrl?: string) => {
     }
   })
 
+  const getLogo = catcher(async () => {
+    const {data} = await get<IResponse<{ logo: string, mini_logo: string }>>('/v1/settings/general/logo/')
+    return data
+  })
+
   const getUserData = async () => {
     await fetchUser()
     return user.value
@@ -39,6 +44,7 @@ export const useUser = (baseUrl?: string) => {
 
   return {
     getUserData,
-    user
+    user,
+    getLogo
   }
 }
