@@ -125,7 +125,7 @@ watchEffect(() => {
             v-for="(routeItem, i) of childrenRoutes"
             :key="`${i}-${routeItem.path}`"
             :route-item="routeItem"
-            :is-child="false"
+            is-child
             :routeName="routeName"
             @parent-click="childrenRoutes = $event; parentRoute = true"
             :short

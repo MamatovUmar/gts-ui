@@ -85,6 +85,7 @@ export const sidebarItems = [
     icon: 'icon-Outline-Activity',
     activeIcon: 'icon-Bold-Activity',
     label: 'reports',
+    internal: true,
     code: 'customize-list',
     pages: ['reports', 'files'],
     children: [
