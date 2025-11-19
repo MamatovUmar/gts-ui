@@ -21,7 +21,11 @@ const tagAndAttribute = (routeItem: ISidebarItem): { tag: string; attribute: Rec
     return { tag: 'div', attribute: {} }
   }
 
-  if (routeItem.internal && !route.path.includes('new')) {
+  if (route.path.includes('new')) {
+    return { tag: 'a', attribute: { href: routeItem.path } }
+  }
+
+  if (routeItem.internal) {
     return { tag: 'router-link', attribute: { to: routeItem.path } }
   }
   return { tag: 'a', attribute: { href: routeItem.path } }
