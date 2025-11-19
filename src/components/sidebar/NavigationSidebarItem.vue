@@ -3,6 +3,7 @@ import OverlayPanel from 'primevue/overlaypanel'
 import { ref, watch } from 'vue'
 import NavigationSidebarDropdown from './NavigationSidebarDropdown.vue'
 import { ISidebarItem } from '@/types/ui'
+import { useRoute } from 'vue-router'
 
 const op = ref()
 
@@ -13,13 +14,14 @@ const props = defineProps<{
   short: boolean
 }>()
 const emits = defineEmits(['parentClick'])
+const route = useRoute()
 
 const tagAndAttribute = (routeItem: ISidebarItem): { tag: string; attribute: Record<string, unknown> } => {
   if(routeItem.children?.length) {
     return { tag: 'div', attribute: {} }
   }
 
-  if (routeItem.internal) {
+  if (routeItem.internal && !route.path.includes('new')) {
     return { tag: 'router-link', attribute: { to: routeItem.path } }
   }
   return { tag: 'a', attribute: { href: routeItem.path } }
