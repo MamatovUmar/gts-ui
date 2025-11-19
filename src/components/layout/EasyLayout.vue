@@ -11,6 +11,7 @@ const props = defineProps<{
   locale: LocaleTypes
   baseUrl?: string
   env?: EnvTypes
+  isContract?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -22,6 +23,7 @@ const {width} = useWindowSize()
 provide('locale', computed(() => props.locale))
 provide('baseUrl', computed(() => props.baseUrl || 'https://api.globaltravel.space'))
 provide('env', computed(() => props.env || 'production'))
+provide('isContract', computed(() => props.isContract))
 
 const short = ref(false)
 const logoBaseUrl = `https://api.globaltravel.space/media/imgs/footer`

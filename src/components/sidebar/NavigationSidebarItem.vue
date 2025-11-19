@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 import OverlayPanel from 'primevue/overlaypanel'
-import { ref, watch } from 'vue'
+import { ComputedRef, inject, ref, watch } from 'vue'
 import NavigationSidebarDropdown from './NavigationSidebarDropdown.vue'
 import { ISidebarItem } from '@/types/ui'
-import { useRoute } from 'vue-router'
 
 const op = ref()
 
@@ -14,14 +13,15 @@ const props = defineProps<{
   short: boolean
 }>()
 const emits = defineEmits(['parentClick'])
-const route = useRoute()
+const isContract = inject<ComputedRef<boolean>>('isContract')
 
 const tagAndAttribute = (routeItem: ISidebarItem): { tag: string; attribute: Record<string, unknown> } => {
-  if(routeItem.children?.length) {
+  if (routeItem.children?.length) {
     return { tag: 'div', attribute: {} }
   }
 
-  if (route.path.includes('new')) {
+  console.log(isContract?.value)
+  if (isContract?.value) {
     return { tag: 'a', attribute: { href: routeItem.path } }
   }
 
@@ -44,7 +44,7 @@ function toggle(event: unknown) {
 }
 
 function hasChilden(routeItem: ISidebarItem) {
-  if(routeItem.children && routeItem.children.length > 0) {
+  if (routeItem.children && routeItem.children.length > 0) {
     emits('parentClick', routeItem.children)
   }
 }
