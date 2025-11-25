@@ -107,8 +107,8 @@ watchEffect(() => {
         <div v-if="logoLoading">
           <Skeleton height="43px" :width="`${short ? '43px' : '150px'}`" />
         </div>
-        <img v-else-if="isDipavia" :src="dipLogo" alt="" />
-        <img v-else :src="appLogo" alt="" />
+        <img v-else-if="isDipavia" :src="dipLogo" alt="" class="navigation-sidebar__logo" />
+        <img v-else :src="appLogo" alt="" class="navigation-sidebar__logo" />
       </a>
 
       <i class="icon-Outline-Arrow-LeftSquare toggle text-dark" @click="short = !short"></i>
