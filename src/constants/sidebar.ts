@@ -71,7 +71,7 @@ export const sidebarItems = [
     activeIcon: 'icon-Bold-Document',
     label: 'contracts',
     code: 'agreement-list',
-    pages: ['agreements']
+    pages: ['agreements', 'new-agreement']
   },
   {
     path: '/community',
