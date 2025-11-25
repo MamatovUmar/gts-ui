@@ -8,6 +8,7 @@ import { lang } from '@/constants/lang'
 import { LocaleTypes } from '@/types'
 import { usePermission } from '@/composables/usePermission'
 import { useUser } from '@/composables/useUser'
+import Skeleton from 'primevue/skeleton'
 
 const dipLogo = 'https://api.globaltravel.space/media/imgs/logo/dip-logo.png'
 const logo = 'https://api.globaltravel.space/media/imgs/logo/logo.svg'
@@ -40,6 +41,7 @@ const isDipavia = window.location.href.includes('dipavia.uz')
 const parentRoute = ref(false)
 const fullLogoCustom = ref('')
 const shortLogoCustom = ref('')
+const logoLoading = ref(true)
 
 const injectedBaseUrl = inject<ComputedRef<string>>('baseUrl')
 
@@ -77,7 +79,12 @@ getLogo().then((res) => {
     fullLogoCustom.value = injectedBaseUrl.value + res.logo
     shortLogoCustom.value = injectedBaseUrl.value + res.mini_logo
   }
+}).catch((error) => {
+  console.error('Failed to load custom logo:', error)
+}).finally(() => {
+  logoLoading.value = false
 })
+
 
 watchEffect(() => {
   const found = routes.value.find((el) => {
@@ -97,7 +104,10 @@ watchEffect(() => {
   <aside :class="['navigation-sidebar', { short }]">
     <section class="navigation-sidebar__header">
       <a :href="baseRoute">
-        <img v-if="isDipavia" :src="dipLogo" alt="" />
+        <div v-if="logoLoading">
+          <Skeleton height="43px" :width="`${short ? '43px' : '150px'}`" />
+        </div>
+        <img v-else-if="isDipavia" :src="dipLogo" alt="" />
         <img v-else :src="appLogo" alt="" />
       </a>
 
