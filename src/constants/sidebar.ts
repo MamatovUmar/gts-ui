@@ -68,7 +68,7 @@ export const sidebarItems = [
   {
     path: '/agreements',
     icon: 'icon-Outline-Document',
-    activeIcon: 'icon-Bold-Document',
+    activeIcon: 'icon-Document',
     label: 'contracts',
     code: 'agreement-list',
     pages: ['agreements', 'agreementsList']
