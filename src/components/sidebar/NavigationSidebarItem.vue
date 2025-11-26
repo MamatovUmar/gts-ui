@@ -20,7 +20,6 @@ const tagAndAttribute = (routeItem: ISidebarItem): { tag: string; attribute: Rec
     return { tag: 'div', attribute: {} }
   }
 
-  console.log(isContract?.value)
   if (isContract?.value) {
     return { tag: 'a', attribute: { href: routeItem.path } }
   }
