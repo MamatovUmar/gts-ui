@@ -25,6 +25,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-car:before {
+  content: "\ea4c";
+}
+.icon-GasPump:before {
+  content: "\ea4d";
+}
 .icon-Outline-clipboard-text:before {
   content: "\ea06";
 }

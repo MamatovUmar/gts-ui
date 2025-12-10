@@ -46,6 +46,9 @@ const IconsDemo = defineComponent({
       'travelOutline-simcard',
       'travelOutline-transfer',
 
+      'car',
+      'GasPump',
+
       // Bold иконки
       'Bold-Create',
       'Bold-Arrow-LeftSquare',
