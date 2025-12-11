@@ -14,10 +14,6 @@ const props = defineProps<{
   isContract?: boolean
 }>()
 
-const emit = defineEmits<{
-  (e: 'logOut'): void
-}>()
-
 const {width} = useWindowSize()
 
 provide('locale', computed(() => props.locale))
@@ -47,7 +43,7 @@ watch(width, () => {
   <div :class="['easy-layout', { short }]">
     <EasyBackground/>
 
-    <NavigationSidebar v-model:short="short" :routeName :isDark @logOut="emit('logOut')"/>
+    <NavigationSidebar v-model:short="short" :routeName :isDark/>
 
     <div class="easy-layout__content">
       <div class="easy-layout__header">

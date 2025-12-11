@@ -26,10 +26,6 @@ const props = withDefaults(
   },
 )
 
-const emit = defineEmits<{
-  (e: 'logOut'): void
-}>()
-
 const short = defineModel<boolean>('short', { default: false })
 
 const {getLogo} = useUser()
@@ -73,6 +69,10 @@ const appLogo = computed(() => {
   }
   return props.isDark ? darkModeLogo : logo
 })
+
+const logOut = () => {
+  window.location.replace('/sign-in')
+}
 
 getLogo().then((res) => {
   if (res && injectedBaseUrl) {
@@ -158,7 +158,7 @@ watchEffect(() => {
         <div
           class="navigation-sidebar__link"
           v-tooltip="{ value: lang[locale]?.sidebar.logout, disabled: !short }"
-          @click="emit('logOut')"
+          @click="logOut"
         >
           <i class="icon-Outline-Logout"></i>
           <span v-if="!short">{{ lang[locale].sidebar.logout }}</span>
