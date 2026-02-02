@@ -58,7 +58,7 @@ watch(width, () => {
           </div>
         </div>
 
-        <div class="easy-layout__footer">
+        <!-- <div class="easy-layout__footer">
           <div class="partners-logo">
             <img :src="`${logoBaseUrl}/${isDark ? 'dark' : 'light'}/iata-logo.svg`" alt="iata"/>
             <img :src="`${logoBaseUrl}/${isDark ? 'dark' : 'light'}/tcp-logo.svg`" alt="iata"/>
@@ -66,7 +66,7 @@ watch(width, () => {
           </div>
 
           <div class="copyright">© Globaltravel.space | All rights reserved</div>
-        </div>
+        </div> -->
 
       </div>
     </div>
